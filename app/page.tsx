@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { HeroBackground } from '@/components/backgrounds/HeroBackground';
+import { NetworkBackground } from '@/components/backgrounds/NetworkBackground';
 import { Button } from '@/components/Button';
 import { siteConfig } from '@/lib/site-config';
 import { FadeIn } from '@/components/animations/FadeIn';
@@ -10,17 +10,17 @@ export default function HomePage() {
     <main className="min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[var(--color-bg-white)]">
-        <HeroBackground />
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[var(--color-primary-dark)]">
+        <NetworkBackground />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="max-w-3xl">
             <FadeIn delay={0.1}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-primary-dark)] tracking-tight leading-[1.1] mb-6">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6">
                 AI-Native Software Engineering for Real Business Outcomes.
               </h1>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="text-xl md:text-2xl text-[var(--color-text-main)] mb-10 leading-relaxed max-w-2xl">
+              <p className="text-xl md:text-2xl text-white/80 mb-10 leading-relaxed max-w-2xl">
                 {siteConfig.companyName} helps startups, enterprises, and public-sector organizations design, build, and scale intelligent software systems — from AI automation and SaaS platforms to cloud infrastructure, data systems, and secure enterprise integrations.
               </p>
             </FadeIn>
