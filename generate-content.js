@@ -17,13 +17,13 @@ const getCopyForType = (type, name) => {
   } else if (type === 'industries') {
     return {
       title: `AI for ${name}`,
-      description: `Quantra AI provides the foundational engineering layer for ${name.toLowerCase()} organizations. We modernize legacy infrastructure and deploy intelligent systems tailored to strict regulatory requirements.`,
+      description: `Qeltrava AI provides the foundational engineering layer for ${name.toLowerCase()} organizations. We modernize legacy infrastructure and deploy intelligent systems tailored to strict regulatory requirements.`,
       benefits: ['Regulatory compliance out-of-the-box', 'Modernized legacy systems without downtime', 'Predictive analytics and data modeling']
     };
   }
   return {
     title: name,
-    description: `Discover how Quantra AI approaches ${name.toLowerCase()} to deliver measurable business outcomes and architectural precision.`,
+    description: `Discover how Qeltrava AI approaches ${name.toLowerCase()} to deliver measurable business outcomes and architectural precision.`,
     benefits: ['Scalable architecture', 'Transparent delivery process', 'Long-term support retainers']
   };
 };
@@ -78,7 +78,7 @@ export default function Page() {
           <FadeIn direction="up">
             <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-6 border-b border-[var(--color-border-soft)] pb-4">Our Engineering Approach</h2>
             <p className="text-[var(--color-text-main)] mb-6">
-              We do not sell hours. We sell capabilities. Every architecture decision in our ${copy.title} solutions is measured against its ability to reduce costs, increase revenue, or mitigate risk. We build secure, scalable platforms using our Quantra Delivery OS.
+              We do not sell hours. We sell capabilities. Every architecture decision in our ${copy.title} solutions is measured against its ability to reduce costs, increase revenue, or mitigate risk. We build secure, scalable platforms using our Qeltrava Delivery OS.
             </p>
           </FadeIn>
         </section>

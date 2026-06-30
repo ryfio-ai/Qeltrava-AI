@@ -7,6 +7,7 @@ import { CountUpMetric } from '@/components/ui/CountUpMetric';
 import { MiniSparkline } from '@/components/ui/MiniSparkline';
 import { TerminalWindow } from '@/components/ui/TerminalWindow';
 import { DotGrid } from '@/components/backgrounds/DotGrid';
+import { ClientLogos } from '@/components/ClientLogos';
 import dynamic from 'next/dynamic';
 
 const NetworkBackground = dynamic(() => import('@/components/backgrounds/NetworkBackground').then(mod => mod.NetworkBackground));
@@ -80,6 +81,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Client Logos Section */}
+      <ClientLogos />
+
       {/* Trust / Brand Promise */}
       <section className="py-20 bg-[var(--color-primary-dark)] text-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
@@ -138,6 +142,9 @@ export default function HomePage() {
                   <div className="text-gray-400">Endpoint: https://api.qeltrava.ai/v1/agents/sls-902</div>
                   <div className="mt-4 animate-pulse">_</div>
                </TerminalWindow>
+               <p className="mt-3 text-xs text-[var(--color-text-main)] opacity-70 italic text-center">
+                 Illustrative example: Deploying an AI sales agent via the CLI tool.
+               </p>
             </div>
           </div>
         </div>

@@ -1,39 +1,42 @@
 {
   "Header": {
-    "Services": "Services",
-    "Solutions": "Solutions",
-    "Industries": "Industries",
-    "OperatingModel": "Operating Model",
-    "Insights": "Insights",
-    "About": "About",
-    "Contact": "Contact",
-    "BookCall": "Book an AI Strategy Call",
-    "Dashboard": "Dashboard"
+    "Services": "الخدمات",
+    "Solutions": "الحلول",
+    "Industries": "القطاعات",
+    "OperatingModel": "نموذج التشغيل",
+    "Insights": "الرؤى",
+    "About": "حول",
+    "Contact": "اتصل بنا",
+    "BookCall": "احجز مكالمة استراتيجية للذكاء الاصطناعي",
+    "Dashboard": "لوحة التحكم"
   },
   "Footer": {
-    "OperatingModel": "Operating Model",
-    "Services": "Services",
-    "Company": "Company",
-    "Legal": "Legal",
-    "AllRightsReserved": "All rights reserved.",
-    "GlobalRemote": "Global / Remote-first"
+    "OperatingModel": "نموذج التشغيل",
+    "Services": "الخدمات",
+    "Company": "الشركة",
+    "Legal": "قانوني",
+    "AllRightsReserved": "جميع الحقوق محفوظة.",
+    "GlobalRemote": "عالمي / العمل عن بعد أولاً"
   },
   "LeadForm": {
-    "FullName": "Full name *",
-    "WorkEmail": "Work email *",
-    "Company": "Company *",
-    "Role": "Role *",
-    "Website": "Website (Optional)",
-    "ProjectType": "Project type *",
-    "SelectOption": "Select an option",
-    "BudgetRange": "Budget range (USD) *",
-    "Timeline": "Timeline *",
-    "Message": "Message *",
-    "Consent": "I consent to Qeltrava AI processing my data to respond to this inquiry in accordance with the Privacy Policy. *",
-    "Submit": "Submit Inquiry",
-    "Submitting": "Submitting...",
-    "ThankYou": "Thank you.",
-    "SuccessMessage": "Your request has been received. Qeltrava AI will review your project and respond if there is a strong fit.",
-    "NetworkError": "A network error occurred. Please try again later."
+    "FullName": "الاسم الكامل *",
+    "WorkEmail": "البريد الإلكتروني للعمل *",
+    "Company": "الشركة *",
+    "Role": "الدور الوظيفي *",
+    "Website": "الموقع الإلكتروني (اختياري)",
+    "ProjectType": "نوع المشروع *",
+    "SelectOption": "حدد خياراً",
+    "BudgetRange": "نطاق الميزانية (USD) *",
+    "Timeline": "الجدول الزمني *",
+    "Message": "الرسالة *",
+    "Consent": "أوافق على قيام Qeltrava AI بمعالجة بياناتي للرد على هذا الاستفسار وفقاً لسياسة الخصوصية. *",
+    "Submit": "إرسال الاستفسار",
+    "Submitting": "جاري الإرسال...",
+    "ThankYou": "شكراً لك.",
+    "SuccessMessage": "تم استلام طلبك. ستقوم Qeltrava AI بمراجعة مشروعك والرد في حال وجود توافق قوي.",
+    "NetworkError": "حدث خطأ في الشبكة. يرجى المحاولة مرة أخرى لاحقاً."
+  },
+  "Loading": {
+    "Initializing": "جاري التهيئة"
   }
 }

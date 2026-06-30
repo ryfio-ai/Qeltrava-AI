@@ -21,6 +21,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: `${siteConfig.companyName} | ${siteConfig.tagline}`,
   description: siteConfig.description,
+  icons: {
+    icon: "/logo-bg.png",
+    shortcut: "/logo-bg.png",
+    apple: "/logo-bg.png",
+  },
 };
 
 export function generateStaticParams() {

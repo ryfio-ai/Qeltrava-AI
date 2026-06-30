@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from 'next-intl';
 
 export default function Loading() {
+  const t = useTranslations('Loading');
   return (
     <main className="min-h-[70vh] w-full flex items-center justify-center bg-[var(--color-bg-white)]">
       <div className="flex flex-col items-center justify-center gap-6">
@@ -19,7 +21,7 @@ export default function Loading() {
           />
         </div>
         <p className="text-sm font-medium text-[var(--color-text-main)] tracking-widest uppercase">
-          Initializing
+          {t('Initializing')}
         </p>
       </div>
     </main>

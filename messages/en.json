@@ -35,5 +35,8 @@
     "ThankYou": "Thank you.",
     "SuccessMessage": "Your request has been received. Qeltrava AI will review your project and respond if there is a strong fit.",
     "NetworkError": "A network error occurred. Please try again later."
+  },
+  "Loading": {
+    "Initializing": "Initializing"
   }
 }

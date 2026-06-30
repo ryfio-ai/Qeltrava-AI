@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { motion, useSpring, useTransform, useInView } from 'framer-motion';
+import React, { useEffect, useState, useRef } from 'react';
+import { animate, useInView } from 'framer-motion';
 
 type CountUpMetricProps = {
   value: number;
@@ -11,31 +11,39 @@ type CountUpMetricProps = {
   className?: string;
 };
 
-export const CountUpMetric = ({ value, prefix = '', suffix = '', duration = 2, className = '' }: CountUpMetricProps) => {
-  const ref = React.useRef<HTMLSpanElement>(null);
+export const CountUpMetric = ({ value, prefix = '', suffix = '', duration = 2.5, className = '' }: CountUpMetricProps) => {
+  const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
-  const [hasAnimated, setHasAnimated] = useState(false);
-  
-  const springValue = useSpring(0, {
-    stiffness: 50,
-    damping: 20,
-    duration: duration * 1000
-  });
+  const [displayValue, setDisplayValue] = useState(value);
+  const [mounted, setMounted] = useState(false);
 
-  const display = useTransform(springValue, (current) => {
-    return `${prefix}${Math.round(current).toLocaleString()}${suffix}`;
-  });
+  // Determine decimal places from the target value
+  const decimals = value.toString().includes('.') ? value.toString().split('.')[1].length : 0;
 
   useEffect(() => {
-    if (isInView && !hasAnimated) {
-      springValue.set(value);
-      setHasAnimated(true);
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted && isInView) {
+      const controls = animate(0, value, {
+        duration: duration,
+        ease: "easeOut",
+        onUpdate: (latest) => {
+          setDisplayValue(latest);
+        }
+      });
+      return () => controls.stop();
     }
-  }, [isInView, value, springValue, hasAnimated]);
+  }, [mounted, isInView, value, duration]);
+
+  const formattedValue = mounted 
+    ? displayValue.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
+    : value.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
 
   return (
-    <motion.span ref={ref} className={`font-mono ${className}`}>
-      {display}
-    </motion.span>
+    <span ref={ref} className={`font-mono ${className}`}>
+      {prefix}{formattedValue}{suffix}
+    </span>
   );
 };

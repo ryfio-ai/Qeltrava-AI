@@ -37,15 +37,15 @@ export const VisualWhatSoftwareCompanyDoes = () => {
   const getSectorPath = (cx: number, cy: number, rIn: number, rOut: number, startAngle: number, endAngle: number) => {
     const toRad = (angle: number) => ((angle - 90) * Math.PI) / 180;
     
-    const xIn1 = cx + rIn * Math.cos(toRad(startAngle));
-    const yIn1 = cy + rIn * Math.sin(toRad(startAngle));
-    const xIn2 = cx + rIn * Math.cos(toRad(endAngle));
-    const yIn2 = cy + rIn * Math.sin(toRad(endAngle));
+    const xIn1 = (cx + rIn * Math.cos(toRad(startAngle))).toFixed(3);
+    const yIn1 = (cy + rIn * Math.sin(toRad(startAngle))).toFixed(3);
+    const xIn2 = (cx + rIn * Math.cos(toRad(endAngle))).toFixed(3);
+    const yIn2 = (cy + rIn * Math.sin(toRad(endAngle))).toFixed(3);
     
-    const xOut1 = cx + rOut * Math.cos(toRad(startAngle));
-    const yOut1 = cy + rOut * Math.sin(toRad(startAngle));
-    const xOut2 = cx + rOut * Math.cos(toRad(endAngle));
-    const yOut2 = cy + rOut * Math.sin(toRad(endAngle));
+    const xOut1 = (cx + rOut * Math.cos(toRad(startAngle))).toFixed(3);
+    const yOut1 = (cy + rOut * Math.sin(toRad(startAngle))).toFixed(3);
+    const xOut2 = (cx + rOut * Math.cos(toRad(endAngle))).toFixed(3);
+    const yOut2 = (cy + rOut * Math.sin(toRad(endAngle))).toFixed(3);
     
     return `
       M ${xIn1} ${yIn1}
@@ -88,54 +88,54 @@ export const VisualWhatSoftwareCompanyDoes = () => {
                   // Explode offset on hover/select
                   const explodeOffset = isHovered || isSelected ? 8 : 0;
                   const midAngleRad = (((startAngle + endAngle) / 2 - 90) * Math.PI) / 180;
-                  const dx = explodeOffset * Math.cos(midAngleRad);
-                  const dy = explodeOffset * Math.sin(midAngleRad);
+                  const dx = Number((explodeOffset * Math.cos(midAngleRad)).toFixed(3));
+                  const dy = Number((explodeOffset * Math.sin(midAngleRad)).toFixed(3));
                   
                   return (
                     <motion.path 
-                      key={idx}
-                      d={getSectorPath(170, 170, 75, 155, startAngle, endAngle)}
-                      fill={sec.color}
-                      stroke="#ffffff"
-                      strokeWidth="2"
-                      animate={{ x: dx, y: dy }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                      onMouseEnter={() => setHoveredIdx(idx)}
-                      onMouseLeave={() => setHoveredIdx(null)}
-                      onClick={() => setSelectedIdx(idx)}
-                      opacity={hoveredIdx !== null && hoveredIdx !== idx ? 0.7 : 1}
-                    />
-                  );
-                })}
-              </g>
-
-              {/* Draw sector numbers directly inside SVG */}
-              {sectors.map((sec, idx) => {
-                const startAngle = idx * anglePerSector;
-                const endAngle = (idx + 1) * anglePerSector;
-                const midAngleRad = (((startAngle + endAngle) / 2 - 90) * Math.PI) / 180;
-                
-                // Position numbers at middle radius
-                const textR = 115; 
-                const tx = 170 + textR * Math.cos(midAngleRad);
-                const ty = 170 + textR * Math.sin(midAngleRad) + 4; // Vertical adjustment
-
-                return (
-                  <text 
-                    key={idx}
-                    x={tx}
-                    y={ty}
-                    fill="#ffffff"
-                    fontSize="10"
-                    fontWeight="black"
-                    textAnchor="middle"
-                    className="pointer-events-none"
-                  >
-                    {sec.num}
-                  </text>
-                );
-              })}
-            </svg>
+                       key={idx}
+                       d={getSectorPath(170, 170, 75, 155, startAngle, endAngle)}
+                       fill={sec.color}
+                       stroke="#ffffff"
+                       strokeWidth="2"
+                       animate={{ x: dx, y: dy }}
+                       transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                       onMouseEnter={() => setHoveredIdx(idx)}
+                       onMouseLeave={() => setHoveredIdx(null)}
+                       onClick={() => setSelectedIdx(idx)}
+                       opacity={hoveredIdx !== null && hoveredIdx !== idx ? 0.7 : 1}
+                     />
+                   );
+                 })}
+               </g>
+ 
+               {/* Draw sector numbers directly inside SVG */}
+               {sectors.map((sec, idx) => {
+                 const startAngle = idx * anglePerSector;
+                 const endAngle = (idx + 1) * anglePerSector;
+                 const midAngleRad = (((startAngle + endAngle) / 2 - 90) * Math.PI) / 180;
+                 
+                 // Position numbers at middle radius
+                 const textR = 115; 
+                 const tx = Number((170 + textR * Math.cos(midAngleRad)).toFixed(3));
+                 const ty = Number((170 + textR * Math.sin(midAngleRad) + 4).toFixed(3)); // Vertical adjustment
+ 
+                 return (
+                   <text 
+                     key={idx}
+                     x={tx}
+                     y={ty}
+                     fill="#ffffff"
+                     fontSize="10"
+                     fontWeight="black"
+                     textAnchor="middle"
+                     className="pointer-events-none"
+                   >
+                     {sec.num}
+                   </text>
+                 );
+               })}
+             </svg>
 
             {/* Central Circle Logo */}
             <div className="absolute w-[130px] h-[130px] rounded-full bg-white shadow-xl flex items-center justify-center p-3 border border-gray-100 pointer-events-none">

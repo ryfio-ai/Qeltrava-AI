@@ -76,57 +76,6 @@ export const Footer = () => {
         </div>
         
       </div>
-      
-      {/* System Status Bar */}
-      <SystemStatusBar />
     </footer>
-  );
-};
-
-const SystemStatusBar = () => {
-  const [time, setTime] = React.useState<string>("");
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setMounted(true);
-    const updateClock = () => {
-      const now = new Date();
-      setTime(now.toISOString().replace('T', ' ').substring(0, 19));
-    };
-    updateClock();
-    const interval = setInterval(updateClock, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="w-full bg-[#0a0f1d] border-t border-white/10 py-2 px-6 md:px-12 text-[10px] font-mono text-white/40 flex flex-wrap items-center justify-between gap-4 select-none">
-      <div className="flex items-center gap-4">
-        <span className="flex items-center gap-1.5">
-          <span className="flex h-1.5 w-1.5 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-success)] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--color-success)]"></span>
-          </span>
-          <span className="text-white/60">qeltrava-node-02: online</span>
-        </span>
-        <span className="hidden sm:inline border-l border-white/10 pl-4">protocol: HTTP/3 (QUIC)</span>
-        <span className="hidden md:inline border-l border-white/10 pl-4 flex items-center gap-1.5">
-          <span>latency:</span> <span className="text-[var(--color-success)] font-semibold">12ms</span>
-          <svg className="w-8 h-3 text-[var(--color-success)] fill-current" viewBox="0 0 30 10">
-            <rect x="0" y="8" width="2" height="2" rx="0.5" />
-            <rect x="5" y="6" width="2" height="4" rx="0.5" />
-            <rect x="10" y="5" width="2" height="5" rx="0.5" />
-            <rect x="15" y="3" width="2" height="7" rx="0.5" />
-            <rect x="20" y="2" width="2" height="8" rx="0.5" />
-            <rect x="25" y="0" width="2" height="10" rx="0.5" />
-          </svg>
-        </span>
-      </div>
-      <div className="flex items-center gap-4">
-        <span>uptime: 99.9972%</span>
-        {mounted && time && (
-          <span className="border-l border-white/10 pl-4 text-white/60">SYS: {time}</span>
-        )}
-      </div>
-    </div>
   );
 };

@@ -1,39 +1,42 @@
 {
   "Header": {
-    "Services": "Services",
-    "Solutions": "Solutions",
-    "Industries": "Industries",
-    "OperatingModel": "Operating Model",
-    "Insights": "Insights",
-    "About": "About",
-    "Contact": "Contact",
-    "BookCall": "Book an AI Strategy Call",
+    "Services": "Servicios",
+    "Solutions": "Soluciones",
+    "Industries": "Industrias",
+    "OperatingModel": "Modelo Operativo",
+    "Insights": "Perspectivas",
+    "About": "Sobre Nosotros",
+    "Contact": "Contacto",
+    "BookCall": "Reservar Llamada de Estrategia de IA",
     "Dashboard": "Dashboard"
   },
   "Footer": {
-    "OperatingModel": "Operating Model",
-    "Services": "Services",
-    "Company": "Company",
+    "OperatingModel": "Modelo Operativo",
+    "Services": "Servicios",
+    "Company": "Compañía",
     "Legal": "Legal",
-    "AllRightsReserved": "All rights reserved.",
-    "GlobalRemote": "Global / Remote-first"
+    "AllRightsReserved": "Todos los derechos reservados.",
+    "GlobalRemote": "Global / Primero Remoto"
   },
   "LeadForm": {
-    "FullName": "Full name *",
-    "WorkEmail": "Work email *",
-    "Company": "Company *",
-    "Role": "Role *",
-    "Website": "Website (Optional)",
-    "ProjectType": "Project type *",
-    "SelectOption": "Select an option",
-    "BudgetRange": "Budget range (USD) *",
-    "Timeline": "Timeline *",
-    "Message": "Message *",
-    "Consent": "I consent to Qeltrava AI processing my data to respond to this inquiry in accordance with the Privacy Policy. *",
-    "Submit": "Submit Inquiry",
-    "Submitting": "Submitting...",
-    "ThankYou": "Thank you.",
-    "SuccessMessage": "Your request has been received. Qeltrava AI will review your project and respond if there is a strong fit.",
-    "NetworkError": "A network error occurred. Please try again later."
+    "FullName": "Nombre completo *",
+    "WorkEmail": "Correo electrónico de trabajo *",
+    "Company": "Empresa *",
+    "Role": "Rol *",
+    "Website": "Sitio web (Opcional)",
+    "ProjectType": "Tipo de proyecto *",
+    "SelectOption": "Seleccione una opción",
+    "BudgetRange": "Rango de presupuesto (USD) *",
+    "Timeline": "Plazo *",
+    "Message": "Mensaje *",
+    "Consent": "Doy mi consentimiento para que Qeltrava AI procese mis datos para responder a esta consulta de acuerdo con la Política de Privacidad. *",
+    "Submit": "Enviar consulta",
+    "Submitting": "Enviando...",
+    "ThankYou": "Gracias.",
+    "SuccessMessage": "Su solicitud ha sido recibida. Qeltrava AI revisará su proyecto y responderá si hay una buena adecuación.",
+    "NetworkError": "Ocurrió un error de red. Por favor, inténtelo de nuevo más tarde."
+  },
+  "Loading": {
+    "Initializing": "Inicializando"
   }
 }

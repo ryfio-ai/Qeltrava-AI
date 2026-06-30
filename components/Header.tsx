@@ -15,7 +15,6 @@ export const Header = () => {
   const pathname = usePathname();
 
   const links = [
-    { label: t('Dashboard'), href: '/dashboard' },
     { label: t('Services'), href: '/services' },
     { label: t('Solutions'), href: '/solutions' },
     { label: t('Industries'), href: '/industries' },
@@ -53,12 +52,6 @@ export const Header = () => {
                 }`}
               >
                 {link.label}
-                {link.href === '/dashboard' && (
-                  <span className="flex h-2 w-2 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-success)] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-success)]"></span>
-                  </span>
-                )}
               </Link>
             ))}
           </nav>
@@ -110,12 +103,6 @@ export const Header = () => {
                   onClick={() => setIsOpen(false)}
                 >
                   <span>{link.label}</span>
-                  {link.href === '/dashboard' && (
-                    <span className="flex h-2 w-2 relative">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-success)] opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-success)]"></span>
-                    </span>
-                  )}
                 </Link>
               ))}
               <Link href="/contact" className="text-lg font-medium text-white/90 hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
