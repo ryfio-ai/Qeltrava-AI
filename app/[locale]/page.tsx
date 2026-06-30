@@ -18,7 +18,7 @@ export default function HomePage() {
     <main className="min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[var(--color-primary-dark)]">
+      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-[var(--color-primary-dark)]">
         <NetworkBackground />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="max-w-3xl">
