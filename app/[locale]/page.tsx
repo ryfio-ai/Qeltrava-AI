@@ -139,7 +139,7 @@ export default function HomePage() {
                   <div className="text-gray-400">[info] Loading context: 1,450 documents...</div>
                   <div className="text-[#ffbd2e] mt-2">[warn] Skipping malformed schema in chunk 12...</div>
                   <div className="text-[#27c93f] mt-2 font-bold">✔ Agent deployed successfully.</div>
-                  <div className="text-gray-400">Endpoint: https://api.qeltrava.ai/v1/agents/sls-902</div>
+                  <div className="text-gray-400">Endpoint: https://api.qeltrava.example/v1/agents/sls-902</div>
                   <div className="mt-4 animate-pulse">_</div>
                </TerminalWindow>
                <p className="mt-3 text-xs text-[var(--color-text-main)] opacity-70 italic text-center">

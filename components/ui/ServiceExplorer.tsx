@@ -21,7 +21,7 @@ const services: Service[] = [
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
   },
   { 
-    title: 'Cloud DevOps', 
+    title: 'Cloud & DevOps', 
     href: '/services/cloud-devops', 
     desc: 'Enterprise-grade scalable infrastructure.', 
     category: 'Modernization',

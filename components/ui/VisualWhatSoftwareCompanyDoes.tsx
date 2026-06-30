@@ -63,10 +63,10 @@ export const VisualWhatSoftwareCompanyDoes = () => {
     <div className="w-full max-w-5xl mx-auto bg-white border border-[var(--color-border-soft)] rounded-3xl p-8 shadow-xl flex flex-col items-center">
       
       {/* Title */}
-      <div className="text-center mb-8 max-w-xl">
-        <h3 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-2">What Does a Software Engineering Partner Do?</h3>
+      <div className="text-center mb-8 max-w-2xl mx-auto">
+        <h3 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-2">11 Core Engineering Capabilities</h3>
         <p className="text-sm text-[var(--color-text-main)]">
-          An interactive catalog of Qeltrava AI's software services. Click any color sector to explore its details and access the service link.
+          Explore the 11 specialized technical disciplines that feed into our 6 primary service offerings. Click any sector to view its alignment and details.
         </p>
       </div>
 

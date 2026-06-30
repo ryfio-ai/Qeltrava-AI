@@ -7,7 +7,6 @@ export const leadFormSchema = z.object({
   role: z.string().min(2, "Role is required"),
   website: z.string().optional(),
   projectType: z.string().min(1, "Please select a project type"),
-  budgetRange: z.string().min(1, "Please select a budget range"),
   timeline: z.string().min(1, "Please select a timeline"),
   message: z.string().min(10, "Message must be at least 10 characters"),
   consent: z.boolean().refine(val => val === true, "You must agree to the privacy policy"),

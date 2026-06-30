@@ -87,16 +87,7 @@ export const LeadForm = () => {
           </select>
           {errors.projectType && <p className="text-red-500 text-xs mt-1">{errors.projectType.message}</p>}
         </div>
-        <div>
-          <label htmlFor="budgetRange" className="block text-sm font-medium mb-2">{t('BudgetRange')}</label>
-          <select id="budgetRange" {...register("budgetRange")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
-            <option value="">{t('SelectOption')}</option>
-            <option value="$10k - $25k">$10k - $25k</option>
-            <option value="$25k - $50k">$25k - $50k</option>
-            <option value="$50k+">$50k+</option>
-          </select>
-          {errors.budgetRange && <p className="text-red-500 text-xs mt-1">{errors.budgetRange.message}</p>}
-        </div>
+
         <div>
           <label htmlFor="timeline" className="block text-sm font-medium mb-2">{t('Timeline')}</label>
           <select id="timeline" {...register("timeline")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">

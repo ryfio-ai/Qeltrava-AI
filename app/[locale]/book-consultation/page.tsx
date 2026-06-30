@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function BookConsultationPage() {
   // NEXT_PUBLIC_BOOKING_URL should be set to your Cal.com or Calendly URL in Vercel.
-  const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || 'https://calendly.com/ryfio-ai/demo';
+  const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || 'https://calendly.com/ryfioai/enquiry-qeltrava-ai';
 
   return (
     <main className="min-h-screen bg-[var(--color-bg-white)] pt-32 pb-24">

@@ -47,6 +47,47 @@ export default function AboutPage() {
 
         <section className="mb-24">
           <FadeIn direction="up">
+            <h2 className="text-3xl font-bold text-[var(--color-primary-dark)] mb-10 border-b border-[var(--color-border-soft)] pb-4">Our Engineering Foundations</h2>
+          </FadeIn>
+          <FadeIn direction="up" delay={0.1}>
+            <div className="bg-white border border-[var(--color-border-soft)] p-8 rounded-2xl shadow-sm">
+              <h3 className="text-xl font-bold text-[var(--color-primary-dark)] mb-4">A Team of PSG Tech Student Engineers</h3>
+              <p className="text-[var(--color-text-main)] leading-relaxed mb-6">
+                Qeltrava AI was founded and is engineered by a team of four student engineers from **PSG College of Technology (Class of 2026)**. 
+                Combining academic mathematical rigor with hands-on application of advanced systems architectures, our team bridges the gap between state-of-the-art academic AI research and commercial-grade software engineering.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+                <div className="p-5 bg-[var(--color-bg-light)] border border-[var(--color-border-soft)] rounded-xl">
+                  <h4 className="font-bold text-[var(--color-primary-dark)] text-sm mb-1.5">Systems Architecture</h4>
+                  <p className="text-xs text-[var(--color-text-main)] leading-relaxed">
+                    Responsible for custom deployment pipelines, Kubernetes containerization, and enterprise-grade system integrations.
+                  </p>
+                </div>
+                <div className="p-5 bg-[var(--color-bg-light)] border border-[var(--color-border-soft)] rounded-xl">
+                  <h4 className="font-bold text-[var(--color-primary-dark)] text-sm mb-1.5">AI Orchestration</h4>
+                  <p className="text-xs text-[var(--color-text-main)] leading-relaxed">
+                    Focuses on machine learning data pipelines, RAG configuration, and agentic LLM routing engines.
+                  </p>
+                </div>
+                <div className="p-5 bg-[var(--color-bg-light)] border border-[var(--color-border-soft)] rounded-xl">
+                  <h4 className="font-bold text-[var(--color-primary-dark)] text-sm mb-1.5">Full-Stack Platforms</h4>
+                  <p className="text-xs text-[var(--color-text-main)] leading-relaxed">
+                    Designs robust, high-performance UI systems, state managers, and secure multi-tenant API layers.
+                  </p>
+                </div>
+                <div className="p-5 bg-[var(--color-bg-light)] border border-[var(--color-border-soft)] rounded-xl">
+                  <h4 className="font-bold text-[var(--color-primary-dark)] text-sm mb-1.5">Security & Auditing</h4>
+                  <p className="text-xs text-[var(--color-text-main)] leading-relaxed">
+                    Ensures strict compliance, penetration testing controls, role-based access logic, and data privacy safeguards.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+        </section>
+
+        <section className="mb-24">
+          <FadeIn direction="up">
             <h2 className="text-3xl font-bold text-[var(--color-primary-dark)] mb-10 border-b border-[var(--color-border-soft)] pb-4">Mission & Vision</h2>
           </FadeIn>
           <FadeIn direction="up" delay={0.1}>

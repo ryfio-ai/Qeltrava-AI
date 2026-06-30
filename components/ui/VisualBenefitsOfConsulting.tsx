@@ -162,6 +162,9 @@ export const VisualBenefitsOfConsulting = () => {
         </div>
       </div>
 
+      <p className="mt-4 text-[10px] text-gray-400 italic text-center">
+        * Illustrative Data: Statistics represent average projections based on industry benchmarks and typical engagement outcomes.
+      </p>
     </div>
   );
 };

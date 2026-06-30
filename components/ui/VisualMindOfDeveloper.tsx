@@ -36,10 +36,10 @@ export const VisualMindOfDeveloper = () => {
     <div className="w-full max-w-4xl mx-auto bg-white border border-[var(--color-border-soft)] rounded-3xl p-8 shadow-xl flex flex-col items-center">
       
       {/* Title */}
-      <div className="text-center mb-8 max-w-xl">
-        <h3 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-2">The Mind of a Qeltrava Developer</h3>
+      <div className="text-center mb-8 max-w-2xl mx-auto">
+        <h3 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-2">The Cognitive Balance of a Qeltrava Engineer</h3>
         <p className="text-sm text-[var(--color-text-main)]">
-          Hover over the neural nodes or labels below to activate the brain hemispheres (logical left vs creative right).
+          Explore how we balance logical rigor with architectural adaptation to design and ship production systems.
         </p>
       </div>
 
@@ -140,8 +140,8 @@ export const VisualMindOfDeveloper = () => {
             {/* Labels overlay */}
             <div className="absolute inset-0 flex flex-col justify-between p-4 pointer-events-none">
               <div className="flex justify-between text-[10px] font-black tracking-widest text-gray-400 uppercase">
-                <span>Left (Logic)</span>
-                <span>Right (Creative)</span>
+                <span>Rigor (Logic)</span>
+                <span>Adaptation (Design)</span>
               </div>
             </div>
 
@@ -169,12 +169,12 @@ export const VisualMindOfDeveloper = () => {
                   {activeNode.desc}
                 </p>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mt-4 block">
-                  {activeNode.side === "left" ? "Logical Hemisphere" : "Creative Hemisphere"}
+                  {activeNode.side === "left" ? "Execution Rigor" : "Architectural Adaptation"}
                 </span>
               </motion.div>
             ) : (
               <div className="text-center text-gray-400 py-8">
-                <p className="text-sm">Hover over any neural node in the brain to analyze their engineering mindset details.</p>
+                <p className="text-sm">Hover over any neural node to explore our core engineering balance principles.</p>
               </div>
             )}
           </div>

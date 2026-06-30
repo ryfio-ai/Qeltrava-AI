@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import { siteConfig } from "@/lib/site-config";
 import { Header } from "@/components/Header";
@@ -16,6 +16,19 @@ import { CookieBanner } from '@/components/CookieBanner';
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: 'swap',
+});
+
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
+  subsets: ["latin"],
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -54,7 +67,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir={dir}
-      className={`${inter.variable} h-full antialiased`}
+      className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col pt-20">
         <NextIntlClientProvider messages={messages}>

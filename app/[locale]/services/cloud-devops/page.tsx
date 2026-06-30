@@ -5,8 +5,8 @@ import { Metadata } from 'next';
 import { siteConfig } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Cloud Devops Engineering | ' + siteConfig.companyName,
-  description: 'We design and deploy enterprise-grade cloud devops systems that automate complex workflows, reduce operational overhead, and ensure absolute compliance.',
+  title: 'Cloud & DevOps Engineering | ' + siteConfig.companyName,
+  description: 'We design and deploy enterprise-grade Cloud & DevOps systems that automate complex workflows, reduce operational overhead, and ensure absolute compliance.',
 };
 
 export default function Page() {
@@ -15,9 +15,9 @@ export default function Page() {
       <div className="max-w-5xl mx-auto px-6 md:px-12">
         <FadeIn>
           <div className="mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Cloud Devops Engineering</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Cloud & DevOps Engineering</h1>
             <p className="text-xl text-[var(--color-text-main)] leading-relaxed max-w-3xl">
-              We design and deploy enterprise-grade cloud devops systems that automate complex workflows, reduce operational overhead, and ensure absolute compliance.
+              We design and deploy enterprise-grade Cloud & DevOps systems that automate complex workflows, reduce operational overhead, and ensure absolute compliance.
             </p>
           </div>
         </FadeIn>
