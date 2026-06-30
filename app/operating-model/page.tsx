@@ -6,7 +6,7 @@ export default function OperatingModelPage() {
   return (
     <main className="min-h-screen bg-[var(--color-bg-white)] pt-32 pb-24">
       <div className="max-w-4xl mx-auto px-6 md:px-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Quantra Delivery OS</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Qeltrava Delivery OS</h1>
         <p className="text-xl text-[var(--color-text-main)] mb-12 leading-relaxed">
           The internal and external system we use to ensure flawless project delivery, transparent communication, and measurable business outcomes.
         </p>

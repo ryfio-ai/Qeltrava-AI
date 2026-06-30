@@ -51,32 +51,32 @@ export const LeadForm = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm font-medium mb-2">Full name *</label>
-          <input {...register("fullName")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
+          <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full name *</label>
+          <input id="fullName" {...register("fullName")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
           {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName.message}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2">Work email *</label>
-          <input type="email" {...register("email")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
+          <label htmlFor="email" className="block text-sm font-medium mb-2">Work email *</label>
+          <input id="email" type="email" {...register("email")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
           {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2">Company *</label>
-          <input {...register("company")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
+          <label htmlFor="company" className="block text-sm font-medium mb-2">Company *</label>
+          <input id="company" {...register("company")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
           {errors.company && <p className="text-red-500 text-xs mt-1">{errors.company.message}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2">Role *</label>
-          <input {...register("role")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
+          <label htmlFor="role" className="block text-sm font-medium mb-2">Role *</label>
+          <input id="role" {...register("role")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
           {errors.role && <p className="text-red-500 text-xs mt-1">{errors.role.message}</p>}
         </div>
         <div className="md:col-span-2">
-          <label className="block text-sm font-medium mb-2">Website (Optional)</label>
-          <input {...register("website")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
+          <label htmlFor="website" className="block text-sm font-medium mb-2">Website (Optional)</label>
+          <input id="website" {...register("website")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2">Project type *</label>
-          <select {...register("projectType")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
+          <label htmlFor="projectType" className="block text-sm font-medium mb-2">Project type *</label>
+          <select id="projectType" {...register("projectType")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
             <option value="">Select an option</option>
             <option value="AI Automation">AI Automation</option>
             <option value="SaaS Development">SaaS Development</option>
@@ -86,8 +86,8 @@ export const LeadForm = () => {
           {errors.projectType && <p className="text-red-500 text-xs mt-1">{errors.projectType.message}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2">Budget range *</label>
-          <select {...register("budgetRange")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
+          <label htmlFor="budgetRange" className="block text-sm font-medium mb-2">Budget range *</label>
+          <select id="budgetRange" {...register("budgetRange")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
             <option value="">Select an option</option>
             <option value="$10k - $25k">$10k - $25k</option>
             <option value="$25k - $50k">$25k - $50k</option>
@@ -96,8 +96,8 @@ export const LeadForm = () => {
           {errors.budgetRange && <p className="text-red-500 text-xs mt-1">{errors.budgetRange.message}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2">Timeline *</label>
-          <select {...register("timeline")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
+          <label htmlFor="timeline" className="block text-sm font-medium mb-2">Timeline *</label>
+          <select id="timeline" {...register("timeline")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
             <option value="">Select an option</option>
             <option value="ASAP">ASAP</option>
             <option value="1-3 Months">1-3 Months</option>
@@ -107,8 +107,8 @@ export const LeadForm = () => {
         </div>
         
         <div className="md:col-span-2">
-          <label className="block text-sm font-medium mb-2">Message *</label>
-          <textarea {...register("message")} rows={4} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"></textarea>
+          <label htmlFor="message" className="block text-sm font-medium mb-2">Message *</label>
+          <textarea id="message" {...register("message")} rows={4} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"></textarea>
           {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
         </div>
         

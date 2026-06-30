@@ -23,8 +23,8 @@ export async function POST(request: Request) {
         throw new Error(`CRM webhook failed: ${response.statusText}`);
       }
     } else {
-      // Development path: log to console if no webhook configured
-      console.log('CRM_WEBHOOK_URL not configured. Lead data:', validatedData);
+      // Missing Webhook URL configuration
+      throw new Error('CRM_WEBHOOK_URL environment variable is not configured. Lead cannot be processed.');
     }
 
     return NextResponse.json({ success: true, message: 'Consultation request received.' }, { status: 200 });

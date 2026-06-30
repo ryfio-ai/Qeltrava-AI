@@ -56,7 +56,7 @@ export default function Page() {
           <FadeIn direction="up">
             <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-6 border-b border-[var(--color-border-soft)] pb-4">Our Engineering Approach</h2>
             <p className="text-[var(--color-text-main)] mb-6">
-              We do not sell hours. We sell capabilities. Every architecture decision in our Data Analytics Engineering solutions is measured against its ability to reduce costs, increase revenue, or mitigate risk. We build secure, scalable platforms using our Quantra Delivery OS.
+              We do not sell hours. We sell capabilities. We build robust data pipelines and intelligent analytics dashboards that turn raw information into actionable business insights, enabling real-time decision-making for leadership teams.
             </p>
           </FadeIn>
         </section>

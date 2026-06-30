@@ -31,24 +31,24 @@
 }
 
 body {
-  background: var(--bg-white);
-  color: var(--text-main);
+  background: var(--color-bg-white);
+  color: var(--color-text-main);
   font-family: var(--font-sans);
 }
 
 .dark-section {
-  background: var(--primary);
-  color: var(--bg-white);
+  background: var(--color-primary);
+  color: var(--color-bg-white);
 }
 
 .light-section {
-  background: var(--bg-white);
-  color: var(--text-main);
+  background: var(--color-bg-white);
+  color: var(--color-text-main);
 }
 
 .mist-section {
-  background: var(--bg-light);
-  color: var(--text-main);
+  background: var(--color-bg-light);
+  color: var(--color-text-main);
 }
 
 .cta-button {
@@ -57,5 +57,5 @@ body {
 }
 
 .metric-number {
-  color: var(--success);
+  color: var(--color-success);
 }

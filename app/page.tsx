@@ -109,7 +109,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-[var(--color-primary-dark)] mb-6">Why Quantra AI?</h2>
+              <h2 className="text-4xl font-bold text-[var(--color-primary-dark)] mb-6">Why Qeltrava AI?</h2>
               <p className="text-lg text-[var(--color-text-main)] mb-8">
                 We are strategic partners, not coding vendors. We price based on business value, protect margin through fixed scopes, and engineer platforms that scale securely.
               </p>
@@ -150,7 +150,7 @@ export default function HomePage() {
       {/* Delivery OS / Process */}
       <section className="py-24 bg-[var(--color-primary-dark)] text-white">
          <div className="max-w-7xl mx-auto px-6 md:px-12 text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Quantra Delivery OS</h2>
+            <h2 className="text-4xl font-bold mb-4">Qeltrava Delivery OS</h2>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">Our internal and external system for flawless project delivery.</p>
          </div>
          <div className="max-w-5xl mx-auto px-6">

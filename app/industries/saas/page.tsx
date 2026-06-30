@@ -6,7 +6,7 @@ import { siteConfig } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'AI for Saas | ' + siteConfig.companyName,
-  description: 'Quantra AI provides the foundational engineering layer for saas organizations. We modernize legacy infrastructure and deploy intelligent systems tailored to strict regulatory requirements.',
+  description: 'Qeltrava AI provides the foundational engineering layer for saas organizations. We modernize legacy infrastructure and deploy intelligent systems tailored to strict regulatory requirements.',
 };
 
 export default function Page() {
@@ -17,7 +17,7 @@ export default function Page() {
           <div className="mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">AI for Saas</h1>
             <p className="text-xl text-[var(--color-text-main)] leading-relaxed max-w-3xl">
-              Quantra AI provides the foundational engineering layer for saas organizations. We modernize legacy infrastructure and deploy intelligent systems tailored to strict regulatory requirements.
+              Qeltrava AI provides the foundational engineering layer for saas organizations. We modernize legacy infrastructure and deploy intelligent systems tailored to strict regulatory requirements.
             </p>
           </div>
         </FadeIn>
@@ -56,7 +56,7 @@ export default function Page() {
           <FadeIn direction="up">
             <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-6 border-b border-[var(--color-border-soft)] pb-4">Our Engineering Approach</h2>
             <p className="text-[var(--color-text-main)] mb-6">
-              We do not sell hours. We sell capabilities. Every architecture decision in our AI for Saas solutions is measured against its ability to reduce costs, increase revenue, or mitigate risk. We build secure, scalable platforms using our Quantra Delivery OS.
+              We do not sell hours. We sell capabilities. Our infrastructure solutions for SaaS companies ensure maximum uptime, effortless scaling, and secure multi-tenant architectures that grow with your customer base.
             </p>
           </FadeIn>
         </section>

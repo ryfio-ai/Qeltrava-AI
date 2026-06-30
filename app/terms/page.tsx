@@ -1,75 +1,45 @@
 import React from 'react';
 import { FadeIn } from '@/components/animations/FadeIn';
-import { Button } from '@/components/Button';
-import { Metadata } from 'next';
-import { siteConfig } from '@/lib/site-config';
 
-export const metadata: Metadata = {
-  title: 'Terms | ' + siteConfig.companyName,
-  description: 'Discover how Quantra AI approaches terms to deliver measurable business outcomes and architectural precision.',
-};
-
-export default function Page() {
+export default function TermsPage() {
   return (
     <main className="min-h-screen bg-[var(--color-bg-white)] pt-32 pb-24">
-      <div className="max-w-5xl mx-auto px-6 md:px-12">
+      <div className="max-w-4xl mx-auto px-6 md:px-12">
         <FadeIn>
           <div className="mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Terms</h1>
-            <p className="text-xl text-[var(--color-text-main)] leading-relaxed max-w-3xl">
-              Discover how Quantra AI approaches terms to deliver measurable business outcomes and architectural precision.
-            </p>
-          </div>
-        </FadeIn>
+            <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Terms of Service</h1>
+            <p className="text-xl text-[var(--color-text-main)] mb-10">Last Updated: October 2024</p>
+            
+            <div className="prose prose-lg text-[var(--color-text-main)]">
+              <p className="font-bold text-red-600 mb-8 p-4 border border-red-200 bg-red-50 rounded-lg">
+                NOTE: This is standard boilerplate text for pre-launch purposes. It must be reviewed by legal counsel before executing enterprise contracts or processing client data.
+              </p>
 
-        <section className="mb-20">
-          <FadeIn direction="up">
-            <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-6 border-b border-[var(--color-border-soft)] pb-4">Business Outcomes</h2>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <FadeIn delay={0.1}>
-              <div className="p-6 bg-white border border-[var(--color-border-soft)] rounded-xl shadow-sm h-full">
-                <div className="w-8 h-8 bg-[var(--color-accent)]/10 text-[var(--color-accent)] rounded-lg flex items-center justify-center mb-4 font-bold">01</div>
-                <p className="text-sm font-medium text-[var(--color-primary-dark)]">Scalable architecture</p>
-              </div>
-            </FadeIn>
-            
-            <FadeIn delay={0.2}>
-              <div className="p-6 bg-white border border-[var(--color-border-soft)] rounded-xl shadow-sm h-full">
-                <div className="w-8 h-8 bg-[var(--color-accent)]/10 text-[var(--color-accent)] rounded-lg flex items-center justify-center mb-4 font-bold">02</div>
-                <p className="text-sm font-medium text-[var(--color-primary-dark)]">Transparent delivery process</p>
-              </div>
-            </FadeIn>
-            
-            <FadeIn delay={0.3}>
-              <div className="p-6 bg-white border border-[var(--color-border-soft)] rounded-xl shadow-sm h-full">
-                <div className="w-8 h-8 bg-[var(--color-accent)]/10 text-[var(--color-accent)] rounded-lg flex items-center justify-center mb-4 font-bold">03</div>
-                <p className="text-sm font-medium text-[var(--color-primary-dark)]">Long-term support retainers</p>
-              </div>
-            </FadeIn>
-            
-          </div>
-        </section>
+              <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mt-8 mb-4">1. Acceptance of Terms</h2>
+              <p className="mb-6">
+                By accessing and using the services provided by Qeltrava AI ("Company," "we," "us," or "our"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+              </p>
 
-        <section className="mb-20">
-          <FadeIn direction="up">
-            <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-6 border-b border-[var(--color-border-soft)] pb-4">Our Engineering Approach</h2>
-            <p className="text-[var(--color-text-main)] mb-6">
-              We do not sell hours. We sell capabilities. Every architecture decision in our Terms solutions is measured against its ability to reduce costs, increase revenue, or mitigate risk. We build secure, scalable platforms using our Quantra Delivery OS.
-            </p>
-          </FadeIn>
-        </section>
+              <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mt-8 mb-4">2. Description of Services</h2>
+              <p className="mb-6">
+                Qeltrava AI provides enterprise software engineering, AI automation, cloud infrastructure, and consulting services. The specific scope, deliverables, and timelines for any engagement will be governed by a separate Master Services Agreement (MSA) and Statement of Work (SOW).
+              </p>
 
-        <FadeIn direction="up">
-          <div className="p-10 bg-[var(--color-primary-dark)] text-white rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-2">Ready to transform your workflow?</h3>
-              <p className="text-white/80">Schedule an AI Opportunity Audit to diagnose your business bottlenecks.</p>
+              <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mt-8 mb-4">3. Intellectual Property</h2>
+              <p className="mb-6">
+                Unless otherwise explicitly stated in an MSA, all methodologies, frameworks, and foundational code (including the Qeltrava Delivery OS) remain the exclusive intellectual property of Qeltrava AI. Client-specific deliverables and custom intellectual property generated during an engagement will be transferred to the client upon full payment, subject to the terms of the MSA.
+              </p>
+
+              <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mt-8 mb-4">4. Limitation of Liability</h2>
+              <p className="mb-6">
+                To the maximum extent permitted by applicable law, Qeltrava AI shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses resulting from your use of our services.
+              </p>
+
+              <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mt-8 mb-4">5. Governing Law</h2>
+              <p className="mb-6">
+                These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Qeltrava AI is registered, without regard to its conflict of law provisions.
+              </p>
             </div>
-            <Button href="/book-consultation" className="bg-white text-[var(--color-primary-dark)] hover:bg-gray-100 border-transparent whitespace-nowrap">
-              Book a Strategy Call
-            </Button>
           </div>
         </FadeIn>
       </div>

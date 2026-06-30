@@ -6,7 +6,7 @@ import { siteConfig } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'AI for Healthcare | ' + siteConfig.companyName,
-  description: 'Quantra AI provides the foundational engineering layer for healthcare organizations. We modernize legacy infrastructure and deploy intelligent systems tailored to strict regulatory requirements.',
+  description: 'Qeltrava AI provides the foundational engineering layer for healthcare organizations. We modernize legacy infrastructure and deploy intelligent systems tailored to strict regulatory requirements.',
 };
 
 export default function Page() {
@@ -17,7 +17,7 @@ export default function Page() {
           <div className="mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">AI for Healthcare</h1>
             <p className="text-xl text-[var(--color-text-main)] leading-relaxed max-w-3xl">
-              Quantra AI provides the foundational engineering layer for healthcare organizations. We modernize legacy infrastructure and deploy intelligent systems tailored to strict regulatory requirements.
+              Qeltrava AI provides the foundational engineering layer for healthcare organizations. We modernize legacy infrastructure and deploy intelligent systems tailored to strict regulatory requirements.
             </p>
           </div>
         </FadeIn>
@@ -56,7 +56,7 @@ export default function Page() {
           <FadeIn direction="up">
             <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-6 border-b border-[var(--color-border-soft)] pb-4">Our Engineering Approach</h2>
             <p className="text-[var(--color-text-main)] mb-6">
-              We do not sell hours. We sell capabilities. Every architecture decision in our AI for Healthcare solutions is measured against its ability to reduce costs, increase revenue, or mitigate risk. We build secure, scalable platforms using our Quantra Delivery OS.
+              We do not sell hours. We sell capabilities. Our healthcare architectures prioritize patient data security and HIPAA compliance. We build interoperable systems that seamlessly connect providers, patients, and clinical data.
             </p>
           </FadeIn>
         </section>

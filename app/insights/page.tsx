@@ -6,7 +6,7 @@ import { siteConfig } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'Insights | ' + siteConfig.companyName,
-  description: 'Discover how Quantra AI approaches insights to deliver measurable business outcomes and architectural precision.',
+  description: 'Discover how Qeltrava AI approaches insights to deliver measurable business outcomes and architectural precision.',
 };
 
 export default function Page() {
@@ -17,7 +17,7 @@ export default function Page() {
           <div className="mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Insights</h1>
             <p className="text-xl text-[var(--color-text-main)] leading-relaxed max-w-3xl">
-              Discover how Quantra AI approaches insights to deliver measurable business outcomes and architectural precision.
+              Discover how Qeltrava AI approaches insights to deliver measurable business outcomes and architectural precision.
             </p>
           </div>
         </FadeIn>
@@ -56,7 +56,7 @@ export default function Page() {
           <FadeIn direction="up">
             <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-6 border-b border-[var(--color-border-soft)] pb-4">Our Engineering Approach</h2>
             <p className="text-[var(--color-text-main)] mb-6">
-              We do not sell hours. We sell capabilities. Every architecture decision in our Insights solutions is measured against its ability to reduce costs, increase revenue, or mitigate risk. We build secure, scalable platforms using our Quantra Delivery OS.
+              We do not sell hours. We sell capabilities. Every architecture decision in our Insights solutions is measured against its ability to reduce costs, increase revenue, or mitigate risk. We build secure, scalable platforms using our Qeltrava Delivery OS.
             </p>
           </FadeIn>
         </section>
