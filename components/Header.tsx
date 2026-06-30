@@ -65,9 +65,13 @@ export const Header = () => {
           
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="bg-black p-1.5 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
-              <Image src="/logo-bg.png" alt="Qeltrava AI" width={28} height={28} className="w-7 h-7 object-contain brightness-0 invert" />
-            </div>
+            <Image 
+              src="/logo-bg.png" 
+              alt="Qeltrava AI Logo" 
+              width={40} 
+              height={40} 
+              className="w-10 h-10 object-contain group-hover:opacity-80 transition-opacity" 
+            />
             <span className="text-xl font-bold text-[var(--color-primary-dark)] tracking-tight">Qeltrava AI</span>
           </Link>
 
