@@ -1,0 +1,39 @@
+{
+  "Header": {
+    "Services": "Services",
+    "Solutions": "Solutions",
+    "Industries": "Industries",
+    "OperatingModel": "Operating Model",
+    "Insights": "Insights",
+    "About": "About",
+    "Contact": "Contact",
+    "BookCall": "Book an AI Strategy Call",
+    "Dashboard": "Dashboard"
+  },
+  "Footer": {
+    "OperatingModel": "Operating Model",
+    "Services": "Services",
+    "Company": "Company",
+    "Legal": "Legal",
+    "AllRightsReserved": "All rights reserved.",
+    "GlobalRemote": "Global / Remote-first"
+  },
+  "LeadForm": {
+    "FullName": "Full name *",
+    "WorkEmail": "Work email *",
+    "Company": "Company *",
+    "Role": "Role *",
+    "Website": "Website (Optional)",
+    "ProjectType": "Project type *",
+    "SelectOption": "Select an option",
+    "BudgetRange": "Budget range (USD) *",
+    "Timeline": "Timeline *",
+    "Message": "Message *",
+    "Consent": "I consent to Qeltrava AI processing my data to respond to this inquiry in accordance with the Privacy Policy. *",
+    "Submit": "Submit Inquiry",
+    "Submitting": "Submitting...",
+    "ThankYou": "Thank you.",
+    "SuccessMessage": "Your request has been received. Qeltrava AI will review your project and respond if there is a strong fit.",
+    "NetworkError": "A network error occurred. Please try again later."
+  }
+}

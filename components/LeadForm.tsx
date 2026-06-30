@@ -4,10 +4,12 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { leadFormSchema, LeadFormValues } from '@/lib/validators';
 import { Button } from './Button';
+import { useTranslations } from 'next-intl';
 
 export const LeadForm = () => {
   const [status, setStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = React.useState('');
+  const t = useTranslations('LeadForm');
 
   const { register, handleSubmit, formState: { errors } } = useForm<LeadFormValues>({
     resolver: zodResolver(leadFormSchema),
@@ -26,11 +28,11 @@ export const LeadForm = () => {
         setStatus('success');
       } else {
         const errorData = await res.json();
-        setErrorMessage(errorData.error || 'Failed to submit form');
+        setErrorMessage(errorData.error || t('NetworkError'));
         setStatus('error');
       }
     } catch (err) {
-      setErrorMessage('A network error occurred. Please try again later.');
+      setErrorMessage(t('NetworkError'));
       setStatus('error');
     }
   };
@@ -38,8 +40,8 @@ export const LeadForm = () => {
   if (status === 'success') {
     return (
       <div className="p-8 bg-[var(--color-bg-light)] border border-[var(--color-border-soft)] rounded-xl text-center">
-        <h3 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-4">Thank you.</h3>
-        <p className="text-[var(--color-text-main)]">Your request has been received. Qeltrava AI will review your project and respond if there is a strong fit.</p>
+        <h3 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-4">{t('ThankYou')}</h3>
+        <p className="text-[var(--color-text-main)]">{t('SuccessMessage')}</p>
       </div>
     );
   }
@@ -51,33 +53,33 @@ export const LeadForm = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full name *</label>
+          <label htmlFor="fullName" className="block text-sm font-medium mb-2">{t('FullName')}</label>
           <input id="fullName" {...register("fullName")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
           {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName.message}</p>}
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-2">Work email *</label>
+          <label htmlFor="email" className="block text-sm font-medium mb-2">{t('WorkEmail')}</label>
           <input id="email" type="email" {...register("email")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
           {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
         </div>
         <div>
-          <label htmlFor="company" className="block text-sm font-medium mb-2">Company *</label>
+          <label htmlFor="company" className="block text-sm font-medium mb-2">{t('Company')}</label>
           <input id="company" {...register("company")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
           {errors.company && <p className="text-red-500 text-xs mt-1">{errors.company.message}</p>}
         </div>
         <div>
-          <label htmlFor="role" className="block text-sm font-medium mb-2">Role *</label>
+          <label htmlFor="role" className="block text-sm font-medium mb-2">{t('Role')}</label>
           <input id="role" {...register("role")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
           {errors.role && <p className="text-red-500 text-xs mt-1">{errors.role.message}</p>}
         </div>
         <div className="md:col-span-2">
-          <label htmlFor="website" className="block text-sm font-medium mb-2">Website (Optional)</label>
+          <label htmlFor="website" className="block text-sm font-medium mb-2">{t('Website')}</label>
           <input id="website" {...register("website")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
         </div>
         <div>
-          <label htmlFor="projectType" className="block text-sm font-medium mb-2">Project type *</label>
+          <label htmlFor="projectType" className="block text-sm font-medium mb-2">{t('ProjectType')}</label>
           <select id="projectType" {...register("projectType")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
-            <option value="">Select an option</option>
+            <option value="">{t('SelectOption')}</option>
             <option value="AI Automation">AI Automation</option>
             <option value="SaaS Development">SaaS Development</option>
             <option value="Cloud Migration">Cloud Migration</option>
@@ -86,9 +88,9 @@ export const LeadForm = () => {
           {errors.projectType && <p className="text-red-500 text-xs mt-1">{errors.projectType.message}</p>}
         </div>
         <div>
-          <label htmlFor="budgetRange" className="block text-sm font-medium mb-2">Budget range *</label>
+          <label htmlFor="budgetRange" className="block text-sm font-medium mb-2">{t('BudgetRange')}</label>
           <select id="budgetRange" {...register("budgetRange")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
-            <option value="">Select an option</option>
+            <option value="">{t('SelectOption')}</option>
             <option value="$10k - $25k">$10k - $25k</option>
             <option value="$25k - $50k">$25k - $50k</option>
             <option value="$50k+">$50k+</option>
@@ -96,9 +98,9 @@ export const LeadForm = () => {
           {errors.budgetRange && <p className="text-red-500 text-xs mt-1">{errors.budgetRange.message}</p>}
         </div>
         <div>
-          <label htmlFor="timeline" className="block text-sm font-medium mb-2">Timeline *</label>
+          <label htmlFor="timeline" className="block text-sm font-medium mb-2">{t('Timeline')}</label>
           <select id="timeline" {...register("timeline")} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]">
-            <option value="">Select an option</option>
+            <option value="">{t('SelectOption')}</option>
             <option value="ASAP">ASAP</option>
             <option value="1-3 Months">1-3 Months</option>
             <option value="3+ Months">3+ Months</option>
@@ -107,7 +109,7 @@ export const LeadForm = () => {
         </div>
         
         <div className="md:col-span-2">
-          <label htmlFor="message" className="block text-sm font-medium mb-2">Message *</label>
+          <label htmlFor="message" className="block text-sm font-medium mb-2">{t('Message')}</label>
           <textarea id="message" {...register("message")} rows={4} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"></textarea>
           {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
         </div>
@@ -115,20 +117,22 @@ export const LeadForm = () => {
         <div className="md:col-span-2 flex items-start gap-3 mt-2">
           <input type="checkbox" {...register("consent")} className="mt-1" id="consent" />
           <label htmlFor="consent" className="text-sm text-[var(--color-text-main)]">
-            I consent to Qeltrava AI processing my data to respond to this inquiry in accordance with the Privacy Policy. *
+            {t('Consent')}
           </label>
         </div>
         {errors.consent && <p className="md:col-span-2 text-red-500 text-xs -mt-4">{errors.consent.message}</p>}
       </div>
 
-      {status === 'error' && (
-        <div className="p-3 bg-red-50 border border-red-200 text-red-600 rounded-md text-sm">
-          {errorMessage}
-        </div>
-      )}
+      <div aria-live="polite">
+        {status === 'error' && (
+          <div className="p-3 bg-red-50 border border-red-200 text-red-600 rounded-md text-sm mb-4">
+            {errorMessage}
+          </div>
+        )}
+      </div>
 
       <Button type="submit" disabled={status === 'loading'} className="w-full md:w-auto">
-        {status === 'loading' ? 'Submitting...' : 'Submit Inquiry'}
+        {status === 'loading' ? t('Submitting') : t('Submit')}
       </Button>
     </form>
   );

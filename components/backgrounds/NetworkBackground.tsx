@@ -1,103 +1,113 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useMemo } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 
-export const NetworkBackground = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+type NetworkBackgroundProps = {
+  density?: 'sparse' | 'dense';
+  className?: string;
+};
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+// Generates a deterministic but organic looking graph
+const generateGraph = (density: 'sparse' | 'dense') => {
+  const nodeCount = density === 'dense' ? 35 : 15;
+  const nodes = [];
+  
+  // Use a pseudo-random generator with a fixed seed so it's consistent between SSR and Client
+  let seed = 12345;
+  const random = () => {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+  };
+
+  // We want to avoid the exact center where text usually sits, creating a "ring" or scattered edges
+  for (let i = 0; i < nodeCount; i++) {
+    // Generate positions mostly towards the edges (0-30% and 70-100% of width/height)
+    let x = random() * 100;
+    let y = random() * 100;
     
-    // Check for prefers-reduced-motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    // If it falls in the center text zone (30-70%), push it out
+    if (x > 30 && x < 70 && y > 30 && y < 70) {
+      x = random() > 0.5 ? random() * 30 : 70 + random() * 30;
+      y = random() > 0.5 ? random() * 30 : 70 + random() * 30;
+    }
 
-    let animationFrameId: number;
-    let particles: { x: number; y: number; vx: number; vy: number; radius: number }[] = [];
+    nodes.push({
+      id: i,
+      x,
+      y,
+      size: 2 + random() * 4,
+      pulseDelay: random() * 5,
+      pulseDuration: 6 + random() * 4
+    });
+  }
 
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initParticles();
-    };
-
-    const initParticles = () => {
-      particles = [];
-      const numParticles = Math.min(Math.floor((canvas.width * canvas.height) / 15000), 100);
-      for (let i = 0; i < numParticles; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          radius: Math.random() * 2 + 1
-        });
+  // Generate edges between nearby nodes
+  const edges = [];
+  for (let i = 0; i < nodes.length; i++) {
+    for (let j = i + 1; j < nodes.length; j++) {
+      const dx = nodes[i].x - nodes[j].x;
+      const dy = nodes[i].y - nodes[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < (density === 'dense' ? 25 : 35)) {
+        edges.push({ id: `${i}-${j}`, source: nodes[i], target: nodes[j], opacity: 1 - dist / 35 });
       }
-    };
+    }
+  }
 
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Node color: --accent (#2E75B6) at low opacity
-      ctx.fillStyle = 'rgba(46, 117, 182, 0.14)';
-      ctx.strokeStyle = 'rgba(46, 117, 182, 0.08)';
-      ctx.lineWidth = 1;
+  return { nodes, edges };
+};
 
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        
-        // Move particles only if motion is allowed
-        if (!prefersReducedMotion) {
-          p.x += p.vx;
-          p.y += p.vy;
+export const NetworkBackground = ({ density = 'sparse', className = '' }: NetworkBackgroundProps) => {
+  const prefersReducedMotion = useReducedMotion();
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, prefersReducedMotion ? 0 : 15]);
 
-          if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-          if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-        }
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fill();
-
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 150) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(46, 117, 182, ${0.08 * (1 - dist / 150)})`;
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      if (!prefersReducedMotion) {
-        animationFrameId = requestAnimationFrame(draw);
-      }
-    };
-
-    window.addEventListener('resize', resize);
-    resize();
-    draw();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
+  const { nodes, edges } = useMemo(() => generateGraph(density), [density]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 pointer-events-none z-0"
+    <motion.div 
+      className={`absolute inset-0 pointer-events-none z-0 overflow-hidden ${className}`}
       aria-hidden="true"
-    />
+      style={{ y }}
+    >
+      <svg className="w-full h-full opacity-60" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100">
+        {/* Draw Edges */}
+        {edges.map(edge => (
+          <line
+            key={edge.id}
+            x1={`${edge.source.x}%`}
+            y1={`${edge.source.y}%`}
+            x2={`${edge.target.x}%`}
+            y2={`${edge.target.y}%`}
+            stroke="var(--color-accent)"
+            strokeWidth="0.1"
+            opacity={Math.max(0.08, Math.min(0.14, edge.opacity * 0.14))}
+          />
+        ))}
+
+        {/* Draw Nodes */}
+        {nodes.map(node => (
+          <motion.circle
+            key={node.id}
+            cx={`${node.x}%`}
+            cy={`${node.y}%`}
+            r={node.size / 10}
+            fill="var(--color-accent)"
+            initial={false}
+            animate={prefersReducedMotion ? {} : {
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.7, 0.3],
+            }}
+            transition={{
+              duration: node.pulseDuration,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: node.pulseDelay
+            }}
+          />
+        ))}
+      </svg>
+    </motion.div>
   );
 };

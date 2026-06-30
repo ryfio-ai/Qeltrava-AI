@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next'
 import { siteConfig } from '@/lib/site-config'
+import { routing } from '@/src/routing'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
+  const baseRoutes = [
     '',
     '/about',
     '/services',
@@ -25,13 +26,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/case-studies',
     '/insights',
     '/contact',
-    '/book-consultation'
-  ].map((route) => ({
-    url: `${siteConfig.baseUrl}${route}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
-  }))
+    '/book-consultation',
+    '/security',
+    '/accessibility',
+    '/cookie-policy',
+    '/government'
+  ];
 
-  return [...routes]
+  const routes: MetadataRoute.Sitemap = [];
+
+  routing.locales.forEach((locale) => {
+    baseRoutes.forEach((route) => {
+      routes.push({
+        url: `${siteConfig.baseUrl}/${locale}${route}`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'weekly' as const,
+        priority: route === '' ? 1 : 0.8,
+      });
+    });
+  });
+
+  return routes;
 }

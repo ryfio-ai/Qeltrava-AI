@@ -18,10 +18,10 @@ export const FadeIn = ({ children, delay = 0, direction = 'up', className, ...pr
   }
 
   const directions = {
-    up: { y: 30, x: 0 },
-    down: { y: -30, x: 0 },
-    left: { x: 30, y: 0 },
-    right: { x: -30, y: 0 },
+    up: { y: 16, x: 0 },
+    down: { y: -16, x: 0 },
+    left: { x: 16, y: 0 },
+    right: { x: -16, y: 0 },
     none: { x: 0, y: 0 }
   };
 
@@ -29,7 +29,7 @@ export const FadeIn = ({ children, delay = 0, direction = 'up', className, ...pr
     <motion.div
       initial={{ opacity: 0, ...directions[direction] }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
       className={className}
       {...props}
