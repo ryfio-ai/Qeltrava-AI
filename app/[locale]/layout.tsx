@@ -12,6 +12,8 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/src/routing';
 import { ConsentProvider } from '@/components/ConsentProvider';
 import { CookieBanner } from '@/components/CookieBanner';
+import { AnnouncementBar } from '@/components/ui/AnnouncementBar';
+import { SocialProofTicker } from '@/components/ui/SocialProofTicker';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -77,8 +79,10 @@ export default async function RootLayout({
             </a>
             <ScrollProgress />
             <JsonLd />
+            <AnnouncementBar />
             <Header />
             <main id="main-content" className="flex-grow">{children}</main>
+            <SocialProofTicker />
             <Footer />
             <CookieBanner />
           </ConsentProvider>

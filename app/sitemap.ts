@@ -37,7 +37,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/security',
     '/accessibility',
     '/cookie-policy',
-    '/government'
+    '/government',
+    '/operating-model',
+    '/privacy',
+    '/terms',
+    '/demo',
+    // New pages — P2 redesign
+    '/industries/manufacturing',
+    '/industries/retail',
+    '/industries/education',
+    '/solutions/saas-launch',
+    '/solutions/ai-readiness',
+    '/solutions/data-foundation',
+    '/solutions/security-hardening',
+    '/resources',
+    '/team',
+    '/customers',
+    '/glossary',
+    '/press',
   ];
 
   const routes: MetadataRoute.Sitemap = [];

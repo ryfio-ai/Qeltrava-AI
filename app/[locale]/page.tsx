@@ -10,6 +10,9 @@ import { MiniSparkline } from '@/components/ui/MiniSparkline';
 import { TerminalWindow } from '@/components/ui/TerminalWindow';
 import { ClientLogos } from '@/components/ClientLogos';
 import { RoiCalculator } from '@/components/ui/RoiCalculator';
+import { TechTicker } from '@/components/ui/TechTicker';
+import { IndustryShowcase } from '@/components/ui/IndustryShowcase';
+import { PartnerStrip } from '@/components/ui/PartnerStrip';
 import dynamic from 'next/dynamic';
 
 const NetworkBackground = dynamic(() => import('@/components/backgrounds/NetworkBackground').then(mod => mod.NetworkBackground), { ssr: false });
@@ -107,6 +110,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Tech Stack Ticker */}
+      <TechTicker />
+
       {/* Metrics Band */}
       <section className="py-12 bg-white border-b border-[var(--color-border-soft)] relative overflow-hidden">
         <div 
@@ -193,52 +199,74 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Differentiators */}
-      <section className="py-24 bg-white border-t border-[var(--color-border-soft)] relative overflow-hidden">
-        <NetworkBackground density="dense" className="opacity-50" />
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-[var(--color-primary-dark)] mb-6">Why Qeltrava AI?</h2>
-              <p className="text-lg text-[var(--color-text-main)] mb-8">
-                We are strategic partners, not coding vendors. We price based on business value, protect margin through fixed scopes, and engineer platforms that scale securely.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-bold text-[var(--color-primary-dark)] mb-2">AI-Native Architecture</h4>
-                  <p className="text-sm text-[var(--color-text-main)]">Built from day one to support modern LLMs, agents, and vector databases.</p>
-                </div>
-                <div>
-                  <h4 className="font-bold text-[var(--color-primary-dark)] mb-2">Outcome-Based Delivery</h4>
-                  <p className="text-sm text-[var(--color-text-main)]">We sell measurable ROI and business capabilities, not hourly coding capacity.</p>
-                </div>
-                <div>
-                  <h4 className="font-bold text-[var(--color-primary-dark)] mb-2">Enterprise Security</h4>
-                  <p className="text-sm text-[var(--color-text-main)]">Compliance, RBAC, and secure integrations are standard, not afterthoughts.</p>
-                </div>
-                <div>
-                  <h4 className="font-bold text-[var(--color-primary-dark)] mb-2">Long-Term Retainers</h4>
-                  <p className="text-sm text-[var(--color-text-main)]">Dedicated engineering pods for continuous product iteration and support.</p>
-                </div>
+      {/* Differentiators — Upgraded: Proof with Specificity */}
+      <section className="py-24 bg-[var(--color-bg-light)] border-t border-[var(--color-border-soft)]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block font-mono">
+              Why Qeltrava AI
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">
+              Not just AI. AI-native engineering — built for real work.
+            </h2>
+            <p className="text-lg text-[var(--color-text-main)] mt-4">
+              Here is the difference between us and a generic development agency.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Col 1 */}
+            <div className="bg-white border border-[var(--color-border-soft)] rounded-2xl p-7 flex flex-col gap-4 hover:border-[var(--color-accent)]/40 transition-all group">
+              <div className="w-10 h-10 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center">
+                <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" /></svg>
               </div>
+              <h3 className="text-base font-bold text-[var(--color-primary-dark)]">AI-Native Architecture</h3>
+              <p className="text-sm text-[var(--color-text-main)] leading-relaxed">
+                We design vector DB schemas, agent orchestration boundaries, and LLM fallback chains before we write a line of application code.
+              </p>
             </div>
-            <div className="bg-[var(--color-bg-light)] p-8 md:p-12 rounded-3xl flex flex-col justify-center items-center relative overflow-hidden">
-               <TerminalWindow className="w-full text-left">
-                  <div><span className="text-[var(--color-accent)]">➜</span> <span className="text-[#27c93f]">~/qeltrava-os</span> git:(main) ✗ ./deploy-agent --target=sales-workflow</div>
-                  <div className="mt-2 text-gray-400">[info] Initializing Vector DB connection...</div>
-                  <div className="text-gray-400">[info] Loading context: 1,450 documents...</div>
-                  <div className="text-[#ffbd2e] mt-2">[warn] Skipping malformed schema in chunk 12...</div>
-                  <div className="text-[#27c93f] mt-2 font-bold">✔ Agent deployed successfully.</div>
-                  <div className="text-gray-400">Endpoint: https://api.qeltrava.example/v1/agents/sls-902</div>
-                  <div className="mt-4 animate-pulse">_</div>
-               </TerminalWindow>
-               <p className="mt-3 text-xs text-[var(--color-text-main)] opacity-70 italic text-center">
-                 Illustrative example: Deploying an AI sales agent via the CLI tool.
-               </p>
+
+            {/* Col 2 */}
+            <div className="bg-white border border-[var(--color-border-soft)] rounded-2xl p-7 flex flex-col gap-4 hover:border-[var(--color-accent)]/40 transition-all group">
+              <div className="w-10 h-10 rounded-xl bg-[var(--color-success)]/10 flex items-center justify-center">
+                <svg className="w-5 h-5 text-[var(--color-success)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+              </div>
+              <h3 className="text-base font-bold text-[var(--color-primary-dark)]">Outcome-Based Delivery</h3>
+              <p className="text-sm text-[var(--color-text-main)] leading-relaxed">
+                Our contracts tie milestones to measurable deliverables — not hours billed. Fixed scope. Fixed accountability.
+              </p>
+            </div>
+
+            {/* Col 3 */}
+            <div className="bg-white border border-[var(--color-border-soft)] rounded-2xl p-7 flex flex-col gap-4 hover:border-[var(--color-accent)]/40 transition-all group">
+              <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center">
+                <svg className="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+              </div>
+              <h3 className="text-base font-bold text-[var(--color-primary-dark)]">Enterprise Security</h3>
+              <p className="text-sm text-[var(--color-text-main)] leading-relaxed">
+                RBAC, secrets management (HashiCorp Vault), dependency scanning (Snyk), and zero-trust network architecture are defaults, not add-ons.
+              </p>
+            </div>
+
+            {/* Col 4 */}
+            <div className="bg-white border border-[var(--color-border-soft)] rounded-2xl p-7 flex flex-col gap-4 hover:border-[var(--color-accent)]/40 transition-all group">
+              <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
+                <svg className="w-5 h-5 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              </div>
+              <h3 className="text-base font-bold text-[var(--color-primary-dark)]">Long-Term Partnership</h3>
+              <p className="text-sm text-[var(--color-text-main)] leading-relaxed">
+                Our retainer pods become embedded in your engineering organization. We own delivery, you own the code.
+              </p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Industry Showcase — Tabbed per vertical */}
+      <IndustryShowcase />
+
+      {/* Partner / Recognition Strip */}
+      <PartnerStrip />
 
       {/* Delivery OS / Process */}
       <section className="py-24 bg-[var(--color-primary-dark)] text-white">
