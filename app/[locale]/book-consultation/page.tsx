@@ -56,7 +56,7 @@ export default function BookConsultationPage() {
                 />
                 <Script 
                   src="https://assets.calendly.com/assets/external/widget.js" 
-                  strategy="lazyOnload"
+                  strategy="afterInteractive"
                 />
               </div>
             </div>
