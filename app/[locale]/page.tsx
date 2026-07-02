@@ -9,6 +9,7 @@ import { CountUpMetric } from '@/components/ui/CountUpMetric';
 import { MiniSparkline } from '@/components/ui/MiniSparkline';
 import { TerminalWindow } from '@/components/ui/TerminalWindow';
 import { ClientLogos } from '@/components/ClientLogos';
+import { RoiCalculator } from '@/components/ui/RoiCalculator';
 import dynamic from 'next/dynamic';
 
 const NetworkBackground = dynamic(() => import('@/components/backgrounds/NetworkBackground').then(mod => mod.NetworkBackground), { ssr: false });
@@ -92,6 +93,14 @@ export default function HomePage() {
                 <Button href="/solutions" variant="outline" className="text-lg px-8 py-4">
                   View Solutions
                 </Button>
+              </div>
+              <div className="mt-6 flex justify-start">
+                <Link 
+                  href="/quiz" 
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:underline"
+                >
+                  <span>Not sure where to start? → Take the 2-minute assessment</span>
+                </Link>
               </div>
             </FadeIn>
           </div>
@@ -289,6 +298,26 @@ export default function HomePage() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ROI Calculator Section */}
+      <section className="py-24 bg-[var(--color-bg-light)] border-t border-[var(--color-border-soft)] relative overflow-hidden select-none">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block">
+            ROI Projection
+          </span>
+          <h2 className="text-4xl font-bold text-[var(--color-primary-dark)]">
+            Estimate Your Process Automation Savings
+          </h2>
+          <p className="text-lg text-[var(--color-text-main)] max-w-2xl mx-auto mt-4 leading-relaxed">
+            See how much operational overhead can be recaptured by deploying intelligent software and automated task pipelines.
+          </p>
+        </div>
+        <div className="max-w-7xl mx-auto px-6">
+          <FadeIn direction="up">
+            <RoiCalculator />
+          </FadeIn>
         </div>
       </section>
 

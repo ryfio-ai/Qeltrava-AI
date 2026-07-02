@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/about',
     '/careers',
+    '/quiz',
+    '/roi-calculator',
     '/services',
     '/services/ai-automation',
     '/services/cloud-devops',

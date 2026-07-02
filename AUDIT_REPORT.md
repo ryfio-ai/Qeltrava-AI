@@ -1,21 +1,27 @@
 # Website Localization & Compliance Audit Report
 
-**Audit Timestamp:** 2026-07-02T09:40:19.817Z
-**Total Pages Crawled:** 186 (6 Locales x 31 Routes)
-**Compliance Status:** 🏆 FULLY COMPLIANT
+**Audit Timestamp:** 2026-07-02T10:17:30.325Z
+**Total Pages Crawled:** 198 (6 Locales x 33 Routes)
+**Compliance Status:** ⚠️ NON-COMPLIANT ISSUES DETECTED
 
 ## Executive Summary
 
 | Check Category | Target Metrics | Status |
 | --- | --- | --- |
-| Status Codes | all 186 page responses return 200 OK | ✅ PASS |
-| Brand Integrity | 0 occurrences of deprecated brand name "Quantra" | ✅ PASS |
-| Layout Compliance | Reverted body top padding to pt-20 on all pages | ✅ PASS |
-| RTL Layout Integrity | dir="rtl" applied on html tag for all Arabic pages | ✅ PASS |
-| Telemetry Status Bar | Telemetry panel completely removed from Footer | ✅ PASS |
-| Header Navigation | "/dashboard" route removed from header navigation links | ✅ PASS |
-| Localization Verification | Verify correct translations for header links across locales | ✅ PASS |
-| Cookie Consent Manager | LocalStorage variables matching user consent choice | ✅ PASS |
+| Status Codes | all 186 page responses return 200 OK | ❌ FAIL |
+| Brand Integrity | 0 occurrences of deprecated brand name "Quantra" | ❌ FAIL |
+| Layout Compliance | Reverted body top padding to pt-20 on all pages | ❌ FAIL |
+| RTL Layout Integrity | dir="rtl" applied on html tag for all Arabic pages | ❌ FAIL |
+| Telemetry Status Bar | Telemetry panel completely removed from Footer | ❌ FAIL |
+| Header Navigation | "/dashboard" route removed from header navigation links | ❌ FAIL |
+| Localization Verification | Verify correct translations for header links across locales | ❌ FAIL |
+| Cookie Consent Manager | LocalStorage variables matching user consent choice | ❌ FAIL |
+
+### Cookie Consent Banner Issues
+- ❌ Cookie verification script error: page.goto: net::ERR_ABORTED at http://localhost:3000/en
+Call log:
+[2m  - navigating to "http://localhost:3000/en", waiting until "load"[22m
+
 
 ## Detailed Page Crawl Log
 
@@ -52,6 +58,8 @@
 | en | /privacy | `/en/privacy` | 🟢 PASS | None |
 | en | /terms | `/en/terms` | 🟢 PASS | None |
 | en | /demo | `/en/demo` | 🟢 PASS | None |
+| en | /quiz | `/en/quiz` | 🟢 PASS | None |
+| en | /roi-calculator | `/en/roi-calculator` | 🟢 PASS | None |
 | es | / | `/es` | 🟢 PASS | None |
 | es | /about | `/es/about` | 🟢 PASS | None |
 | es | /services | `/es/services` | 🟢 PASS | None |
@@ -83,8 +91,13 @@
 | es | /privacy | `/es/privacy` | 🟢 PASS | None |
 | es | /terms | `/es/terms` | 🟢 PASS | None |
 | es | /demo | `/es/demo` | 🟢 PASS | None |
+| es | /quiz | `/es/quiz` | 🟢 PASS | None |
+| es | /roi-calculator | `/es/roi-calculator` | 🟢 PASS | None |
 | de | / | `/de` | 🟢 PASS | None |
-| de | /about | `/de/about` | 🟢 PASS | None |
+| de | /about | `/de/about` | 🔴 FAIL | Execution error: page.goto: net::ERR_ABORTED at http://localhost:3000/de/about
+Call log:
+[2m  - navigating to "http://localhost:3000/de/about", waiting until "load"[22m
+ |
 | de | /services | `/de/services` | 🟢 PASS | None |
 | de | /services/ai-automation | `/de/services/ai-automation` | 🟢 PASS | None |
 | de | /services/cloud-devops | `/de/services/cloud-devops` | 🟢 PASS | None |
@@ -114,6 +127,8 @@
 | de | /privacy | `/de/privacy` | 🟢 PASS | None |
 | de | /terms | `/de/terms` | 🟢 PASS | None |
 | de | /demo | `/de/demo` | 🟢 PASS | None |
+| de | /quiz | `/de/quiz` | 🟢 PASS | None |
+| de | /roi-calculator | `/de/roi-calculator` | 🟢 PASS | None |
 | fr | / | `/fr` | 🟢 PASS | None |
 | fr | /about | `/fr/about` | 🟢 PASS | None |
 | fr | /services | `/fr/services` | 🟢 PASS | None |
@@ -145,13 +160,15 @@
 | fr | /privacy | `/fr/privacy` | 🟢 PASS | None |
 | fr | /terms | `/fr/terms` | 🟢 PASS | None |
 | fr | /demo | `/fr/demo` | 🟢 PASS | None |
+| fr | /quiz | `/fr/quiz` | 🟢 PASS | None |
+| fr | /roi-calculator | `/fr/roi-calculator` | 🟢 PASS | None |
 | pt-BR | / | `/pt-BR` | 🟢 PASS | None |
 | pt-BR | /about | `/pt-BR/about` | 🟢 PASS | None |
 | pt-BR | /services | `/pt-BR/services` | 🟢 PASS | None |
 | pt-BR | /services/ai-automation | `/pt-BR/services/ai-automation` | 🟢 PASS | None |
 | pt-BR | /services/cloud-devops | `/pt-BR/services/cloud-devops` | 🟢 PASS | None |
 | pt-BR | /services/cybersecurity | `/pt-BR/services/cybersecurity` | 🟢 PASS | None |
-| pt-BR | /services/data-analytics | `/pt-BR/services/data-analytics` | 🟢 PASS | None |
+| pt-BR | /services/data-analytics | `/pt-BR/services/data-analytics` | 🔴 FAIL | Invalid status code: 500 (expected 200) |
 | pt-BR | /services/product-engineering | `/pt-BR/services/product-engineering` | 🟢 PASS | None |
 | pt-BR | /services/saas-development | `/pt-BR/services/saas-development` | 🟢 PASS | None |
 | pt-BR | /industries | `/pt-BR/industries` | 🟢 PASS | None |
@@ -176,6 +193,8 @@
 | pt-BR | /privacy | `/pt-BR/privacy` | 🟢 PASS | None |
 | pt-BR | /terms | `/pt-BR/terms` | 🟢 PASS | None |
 | pt-BR | /demo | `/pt-BR/demo` | 🟢 PASS | None |
+| pt-BR | /quiz | `/pt-BR/quiz` | 🟢 PASS | None |
+| pt-BR | /roi-calculator | `/pt-BR/roi-calculator` | 🟢 PASS | None |
 | ar | / | `/ar` | 🟢 PASS | None |
 | ar | /about | `/ar/about` | 🟢 PASS | None |
 | ar | /services | `/ar/services` | 🟢 PASS | None |
@@ -207,3 +226,5 @@
 | ar | /privacy | `/ar/privacy` | 🟢 PASS | None |
 | ar | /terms | `/ar/terms` | 🟢 PASS | None |
 | ar | /demo | `/ar/demo` | 🟢 PASS | None |
+| ar | /quiz | `/ar/quiz` | 🟢 PASS | None |
+| ar | /roi-calculator | `/ar/roi-calculator` | 🟢 PASS | None |

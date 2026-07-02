@@ -35,7 +35,9 @@ const baseRoutes = [
   '/operating-model',
   '/privacy',
   '/terms',
-  '/demo'
+  '/demo',
+  '/quiz',
+  '/roi-calculator'
 ];
 
 // Expected translation of header 'About' link per locale
@@ -68,7 +70,7 @@ interface AuditResult {
 test.describe('Programmatic Website Localization & Compliance Crawl', () => {
   
   test('crawl all 186 localized pages and generate AUDIT_REPORT.md', async ({ browser }) => {
-    test.setTimeout(300000);
+    test.setTimeout(600000); // 10 minutes timeout
     const results: AuditResult[] = [];
     let totalErrors = 0;
 
@@ -206,28 +208,30 @@ test.describe('Programmatic Website Localization & Compliance Crawl', () => {
 
     // 8. Cookie Consent Analytics Blocking Verification
     const cookieConsentErrors: string[] = [];
+    const cookieContext = await browser.newContext();
+    const cookiePage = await cookieContext.newPage();
     try {
       console.log('Testing Cookie Consent banner storage behavior...');
-      await page.goto('/en');
-      await page.waitForTimeout(500);
+      await cookiePage.goto('/en');
+      await cookiePage.waitForTimeout(500);
 
       // Verify localStorage is empty initially
-      let initialConsent = await page.evaluate(() => localStorage.getItem('qeltrava_cookie_consent'));
+      let initialConsent = await cookiePage.evaluate(() => localStorage.getItem('qeltrava_cookie_consent'));
       if (initialConsent !== null) {
         // Clear it to do a fresh test
-        await page.evaluate(() => localStorage.removeItem('qeltrava_cookie_consent'));
+        await cookiePage.evaluate(() => localStorage.removeItem('qeltrava_cookie_consent'));
       }
 
       // Reload
-      await page.goto('/en');
-      await page.waitForTimeout(500);
+      await cookiePage.goto('/en');
+      await cookiePage.waitForTimeout(500);
 
       // Decline All
-      const declineButton = page.locator('button:has-text("Decline All")');
+      const declineButton = cookiePage.locator('button:has-text("Decline All")');
       if (await declineButton.count() > 0) {
         await declineButton.click();
-        await page.waitForTimeout(200);
-        const consentVal = await page.evaluate(() => localStorage.getItem('qeltrava_cookie_consent'));
+        await cookiePage.waitForTimeout(200);
+        const consentVal = await cookiePage.evaluate(() => localStorage.getItem('qeltrava_cookie_consent'));
         if (consentVal !== 'false') {
           cookieConsentErrors.push(`Declining cookie banner did not store 'false' in localStorage (found: ${consentVal})`);
         }
@@ -236,16 +240,16 @@ test.describe('Programmatic Website Localization & Compliance Crawl', () => {
       }
 
       // Reset and reload
-      await page.evaluate(() => localStorage.removeItem('qeltrava_cookie_consent'));
-      await page.goto('/en');
-      await page.waitForTimeout(500);
+      await cookiePage.evaluate(() => localStorage.removeItem('qeltrava_cookie_consent'));
+      await cookiePage.goto('/en');
+      await cookiePage.waitForTimeout(500);
 
       // Accept All
-      const acceptButton = page.locator('button:has-text("Accept All")');
+      const acceptButton = cookiePage.locator('button:has-text("Accept All")');
       if (await acceptButton.count() > 0) {
         await acceptButton.click();
-        await page.waitForTimeout(200);
-        const consentVal = await page.evaluate(() => localStorage.getItem('qeltrava_cookie_consent'));
+        await cookiePage.waitForTimeout(200);
+        const consentVal = await cookiePage.evaluate(() => localStorage.getItem('qeltrava_cookie_consent'));
         if (consentVal !== 'true') {
           cookieConsentErrors.push(`Accepting cookie banner did not store 'true' in localStorage (found: ${consentVal})`);
         }
@@ -255,6 +259,9 @@ test.describe('Programmatic Website Localization & Compliance Crawl', () => {
 
     } catch (e: any) {
       cookieConsentErrors.push(`Cookie verification script error: ${e.message}`);
+    } finally {
+      await cookiePage.close();
+      await cookieContext.close();
     }
 
     // Write AUDIT_REPORT.md
