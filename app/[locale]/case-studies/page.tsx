@@ -3,9 +3,8 @@ import { FadeIn } from '@/components/animations/FadeIn';
 import { Button } from '@/components/Button';
 import { Metadata } from 'next';
 import { siteConfig } from '@/lib/site-config';
-import { ArchitectureDiagram } from '@/components/ui/ArchitectureDiagram';
-import { ResultsChart } from '@/components/ui/ResultsChart';
 import { TechStackBadgeRow } from '@/components/ui/TechStackBadgeRow';
+import { caseStudiesData } from '@/lib/case-studies-data';
 
 export const metadata: Metadata = {
   title: 'Case Studies | ' + siteConfig.companyName,
@@ -13,41 +12,11 @@ export const metadata: Metadata = {
 };
 
 export default function CaseStudiesPage() {
-  const caseStudies = [
-    {
-      id: "fintech-core-modernization",
-      client: "Global Fintech Provider (Anonymized)",
-      industry: "Financial Services",
-      title: "Migrating a legacy monolithic core to a scalable microservices architecture with zero downtime.",
-      problem: "A high-growth fintech provider was experiencing critical system bottlenecks during peak trading hours. Their legacy monolithic architecture, built 8 years prior, could not scale dynamically, resulting in high infrastructure costs and unacceptably high latency during market volatility.",
-      approach: "Qeltrava AI deployed a specialized squad of Cloud and DevOps architects. We designed a transition roadmap to a Kubernetes-orchestrated microservices architecture. Using our Qeltrava Delivery OS, we implemented Infrastructure as Code (IaC) and established a parallel blue-green deployment strategy to ensure zero downtime during the migration.",
-      result: "The migration reduced core transaction latency by 45% and reduced overall cloud compute costs by 30% through dynamic auto-scaling. The client can now deploy feature updates multiple times a day instead of once a month."
-    },
-    {
-      id: "healthcare-ai-triage",
-      client: "National Healthcare Network (Anonymized)",
-      industry: "Healthcare",
-      title: "Automating patient intake and initial triage using strict HIPAA-compliant conversational AI.",
-      problem: "The healthcare network's patient support center was overwhelmed with routine scheduling, intake, and non-emergency medical inquiries, leading to 45-minute average hold times and a severe drop in patient satisfaction.",
-      approach: "We engineered a secure, HIPAA-compliant conversational AI agent integrated directly into their EHR (Electronic Health Record) system. The agent uses strict fallback mechanisms, immediately routing to human operators if uncertainty thresholds are crossed or if emergency intent is detected.",
-      result: "The AI agent now successfully resolves 68% of all incoming patient queries without human intervention. Average hold times dropped to under 2 minutes, and operational overhead at the call center was reduced by $1.2M annually."
-    },
-    {
-      id: "logistics-predictive-maintenance",
-      client: "Enterprise Supply Chain Operator",
-      industry: "Logistics",
-      title: "Implementing predictive maintenance models to reduce fleet downtime.",
-      problem: "A major logistics operator was losing millions annually to unplanned fleet vehicle breakdowns and inefficient scheduled maintenance that pulled healthy vehicles off the road unnecessarily.",
-      approach: "Our Data Analytics team aggregated raw telemetry data from over 4,000 vehicles. We engineered a machine learning pipeline that predicts mechanical failures based on engine temperature patterns, vibration telemetry, and historical maintenance logs.",
-      result: "Unplanned downtime was reduced by 38%. The predictive model correctly identifies failure risks 14 days in advance with 92% accuracy, allowing maintenance to be scheduled precisely when needed."
-    }
-  ];
-
   return (
     <main className="min-h-screen bg-[var(--color-bg-white)] pt-32 pb-24">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-5xl mx-auto px-6 md:px-12 flex flex-col gap-12">
         <FadeIn>
-          <div className="mb-16">
+          <div>
             <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Case Studies</h1>
             <p className="text-xl text-[var(--color-text-main)] leading-relaxed max-w-3xl">
               We don't build software; we engineer business outcomes. Review our recent engagements demonstrating how AI-native architecture solves complex enterprise challenges.
@@ -55,98 +24,41 @@ export default function CaseStudiesPage() {
           </div>
         </FadeIn>
 
-        <div className="space-y-16">
-          {caseStudies.map((study, index) => (
-            <FadeIn key={study.id} delay={index * 0.1}>
-              <div 
-                className="bg-white border border-[var(--color-border-soft)] rounded-2xl p-8 lg:p-12 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
-                  
-                  {/* Left Column: Metadata */}
-                  <div className="lg:w-1/3">
-                    <div className="inline-block px-3 py-1 bg-[var(--color-accent)]/10 text-[var(--color-accent)] text-sm font-semibold rounded-full mb-4">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {caseStudiesData.map((study, idx) => (
+            <FadeIn key={study.id} delay={idx * 0.1}>
+              <div className="p-8 bg-white border border-[var(--color-border-soft)] rounded-xl shadow-sm hover:shadow-md transition-shadow h-full flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-2.5 py-0.5 text-[10px] font-mono font-bold text-[var(--color-accent)] bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 rounded-full uppercase tracking-wider">
                       {study.industry}
-                    </div>
-                    <h3 className="text-sm font-bold text-[var(--color-text-main)] uppercase tracking-wider mb-2">Client</h3>
-                    <p className="font-medium text-[var(--color-primary-dark)] mb-6">{study.client}</p>
-                    <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] leading-snug mb-6">{study.title}</h2>
-                    {study.id === 'healthcare-ai-triage' && (
-                      <TechStackBadgeRow technologies={['LLM Routing', 'Vector DB', 'HIPAA API Gateway', 'React']} className="mt-4" />
-                    )}
-                    {study.id === 'logistics-predictive-maintenance' && (
-                      <TechStackBadgeRow technologies={['TensorFlow', 'IoT Telemetry Pipeline', 'Kafka', 'AWS MLOps']} className="mt-4" />
-                    )}
-                    {study.id === 'fintech-core-modernization' && (
-                      <TechStackBadgeRow technologies={['Kubernetes', 'Go Microservices', 'Terraform', 'PostgreSQL']} className="mt-4" />
-                    )}
+                    </span>
+                    <span className="text-[10px] text-[var(--color-text-main)] opacity-70">
+                      Anonymized Data
+                    </span>
                   </div>
-
-                  {/* Right Column: Content */}
-                  <div className="lg:w-2/3 space-y-8">
-                    <div>
-                      <h4 className="text-lg font-bold text-[var(--color-primary-dark)] mb-2">The Problem</h4>
-                      <p className="text-[var(--color-text-main)] leading-relaxed">{study.problem}</p>
-                    </div>
-                    
-                    {study.id === 'fintech-core-modernization' && (
-                      <div className="py-4">
-                        <ArchitectureDiagram variant="operating-model" />
-                      </div>
-                    )}
-                    {study.id === 'healthcare-ai-triage' && (
-                      <div className="py-4">
-                        <ArchitectureDiagram variant="service-pipeline" />
-                      </div>
-                    )}
-
-                    <div>
-                      <h4 className="text-lg font-bold text-[var(--color-primary-dark)] mb-2">Our Approach</h4>
-                      <p className="text-[var(--color-text-main)] leading-relaxed">{study.approach}</p>
-                    </div>
-
-                    {study.id === 'fintech-core-modernization' && (
-                      <div className="py-6 border-t border-[var(--color-border-soft)]">
-                        <h4 className="text-sm font-bold text-[var(--color-text-main)] uppercase tracking-wider mb-4">Impact Metrics</h4>
-                        <ResultsChart isIllustrative={true} data={[
-                          { label: 'Latency (ms)', before: 450, after: 240 },
-                          { label: 'Monthly Compute ($K)', before: 120, after: 84 }
-                        ]} />
-                      </div>
-                    )}
-                    
-                    {study.id === 'healthcare-ai-triage' && (
-                      <div className="py-6 border-t border-[var(--color-border-soft)]">
-                        <h4 className="text-sm font-bold text-[var(--color-text-main)] uppercase tracking-wider mb-4">Impact Metrics</h4>
-                        <ResultsChart isIllustrative={true} data={[
-                          { label: 'Avg Hold Time (min)', before: 45, after: 2 },
-                          { label: 'Automated Resolution (%)', before: 0, after: 68 }
-                        ]} />
-                      </div>
-                    )}
-
-                    {study.id === 'logistics-predictive-maintenance' && (
-                      <div className="py-6 border-t border-[var(--color-border-soft)]">
-                        <h4 className="text-sm font-bold text-[var(--color-text-main)] uppercase tracking-wider mb-4">Impact Metrics</h4>
-                        <ResultsChart isIllustrative={true} data={[
-                          { label: 'Unplanned Downtime (%)', before: 18, after: 6 },
-                          { label: 'Maintenance Cost ($M)', before: 12, after: 8 }
-                        ]} />
-                      </div>
-                    )}
-
-                    <div className="p-6 bg-[var(--color-primary-dark)] rounded-xl">
-                      <h4 className="text-lg font-bold text-white mb-2">The Result</h4>
-                      <p className="text-white/90 leading-relaxed">{study.result}</p>
-                    </div>
+                  <h3 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-3 leading-snug">
+                    {study.title}
+                  </h3>
+                  <div className="text-xs text-[var(--color-text-main)] font-semibold mb-4">
+                    Client: <span className="text-[var(--color-primary-dark)]">{study.client}</span>
                   </div>
+                  <p className="text-sm text-[var(--color-text-main)] mb-6 leading-relaxed">
+                    {study.problem.substring(0, 180)}...
+                  </p>
                   
+                  <div className="mb-6">
+                    <TechStackBadgeRow technologies={study.technologies.slice(0, 3)} />
+                  </div>
                 </div>
+
+                <Button href={`/case-studies/${study.id}`} variant="outline" className="w-full mt-auto">
+                  Read Case Study →
+                </Button>
               </div>
             </FadeIn>
           ))}
-        </div>
-
+        </section>
       </div>
     </main>
   );

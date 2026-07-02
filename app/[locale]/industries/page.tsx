@@ -5,11 +5,11 @@ import { Metadata } from 'next';
 import { siteConfig } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Industries Hub | ' + siteConfig.companyName,
+  title: 'Industries | ' + siteConfig.companyName,
   description: 'Explore the industries we serve with our AI-native engineering capabilities.',
 };
 
-export default function IndustriesHubPage() {
+export default function IndustriesPage() {
   const industries = [
     { title: 'Fintech', href: '/industries/fintech', desc: 'Secure, compliant, and highly performant financial systems.' },
     { title: 'Healthcare', href: '/industries/healthcare', desc: 'HIPAA compliant architectures and patient data systems.' },

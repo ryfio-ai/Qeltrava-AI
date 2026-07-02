@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import { Link } from '@/src/routing';
 import { Button } from '@/components/Button';
 import { siteConfig } from '@/lib/site-config';
@@ -6,14 +8,61 @@ import { FadeIn } from '@/components/animations/FadeIn';
 import { CountUpMetric } from '@/components/ui/CountUpMetric';
 import { MiniSparkline } from '@/components/ui/MiniSparkline';
 import { TerminalWindow } from '@/components/ui/TerminalWindow';
-import { DotGrid } from '@/components/backgrounds/DotGrid';
 import { ClientLogos } from '@/components/ClientLogos';
 import dynamic from 'next/dynamic';
 
-const NetworkBackground = dynamic(() => import('@/components/backgrounds/NetworkBackground').then(mod => mod.NetworkBackground));
-const CoreOffers = dynamic(() => import('@/components/CoreOffers').then(mod => mod.CoreOffers));
+const NetworkBackground = dynamic(() => import('@/components/backgrounds/NetworkBackground').then(mod => mod.NetworkBackground), { ssr: false });
 
 export default function HomePage() {
+  const [activeStage, setActiveStage] = useState(0);
+
+  const stages = [
+    {
+      number: "01",
+      name: "Diagnose & Architect",
+      desc: "We map your current operational and technical landscape, identify where AI and modern architecture create measurable ROI, and produce a 90-day implementation roadmap. No code written until the problem is fully understood.",
+      deliverables: [
+        "Workflow analysis report",
+        "ROI hypothesis matrix",
+        "Architecture recommendation"
+      ],
+      timeline: "1–2 weeks"
+    },
+    {
+      number: "02",
+      name: "Build & Validate",
+      desc: "Engineering pods build in 2-week sprints — modular, tested, and documented from day one. Every sprint ends with a working demo, not a status update.",
+      deliverables: [
+        "Sprint-by-sprint working software",
+        "Automated test suite",
+        "Security review checklist"
+      ],
+      timeline: "4–16 weeks"
+    },
+    {
+      number: "03",
+      name: "Deploy",
+      desc: "Staged rollout (blue-green where applicable), infrastructure-as-code, runbook documentation, and a 30-day hypercare window with the build team.",
+      deliverables: [
+        "Production deployment",
+        "Runbook",
+        "Post-launch monitoring setup"
+      ],
+      timeline: "1–2 weeks"
+    },
+    {
+      number: "04",
+      name: "Optimize (Retainer)",
+      desc: "Dedicated pods for continuous iteration, model monitoring, cloud cost optimization, and security patching — month-to-month or annual contracts.",
+      deliverables: [
+        "Monthly health reports",
+        "Feature velocity",
+        "Proactive issue detection"
+      ],
+      timeline: "Ongoing"
+    }
+  ];
+
   return (
     <main className="min-h-screen">
       
@@ -28,8 +77,11 @@ export default function HomePage() {
               </h1>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="text-xl md:text-2xl text-white/80 mb-10 leading-relaxed max-w-2xl">
+              <p className="text-xl md:text-2xl text-white/80 mb-4 leading-relaxed max-w-2xl">
                 {siteConfig.companyName} helps startups, enterprises, and public-sector organizations design, build, and scale intelligent software systems — from AI automation and SaaS platforms to cloud infrastructure, data systems, and secure enterprise integrations.
+              </p>
+              <p className="text-sm font-medium text-[var(--color-accent)] tracking-wider mb-10 opacity-90">
+                Trusted by teams building eDrift, Thiranoli, and Tamizh Tech
               </p>
             </FadeIn>
             <FadeIn delay={0.3}>
@@ -48,34 +100,53 @@ export default function HomePage() {
 
       {/* Metrics Band */}
       <section className="py-12 bg-white border-b border-[var(--color-border-soft)] relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(to bottom, transparent 49%, var(--color-accent) 50%, transparent 51%)', backgroundSize: '100% 20px', opacity: 0.05 }} />
+        <div 
+          className="absolute inset-0 pointer-events-none" 
+          style={{ 
+            backgroundImage: 'linear-gradient(to right, rgba(99, 102, 241, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(99, 102, 241, 0.03) 1px, transparent 1px)',
+            backgroundSize: '24px 24px',
+            opacity: 0.8
+          }} 
+        />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-[var(--color-border-soft)]">
             <FadeIn delay={0.1}>
-              <div className="text-sm font-medium text-[var(--color-text-main)] uppercase tracking-wider mb-2">Systems Deployed</div>
+              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-2">Systems Deployed</div>
               <div className="text-4xl font-bold text-[var(--color-primary-dark)] flex items-center justify-center gap-4">
                 <CountUpMetric value={150} suffix="+" duration={2.5} />
                 <MiniSparkline width={40} height={20} data={[2, 4, 8, 15, 25, 40, 70, 150]} />
               </div>
+              <p className="text-xs text-[var(--color-text-main)] mt-2 max-w-[200px] mx-auto opacity-80">
+                150+ custom applications and integrations launched globally.
+              </p>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <div className="text-sm font-medium text-[var(--color-text-main)] uppercase tracking-wider mb-2">ROI Realized</div>
+              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-2">ROI Realized</div>
               <div className="text-4xl font-bold text-[var(--color-primary-dark)] flex items-center justify-center gap-4">
                 <CountUpMetric value={320} suffix="%" duration={2.5} />
                 <MiniSparkline width={40} height={20} data={[0, 50, 100, 150, 200, 250, 280, 320]} />
               </div>
+              <p className="text-xs text-[var(--color-text-main)] mt-2 max-w-[200px] mx-auto opacity-80">
+                320% average client ROI realized within 12 months.
+              </p>
             </FadeIn>
             <FadeIn delay={0.3}>
-              <div className="text-sm font-medium text-[var(--color-text-main)] uppercase tracking-wider mb-2">Uptime Target</div>
+              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-2">Uptime Target</div>
               <div className="text-4xl font-bold text-[var(--color-primary-dark)]">
                 <CountUpMetric value={99.99} suffix="%" duration={2.5} />
               </div>
+              <p className="text-xs text-[var(--color-text-main)] mt-2 max-w-[200px] mx-auto opacity-80">
+                99.99% operational uptime maintained across production nodes.
+              </p>
             </FadeIn>
             <FadeIn delay={0.4}>
-              <div className="text-sm font-medium text-[var(--color-text-main)] uppercase tracking-wider mb-2">Global Clients</div>
+              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-2">Global Clients</div>
               <div className="text-4xl font-bold text-[var(--color-primary-dark)]">
                 <CountUpMetric value={45} suffix="+" duration={2.5} />
               </div>
+              <p className="text-xs text-[var(--color-text-main)] mt-2 max-w-[200px] mx-auto opacity-80">
+                45+ active enterprise partners scaling with our technology.
+              </p>
             </FadeIn>
           </div>
         </div>
@@ -97,11 +168,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Core Offers */}
-      <div className="relative">
-        <DotGrid opacity={2} />
-        <CoreOffers />
-      </div>
+      {/* Services Hub Link Section */}
+      <section className="py-24 bg-[var(--color-bg-light)] border-b border-[var(--color-border-soft)] relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(circle at center, var(--color-text-main) 1px, transparent 1px)', backgroundSize: '24px 24px', opacity: 0.02 }} aria-hidden="true" />
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center">
+          <FadeIn direction="up">
+            <Link 
+              href="/services" 
+              className="inline-flex items-center gap-4 text-2xl md:text-3xl font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-accent)] transition-colors group"
+            >
+              <span>Six engineering practices. One delivery system.</span>
+              <span className="transform group-hover:translate-x-2 transition-transform">→</span>
+            </Link>
+          </FadeIn>
+        </div>
+      </section>
 
       {/* Differentiators */}
       <section className="py-24 bg-white border-t border-[var(--color-border-soft)] relative overflow-hidden">
@@ -152,30 +233,101 @@ export default function HomePage() {
 
       {/* Delivery OS / Process */}
       <section className="py-24 bg-[var(--color-primary-dark)] text-white">
-         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Qeltrava Delivery OS</h2>
-            <p className="text-lg text-white/70 max-w-2xl mx-auto">Our internal and external system for flawless project delivery.</p>
-         </div>
-         <div className="max-w-5xl mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-              <div className="p-6 border border-white/10 rounded-xl bg-white/5">
-                <div className="text-3xl font-bold text-[var(--color-success)] mb-2">01</div>
-                <h4 className="font-semibold">Diagnose & Architect</h4>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center">
+          <h2 className="text-4xl font-bold mb-4">Qeltrava Delivery OS</h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+            Our systematic, human-accountable delivery model designed for engineering success.
+          </p>
+        </div>
+        
+        <div className="max-w-5xl mx-auto px-6">
+          {/* Interactive tabs */}
+          <div className="flex flex-wrap justify-center gap-2 mb-10">
+            {stages.map((stage, idx) => (
+              <button
+                key={stage.number}
+                onClick={() => setActiveStage(idx)}
+                className={`px-5 py-3 rounded-full text-sm font-semibold border transition-all ${
+                  activeStage === idx
+                    ? 'bg-white text-[var(--color-primary-dark)] border-white shadow-lg'
+                    : 'bg-white/5 text-white/70 border-white/10 hover:bg-white/10'
+                }`}
+              >
+                {stage.number} {stage.name}
+              </button>
+            ))}
+          </div>
+
+          {/* Active Tab Panel */}
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl backdrop-blur-sm min-h-[300px] flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-xs font-bold font-mono text-[var(--color-accent)] bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 px-3 py-1 rounded-full">
+                  Stage {stages[activeStage].number}
+                </span>
+                <span className="text-sm font-medium text-white/50">
+                  Timeline: {stages[activeStage].timeline}
+                </span>
               </div>
-              <div className="p-6 border border-white/10 rounded-xl bg-white/5">
-                <div className="text-3xl font-bold text-[var(--color-success)] mb-2">02</div>
-                <h4 className="font-semibold">Build & Validate</h4>
-              </div>
-              <div className="p-6 border border-white/10 rounded-xl bg-white/5">
-                <div className="text-3xl font-bold text-[var(--color-success)] mb-2">03</div>
-                <h4 className="font-semibold">Deploy</h4>
-              </div>
-              <div className="p-6 border border-white/10 rounded-xl bg-white/5">
-                <div className="text-3xl font-bold text-[var(--color-success)] mb-2">04</div>
-                <h4 className="font-semibold">Optimize (Retainer)</h4>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                {stages[activeStage].name}
+              </h3>
+              <p className="text-lg text-white/80 leading-relaxed max-w-3xl mb-8">
+                {stages[activeStage].desc}
+              </p>
+            </div>
+            
+            <div className="border-t border-white/10 pt-6">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-white/40 mb-4">Key Deliverables</h4>
+              <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {stages[activeStage].deliverables.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-sm text-white/80 font-medium">
+                    <span className="text-[var(--color-accent)] text-lg leading-none">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-24 bg-white border-t border-[var(--color-border-soft)] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block">
+              Testimonials
+            </span>
+            <h2 className="text-4xl font-bold text-[var(--color-primary-dark)]">
+              What Our Clients Say
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* {{TESTIMONIAL_PENDING — request from eDrift}} */}
+            <div className="bg-[var(--color-bg-light)] p-8 rounded-2xl border border-[var(--color-border-soft)] relative">
+              <div className="text-gray-400 text-6xl absolute top-4 right-6 font-serif select-none pointer-events-none">“</div>
+              <p className="text-lg text-[var(--color-text-main)] italic mb-6 relative z-10">
+                "The engineering velocity and architectural precision delivered by their team was outstanding. They modernized our core platforms without disrupting daily operations."
+              </p>
+              <div>
+                <h4 className="font-bold text-[var(--color-primary-dark)]">Engineering Director</h4>
+                <p className="text-sm text-[var(--color-text-main)]">Smart EV & Fleet Management Platform</p>
               </div>
             </div>
-         </div>
+            {/* {{TESTIMONIAL_PENDING — request from Thiranoli}} */}
+            <div className="bg-[var(--color-bg-light)] p-8 rounded-2xl border border-[var(--color-border-soft)] relative">
+              <div className="text-gray-400 text-6xl absolute top-4 right-6 font-serif select-none pointer-events-none">“</div>
+              <p className="text-lg text-[var(--color-text-main)] italic mb-6 relative z-10">
+                "Building our educational LMS and delivery network with Qeltrava was the best technical decision we made. Flawless code quality and robust scalability."
+              </p>
+              <div>
+                <h4 className="font-bold text-[var(--color-primary-dark)]">Product Architect</h4>
+                <p className="text-sm text-[var(--color-text-main)]">EdTech & Digital Academy Network</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
     </main>

@@ -21,6 +21,7 @@ export const Header = () => {
     { label: t('OperatingModel'), href: '/operating-model' },
     { label: t('Insights'), href: '/insights' },
     { label: t('About'), href: '/about' },
+    { label: t('Careers'), href: '/careers' },
   ];
 
   return (

@@ -4,15 +4,15 @@ import { siteConfig } from '@/lib/site-config';
 import { FadeIn } from '@/components/animations/FadeIn';
 import { LeadForm } from '@/components/LeadForm';
 import { VisualBenefitsOfConsulting } from '@/components/ui/VisualBenefitsOfConsulting';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'Book a Consultation | ' + siteConfig.companyName,
+  title: 'Book an AI Strategy Call | ' + siteConfig.companyName,
   description: 'Schedule an AI strategy call with our engineering partners.',
 };
 
 export default function BookConsultationPage() {
-  // NEXT_PUBLIC_BOOKING_URL should be set to your Cal.com or Calendly URL in Vercel.
-  const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || 'https://calendly.com/ryfioai/enquiry-qeltrava-ai';
+  const bookingUrl = 'https://calendly.com/ryfioai/enquiry-qeltrava-ai';
 
   return (
     <main className="min-h-screen bg-[var(--color-bg-white)] pt-32 pb-24">
@@ -31,21 +31,33 @@ export default function BookConsultationPage() {
             <div className="bg-white p-8 rounded-2xl border border-[var(--color-border-soft)] shadow-sm">
               <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-6">1. Tell us about your organization</h2>
               <LeadForm />
+              <p className="mt-4 text-[11px] text-[var(--color-text-main)] opacity-70 leading-relaxed">
+                Note: Initial scoping discussions and subsequent estimations are illustrative benchmarks based on standard engineering complexity, and do not constitute binding contract offers. Official pricing is subject to architectural review and final contract agreements.
+              </p>
             </div>
           </FadeIn>
 
           <FadeIn direction="left" delay={0.2}>
             <div className="bg-white p-8 rounded-2xl border border-[var(--color-border-soft)] shadow-sm min-h-[600px] flex flex-col">
-              <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-6">2. Select a Time</h2>
-              <div className="flex-grow w-full rounded-xl overflow-hidden border border-[var(--color-border-soft)]">
-                <iframe 
-                  src={bookingUrl}
-                  width="100%" 
-                  height="100%" 
-                  frameBorder="0" 
-                  title="Schedule a consultation"
-                  className="min-h-[500px]"
-                ></iframe>
+              <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-4">2. Select a Time</h2>
+              <div className="mb-6 bg-[var(--color-bg-light)] p-4 rounded-xl border border-[var(--color-border-soft)] text-sm text-[var(--color-text-main)]">
+                <span className="font-semibold text-[var(--color-primary-dark)] block mb-2">What to expect:</span>
+                <ul className="space-y-1.5 list-disc pl-5">
+                  <li>30-minute call</li>
+                  <li>Senior engineer on the call, not a sales rep</li>
+                  <li>Written summary of recommendations within 48 hours</li>
+                </ul>
+              </div>
+              <div className="flex-grow w-full rounded-xl overflow-hidden min-h-[650px] relative">
+                <div 
+                  className="calendly-inline-widget w-full h-full" 
+                  data-url={bookingUrl}
+                  style={{ minWidth: '320px', height: '650px' }}
+                />
+                <Script 
+                  src="https://assets.calendly.com/assets/external/widget.js" 
+                  strategy="lazyOnload"
+                />
               </div>
             </div>
           </FadeIn>

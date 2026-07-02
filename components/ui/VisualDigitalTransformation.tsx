@@ -250,6 +250,10 @@ export const VisualDigitalTransformation = () => {
 
       </div>
 
+      <div className="mt-4 text-[10px] uppercase tracking-wider text-[var(--color-text-main)] opacity-70 bg-[var(--color-bg-light)] px-3 py-1 rounded border border-[var(--color-border-soft)]">
+        Illustrative Data: Metric indicators represent generic industry outcomes for modeling purposes.
+      </div>
+
     </div>
   );
 };

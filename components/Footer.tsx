@@ -50,6 +50,7 @@ export const Footer = () => {
               <li><Link href="/operating-model" className="hover:text-white transition-colors">Operating Model</Link></li>
               <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
               <li><Link href="/insights" className="hover:text-white transition-colors">Insights</Link></li>
+              <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
@@ -72,7 +73,13 @@ export const Footer = () => {
             <p>© {new Date().getFullYear()} {siteConfig.legalName}. {t('AllRightsReserved')}</p>
             <LocaleSwitcher />
           </div>
-          <p>{t('GlobalRemote')}</p>
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full text-[10px] text-emerald-400 font-medium select-none">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              All systems operational
+            </div>
+            <p>{t('GlobalRemote')}</p>
+          </div>
         </div>
         
       </div>

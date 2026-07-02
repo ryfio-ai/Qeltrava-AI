@@ -55,6 +55,9 @@ export const ClientLogos = () => {
           </h2>
           <p className="mt-4 text-base text-gray-400 leading-relaxed">
             We collaborate with startups, EdTech networks, and EV technology leaders to engineer robust platforms that scale with their business.
+            <span className="block mt-2 text-xs text-gray-500 font-medium italic">
+              Selected partners — each engagement referenced with permission.
+            </span>
           </p>
         </div>
 

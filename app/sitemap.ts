@@ -1,11 +1,14 @@
 import { MetadataRoute } from 'next'
 import { siteConfig } from '@/lib/site-config'
 import { routing } from '@/src/routing'
+import { insightsArticles } from '@/lib/insights-data'
+import { caseStudiesData } from '@/lib/case-studies-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseRoutes = [
     '',
     '/about',
+    '/careers',
     '/services',
     '/services/ai-automation',
     '/services/cloud-devops',
@@ -24,7 +27,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/solutions/legacy-modernization',
     '/products',
     '/case-studies',
+    ...caseStudiesData.map(study => `/case-studies/${study.id}`),
     '/insights',
+    ...insightsArticles.map(art => `/insights/${art.slug}`),
     '/contact',
     '/book-consultation',
     '/security',
