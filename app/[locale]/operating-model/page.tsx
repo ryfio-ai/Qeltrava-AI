@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import { siteConfig } from '@/lib/site-config';
 import { Button } from '@/components/Button';
 import { FadeIn } from '@/components/animations/FadeIn';
+import { VisualHowSoftwareCompaniesWork } from '@/components/ui/VisualHowSoftwareCompaniesWork';
+import { VisualAIAdoptionStrategy } from '@/components/ui/VisualAIAdoptionStrategy';
 
 export const metadata: Metadata = {
   title: 'Operating Model & Delivery System | ' + siteConfig.companyName,
@@ -75,6 +77,13 @@ export default function OperatingModelPage() {
           </div>
         </section>
 
+        {/* Development Pipeline Workflow */}
+        <section>
+          <FadeIn direction="up">
+            <VisualHowSoftwareCompaniesWork />
+          </FadeIn>
+        </section>
+
         {/* Pricing Philosophy Table */}
         <section>
           <FadeIn direction="up">
@@ -104,6 +113,13 @@ export default function OperatingModelPage() {
                 </tbody>
               </table>
             </div>
+          </FadeIn>
+        </section>
+
+        {/* AI Adoption Strategy Timeline */}
+        <section>
+          <FadeIn direction="up">
+            <VisualAIAdoptionStrategy />
           </FadeIn>
         </section>
 

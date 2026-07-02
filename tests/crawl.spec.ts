@@ -67,10 +67,14 @@ interface AuditResult {
 
 test.describe('Programmatic Website Localization & Compliance Crawl', () => {
   
-  test('crawl all 186 localized pages and generate AUDIT_REPORT.md', async ({ page }) => {
+  test('crawl all 186 localized pages and generate AUDIT_REPORT.md', async ({ browser }) => {
     test.setTimeout(300000);
     const results: AuditResult[] = [];
     let totalErrors = 0;
+
+    let context = await browser.newContext();
+    let page = await context.newPage();
+    let navCount = 0;
 
     console.log(`Starting localization crawl across ${locales.length} locales and ${baseRoutes.length} pages...`);
 
@@ -89,6 +93,13 @@ test.describe('Programmatic Website Localization & Compliance Crawl', () => {
         };
 
         try {
+          navCount++;
+          if (navCount % 30 === 0) {
+            await page.close();
+            await context.close();
+            context = await browser.newContext();
+            page = await context.newPage();
+          }
           // 1. Visit URL and check status 200
           const response = await page.goto(urlPath);
           const status = response ? response.status() : 0;
@@ -283,6 +294,8 @@ test.describe('Programmatic Website Localization & Compliance Crawl', () => {
       reportContent += `| ${res.locale} | ${res.route || '/'} | \`${res.url}\` | ${res.status === 'PASSED' ? '🟢 PASS' : '🔴 FAIL'} | ${errorText || 'None'} |\n`;
     });
 
+    await page.close();
+    await context.close();
     fs.writeFileSync(reportPath, reportContent, 'utf8');
     console.log(`Audit report written to: ${reportPath}`);
 

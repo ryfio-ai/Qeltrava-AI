@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { siteConfig } from '@/lib/site-config';
 import { FadeIn } from '@/components/animations/FadeIn';
+import { VisualMindOfDeveloper } from '@/components/ui/VisualMindOfDeveloper';
 
 export const metadata: Metadata = {
   title: 'About Our Engineering Team | ' + siteConfig.companyName,
@@ -65,6 +66,13 @@ export default function AboutPage() {
               </div>
             </FadeIn>
           </div>
+        </section>
+
+        {/* Cognitive Balance Visual */}
+        <section>
+          <FadeIn direction="up">
+            <VisualMindOfDeveloper />
+          </FadeIn>
         </section>
 
         {/* Founding Story */}
