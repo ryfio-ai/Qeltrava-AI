@@ -56,6 +56,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/glossary',
     '/press',
     '/ai-solution-architect',
+    '/ai-readiness',
+    '/playground',
+    '/proposal',
   ];
 
   const routes: MetadataRoute.Sitemap = [];

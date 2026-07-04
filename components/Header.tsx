@@ -193,10 +193,10 @@ export const Header = () => {
         }
       ],
       card: {
-        title: 'Not sure which solution fits?',
-        desc: 'Take the 2-minute assessment to identify your starting point.',
+        title: 'Check your AI Readiness',
+        desc: '10 questions. Instant score + custom action plan.',
         cta: 'Take Assessment →',
-        href: '/quiz'
+        href: '/ai-readiness'
       }
     },
     {
@@ -218,6 +218,9 @@ export const Header = () => {
           title: 'Explore',
           links: [
             { label: 'AI Solution Architect', href: '/ai-solution-architect', badge: 'New' },
+            { label: 'AI Prompt Playground', href: '/playground', badge: 'New' },
+            { label: 'AI Readiness Assessment', href: '/ai-readiness', badge: 'New' },
+            { label: 'AI Proposal Generator', href: '/proposal', badge: 'New' },
             { label: 'ROI Calculator', href: '/roi-calculator' },
             { label: 'AI Strategy Quiz', href: '/quiz' },
             { label: 'Glossary', href: '/glossary' }

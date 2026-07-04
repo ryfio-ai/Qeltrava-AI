@@ -16,6 +16,9 @@ import { PartnerStrip } from '@/components/ui/PartnerStrip';
 import { AISolutionArchitect } from '@/components/ui/AISolutionArchitect';
 import { CapabilityMatrix } from '@/components/ui/CapabilityMatrix';
 import { TransformationStories } from '@/components/ui/TransformationStories';
+import { EngineeringWorkflow } from '@/components/ui/EngineeringWorkflow';
+import { LiveArchitectureVisualizer } from '@/components/ui/LiveArchitectureVisualizer';
+import { SystemHealthDashboard } from '@/components/ui/SystemHealthDashboard';
 import dynamic from 'next/dynamic';
 
 const NetworkBackground = dynamic(() => import('@/components/backgrounds/NetworkBackground').then(mod => mod.NetworkBackground), { ssr: false });
@@ -353,6 +356,66 @@ export default function HomePage() {
           </div>
           <FadeIn direction="up">
             <TransformationStories />
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Engineering Workflow ─────────────────────────────── */}
+      <section className="py-24 bg-[var(--color-bg-light)] border-t border-[var(--color-border-soft)]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-14 max-w-3xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block font-mono">
+              How We Work
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">
+              Engineering Workflow
+            </h2>
+            <p className="text-lg text-[var(--color-text-main)] mt-4 leading-relaxed">
+              From discovery to hypercare — every step of our delivery process, fully transparent and documented.
+            </p>
+          </div>
+          <FadeIn direction="up">
+            <EngineeringWorkflow />
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Live Architecture Visualizer ─────────────────────── */}
+      <section className="py-24 bg-white border-t border-[var(--color-border-soft)]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-14 max-w-3xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block font-mono">
+              System Design
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">
+              Live Architecture Visualizer
+            </h2>
+            <p className="text-lg text-[var(--color-text-main)] mt-4 leading-relaxed">
+              Hover any node to explore our production-grade, AI-native reference architecture.
+            </p>
+          </div>
+          <FadeIn direction="up">
+            <LiveArchitectureVisualizer />
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── System Health Dashboard ──────────────────────────── */}
+      <section className="py-24 bg-[var(--color-bg-light)] border-t border-[var(--color-border-soft)]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-14 max-w-3xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block font-mono">
+              Reliability
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">
+              System Health Dashboard
+            </h2>
+            <p className="text-lg text-[var(--color-text-main)] mt-4 leading-relaxed">
+              Real-time visibility into every layer of our infrastructure. Always operational.
+            </p>
+          </div>
+          <FadeIn direction="up">
+            <SystemHealthDashboard />
           </FadeIn>
         </div>
       </section>
