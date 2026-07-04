@@ -71,7 +71,7 @@ export default async function RootLayout({
       dir={dir}
       className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col pt-20">
+      <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={messages}>
           <ConsentProvider>
             <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-white focus:text-[var(--color-primary-dark)]">
