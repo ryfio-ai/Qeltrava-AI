@@ -5,7 +5,6 @@ import { FadeIn } from '@/components/animations/FadeIn';
 import { Button } from '@/components/Button';
 import { Link } from '@/src/routing';
 import { insightsArticles } from '@/lib/insights-data';
-import { VisualClientSources } from '@/components/ui/VisualClientSources';
 
 export const InsightsClient = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -124,12 +123,6 @@ export const InsightsClient = () => {
         </div>
       </section>
 
-      {/* Industry Lead Channel Analysis Visual */}
-      <section className="mt-8 border-t border-[var(--color-border-soft)] pt-16">
-        <FadeIn direction="up">
-          <VisualClientSources />
-        </FadeIn>
-      </section>
 
       {/* Newsletter Signup */}
       <FadeIn direction="up">

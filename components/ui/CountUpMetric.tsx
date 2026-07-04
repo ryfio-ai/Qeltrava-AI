@@ -13,8 +13,8 @@ type CountUpMetricProps = {
 
 export const CountUpMetric = ({ value, prefix = '', suffix = '', duration = 2.5, className = '' }: CountUpMetricProps) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
-  const [displayValue, setDisplayValue] = useState(value);
+  const isInView = useInView(ref, { once: false, amount: 0 });
+  const [displayValue, setDisplayValue] = useState(0);
   const [mounted, setMounted] = useState(false);
 
   // Determine decimal places from the target value

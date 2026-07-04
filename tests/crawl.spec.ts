@@ -59,7 +59,7 @@ interface AuditResult {
   featuresVerified: {
     status200: boolean;
     noQuantra: boolean;
-    correctPadding: boolean;
+    correctLayout: boolean;
     rtlCheck: boolean;
     noTelemetry: boolean;
     noDashboardNav: boolean;
@@ -87,7 +87,7 @@ test.describe('Programmatic Website Localization & Compliance Crawl', () => {
         const featuresVerified = {
           status200: false,
           noQuantra: false,
-          correctPadding: false,
+          correctLayout: false,
           rtlCheck: false,
           noTelemetry: false,
           noDashboardNav: false,
@@ -134,12 +134,12 @@ test.describe('Programmatic Website Localization & Compliance Crawl', () => {
             featuresVerified.noQuantra = true;
           }
 
-          // 3. Revert body top padding to pt-20
+          // 3. Verify flex layout classes are applied to body
           const bodyClass = await page.evaluate(() => document.body.className);
-          if (bodyClass.includes('pt-20')) {
-            featuresVerified.correctPadding = true;
+          if (bodyClass.includes('flex') && bodyClass.includes('flex-col')) {
+            featuresVerified.correctLayout = true;
           } else {
-            errors.push(`Body element top padding is not pt-20 (classes found: "${bodyClass}")`);
+            errors.push(`Layout classes missing on body element (classes found: "${bodyClass}")`);
           }
 
           // 4. Verify RTL layout for Arabic
@@ -289,7 +289,7 @@ test.describe('Programmatic Website Localization & Compliance Crawl', () => {
     reportContent += `| --- | --- | --- |\n`;
     reportContent += `| Status Codes | all 186 page responses return 200 OK | ${results.every(r => r.featuresVerified.status200) ? '✅ PASS' : '❌ FAIL'} |\n`;
     reportContent += `| Brand Integrity | 0 occurrences of deprecated brand name "Quantra" | ${results.every(r => r.featuresVerified.noQuantra) ? '✅ PASS' : '❌ FAIL'} |\n`;
-    reportContent += `| Layout Compliance | Reverted body top padding to pt-20 on all pages | ${results.every(r => r.featuresVerified.correctPadding) ? '✅ PASS' : '❌ FAIL'} |\n`;
+    reportContent += `| Layout Compliance | flex flex-col layout classes applied to body on all pages | ${results.every(r => r.featuresVerified.correctLayout) ? '✅ PASS' : '❌ FAIL'} |\n`;
     reportContent += `| RTL Layout Integrity | dir="rtl" applied on html tag for all Arabic pages | ${results.every(r => r.featuresVerified.rtlCheck) ? '✅ PASS' : '❌ FAIL'} |\n`;
     reportContent += `| Telemetry Status Bar | Telemetry panel completely removed from Footer | ${results.every(r => r.featuresVerified.noTelemetry) ? '✅ PASS' : '❌ FAIL'} |\n`;
     reportContent += `| Header Navigation | "/dashboard" route removed from header navigation links | ${results.every(r => r.featuresVerified.noDashboardNav) ? '✅ PASS' : '❌ FAIL'} |\n`;
