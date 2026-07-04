@@ -13,6 +13,9 @@ import { RoiCalculator } from '@/components/ui/RoiCalculator';
 import { TechTicker } from '@/components/ui/TechTicker';
 import { IndustryShowcase } from '@/components/ui/IndustryShowcase';
 import { PartnerStrip } from '@/components/ui/PartnerStrip';
+import { AISolutionArchitect } from '@/components/ui/AISolutionArchitect';
+import { CapabilityMatrix } from '@/components/ui/CapabilityMatrix';
+import { TransformationStories } from '@/components/ui/TransformationStories';
 import dynamic from 'next/dynamic';
 
 const NetworkBackground = dynamic(() => import('@/components/backgrounds/NetworkBackground').then(mod => mod.NetworkBackground), { ssr: false });
@@ -170,6 +173,34 @@ export default function HomePage() {
       {/* Client Logos Section */}
       <ClientLogos />
 
+      {/* ── AI Solution Architect ───────────────────────────── */}
+      <section className="py-24 bg-white border-b border-[var(--color-border-soft)] relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 10% 50%, rgba(99,102,241,0.04) 0%, transparent 50%), radial-gradient(circle at 90% 20%, rgba(16,185,129,0.04) 0%, transparent 40%)' }} />
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn direction="up">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 rounded-full text-[var(--color-accent)] text-xs font-bold font-mono uppercase tracking-wider mb-4">
+                ⚡ Interactive Tool · New
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)] mb-4">
+                Design Your AI Solution
+              </h2>
+              <p className="text-lg text-[var(--color-text-main)] max-w-2xl mx-auto leading-relaxed">
+                Select the components your product needs. Your architecture diagram, tech stack, team, and cost estimate generate instantly.
+              </p>
+            </div>
+          </FadeIn>
+          <FadeIn direction="up">
+            <AISolutionArchitect />
+          </FadeIn>
+          <div className="text-center mt-8">
+            <Link href="/ai-solution-architect" className="text-sm font-semibold text-[var(--color-accent)] hover:underline">
+              Open full-screen architect →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Trust / Brand Promise */}
       <section className="py-20 bg-primary-dark text-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
@@ -199,66 +230,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Differentiators — Upgraded: Proof with Specificity */}
+      {/* ── Engineering Capability Matrix ────────────────────── */}
       <section className="py-24 bg-[var(--color-bg-light)] border-t border-[var(--color-border-soft)]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
+          <div className="text-center mb-14 max-w-3xl mx-auto">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block font-mono">
-              Why Qeltrava AI
+              Engineering Excellence
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">
-              Not just AI. AI-native engineering — built for real work.
+              Our Engineering Capability Matrix
             </h2>
-            <p className="text-lg text-[var(--color-text-main)] mt-4">
-              Here is the difference between us and a generic development agency.
+            <p className="text-lg text-[var(--color-text-main)] mt-4 leading-relaxed">
+              28 technologies. 8 domains. Hover any row to see how we apply each capability in production.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Col 1 */}
-            <div className="bg-white border border-[var(--color-border-soft)] rounded-2xl p-7 flex flex-col gap-4 hover:border-[var(--color-accent)]/40 transition-all group">
-              <div className="w-10 h-10 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center">
-                <svg className="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" /></svg>
-              </div>
-              <h3 className="text-base font-bold text-[var(--color-primary-dark)]">AI-Native Architecture</h3>
-              <p className="text-sm text-[var(--color-text-main)] leading-relaxed">
-                We design vector DB schemas, agent orchestration boundaries, and LLM fallback chains before we write a line of application code.
-              </p>
-            </div>
-
-            {/* Col 2 */}
-            <div className="bg-white border border-[var(--color-border-soft)] rounded-2xl p-7 flex flex-col gap-4 hover:border-[var(--color-accent)]/40 transition-all group">
-              <div className="w-10 h-10 rounded-xl bg-[var(--color-success)]/10 flex items-center justify-center">
-                <svg className="w-5 h-5 text-[var(--color-success)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-              </div>
-              <h3 className="text-base font-bold text-[var(--color-primary-dark)]">Outcome-Based Delivery</h3>
-              <p className="text-sm text-[var(--color-text-main)] leading-relaxed">
-                Our contracts tie milestones to measurable deliverables — not hours billed. Fixed scope. Fixed accountability.
-              </p>
-            </div>
-
-            {/* Col 3 */}
-            <div className="bg-white border border-[var(--color-border-soft)] rounded-2xl p-7 flex flex-col gap-4 hover:border-[var(--color-accent)]/40 transition-all group">
-              <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center">
-                <svg className="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-              </div>
-              <h3 className="text-base font-bold text-[var(--color-primary-dark)]">Enterprise Security</h3>
-              <p className="text-sm text-[var(--color-text-main)] leading-relaxed">
-                RBAC, secrets management (HashiCorp Vault), dependency scanning (Snyk), and zero-trust network architecture are defaults, not add-ons.
-              </p>
-            </div>
-
-            {/* Col 4 */}
-            <div className="bg-white border border-[var(--color-border-soft)] rounded-2xl p-7 flex flex-col gap-4 hover:border-[var(--color-accent)]/40 transition-all group">
-              <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
-                <svg className="w-5 h-5 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-              </div>
-              <h3 className="text-base font-bold text-[var(--color-primary-dark)]">Long-Term Partnership</h3>
-              <p className="text-sm text-[var(--color-text-main)] leading-relaxed">
-                Our retainer pods become embedded in your engineering organization. We own delivery, you own the code.
-              </p>
-            </div>
-          </div>
+          <FadeIn direction="up">
+            <CapabilityMatrix />
+          </FadeIn>
         </div>
       </section>
 
@@ -349,41 +337,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* ── Transformation Stories ───────────────────────────── */}
       <section className="py-24 bg-white border-t border-[var(--color-border-soft)] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-16 max-w-2xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block">
-              Testimonials
+          <div className="text-center mb-14 max-w-3xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block font-mono">
+              Before / After
             </span>
-            <h2 className="text-4xl font-bold text-[var(--color-primary-dark)]">
-              What Our Clients Say
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">
+              Transformation Stories
             </h2>
+            <p className="text-lg text-[var(--color-text-main)] mt-4 leading-relaxed">
+              Flip each card to see the exact before-and-after across three real engagements.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* {{TESTIMONIAL_PENDING — request from eDrift}} */}
-            <div className="bg-[var(--color-bg-light)] p-8 rounded-2xl border border-[var(--color-border-soft)] relative">
-              <div className="text-gray-400 text-6xl absolute top-4 right-6 font-serif select-none pointer-events-none">“</div>
-              <p className="text-lg text-[var(--color-text-main)] italic mb-6 relative z-10">
-                "The engineering velocity and architectural precision delivered by their team was outstanding. They modernized our core platforms without disrupting daily operations."
-              </p>
-              <div>
-                <h4 className="font-bold text-[var(--color-primary-dark)]">Engineering Director</h4>
-                <p className="text-sm text-[var(--color-text-main)]">Smart EV & Fleet Management Platform</p>
-              </div>
-            </div>
-            {/* {{TESTIMONIAL_PENDING — request from Thiranoli}} */}
-            <div className="bg-[var(--color-bg-light)] p-8 rounded-2xl border border-[var(--color-border-soft)] relative">
-              <div className="text-gray-400 text-6xl absolute top-4 right-6 font-serif select-none pointer-events-none">“</div>
-              <p className="text-lg text-[var(--color-text-main)] italic mb-6 relative z-10">
-                "Building our educational LMS and delivery network with Qeltrava was the best technical decision we made. Flawless code quality and robust scalability."
-              </p>
-              <div>
-                <h4 className="font-bold text-[var(--color-primary-dark)]">Product Architect</h4>
-                <p className="text-sm text-[var(--color-text-main)]">EdTech & Digital Academy Network</p>
-              </div>
-            </div>
-          </div>
+          <FadeIn direction="up">
+            <TransformationStories />
+          </FadeIn>
         </div>
       </section>
 

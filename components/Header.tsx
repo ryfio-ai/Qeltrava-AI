@@ -176,6 +176,7 @@ export const Header = () => {
         {
           title: 'Primary Outcomes',
           links: [
+            { label: 'AI Solution Architect', href: '/ai-solution-architect', badge: 'New' },
             { label: 'AI Customer Service Transformation', href: '/solutions/ai-customer-service-transformation' },
             { label: 'AI Operations Automation', href: '/solutions/ai-operations-automation' },
             { label: 'Legacy System Modernization', href: '/solutions/legacy-modernization' },
@@ -216,6 +217,7 @@ export const Header = () => {
         {
           title: 'Explore',
           links: [
+            { label: 'AI Solution Architect', href: '/ai-solution-architect', badge: 'New' },
             { label: 'ROI Calculator', href: '/roi-calculator' },
             { label: 'AI Strategy Quiz', href: '/quiz' },
             { label: 'Glossary', href: '/glossary' }
