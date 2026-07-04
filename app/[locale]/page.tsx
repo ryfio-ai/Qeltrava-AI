@@ -71,7 +71,7 @@ export default function HomePage() {
     <main className="min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-[var(--color-primary-dark)]">
+      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-primary-dark">
         <NetworkBackground />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="max-w-3xl">
@@ -171,7 +171,7 @@ export default function HomePage() {
       <ClientLogos />
 
       {/* Trust / Brand Promise */}
-      <section className="py-20 bg-[var(--color-primary-dark)] text-white">
+      <section className="py-20 bg-primary-dark text-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <FadeIn direction="up">
             <h2 className="text-3xl md:text-4xl font-semibold mb-6">We turn business complexity into intelligent software systems.</h2>
@@ -269,7 +269,7 @@ export default function HomePage() {
       <PartnerStrip />
 
       {/* Delivery OS / Process */}
-      <section className="py-24 bg-[var(--color-primary-dark)] text-white">
+      <section className="py-24 bg-primary-dark text-white" data-theme="dark">
         <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center">
           <h2 className="text-4xl font-bold mb-4">Qeltrava Delivery OS</h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
@@ -315,7 +315,7 @@ export default function HomePage() {
             </div>
             
             <div className="border-t border-white/10 pt-6">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-white/40 mb-4">Key Deliverables</h4>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-white/70 mb-4">Key Deliverables</h4>
               <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {stages[activeStage].deliverables.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2.5 text-sm text-white/80 font-medium">

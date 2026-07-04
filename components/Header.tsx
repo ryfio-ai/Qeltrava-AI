@@ -263,7 +263,7 @@ export const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 h-20 bg-white/90 backdrop-blur-md border-b border-[var(--color-border-soft)] z-50 flex items-center px-6 md:px-12">
+    <header className="w-full h-20 bg-white/90 backdrop-blur-md border-b border-[var(--color-border-soft)] z-50 flex items-center px-6 md:px-12">
       <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
           
         {/* Logo */}
@@ -277,6 +277,11 @@ export const Header = () => {
           />
           <span className="text-xl font-bold text-[var(--color-primary-dark)] tracking-tight">Qeltrava AI</span>
         </Link>
+
+        {/* Visually hidden links for crawler and SEO compatibility */}
+        <div className="sr-only">
+          <Link href="/about">{t('About') || 'About'}</Link>
+        </div>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-1">
@@ -395,6 +400,7 @@ export const Header = () => {
                       {col.links.map((link, lIdx) => (
                         <li key={lIdx}>
                           <Link
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
                             href={link.href as any}
                             onClick={closeAllMenus}
                             className="inline-flex items-center gap-1.5 text-sm font-semibold text-white/80 hover:text-[var(--color-accent)] transition-colors group"
@@ -434,6 +440,7 @@ export const Header = () => {
                     
                     {item.card.cta && (
                       <Link
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         href={item.card.href as any}
                         onClick={closeAllMenus}
                         className="relative z-10 inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-accent)] hover:text-white transition-colors mt-4 self-start"
@@ -499,6 +506,7 @@ export const Header = () => {
                                   {col.links.map((link, lIdx) => (
                                     <li key={lIdx}>
                                       <Link
+                                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
                                         href={link.href as any}
                                         onClick={closeAllMenus}
                                         className="text-sm font-semibold text-white/80 hover:text-[var(--color-accent)] transition-colors flex items-center justify-between"

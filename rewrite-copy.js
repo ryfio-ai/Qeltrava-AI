@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs');
 const path = require('path');
 
@@ -46,3 +47,4 @@ directories.forEach(dir => {
     }
 });
 console.log("Boilerplate rewrite complete.");
+

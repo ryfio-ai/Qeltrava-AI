@@ -11,6 +11,7 @@ interface FadeInProps extends HTMLMotionProps<"div"> {
 
 export const FadeIn = ({ children, delay = 0, direction = 'up', className, ...props }: FadeInProps) => {
   const [mounted, setMounted] = useState(false);
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
 
   if (!mounted) {

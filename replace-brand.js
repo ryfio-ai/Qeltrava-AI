@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs');
 const path = require('path');
 
@@ -27,3 +28,4 @@ function walkDir(dir) {
 
 walkDir(directory);
 console.log("Global find-and-replace complete.");
+

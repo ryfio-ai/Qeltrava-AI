@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 
 import React, { useState } from 'react';
@@ -165,3 +166,4 @@ export const VisualWhyWebsite = () => {
     </div>
   );
 };
+

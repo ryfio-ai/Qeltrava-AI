@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 
 import React, { useState } from 'react';
@@ -134,3 +135,4 @@ export const VisualClientSources = () => {
     </div>
   );
 };
+

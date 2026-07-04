@@ -79,8 +79,10 @@ export default async function RootLayout({
             </a>
             <ScrollProgress />
             <JsonLd />
-            <AnnouncementBar />
-            <Header />
+            <div className="sticky top-0 z-50 w-full flex flex-col">
+              <AnnouncementBar />
+              <Header />
+            </div>
             <main id="main-content" className="flex-grow">{children}</main>
             <SocialProofTicker />
             <Footer />

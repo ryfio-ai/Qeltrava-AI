@@ -13,9 +13,9 @@ export async function sanityFetch<QueryResponse>({
   params = {},
 }: {
   query: string;
-  params?: any;
+  params?: Record<string, unknown>;
 }): Promise<QueryResponse> {
   // In a real implementation, this would use next-sanity/client
-  console.log('Sanity query:', query);
+  console.log('Sanity query:', query, 'with params:', params);
   return [] as unknown as QueryResponse;
 }

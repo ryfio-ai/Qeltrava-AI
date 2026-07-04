@@ -26,7 +26,7 @@ export const SocialProofTicker = () => {
         {doubled.map((item, i) => (
           <span
             key={`${item}-${i}`}
-            className="text-[12px] font-semibold text-[var(--color-primary-dark)]/50 whitespace-nowrap"
+            className="text-[12px] font-semibold text-[var(--color-primary-dark)]/70 whitespace-nowrap"
           >
             {item}
             {i !== doubled.length - 1 && (

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs');
 const path = require('path');
 
@@ -32,3 +33,4 @@ function walkDir(dir) {
 if (fs.existsSync(directory)) walkDir(directory);
 if (fs.existsSync(componentsDir)) walkDir(componentsDir);
 console.log("Global link replace complete.");
+

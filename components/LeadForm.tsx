@@ -1,5 +1,6 @@
 "use client";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -44,6 +45,7 @@ export const LeadForm = () => {
         setErrorMessage(errorData.error || t('NetworkError'));
         setStatus('error');
       }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       setErrorMessage(t('NetworkError'));
       setStatus('error');

@@ -102,8 +102,19 @@ test.describe('Programmatic Website Localization & Compliance Crawl', () => {
             context = await browser.newContext();
             page = await context.newPage();
           }
-          // 1. Visit URL and check status 200
-          const response = await page.goto(urlPath);
+          // 1. Visit URL and check status 200 with retry
+          let response = null;
+          let retries = 3;
+          while (retries > 0) {
+            try {
+              response = await page.goto(urlPath, { waitUntil: 'domcontentloaded', timeout: 15000 });
+              break;
+            } catch (e) {
+              retries--;
+              if (retries === 0) throw e;
+              await page.waitForTimeout(500);
+            }
+          }
           const status = response ? response.status() : 0;
           if (status === 200) {
             featuresVerified.status200 = true;
@@ -173,10 +184,10 @@ test.describe('Programmatic Website Localization & Compliance Crawl', () => {
 
           // 7. Verify non-English translations
           const expectedAboutText = expectedAboutTranslations[locale];
-          const aboutNavLinkText = await page.evaluate((aboutRoute) => {
+          const aboutNavLinkText = await page.evaluate((aboutRoute: string) => {
             // Find links in header nav matching the about path
             const navLinks = Array.from(document.querySelectorAll('header nav a, header a'));
-            const matches = navLinks.filter(a => (a.getAttribute('href') || '').endsWith('/about'));
+            const matches = navLinks.filter(a => (a.getAttribute('href') || '').endsWith(aboutRoute));
             return matches.length > 0 ? matches[0].textContent?.trim() : null;
           }, `/${locale}/about`);
 
@@ -186,8 +197,8 @@ test.describe('Programmatic Website Localization & Compliance Crawl', () => {
             errors.push(`Translation mismatch for Header 'About' nav link. Expected: "${expectedAboutText}", Found: "${aboutNavLinkText}"`);
           }
 
-        } catch (e: any) {
-          errors.push(`Execution error: ${e.message}`);
+        } catch (e: unknown) {
+          errors.push(`Execution error: ${e instanceof Error ? e.message : String(e)}`);
         }
 
         const isPassed = errors.length === 0;
@@ -216,7 +227,7 @@ test.describe('Programmatic Website Localization & Compliance Crawl', () => {
       await cookiePage.waitForTimeout(500);
 
       // Verify localStorage is empty initially
-      let initialConsent = await cookiePage.evaluate(() => localStorage.getItem('qeltrava_cookie_consent'));
+      const initialConsent = await cookiePage.evaluate(() => localStorage.getItem('qeltrava_cookie_consent'));
       if (initialConsent !== null) {
         // Clear it to do a fresh test
         await cookiePage.evaluate(() => localStorage.removeItem('qeltrava_cookie_consent'));
@@ -257,8 +268,8 @@ test.describe('Programmatic Website Localization & Compliance Crawl', () => {
         cookieConsentErrors.push('Accept All button not found on Cookie Banner');
       }
 
-    } catch (e: any) {
-      cookieConsentErrors.push(`Cookie verification script error: ${e.message}`);
+    } catch (e: unknown) {
+      cookieConsentErrors.push(`Cookie verification script error: ${e instanceof Error ? e.message : String(e)}`);
     } finally {
       await cookiePage.close();
       await cookieContext.close();

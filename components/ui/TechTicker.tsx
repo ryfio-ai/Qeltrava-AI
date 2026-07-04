@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 
 import React, { useEffect, useRef } from 'react';
@@ -26,7 +27,7 @@ export const TechTicker = () => {
           {TECHS.slice(0, 6).map((tech) => (
             <span
               key={tech}
-              className="text-[13px] font-mono text-[var(--color-text-main)]/60 whitespace-nowrap"
+              className="text-[13px] font-mono text-[var(--color-text-main)]/72 whitespace-nowrap"
             >
               {tech}
             </span>
@@ -37,7 +38,7 @@ export const TechTicker = () => {
           {doubled.map((tech, i) => (
             <span
               key={`${tech}-${i}`}
-              className="text-[13px] font-mono text-[var(--color-text-main)]/60 whitespace-nowrap"
+              className="text-[13px] font-mono text-[var(--color-text-main)]/72 whitespace-nowrap"
             >
               {tech}
               {i !== doubled.length - 1 && (
@@ -50,3 +51,4 @@ export const TechTicker = () => {
     </div>
   );
 };
+

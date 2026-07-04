@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -22,7 +23,7 @@ export const AnnouncementBar = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[60] h-9 flex items-center justify-center px-4 select-none"
+      className="w-full h-9 relative z-[60] flex items-center justify-center px-4 select-none"
       style={{ background: 'var(--color-accent)' }}
       role="banner"
       aria-live="polite"

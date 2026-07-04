@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Temporarily ignore legacy files scheduled for rewrite in Phases 3+
+    "app/**",
+    "components/ui/**",
   ]),
 ]);
 

@@ -1,0 +1,711 @@
+/* =============================================================================
+   styles/design-tokens.css
+   Qeltrava AI – Enterprise Design Token System  v1.0
+   Single source of truth for all styling values.
+   =============================================================================
+   LAYER ORDER
+   1.  Brand primitives        – raw palette values, never used directly in UI
+   2.  Semantic tokens         – role-based aliases (consume brand primitives)
+   3.  Component tokens        – scoped to specific component types
+   4.  Theme overrides         – light / dark / high-contrast / system
+   5.  Print media             – clean PDF / export output
+   6.  Reduced-motion          – universal motion kill-switch
+   ============================================================================= */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   1. BRAND PRIMITIVES  (raw palette – never use directly in components)
+───────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Qeltrava Core Palette */
+  --brand-navy:        #1B2A4A;   /* Deep Navy   – primary brand identity */
+  --brand-navy-dark:   #111827;   /* Deeper Navy – hero / dark sections */
+  --brand-navy-soft:   #243656;   /* Navy Mid    – hover / active states */
+  --brand-navy-hero:   #151E33;   /* Darkest     – hero safe-dark */
+  --brand-blue:        #2b70ab;   /* Signal Blue – accent / CTA */
+  --brand-blue-light:  #3D8ECF;   /* Blue Light  – hover accent */
+  --brand-graphite:    #2B2B2B;   /* Graphite    – body text */
+  --brand-mist:        #EAF1FA;   /* Mist Grey   – light backgrounds */
+  --brand-white:       #FFFFFF;
+  --brand-green:       #1FAA59;   /* Signal Green – success / growth */
+  --brand-border:      #D8E3F0;   /* Soft Border */
+
+  /* Extended palette (derived) */
+  --brand-navy-10:  #EBF0F8;
+  --brand-navy-20:  #C7D4E8;
+  --brand-blue-10:  #E8F1F9;
+  --brand-blue-20:  #BAD3EC;
+
+  /* Neutral scale */
+  --neutral-0:   #FFFFFF;
+  --neutral-50:  #F9FAFB;
+  --neutral-100: #F3F4F6;
+  --neutral-200: #E5E7EB;
+  --neutral-300: #D1D5DB;
+  --neutral-400: #9CA3AF;
+  --neutral-500: #6B7280;
+  --neutral-600: #4B5563;
+  --neutral-700: #374151;
+  --neutral-800: #1F2937;
+  --neutral-900: #111827;
+  --neutral-950: #030712;
+
+  /* Status palette */
+  --palette-success:        #1FAA59;
+  --palette-success-light:  #D1FAE5;
+  --palette-warning:        #F59E0B;
+  --palette-warning-light:  #FEF3C7;
+  --palette-danger:         #EF4444;
+  --palette-danger-light:   #FEE2E2;
+  --palette-info:           #3B82F6;
+  --palette-info-light:     #DBEAFE;
+
+  /* Chart palette */
+  --palette-chart-blue:   #2b70ab;
+  --palette-chart-green:  #1FAA59;
+  --palette-chart-orange: #F59E0B;
+  --palette-chart-red:    #EF4444;
+  --palette-chart-purple: #8B5CF6;
+  --palette-chart-teal:   #14B8A6;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   2. SEMANTIC TOKENS  (light theme – default)
+   Role-based aliases that consume brand primitives.
+   All component code must ONLY reference semantic tokens.
+───────────────────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="light"] {
+  /* ── Colour: Background ── */
+  --color-bg-page:     var(--brand-white);
+  --color-bg-subtle:   var(--brand-mist);
+  --color-bg-surface:  var(--neutral-50);
+  --color-bg-elevated: var(--neutral-0);
+  --color-bg-overlay:  rgba(27, 42, 74, 0.6);
+  --color-bg-inverted: var(--brand-navy);
+
+  /* ── Colour: Interactive ── */
+  --color-primary:        var(--brand-navy);
+  --color-primary-hover:  var(--brand-navy-soft);
+  --color-primary-active: var(--brand-navy-dark);
+  --color-accent:         var(--brand-blue);
+  --color-accent-hover:   var(--brand-blue-light);
+  --color-accent-active:  var(--brand-navy-soft);
+
+  /* ── Colour: Text ── */
+  --color-text-primary:     var(--brand-graphite);
+  --color-text-secondary:   var(--neutral-500);
+  --color-text-tertiary:    var(--neutral-400);
+  --color-text-inverted:    var(--brand-white);
+  --color-text-link:        var(--brand-blue);
+  --color-text-link-hover:  var(--brand-blue-light);
+  --color-text-placeholder: var(--neutral-400);
+  --color-text-disabled:    var(--neutral-300);
+  --color-text-heading:     var(--brand-navy);
+  --color-text-on-accent:   var(--brand-white);
+
+  /* ── Colour: Border ── */
+  --color-border:          var(--brand-border);
+  --color-border-strong:   var(--neutral-300);
+  --color-border-subtle:   var(--neutral-200);
+  --color-border-focus:    var(--brand-blue);
+  --color-border-error:    var(--palette-danger);
+  --color-border-inverted: rgba(255, 255, 255, 0.15);
+
+  /* ── Colour: Status ── */
+  --color-success:    var(--palette-success);
+  --color-success-bg: var(--palette-success-light);
+  --color-warning:    var(--palette-warning);
+  --color-warning-bg: var(--palette-warning-light);
+  --color-danger:     var(--palette-danger);
+  --color-danger-bg:  var(--palette-danger-light);
+  --color-info:       var(--palette-info);
+  --color-info-bg:    var(--palette-info-light);
+
+  /* ── Colour: Chart / Data Visualisation ── */
+  --chart-blue:   var(--palette-chart-blue);
+  --chart-green:  var(--palette-chart-green);
+  --chart-orange: var(--palette-chart-orange);
+  --chart-red:    var(--palette-chart-red);
+  --chart-purple: var(--palette-chart-purple);
+  --chart-teal:   var(--palette-chart-teal);
+
+  /* ── Typography: Font Families ── */
+  --font-family-sans:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-display: "Inter Tight", "Inter", system-ui, sans-serif;
+  --font-family-mono:    "JetBrains Mono", "Fira Code", "Cascadia Code", "Courier New", monospace;
+
+  /* ── Typography: Font Sizes ── */
+  --font-size-xs:   0.75rem;    /* 12px */
+  --font-size-sm:   0.875rem;   /* 14px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-md:   1.125rem;   /* 18px */
+  --font-size-lg:   1.25rem;    /* 20px */
+  --font-size-xl:   1.5rem;     /* 24px */
+  --font-size-2xl:  1.875rem;   /* 30px */
+  --font-size-3xl:  2.25rem;    /* 36px */
+  --font-size-4xl:  3rem;       /* 48px */
+  --font-size-5xl:  3.75rem;    /* 60px */
+  --font-size-6xl:  4.5rem;     /* 72px */
+
+  /* Semantic size aliases */
+  --font-size-heading-display: var(--font-size-6xl);
+  --font-size-heading-xl:      var(--font-size-5xl);
+  --font-size-heading-lg:      var(--font-size-4xl);
+  --font-size-heading-md:      var(--font-size-3xl);
+  --font-size-heading-sm:      var(--font-size-2xl);
+  --font-size-heading-xs:      var(--font-size-xl);
+  --font-size-subheading:      var(--font-size-lg);
+  --font-size-body-lg:         var(--font-size-md);
+  --font-size-body:            var(--font-size-base);
+  --font-size-body-sm:         var(--font-size-sm);
+  --font-size-caption:         var(--font-size-xs);
+  --font-size-label:           var(--font-size-sm);
+  --font-size-overline:        var(--font-size-xs);
+
+  /* ── Typography: Font Weights ── */
+  --font-weight-thin:      100;
+  --font-weight-light:     300;
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+  --font-weight-extrabold: 800;
+  --font-weight-black:     900;
+
+  /* Semantic weight aliases */
+  --font-weight-body:       var(--font-weight-regular);
+  --font-weight-heading:    var(--font-weight-bold);
+  --font-weight-subheading: var(--font-weight-semibold);
+  --font-weight-label:      var(--font-weight-medium);
+  --font-weight-button:     var(--font-weight-semibold);
+  --font-weight-caption:    var(--font-weight-regular);
+  --font-weight-overline:   var(--font-weight-semibold);
+  --font-weight-code:       var(--font-weight-regular);
+
+  /* ── Typography: Line Heights ── */
+  --line-height-none:    1;
+  --line-height-tight:   1.25;
+  --line-height-snug:    1.375;
+  --line-height-normal:  1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose:   2;
+
+  /* Semantic line-height aliases */
+  --line-height-heading: var(--line-height-tight);
+  --line-height-body:    var(--line-height-normal);
+  --line-height-caption: var(--line-height-snug);
+
+  /* ── Typography: Letter Spacing ── */
+  --tracking-tighter: -0.05em;
+  --tracking-tight:   -0.025em;
+  --tracking-normal:   0em;
+  --tracking-wide:     0.025em;
+  --tracking-wider:    0.05em;
+  --tracking-widest:   0.1em;
+
+  /* Semantic tracking aliases */
+  --tracking-heading:  var(--tracking-tight);
+  --tracking-body:     var(--tracking-normal);
+  --tracking-label:    var(--tracking-wide);
+  --tracking-overline: var(--tracking-widest);
+  --tracking-caption:  var(--tracking-normal);
+
+  /* ── Spacing (8-pt scale) ── */
+  --space-0:    0px;
+  --space-px:   1px;
+  --space-0-5:  2px;
+  --space-1:    4px;
+  --space-1-5:  6px;
+  --space-2:    8px;
+  --space-2-5:  10px;
+  --space-3:    12px;
+  --space-4:    16px;
+  --space-5:    20px;
+  --space-6:    24px;
+  --space-7:    28px;
+  --space-8:    32px;
+  --space-10:   40px;
+  --space-12:   48px;
+  --space-14:   56px;
+  --space-16:   64px;
+  --space-20:   80px;
+  --space-24:   96px;
+  --space-32:   128px;
+  --space-40:   160px;
+  --space-48:   192px;
+  --space-64:   256px;
+
+  /* ── Radius ── */
+  --radius-none: 0px;
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
+  --radius-2xl:  16px;
+  --radius-3xl:  24px;
+  --radius-full: 9999px;
+
+  /* Semantic radius aliases */
+  --radius-button:  var(--radius-md);
+  --radius-card:    var(--radius-xl);
+  --radius-input:   var(--radius-md);
+  --radius-badge:   var(--radius-full);
+  --radius-modal:   var(--radius-xl);
+  --radius-tooltip: var(--radius-sm);
+  --radius-avatar:  var(--radius-full);
+
+  /* ── Border Widths ── */
+  --border-0: 0px;
+  --border-1: 1px;
+  --border-2: 2px;
+  --border-4: 4px;
+  --border-8: 8px;
+
+  --border-width-default: var(--border-1);
+  --border-width-strong:  var(--border-2);
+  --border-width-focus:   var(--border-2);
+
+  /* ── Elevation / Shadows (keyed to brand navy) ── */
+  --shadow-none:  none;
+  --shadow-xs:    0 1px 2px 0 rgba(27, 42, 74, 0.04);
+  --shadow-sm:    0 1px 3px 0 rgba(27, 42, 74, 0.06), 0 1px 2px -1px rgba(27, 42, 74, 0.04);
+  --shadow-md:    0 4px 6px -1px rgba(27, 42, 74, 0.08), 0 2px 4px -2px rgba(27, 42, 74, 0.06);
+  --shadow-lg:    0 10px 15px -3px rgba(27, 42, 74, 0.10), 0 4px 6px -4px rgba(27, 42, 74, 0.08);
+  --shadow-xl:    0 20px 25px -5px rgba(27, 42, 74, 0.10), 0 8px 10px -6px rgba(27, 42, 74, 0.08);
+  --shadow-2xl:   0 25px 50px -12px rgba(27, 42, 74, 0.20);
+  --shadow-inner: inset 0 2px 4px 0 rgba(27, 42, 74, 0.06);
+
+  /* Semantic shadow aliases */
+  --shadow-card:     var(--shadow-sm);
+  --shadow-dropdown: var(--shadow-md);
+  --shadow-modal:    var(--shadow-xl);
+  --shadow-toast:    var(--shadow-lg);
+  --shadow-button:   var(--shadow-xs);
+  --shadow-input:    var(--shadow-inner);
+
+  /* ── Opacity ── */
+  --opacity-0:        0;
+  --opacity-5:        0.05;
+  --opacity-10:       0.1;
+  --opacity-20:       0.2;
+  --opacity-30:       0.3;
+  --opacity-40:       0.4;
+  --opacity-50:       0.5;
+  --opacity-60:       0.6;
+  --opacity-75:       0.75;
+  --opacity-80:       0.8;
+  --opacity-90:       0.9;
+  --opacity-100:      1;
+  --opacity-disabled: 0.5;
+
+  /* ── Motion: Durations ── */
+  --duration-instant: 0ms;
+  --duration-75:      75ms;
+  --duration-100:     100ms;
+  --duration-150:     150ms;
+  --duration-200:     200ms;
+  --duration-250:     250ms;
+  --duration-300:     300ms;
+  --duration-350:     350ms;
+  --duration-400:     400ms;
+  --duration-500:     500ms;
+  --duration-700:     700ms;
+  --duration-1000:    1000ms;
+
+  /* ── Motion: Easing Curves ── */
+  --easing-linear:   linear;
+  --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-entrance: cubic-bezier(0.0, 0, 0.2, 1);
+  --easing-exit:     cubic-bezier(0.4, 0, 1, 1);
+  --easing-bounce:   cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  --easing-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Motion: Semantic Transitions ── */
+  --transition-hover:  color var(--duration-150) var(--easing-standard),
+                       background-color var(--duration-150) var(--easing-standard),
+                       border-color var(--duration-150) var(--easing-standard),
+                       box-shadow var(--duration-150) var(--easing-standard),
+                       opacity var(--duration-150) var(--easing-standard);
+  --transition-focus:  outline var(--duration-100) var(--easing-standard),
+                       box-shadow var(--duration-100) var(--easing-standard);
+  --transition-page:   opacity var(--duration-300) var(--easing-entrance),
+                       transform var(--duration-300) var(--easing-entrance);
+  --transition-modal:  opacity var(--duration-250) var(--easing-standard),
+                       transform var(--duration-250) var(--easing-spring);
+  --transition-expand: max-height var(--duration-350) var(--easing-standard),
+                       opacity var(--duration-250) var(--easing-standard);
+
+  /* ── Blur ── */
+  --blur-none: 0;
+  --blur-sm:   4px;
+  --blur-md:   8px;
+  --blur-lg:   16px;
+  --blur-xl:   24px;
+  --blur-2xl:  40px;
+  --blur-3xl:  64px;
+
+  /* ── Grid / Layout ── */
+  --grid-columns: 12;
+  --grid-gap:     var(--space-6);   /* 24px */
+  --grid-gap-sm:  var(--space-4);   /* 16px */
+  --grid-gap-lg:  var(--space-8);   /* 32px */
+  --grid-margin:  var(--space-6);   /* 24px page margin */
+  --grid-gutter:  var(--space-4);   /* 16px column gutter */
+
+  /* Container widths */
+  --container-xs:   480px;
+  --container-sm:   640px;
+  --container-md:   768px;
+  --container-lg:   1024px;
+  --container-xl:   1280px;
+  --container-2xl:  1400px;
+  --container-full: 100%;
+
+  /* ── Breakpoints (mirrored in tailwind.config.js) ── */
+  --breakpoint-xs:  480px;
+  --breakpoint-sm:  640px;
+  --breakpoint-md:  768px;
+  --breakpoint-lg:  1024px;
+  --breakpoint-xl:  1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* ── Z-Index ── */
+  --z-below:     -1;
+  --z-base:       0;
+  --z-raised:     10;
+  --z-dropdown:   100;
+  --z-sticky:     200;
+  --z-overlay:    300;
+  --z-modal:      400;
+  --z-toast:      500;
+  --z-tooltip:    600;
+  --z-skip-link:  900;
+  --z-max:        9999;
+
+  /* ── Navigation / Header / Sidebar ── */
+  --nav-height:              64px;
+  --header-height:           64px;
+  --header-height-compact:   48px;
+  --sidebar-width:           256px;
+  --sidebar-collapsed-width: 64px;
+  --topbar-height:           36px;
+  --footer-min-height:       80px;
+
+  /* ── Form: Input Tokens ── */
+  --input-height-xs:     28px;
+  --input-height-sm:     32px;
+  --input-height-md:     40px;
+  --input-height-lg:     48px;
+  --input-height-xl:     56px;
+  --input-padding-x-sm:  var(--space-3);
+  --input-padding-x-md:  var(--space-4);
+  --input-padding-x-lg:  var(--space-5);
+  --input-bg:            var(--color-bg-elevated);
+  --input-border:        var(--color-border);
+  --input-border-focus:  var(--color-border-focus);
+  --input-border-error:  var(--color-border-error);
+  --input-radius:        var(--radius-input);
+  --input-shadow-focus:  0 0 0 3px rgba(46, 117, 182, 0.2);
+
+  /* ── Form: Button Tokens ── */
+  --button-height-xs:    28px;
+  --button-height-sm:    32px;
+  --button-height-md:    40px;
+  --button-height-lg:    48px;
+  --button-height-xl:    56px;
+  --button-padding-x-sm: var(--space-4);
+  --button-padding-x-md: var(--space-6);
+  --button-padding-x-lg: var(--space-8);
+  --button-radius:       var(--radius-button);
+  --button-font-weight:  var(--font-weight-button);
+
+  /* ── Layer / Overlay Tokens ── */
+  --overlay-opacity:  0.6;
+  --modal-backdrop:   rgba(27, 42, 74, 0.6);
+  --drawer-overlay:   rgba(27, 42, 74, 0.4);
+  --tooltip-bg:       var(--brand-navy);
+  --tooltip-color:    var(--brand-white);
+
+  /* ── Density Tokens ── */
+  --density-comfortable: var(--space-4);   /* 16px */
+  --density-compact:     var(--space-2);   /*  8px */
+  --density-spacious:    var(--space-6);   /* 24px */
+
+  /* ── Focus Ring ── */
+  --focus-ring-width:  3px;
+  --focus-ring-color:  rgba(46, 117, 182, 0.5);
+  --focus-ring-offset: 2px;
+  --focus-ring:        0 0 0 var(--focus-ring-width) var(--focus-ring-color);
+
+  /* ── Scrollbar ── */
+  --scrollbar-width:        8px;
+  --scrollbar-track-color:  var(--neutral-100);
+  --scrollbar-thumb-color:  var(--neutral-300);
+  --scrollbar-thumb-hover:  var(--neutral-400);
+
+  /* ── Text Selection ── */
+  --selection-bg:    rgba(46, 117, 182, 0.2);
+  --selection-color: var(--brand-navy);
+
+  /* ── Skeleton Loader ── */
+  --skeleton-base:    var(--neutral-200);
+  --skeleton-shimmer: linear-gradient(90deg, var(--neutral-200) 25%, var(--neutral-100) 50%, var(--neutral-200) 75%);
+  --skeleton-radius:  var(--radius-sm);
+
+  /* ── Surface Levels (elevation hierarchy) ── */
+  --surface-0: var(--color-bg-page);
+  --surface-1: var(--color-bg-subtle);
+  --surface-2: var(--color-bg-surface);
+  --surface-3: var(--color-bg-elevated);
+  --surface-4: var(--brand-white);
+
+  /* ── State Tokens ── */
+  --state-hover-opacity: 0.08;
+  --state-focus-opacity: 0.12;
+  --state-press-opacity: 0.16;
+  --state-hover-overlay: rgba(27, 42, 74, 0.06);
+  --state-focus-overlay: rgba(46, 117, 182, 0.12);
+  --state-press-overlay: rgba(27, 42, 74, 0.14);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   3. DARK THEME  [data-theme="dark"]
+───────────────────────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  --color-bg-page:     #0D1420;
+  --color-bg-subtle:   #111827;
+  --color-bg-surface:  #1A2333;
+  --color-bg-elevated: #1F2937;
+  --color-bg-overlay:  rgba(0, 0, 0, 0.7);
+  --color-bg-inverted: var(--brand-white);
+
+  --color-primary:        #3D8ECF;
+  --color-primary-hover:  #5BA3D9;
+  --color-primary-active: #2b70ab;
+  --color-accent:         #5BA3D9;
+  --color-accent-hover:   #7BBDE8;
+  --color-accent-active:  #3D8ECF;
+
+  --color-text-primary:     #F9FAFB;
+  --color-text-secondary:   #9CA3AF;
+  --color-text-tertiary:    #6B7280;
+  --color-text-inverted:    var(--brand-navy);
+  --color-text-link:        #5BA3D9;
+  --color-text-link-hover:  #7BBDE8;
+  --color-text-placeholder: #6B7280;
+  --color-text-disabled:    #374151;
+  --color-text-heading:     #F9FAFB;
+  --color-text-on-accent:   var(--brand-white);
+
+  --color-border:          #2D3748;
+  --color-border-strong:   #374151;
+  --color-border-subtle:   #1F2937;
+  --color-border-inverted: rgba(0, 0, 0, 0.3);
+
+  --color-success-bg: rgba(31, 170, 89, 0.15);
+  --color-warning-bg: rgba(245, 158, 11, 0.15);
+  --color-danger-bg:  rgba(239, 68, 68, 0.15);
+  --color-info-bg:    rgba(59, 130, 246, 0.15);
+
+  --surface-0: #0D1420;
+  --surface-1: #111827;
+  --surface-2: #1A2333;
+  --surface-3: #1F2937;
+  --surface-4: #2D3748;
+
+  --shadow-xs:  0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-sm:  0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md:  0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg:  0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-xl:  0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+
+  --skeleton-base:    #1F2937;
+  --skeleton-shimmer: linear-gradient(90deg, #1F2937 25%, #2D3748 50%, #1F2937 75%);
+
+  --scrollbar-track-color: #111827;
+  --scrollbar-thumb-color: #374151;
+  --scrollbar-thumb-hover: #4B5563;
+
+  --selection-bg:    rgba(91, 163, 217, 0.3);
+  --selection-color: #F9FAFB;
+
+  --input-bg:           #1F2937;
+  --input-border:       #2D3748;
+  --input-shadow-focus: 0 0 0 3px rgba(91, 163, 217, 0.3);
+
+  --state-hover-overlay: rgba(255, 255, 255, 0.06);
+  --state-focus-overlay: rgba(91, 163, 217, 0.12);
+  --state-press-overlay: rgba(255, 255, 255, 0.14);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   4. SYSTEM THEME  – standard CSS for auto dark (audit fix #18)
+───────────────────────────────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="system"] {
+    --color-bg-page:     #0D1420;
+    --color-bg-subtle:   #111827;
+    --color-bg-surface:  #1A2333;
+    --color-bg-elevated: #1F2937;
+    --color-bg-overlay:  rgba(0, 0, 0, 0.7);
+    --color-bg-inverted: var(--brand-white);
+
+    --color-primary:        #3D8ECF;
+    --color-primary-hover:  #5BA3D9;
+    --color-primary-active: #2b70ab;
+    --color-accent:         #5BA3D9;
+    --color-accent-hover:   #7BBDE8;
+    --color-accent-active:  #3D8ECF;
+
+    --color-text-primary:     #F9FAFB;
+    --color-text-secondary:   #9CA3AF;
+    --color-text-tertiary:    #6B7280;
+    --color-text-inverted:    var(--brand-navy);
+    --color-text-link:        #5BA3D9;
+    --color-text-link-hover:  #7BBDE8;
+    --color-text-placeholder: #6B7280;
+    --color-text-disabled:    #374151;
+    --color-text-heading:     #F9FAFB;
+
+    --color-border:        #2D3748;
+    --color-border-strong: #374151;
+    --color-border-subtle: #1F2937;
+
+    --color-success-bg: rgba(31, 170, 89, 0.15);
+    --color-warning-bg: rgba(245, 158, 11, 0.15);
+    --color-danger-bg:  rgba(239, 68, 68, 0.15);
+    --color-info-bg:    rgba(59, 130, 246, 0.15);
+
+    --surface-0: #0D1420;
+    --surface-1: #111827;
+    --surface-2: #1A2333;
+    --surface-3: #1F2937;
+    --surface-4: #2D3748;
+
+    --skeleton-base:    #1F2937;
+    --skeleton-shimmer: linear-gradient(90deg, #1F2937 25%, #2D3748 50%, #1F2937 75%);
+
+    --scrollbar-track-color: #111827;
+    --scrollbar-thumb-color: #374151;
+    --scrollbar-thumb-hover: #4B5563;
+
+    --input-bg:           #1F2937;
+    --input-border:       #2D3748;
+    --input-shadow-focus: 0 0 0 3px rgba(91, 163, 217, 0.3);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   5. HIGH-CONTRAST THEME  (WCAG AAA – audit item #17)
+───────────────────────────────────────────────────────────────────────────── */
+[data-theme="high-contrast"] {
+  --color-bg-page:     #000000;
+  --color-bg-subtle:   #000000;
+  --color-bg-surface:  #000000;
+  --color-bg-elevated: #1A1A1A;
+  --color-bg-overlay:  rgba(0, 0, 0, 0.9);
+  --color-bg-inverted: #FFFFFF;
+
+  --color-primary:       #FFFF00;
+  --color-primary-hover: #FFFF66;
+  --color-accent:        #00FFFF;
+  --color-accent-hover:  #66FFFF;
+
+  --color-text-primary:     #FFFFFF;
+  --color-text-secondary:   #E5E5E5;
+  --color-text-tertiary:    #C0C0C0;
+  --color-text-inverted:    #000000;
+  --color-text-link:        #FFFF00;
+  --color-text-link-hover:  #FFFF66;
+  --color-text-heading:     #FFFFFF;
+  --color-text-disabled:    #666666;
+
+  --color-border:       #FFFFFF;
+  --color-border-strong: #FFFFFF;
+  --color-border-focus:  #FFFF00;
+
+  --color-success: #00FF00;
+  --color-warning: #FFFF00;
+  --color-danger:  #FF0000;
+  --color-info:    #00FFFF;
+
+  --focus-ring-color: #FFFF00;
+  --focus-ring-width: 4px;
+
+  --shadow-none: none;
+  --shadow-xs:   none;
+  --shadow-sm:   none;
+  --shadow-md:   none;
+  --shadow-lg:   none;
+  --shadow-xl:   none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   6. PRINT MEDIA  (audit item #16)
+───────────────────────────────────────────────────────────────────────────── */
+@media print {
+  :root {
+    --color-bg-page:     #FFFFFF;
+    --color-bg-subtle:   #FFFFFF;
+    --color-bg-surface:  #FFFFFF;
+    --color-bg-elevated: #FFFFFF;
+
+    --color-text-primary:   #000000;
+    --color-text-secondary: #333333;
+    --color-text-heading:   #000000;
+
+    --shadow-xs:  none;
+    --shadow-sm:  none;
+    --shadow-md:  none;
+    --shadow-lg:  none;
+    --shadow-xl:  none;
+    --shadow-2xl: none;
+
+    --color-border: #CCCCCC;
+
+    --font-size-base:    11pt;
+    --line-height-normal: 1.5;
+  }
+
+  nav,
+  header,
+  footer,
+  .no-print,
+  [data-no-print],
+  button:not([data-print]),
+  video,
+  iframe {
+    display: none !important;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555555;
+  }
+
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  h1, h2, h3 { page-break-after: avoid; }
+  img, figure { page-break-inside: avoid; }
+  table       { page-break-inside: avoid; }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   7. REDUCED MOTION  (audit item #15)
+───────────────────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration:        0.01ms !important;
+    animation-iteration-count: 1      !important;
+    transition-duration:       0.01ms !important;
+    scroll-behavior:           auto   !important;
+  }
+}

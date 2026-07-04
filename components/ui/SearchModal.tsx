@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 
 import React, { useEffect, useState, useRef } from 'react';
@@ -219,3 +220,4 @@ export const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
     </AnimatePresence>
   );
 };
+

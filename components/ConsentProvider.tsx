@@ -25,6 +25,7 @@ export const ConsentProvider = ({ children }: { children: React.ReactNode }) => 
   useEffect(() => {
     const consent = localStorage.getItem('qeltrava_cookie_consent');
     if (consent === 'true') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setHasConsent(true);
     }
     setIsInitialized(true);

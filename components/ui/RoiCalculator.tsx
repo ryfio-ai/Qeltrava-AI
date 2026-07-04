@@ -72,7 +72,7 @@ export const RoiCalculator = () => {
     };
   }, [people, rate, hours, processType]);
 
-  // Update URL parameters silently with 300ms debounce using router.replace
+  // Update URL parameters silently with 300ms debounce
   useEffect(() => {
     if (urlTimerRef.current) {
       clearTimeout(urlTimerRef.current);
@@ -86,13 +86,13 @@ export const RoiCalculator = () => {
       
       const newQuery = params.toString();
       // Replace query silently without polluting browser back-button history
-      router.replace(`${window.location.pathname}?${newQuery}` as any);
+      window.history.replaceState(null, '', `${window.location.pathname}?${newQuery}`);
     }, 350); // Kept slightly above 300ms for safety
 
     return () => {
       if (urlTimerRef.current) clearTimeout(urlTimerRef.current);
     };
-  }, [people, rate, hours, processType, router]);
+  }, [people, rate, hours, processType]);
 
   // Handle URL copying
   const handleCopyLink = async () => {

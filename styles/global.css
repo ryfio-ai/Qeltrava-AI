@@ -1,0 +1,25 @@
+/* styles/global.css */
+@import "./design-tokens.css";
+
+/* Tailwind base imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global resets */
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Apply the background and text colors from design tokens */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-base);
+}

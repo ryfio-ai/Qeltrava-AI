@@ -15,9 +15,9 @@ export const JsonLd = () => {
       "email": "hello@qeltrava.ai"
     },
     "sameAs": [
-      "https://linkedin.com/company/qeltrava",
-      "https://twitter.com/qeltrava"
-    ]
+      siteConfig.social.linkedin,
+      siteConfig.social.instagram
+    ].filter(Boolean)
   };
 
   return (

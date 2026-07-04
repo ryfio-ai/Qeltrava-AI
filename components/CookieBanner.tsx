@@ -7,6 +7,7 @@ import { Link } from '@/src/routing';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export const CookieBanner = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { hasConsent, acceptConsent, declineConsent, isInitialized } = useConsent();
 
   // If we already checked local storage and a decision was made, hide banner
