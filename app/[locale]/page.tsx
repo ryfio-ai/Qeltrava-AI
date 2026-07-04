@@ -19,6 +19,7 @@ import { TransformationStories } from '@/components/ui/TransformationStories';
 import { EngineeringWorkflow } from '@/components/ui/EngineeringWorkflow';
 import { LiveArchitectureVisualizer } from '@/components/ui/LiveArchitectureVisualizer';
 import { SystemHealthDashboard } from '@/components/ui/SystemHealthDashboard';
+import { FeaturedProductModliq } from '@/components/ui/FeaturedProductModliq';
 import dynamic from 'next/dynamic';
 
 const NetworkBackground = dynamic(() => import('@/components/backgrounds/NetworkBackground').then(mod => mod.NetworkBackground), { ssr: false });
@@ -201,6 +202,15 @@ export default function HomePage() {
               Open full-screen architect →
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ── Featured Product (Modliq) ───────────────────────── */}
+      <section className="py-24 bg-[var(--color-bg-light)] border-b border-[var(--color-border-soft)] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn direction="up">
+            <FeaturedProductModliq />
+          </FadeIn>
         </div>
       </section>
 
