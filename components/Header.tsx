@@ -299,7 +299,7 @@ export const Header = () => {
       <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
           
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group" onClick={closeAllMenus}>
+        <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0" onClick={closeAllMenus}>
           <Image 
             src="/logo-bg.png" 
             alt="Qeltrava AI Logo" 
@@ -307,7 +307,7 @@ export const Header = () => {
             height={40} 
             className="w-10 h-10 object-contain group-hover:opacity-80 transition-opacity" 
           />
-          <span className="text-xl font-bold text-[var(--color-primary-dark)] tracking-tight">Qeltrava AI</span>
+          <span className="text-xl font-bold text-[var(--color-primary-dark)] tracking-tight whitespace-nowrap">Qeltrava AI</span>
         </Link>
 
         {/* Visually hidden links for crawler and SEO compatibility */}
@@ -316,7 +316,7 @@ export const Header = () => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center xl:gap-1 gap-0.5">
           {navItems.map(item => {
             const isMenuOpen = activeMenu === item.id;
             return (
@@ -328,7 +328,7 @@ export const Header = () => {
               >
                 <button
                   onClick={(e) => handleNavClick(item.id, e)}
-                  className={`text-sm font-semibold transition-colors px-4 py-2 rounded-lg flex items-center gap-1.5 focus:outline-none hover:bg-gray-50 ${
+                  className={`text-sm font-semibold transition-colors xl:px-4 px-2 py-2 rounded-lg flex items-center gap-1 focus:outline-none hover:bg-gray-50 whitespace-nowrap ${
                     isMenuOpen || pathname.startsWith(`/${item.id}`)
                       ? 'text-[var(--color-accent)]' 
                       : 'text-[var(--color-text-main)] hover:text-[var(--color-accent)]'
@@ -344,7 +344,7 @@ export const Header = () => {
         </nav>
 
         {/* Desktop CTA & Locale */}
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center xl:gap-4 gap-2.5 flex-shrink-0">
           <LocaleSwitcher />
           
           {/* Search Trigger Button */}
@@ -358,13 +358,13 @@ export const Header = () => {
 
           <Link 
             href="/contact" 
-            className="text-sm font-semibold text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors"
+            className="text-sm font-semibold text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors whitespace-nowrap"
             onClick={closeAllMenus}
           >
             {t('Contact') || 'Contact'}
           </Link>
           
-          <Button href="/book-consultation" onClick={closeAllMenus}>
+          <Button href="/book-consultation" onClick={closeAllMenus} className="whitespace-nowrap">
             {t('BookCall') || 'Book Call'}
           </Button>
         </div>
