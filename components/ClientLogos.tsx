@@ -12,7 +12,7 @@ export const ClientLogos = () => {
       logo: "/client/edriftlogo.webp",
       business: "Electric Mobility & Smart EV Solutions",
       desc: "Engineering modern software layers for electric vehicle fleet tracking, charging grid optimization, and smart IoT telemetry.",
-      website: "https://edriftelectric.com/",
+      website: "https://www.edriftelectric.com/",
       glowColor: "from-emerald-500/10 to-teal-500/10",
       accentBorder: "group-hover:border-emerald-500/30"
     },
