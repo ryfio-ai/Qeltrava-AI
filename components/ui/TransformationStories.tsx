@@ -3,18 +3,24 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+interface Metric {
+  label: string;
+  value: string;
+  bad?: boolean;
+}
+
 interface TransformationStory {
   id: string;
   industry: string;
   client: string;
   before: {
     headline: string;
-    metrics: Array<{ label: string; value: string; bad: boolean }>;
+    metrics: Metric[];
     pain: string;
   };
   after: {
     headline: string;
-    metrics: Array<{ label: string; value: string }>;
+    metrics: Metric[];
     win: string;
   };
   techUsed: string[];
