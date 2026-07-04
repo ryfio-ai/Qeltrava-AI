@@ -104,6 +104,33 @@ export const Header = () => {
   // Nav Items config mapping
   const navItems: NavItem[] = [
     {
+      id: 'products',
+      label: 'Products',
+      introTitle: 'Flagship AI Platforms',
+      introDesc: 'Proprietary products built by Qeltrava engineering.',
+      columns: [
+        {
+          title: 'AutoML & Studio',
+          links: [
+            { label: 'Modliq (No-Code ML)', href: '/products/modliq', badge: 'Flagship' }
+          ]
+        },
+        {
+          title: 'Enterprise Tools',
+          links: [
+            { label: 'Quantra AI (Analytics)', href: '#', badge: 'Teaser' },
+            { label: 'AI Workflow Studio', href: '#', badge: 'Soon' }
+          ]
+        }
+      ],
+      card: {
+        title: 'Join Modliq Waitlist',
+        desc: 'Build and deploy machine learning models through a visual workflow.',
+        cta: 'Request Invite →',
+        href: '/products/modliq'
+      }
+    },
+    {
       id: 'services',
       label: t('Services') || 'Services',
       introTitle: 'Engineering Services',

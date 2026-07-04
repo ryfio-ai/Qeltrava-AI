@@ -59,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/ai-readiness',
     '/playground',
     '/proposal',
+    '/products/modliq',
   ];
 
   const routes: MetadataRoute.Sitemap = [];

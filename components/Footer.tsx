@@ -42,7 +42,7 @@ export const Footer = () => {
       
       {/* ROW 1 — Top Footer (padding: 80px top/bottom) */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full pt-20 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-12">
           
           {/* Logo & Tagline */}
           <div className="lg:col-span-2 flex flex-col justify-between h-full">
@@ -108,6 +108,16 @@ export const Footer = () => {
               <li><Link href="/services/cloud-devops" className="hover:text-white transition-colors">Cloud & DevOps</Link></li>
               <li><Link href="/services/data-analytics" className="hover:text-white transition-colors">Data & Analytics</Link></li>
               <li><Link href="/services/cybersecurity" className="hover:text-white transition-colors">Cybersecurity</Link></li>
+            </ul>
+          </div>
+
+          {/* Products Column */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-6 font-mono">
+              Products
+            </h3>
+            <ul className="space-y-4 text-[13px] text-white/70 font-sans font-semibold">
+              <li><Link href="/products/modliq" className="hover:text-white transition-colors">Modliq</Link></li>
             </ul>
           </div>
 
