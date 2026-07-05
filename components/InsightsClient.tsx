@@ -6,18 +6,20 @@ import { Button } from '@/components/Button';
 import { Link } from '@/src/routing';
 import { insightsArticles } from '@/lib/insights-data';
 
-export const InsightsClient = () => {
+export const InsightsClient = ({ initialArticles }: { initialArticles?: any[] }) => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
   const categories = ['All', 'AI Engineering', 'Enterprise Architecture', 'Product & Delivery'];
 
-  const filteredArticles = insightsArticles.filter(
+  const articlesList = initialArticles && initialArticles.length > 0 ? initialArticles : insightsArticles;
+
+  const filteredArticles = articlesList.filter(
     art => activeCategory === 'All' || art.category === activeCategory
   );
 
-  const featuredArticle = insightsArticles[0];
+  const featuredArticle = articlesList[0];
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();

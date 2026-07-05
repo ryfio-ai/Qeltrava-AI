@@ -1,0 +1,1026 @@
+{
+  "organizations": [
+    {
+      "id": "org-qeltrava-group",
+      "name": "Qeltrava Group",
+      "created_at": "2026-07-05T09:48:06.182Z",
+      "updated_at": "2026-07-05T09:48:06.203Z"
+    }
+  ],
+  "workspaces": [
+    {
+      "id": "ws-qeltrava-ai",
+      "organization_id": "org-qeltrava-group",
+      "name": "Qeltrava AI Website",
+      "slug": "qeltrava-ai",
+      "created_at": "2026-07-05T09:48:06.203Z",
+      "updated_at": "2026-07-05T09:48:06.203Z"
+    },
+    {
+      "id": "ws-modliq",
+      "organization_id": "org-qeltrava-group",
+      "name": "Modliq Workspace",
+      "slug": "modliq",
+      "created_at": "2026-07-05T09:48:06.203Z",
+      "updated_at": "2026-07-05T09:48:06.203Z"
+    }
+  ],
+  "members": [
+    {
+      "id": "mem-admin",
+      "workspace_id": "ws-qeltrava-ai",
+      "email": "admin@qeltrava.ai",
+      "role": "Super Admin",
+      "status": "active",
+      "created_at": "2026-07-05T09:48:06.203Z",
+      "updated_at": "2026-07-05T09:48:06.203Z"
+    },
+    {
+      "id": "mem-recruiter",
+      "workspace_id": "ws-qeltrava-ai",
+      "email": "recruiter@qeltrava.ai",
+      "role": "HR",
+      "status": "active",
+      "created_at": "2026-07-05T09:48:06.203Z",
+      "updated_at": "2026-07-05T09:48:06.203Z"
+    },
+    {
+      "id": "mem-marketer",
+      "workspace_id": "ws-qeltrava-ai",
+      "email": "marketing@qeltrava.ai",
+      "role": "Marketing",
+      "status": "active",
+      "created_at": "2026-07-05T09:48:06.203Z",
+      "updated_at": "2026-07-05T09:48:06.203Z"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "job-1",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "Frontend Developer Intern",
+      "slug": "frontend-developer-intern",
+      "department": "Engineering",
+      "experience": "0-1 years (Internship)",
+      "employment_type": "Internship",
+      "location": "Remote",
+      "salary": "NA",
+      "open_positions": 1,
+      "description": "Join Qeltrava AI as a Frontend Developer Intern and build modern, responsive web applications using the latest frontend technologies. Work closely with our engineering team to deliver intuitive user experiences for AI-powered products.",
+      "responsibilities": [
+        "Build responsive UI components using React and Next.js.",
+        "Collaborate with designers and backend developers.",
+        "Optimize application performance and accessibility.",
+        "Participate in code reviews and daily engineering discussions."
+      ],
+      "requirements": [
+        "Pursuing or recently completed an Engineering or Computer Science degree.",
+        "Knowledge of HTML, CSS, JavaScript, and React.",
+        "Basic understanding of Git and responsive design."
+      ],
+      "benefits": [
+        "Hands-on experience with real-world products.",
+        "Mentorship from experienced engineers.",
+        "Flexible remote work environment.",
+        "Performance-based full-time opportunity."
+      ],
+      "tech_stack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Git"
+      ],
+      "hiring_process": [
+        "1. Application",
+        "2. Technical Task",
+        "3. One-on-One Interview",
+        "4. Offer"
+      ],
+      "working_model": "Remote",
+      "team_info": "Our team is composed of PSG College of Technology alumni (Class of 2026) building scalable enterprise architectures.",
+      "about_company": "Qeltrava AI is the AI-Led Software Engineering company building high-performance intelligence boundaries for enterprise platforms.",
+      "status": "Published",
+      "is_featured": true,
+      "posted_date": "2026-07-05T10:47:36.945Z",
+      "created_at": "2026-07-05T10:47:36.946Z",
+      "updated_at": "2026-07-05T10:47:36.946Z"
+    },
+    {
+      "id": "job-2",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "Backend Developer Intern",
+      "slug": "backend-developer-intern",
+      "department": "Engineering",
+      "experience": "0-1 years (Internship)",
+      "employment_type": "Internship",
+      "location": "Remote",
+      "salary": "NA",
+      "open_positions": 1,
+      "description": "Work on scalable backend systems, REST APIs, databases, and cloud integrations powering AI and SaaS products at Qeltrava AI. You will gain exposure to production-grade backend engineering.",
+      "responsibilities": [
+        "Develop REST APIs and backend services.",
+        "Design database schemas and optimize queries.",
+        "Write reusable and maintainable backend code.",
+        "Collaborate with frontend developers on integration.",
+        "Participate in architecture discussions and code reviews."
+      ],
+      "requirements": [
+        "Knowledge of Node.js or Python backend development.",
+        "Understanding of REST APIs and relational databases.",
+        "Basic Git and version control knowledge.",
+        "Pursuing a degree in Computer Science or Engineering."
+      ],
+      "benefits": [
+        "Real production backend engineering experience.",
+        "Mentorship from engineering leaders.",
+        "Flexible remote internship schedule.",
+        "Performance-based Pre-Placement Offer (PPO)."
+      ],
+      "tech_stack": [
+        "Node.js",
+        "Express",
+        "Python",
+        "PostgreSQL",
+        "Supabase"
+      ],
+      "hiring_process": [
+        "1. Application",
+        "2. Technical Task",
+        "3. One-on-One Interview",
+        "4. Offer"
+      ],
+      "working_model": "Remote",
+      "team_info": "Our team is composed of PSG College of Technology alumni (Class of 2026) building scalable enterprise architectures.",
+      "about_company": "Qeltrava AI is the AI-Led Software Engineering company building high-performance intelligence boundaries for enterprise platforms.",
+      "status": "Published",
+      "is_featured": true,
+      "posted_date": "2026-07-05T10:47:36.946Z",
+      "created_at": "2026-07-05T10:47:36.946Z",
+      "updated_at": "2026-07-05T10:47:36.946Z"
+    },
+    {
+      "id": "job-3",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "Full Stack Developer Intern",
+      "slug": "full-stack-developer-intern",
+      "department": "Engineering",
+      "experience": "0-1 years (Internship)",
+      "employment_type": "Internship",
+      "location": "Remote",
+      "salary": "NA",
+      "open_positions": 1,
+      "description": "Build complete web applications from frontend to backend while working on live AI products at Qeltrava AI. This role exposes you to the full software development lifecycle across both client and server layers.",
+      "responsibilities": [
+        "Develop end-to-end frontend and backend features.",
+        "Integrate third-party APIs and internal databases.",
+        "Test, debug, and deploy applications to production.",
+        "Collaborate across engineering, design, and product teams.",
+        "Write clean, documented, and maintainable code."
+      ],
+      "requirements": [
+        "Foundational knowledge of React and Node.js.",
+        "Understanding of relational databases and REST APIs.",
+        "Strong eagerness to learn and take ownership.",
+        "Pursuing or recently completed a technical degree."
+      ],
+      "benefits": [
+        "End-to-end exposure to real product development.",
+        "Remote-first engineering culture.",
+        "Mentorship and structured career growth.",
+        "Performance-based Pre-Placement Offer (PPO)."
+      ],
+      "tech_stack": [
+        "Next.js",
+        "Node.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Supabase"
+      ],
+      "hiring_process": [
+        "1. Application",
+        "2. Technical Task",
+        "3. One-on-One Interview",
+        "4. Offer"
+      ],
+      "working_model": "Remote",
+      "team_info": "Our team is composed of PSG College of Technology alumni (Class of 2026) building scalable enterprise architectures.",
+      "about_company": "Qeltrava AI is the AI-Led Software Engineering company building high-performance intelligence boundaries for enterprise platforms.",
+      "status": "Published",
+      "is_featured": true,
+      "posted_date": "2026-07-05T10:47:36.946Z",
+      "created_at": "2026-07-05T10:47:36.946Z",
+      "updated_at": "2026-07-05T10:47:36.946Z"
+    },
+    {
+      "id": "job-4",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "AI & Machine Learning Intern",
+      "slug": "ai-machine-learning-intern",
+      "department": "Artificial Intelligence",
+      "experience": "0-1 years (Internship)",
+      "employment_type": "Internship",
+      "location": "Remote",
+      "salary": "NA",
+      "open_positions": 1,
+      "description": "Work on AI automation, LLM applications, machine learning workflows, and intelligent software solutions at Qeltrava AI. Gain hands-on experience building the AI systems that power our enterprise products.",
+      "responsibilities": [
+        "Build and integrate AI-powered features into production applications.",
+        "Train, evaluate, and fine-tune machine learning models.",
+        "Work with LLMs, prompt engineering, and vector databases.",
+        "Research and prototype emerging AI techniques.",
+        "Document experiments and communicate findings to the team."
+      ],
+      "requirements": [
+        "Basic to intermediate Python programming skills.",
+        "Foundational understanding of Machine Learning concepts.",
+        "Genuine interest in Generative AI and LLMs.",
+        "Pursuing a degree in CS, AI, Data Science, or related field."
+      ],
+      "benefits": [
+        "Work hands-on with cutting-edge AI products.",
+        "Research and experimentation driven environment.",
+        "Flexible fully remote work schedule.",
+        "Performance-based Pre-Placement Offer (PPO)."
+      ],
+      "tech_stack": [
+        "Python",
+        "OpenAI",
+        "LangChain",
+        "TensorFlow",
+        "PyTorch"
+      ],
+      "hiring_process": [
+        "1. Application",
+        "2. Technical Task",
+        "3. One-on-One Interview",
+        "4. Offer"
+      ],
+      "working_model": "Remote",
+      "team_info": "Our team is composed of PSG College of Technology alumni (Class of 2026) building scalable enterprise architectures.",
+      "about_company": "Qeltrava AI is the AI-Led Software Engineering company building high-performance intelligence boundaries for enterprise platforms.",
+      "status": "Published",
+      "is_featured": false,
+      "posted_date": "2026-07-05T10:47:36.946Z",
+      "created_at": "2026-07-05T10:47:36.946Z",
+      "updated_at": "2026-07-05T10:47:36.946Z"
+    },
+    {
+      "id": "job-5",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "UI/UX Design Intern",
+      "slug": "ui-ux-design-intern",
+      "department": "Design",
+      "experience": "0-1 years (Internship)",
+      "employment_type": "Internship",
+      "location": "Remote",
+      "salary": "NA",
+      "open_positions": 1,
+      "description": "Design modern, pixel-perfect digital experiences for enterprise AI products and SaaS platforms at Qeltrava AI. Work directly with engineering to deliver interfaces that are both beautiful and functional.",
+      "responsibilities": [
+        "Create wireframes, prototypes, and high-fidelity mockups.",
+        "Design responsive user interfaces across web and mobile.",
+        "Collaborate closely with frontend developers during handoff.",
+        "Conduct usability reviews and iterate on user feedback.",
+        "Maintain and grow our design system components."
+      ],
+      "requirements": [
+        "Proficiency in Figma for interface design and prototyping.",
+        "Basic understanding of UX principles and visual hierarchy.",
+        "Strong sense of aesthetics and creative problem-solving.",
+        "Portfolio demonstrating design projects (required)."
+      ],
+      "benefits": [
+        "Build production-ready designs used by real customers.",
+        "Portfolio-worthy projects at a fast-moving AI company.",
+        "Flexible remote internship environment.",
+        "Performance-based Pre-Placement Offer (PPO)."
+      ],
+      "tech_stack": [
+        "Figma",
+        "Adobe XD",
+        "FigJam",
+        "Illustrator"
+      ],
+      "hiring_process": [
+        "1. Application",
+        "2. Technical Task",
+        "3. One-on-One Interview",
+        "4. Offer"
+      ],
+      "working_model": "Remote",
+      "team_info": "Our team is composed of PSG College of Technology alumni (Class of 2026) building scalable enterprise architectures.",
+      "about_company": "Qeltrava AI is the AI-Led Software Engineering company building high-performance intelligence boundaries for enterprise platforms.",
+      "status": "Published",
+      "is_featured": false,
+      "posted_date": "2026-07-05T10:47:36.946Z",
+      "created_at": "2026-07-05T10:47:36.946Z",
+      "updated_at": "2026-07-05T10:47:36.946Z"
+    },
+    {
+      "id": "job-6",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "QA & Testing Intern",
+      "slug": "qa-testing-intern",
+      "department": "Quality Assurance",
+      "experience": "0-1 years (Internship)",
+      "employment_type": "Internship",
+      "location": "Remote",
+      "salary": "NA",
+      "open_positions": 1,
+      "description": "Ensure product quality through rigorous manual and automated testing for AI-driven applications. You will be the last line of defense before features reach our customers at Qeltrava AI.",
+      "responsibilities": [
+        "Design and execute detailed test cases across features.",
+        "Report, track, and verify bug fixes in the issue tracker.",
+        "Perform regression, smoke, and exploratory testing.",
+        "Assist in building automated test suites.",
+        "Collaborate with developers to reproduce and resolve defects."
+      ],
+      "requirements": [
+        "Strong attention to detail and methodical mindset.",
+        "Basic understanding of software testing lifecycle.",
+        "Analytical thinking and clear written communication.",
+        "Familiarity with API testing tools is a plus."
+      ],
+      "benefits": [
+        "Enterprise-grade QA workflow experience.",
+        "Remote-first internship culture.",
+        "Mentorship from senior engineers.",
+        "Performance-based Pre-Placement Offer (PPO)."
+      ],
+      "tech_stack": [
+        "Playwright",
+        "Cypress",
+        "Postman",
+        "Jira"
+      ],
+      "hiring_process": [
+        "1. Application",
+        "2. Technical Task",
+        "3. One-on-One Interview",
+        "4. Offer"
+      ],
+      "working_model": "Remote",
+      "team_info": "Our team is composed of PSG College of Technology alumni (Class of 2026) building scalable enterprise architectures.",
+      "about_company": "Qeltrava AI is the AI-Led Software Engineering company building high-performance intelligence boundaries for enterprise platforms.",
+      "status": "Published",
+      "is_featured": false,
+      "posted_date": "2026-07-05T10:47:36.946Z",
+      "created_at": "2026-07-05T10:47:36.946Z",
+      "updated_at": "2026-07-05T10:47:36.946Z"
+    },
+    {
+      "id": "job-7",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "DevOps & Cloud Intern",
+      "slug": "devops-cloud-intern",
+      "department": "Cloud Engineering",
+      "experience": "0-1 years (Internship)",
+      "employment_type": "Internship",
+      "location": "Remote",
+      "salary": "NA",
+      "open_positions": 1,
+      "description": "Learn cloud infrastructure, CI/CD pipelines, container orchestration, and deployment automation for scalable AI products at Qeltrava AI. You will contribute directly to reliability and release engineering.",
+      "responsibilities": [
+        "Build and maintain CI/CD deployment pipelines.",
+        "Monitor and manage cloud infrastructure across environments.",
+        "Support containerization and orchestration with Docker and Kubernetes.",
+        "Automate repetitive infrastructure tasks.",
+        "Document infrastructure architecture and runbooks."
+      ],
+      "requirements": [
+        "Basic Linux command-line proficiency.",
+        "Genuine interest in cloud platforms and DevOps culture.",
+        "Understanding of Git and basic scripting.",
+        "Familiarity with any cloud provider (AWS, GCP, Azure) is a plus."
+      ],
+      "benefits": [
+        "Exposure to real production infrastructure and deployment.",
+        "Hands-on cloud and DevOps engineering learning.",
+        "Fully remote internship.",
+        "Performance-based Pre-Placement Offer (PPO)."
+      ],
+      "tech_stack": [
+        "Docker",
+        "GitHub Actions",
+        "AWS",
+        "Vercel",
+        "Kubernetes"
+      ],
+      "hiring_process": [
+        "1. Application",
+        "2. Technical Task",
+        "3. One-on-One Interview",
+        "4. Offer"
+      ],
+      "working_model": "Remote",
+      "team_info": "Our team is composed of PSG College of Technology alumni (Class of 2026) building scalable enterprise architectures.",
+      "about_company": "Qeltrava AI is the AI-Led Software Engineering company building high-performance intelligence boundaries for enterprise platforms.",
+      "status": "Published",
+      "is_featured": false,
+      "posted_date": "2026-07-05T10:47:36.946Z",
+      "created_at": "2026-07-05T10:47:36.946Z",
+      "updated_at": "2026-07-05T10:47:36.946Z"
+    },
+    {
+      "id": "job-8",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "Data Analytics Intern",
+      "slug": "data-analytics-intern",
+      "department": "Data",
+      "experience": "0-1 years (Internship)",
+      "employment_type": "Internship",
+      "location": "Remote",
+      "salary": "NA",
+      "open_positions": 1,
+      "description": "Analyze datasets, build dashboards, and surface actionable business insights for AI-powered solutions at Qeltrava AI. Work with real data to directly influence product and business decisions.",
+      "responsibilities": [
+        "Analyze business, product, and engineering data sets.",
+        "Prepare visual reports and interactive dashboards.",
+        "Clean, transform, and validate raw data pipelines.",
+        "Support executive and product decision-making with data.",
+        "Document data definitions and metric frameworks."
+      ],
+      "requirements": [
+        "Basic to intermediate SQL querying skills.",
+        "Working knowledge of Excel or Python for data manipulation.",
+        "Strong analytical and problem-solving mindset.",
+        "Interest in BI tools and data visualization."
+      ],
+      "benefits": [
+        "Real business analytics experience with live data.",
+        "Fully remote flexible schedule.",
+        "Mentorship from senior data practitioners.",
+        "Performance-based Pre-Placement Offer (PPO)."
+      ],
+      "tech_stack": [
+        "Python",
+        "SQL",
+        "Power BI",
+        "Excel",
+        "PostgreSQL"
+      ],
+      "hiring_process": [
+        "1. Application",
+        "2. Technical Task",
+        "3. One-on-One Interview",
+        "4. Offer"
+      ],
+      "working_model": "Remote",
+      "team_info": "Our team is composed of PSG College of Technology alumni (Class of 2026) building scalable enterprise architectures.",
+      "about_company": "Qeltrava AI is the AI-Led Software Engineering company building high-performance intelligence boundaries for enterprise platforms.",
+      "status": "Published",
+      "is_featured": false,
+      "posted_date": "2026-07-05T10:47:36.946Z",
+      "created_at": "2026-07-05T10:47:36.946Z",
+      "updated_at": "2026-07-05T10:47:36.946Z"
+    },
+    {
+      "id": "job-9",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "Cybersecurity Intern",
+      "slug": "cybersecurity-intern",
+      "department": "Security",
+      "experience": "0-1 years (Internship)",
+      "employment_type": "Internship",
+      "location": "Remote",
+      "salary": "NA",
+      "open_positions": 1,
+      "description": "Help strengthen the security posture of AI and SaaS platforms through vulnerability assessments, secure code reviews, and security best practices at Qeltrava AI.",
+      "responsibilities": [
+        "Assist with vulnerability assessments and threat modeling.",
+        "Review security configurations across services and APIs.",
+        "Support penetration testing exercises.",
+        "Document security findings and remediation steps.",
+        "Stay current with emerging CVEs and security advisories."
+      ],
+      "requirements": [
+        "Genuine interest in cybersecurity and ethical hacking.",
+        "Basic networking fundamentals (TCP/IP, HTTP, DNS).",
+        "Strong problem-solving and analytical skills.",
+        "Familiarity with OWASP Top 10 is a plus."
+      ],
+      "benefits": [
+        "Work with secure enterprise-grade systems.",
+        "Mentorship from security practitioners.",
+        "Fully remote internship.",
+        "Performance-based Pre-Placement Offer (PPO)."
+      ],
+      "tech_stack": [
+        "OWASP",
+        "Burp Suite",
+        "Snyk",
+        "Linux",
+        "Git"
+      ],
+      "hiring_process": [
+        "1. Application",
+        "2. Technical Task",
+        "3. One-on-One Interview",
+        "4. Offer"
+      ],
+      "working_model": "Remote",
+      "team_info": "Our team is composed of PSG College of Technology alumni (Class of 2026) building scalable enterprise architectures.",
+      "about_company": "Qeltrava AI is the AI-Led Software Engineering company building high-performance intelligence boundaries for enterprise platforms.",
+      "status": "Published",
+      "is_featured": false,
+      "posted_date": "2026-07-05T10:47:36.946Z",
+      "created_at": "2026-07-05T10:47:36.946Z",
+      "updated_at": "2026-07-05T10:47:36.946Z"
+    },
+    {
+      "id": "job-10",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "Technical Content & Developer Relations Intern",
+      "slug": "technical-content-developer-relations-intern",
+      "department": "Developer Relations",
+      "experience": "0-1 years (Internship)",
+      "employment_type": "Internship",
+      "location": "Remote",
+      "salary": "NA",
+      "open_positions": 1,
+      "description": "Create technical documentation, engineering blogs, developer tutorials, and product content that supports our customers and the broader developer community at Qeltrava AI.",
+      "responsibilities": [
+        "Write clear, accurate technical blog posts and documentation.",
+        "Produce step-by-step product tutorials and guides.",
+        "Collaborate with engineering to capture technical details accurately.",
+        "Maintain and organise the developer resource centre.",
+        "Monitor developer community feedback and surface insights."
+      ],
+      "requirements": [
+        "Excellent written communication and storytelling skills.",
+        "Basic understanding of software development concepts.",
+        "Strong research and synthesis capabilities.",
+        "Ability to explain complex topics clearly to non-experts."
+      ],
+      "benefits": [
+        "Build an impressive technical writing and DevRel portfolio.",
+        "Work alongside experienced engineering teams.",
+        "Flexible fully remote work environment.",
+        "Performance-based Pre-Placement Offer (PPO)."
+      ],
+      "tech_stack": [
+        "Markdown",
+        "Git",
+        "Notion",
+        "Next.js",
+        "SEO"
+      ],
+      "hiring_process": [
+        "1. Application",
+        "2. Technical Task",
+        "3. One-on-One Interview",
+        "4. Offer"
+      ],
+      "working_model": "Remote",
+      "team_info": "Our team is composed of PSG College of Technology alumni (Class of 2026) building scalable enterprise architectures.",
+      "about_company": "Qeltrava AI is the AI-Led Software Engineering company building high-performance intelligence boundaries for enterprise platforms.",
+      "status": "Published",
+      "is_featured": false,
+      "posted_date": "2026-07-05T10:47:36.946Z",
+      "created_at": "2026-07-05T10:47:36.946Z",
+      "updated_at": "2026-07-05T10:47:36.946Z"
+    }
+  ],
+  "applicants": [],
+  "blogs": [
+    {
+      "id": "blog-1",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "Why AI-Native Architecture Is an Architecture Decision, Not a Feature Toggle",
+      "slug": "ai-native-architecture-decision",
+      "summary": "AI-native architecture means designing system boundaries, data flows, and deployment patterns specifically to support LLM inference and agent orchestration — not adding an API call to an existing monolith.",
+      "content": "As organizations scramble to integrate Artificial Intelligence into their operations, a common engineering anti-pattern has emerged: treating AI as a simple feature toggle. Many development teams assume that adding cognitive capabilities to a platform is as simple as invoking an external LLM API from an existing monolith. This approach is not only short-sighted; it introduces massive architectural bottlenecks, security vulnerabilities, and runaway operational costs that inevitably lead to project failure at production scale.\n\nTrue AI-native architecture requires a fundamental redesign of system boundaries, database schemas, and data pipelines. It is an architecture-level decision that must be addressed from day one. When a system is engineered to be AI-native, it acknowledges the unique characteristics of non-deterministic model outputs, the latency budgets of LLM calls, and the complex orchestration required for multi-agent workflows.\n\nHere are three clear signs that a system is merely \"AI-bolted-on\" rather than truly AI-native:\n\n1. Synchronous LLM Calls in Core Web Threads: If your user-facing request-response cycle blocks while waiting 5 to 15 seconds for a third-party LLM API to return a response, your system will experience severe thread starvation and timeout failures under load. AI-native designs utilize asynchronous task queues, event brokers, and Server-Sent Events (SSE) or WebSockets to handle long-running model operations gracefully.\n\n2. Lack of Vector Database and Embedding Pipelines: Storing raw text prompts and sending them repeatedly to an LLM is highly inefficient. AI-native architectures implement robust data ingestion pipelines that automatically parse, chunk, and embed documents into a dedicated vector database (like pgvector or Qdrant), implementing Retrieval-Augmented Generation (RAG) to inject relevant context dynamically and accurately.\n\n3. Missing Guardrails and Observability: Bolt-on designs lack tracking for token consumption, prompt latency, or model accuracy. In contrast, an AI-native system incorporates semantic caching to prevent redundant LLM calls, robust prompt versioning, and real-time observability dashboards to monitor agent decisions, hallucination rates, and compliance guardrails.\n\nTo build an AI-native system from sprint one, engineers must decouple prompt engineering and agent execution into microservices. Data flows must be structured to feed vector spaces continuously, and the front-end must support streaming-first interfaces. By making these core architectural adjustments early, enterprise platforms can scale to millions of monthly agent executions securely, reliably, and cost-effectively.",
+      "category": "AI Engineering",
+      "tags": [
+        "AI-Native",
+        "Software Architecture",
+        "RAG"
+      ],
+      "author": "Qeltrava AI Engineering Team",
+      "read_time": "5 min read",
+      "featured_image": "",
+      "published": true,
+      "published_at": "2026-07-01T00:00:00Z",
+      "versions": [],
+      "created_at": "2026-07-05T09:48:06.211Z",
+      "updated_at": "2026-07-05T09:48:06.211Z"
+    },
+    {
+      "id": "blog-2",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "The Four Signals That Tell You a Legacy System Is Ready for Modernization",
+      "slug": "legacy-system-modernization-signals",
+      "summary": "Legacy systems should be modernized when they meet one or more of four observable criteria: deployment frequency has stagnated, a single engineer departure would cause modules failure, costs scale poorly, or audits show structural vulnerabilities.",
+      "content": "Maintaining a legacy system is a delicate balancing act. Business leaders often delay modernization projects out of fear of operational disruption, high costs, and transition failures. However, postponing modernization past a critical tipping point leads to a state of technical debt where maintenance costs swallow your entire engineering budget, leaving zero room for product innovation.\n\nModernization does not always require a high-risk, multi-year greenfield rewrite. Often, the most successful path is a phased strangler-fig migration, where core legacy modules are systematically replaced by modern microservices over time. The key is knowing exactly when to start. We have identified four key diagnostic signals that tell you a system is ready for modernization:\n\nSignal 1: Stagnant Deployment Frequency. If your engineering team is only able to ship code once a month, or if deployment day requires a multi-hour \"war room\" with manual validation checklists, your delivery pipeline is broken. Modern systems utilize automated testing, containerization, and progressive rollouts to deploy changes multiple times a day with high confidence.\n\nSignal 2: The Single-Point-of-Failure Developer. If a single senior engineer’s departure or vacation would halt updates to a core business module, your system has a massive stability risk. Legacy platforms with undocumented codebases and specialized, outdated languages create severe knowledge silos that threaten operations.\n\nSignal 3: Disproportionate Cost Scaling. If your monthly cloud infrastructure or hardware hosting bills are growing faster than your transaction volume, it indicates that your software architecture cannot scale efficiently. Monolithic legacy systems cannot auto-scale individual high-load pathways, forcing you to pay to over-provision the entire application.\n\nSignal 4: Architectural Compliance Roadblocks. If your security and compliance audits show structural vulnerabilities (like SQL injection risks baked into database frameworks, lack of role-based access control, or inability to encrypt data at rest) that require rewriting core database schemas rather than updating simple configurations, you have crossed from procedural issues into architectural legacy debt.\n\nBy monitoring these four diagnostic signals, technical teams can compile a data-backed case for modernization. A phased roadmap that targets the highest-friction modules first ensures that system stability and business agility are recovered without the extreme risks of a greenfield rebuild.",
+      "category": "Enterprise Architecture",
+      "tags": [
+        "Modernization",
+        "Technical Debt",
+        "Microservices"
+      ],
+      "author": "Qeltrava AI Engineering Team",
+      "read_time": "4 min read",
+      "featured_image": "",
+      "published": true,
+      "published_at": "2026-06-24T00:00:00Z",
+      "versions": [],
+      "created_at": "2026-07-05T09:48:06.211Z",
+      "updated_at": "2026-07-05T09:48:06.211Z"
+    },
+    {
+      "id": "blog-3",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "What Enterprise Buyers Actually Check During Software Partner Due Diligence",
+      "slug": "enterprise-buyer-due-diligence",
+      "summary": "Enterprise procurement teams evaluate software engineering partners across five dimensions: security posture, case studies, delivery methodology, team stability, and legal clauses.",
+      "content": "For mid-market software agencies and engineering teams, winning six and seven-figure enterprise contracts is rarely about having the most complex algorithms or the trendiest technology stack. Enterprise buyers—guided by strict procurement, security, and legal departments—focus heavily on minimizing operational risk. When evaluating a potential software partner, their due diligence goes far beyond coding ability.\n\nProcess maturity, robust documentation, and structural safety are the primary filters in enterprise selection. To help engineering firms prepare for enterprise evaluations, we have outlined the five key dimensions procurement teams check during due diligence:\n\nDimension 1: Security Posture and Compliance. Enterprise buyers will scrutinize your security practices. They will verify whether you have formal certifications (like SOC 2 Type II or ISO 27001), how you encrypt customer data, and how you manage vulnerabilities. Having documented secure coding standards (such as OWASP top 10 compliance) and regular pen-test reports is non-negotiable.\n\nDimension 2: Reference-ability and Anonymized Proof. Buyers look for proof that you have solved similar problems at scale. While non-disclosure agreements (NDAs) often prevent publishing exact client names, having highly structured, anonymized case studies that detail the exact problem, approach, and quantitative metrics (e.g. latency reductions, cost savings) is crucial for validating credibility.\n\nDimension 3: Delivery Methodology Documentation. Enterprises need to know how you work. They check your project management rigor, ticket handling, and sprint cadences. A partner that can provide a documented \"Delivery OS\" showing how scope is controlled, how code is reviewed, and how QA is automated will always beat an agency that relies on informal developer updates.\n\nDimension 4: Team Stability and Continuity. Procurement evaluates your team's retention rates and onboarding speed. If your developers churn frequently, the buyer knows their project will suffer from lost context and delays. They want to see that you have stable engineering pods, standard handoff processes, and a clear talent pipeline.\n\nDimension 5: Legal and Contractual Protections. The final hurdle is always legal. Buyers look at your intellectual property (IP) assignment clauses, liability caps, data processing agreements (GDPR/CCPA alignment), and SLA guarantees. Having enterprise-ready contracts with clear IP transfer on milestones prevents friction and builds massive trust.\n\nTechnical competence is simply the entry ticket. The software partners that consistently secure enterprise contracts are those that treat delivery rigor, legal readiness, and security as first-class citizens in their business operations.",
+      "category": "Product & Delivery",
+      "tags": [
+        "Enterprise Sales",
+        "Process Maturity",
+        "SOC2"
+      ],
+      "author": "Qeltrava AI Engineering Team",
+      "read_time": "4 min read",
+      "featured_image": "",
+      "published": true,
+      "published_at": "2026-06-18T00:00:00Z",
+      "versions": [],
+      "created_at": "2026-07-05T09:48:06.211Z",
+      "updated_at": "2026-07-05T09:48:06.211Z"
+    }
+  ],
+  "caseStudies": [
+    {
+      "id": "fintech-core-modernization",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "Migrating a legacy monolithic core to a scalable microservices architecture with zero downtime.",
+      "slug": "fintech-core-modernization",
+      "client": "Global Fintech Provider (Anonymized)",
+      "industry": "Financial Services",
+      "problem": "A high-growth fintech provider was experiencing critical system bottlenecks during peak trading hours. Their legacy monolithic architecture, built 8 years prior, could not scale dynamically, resulting in high infrastructure costs and unacceptably high latency during market volatility.",
+      "solution": "Qeltrava AI deployed a specialized squad of Cloud and DevOps architects. We designed a transition roadmap to a Kubernetes-orchestrated microservices architecture. Using our Qeltrava Delivery OS, we implemented Infrastructure as Code (IaC) and established a parallel blue-green deployment strategy to ensure zero downtime during the migration.",
+      "architecture": "Kubernetes Cluster with Go API Microservices, pgvector RAG Cache, and RDS PostgreSQL replication.",
+      "tech_stack": [
+        "Kubernetes",
+        "Go Microservices",
+        "Terraform",
+        "PostgreSQL"
+      ],
+      "timeline": "12 weeks",
+      "results": [
+        "Reduced core transaction latency by 45%",
+        "Saved 30% in monthly compute costs",
+        "Enabled multi-deployments daily with zero downtime"
+      ],
+      "metrics": [
+        {
+          "label": "Latency (ms)",
+          "before": 450,
+          "after": 240
+        },
+        {
+          "label": "Monthly Compute ($K)",
+          "before": 120,
+          "after": 84
+        }
+      ],
+      "diagram_variant": "operating-model",
+      "published": true,
+      "published_at": "2026-05-10T00:00:00Z",
+      "created_at": "2026-07-05T09:48:06.211Z",
+      "updated_at": "2026-07-05T09:48:06.211Z"
+    },
+    {
+      "id": "healthcare-ai-triage",
+      "workspace_id": "ws-qeltrava-ai",
+      "title": "Automating patient intake and initial triage using strict HIPAA-compliant conversational AI.",
+      "slug": "healthcare-ai-triage",
+      "client": "National Healthcare Network (Anonymized)",
+      "industry": "Healthcare",
+      "problem": "The healthcare network's patient support center was overwhelmed with routine scheduling, intake, and non-emergency medical inquiries, leading to 45-minute average hold times and a severe drop in patient satisfaction.",
+      "solution": "We engineered a secure, HIPAA-compliant conversational AI agent integrated directly into their EHR (Electronic Health Record) system. The agent uses strict fallback mechanisms, immediately routing to human operators if uncertainty thresholds are crossed or if emergency intent is detected.",
+      "architecture": "LLM orchestrator route gateway with LangChain, Pinecone vector embeddings index, EHR sync middleware.",
+      "tech_stack": [
+        "LLM Routing",
+        "Vector DB",
+        "HIPAA API Gateway",
+        "React"
+      ],
+      "timeline": "16 weeks",
+      "results": [
+        "Resolved 68% of support requests automatically",
+        "Reduced wait times from 45 min to under 2 min",
+        "Saved $1.2M annually in triage operations overhead"
+      ],
+      "metrics": [
+        {
+          "label": "Avg Hold Time (min)",
+          "before": 45,
+          "after": 2
+        },
+        {
+          "label": "Automated Resolution (%)",
+          "before": 0,
+          "after": 68
+        }
+      ],
+      "diagram_variant": "service-pipeline",
+      "published": true,
+      "published_at": "2026-04-15T00:00:00Z",
+      "created_at": "2026-07-05T09:48:06.211Z",
+      "updated_at": "2026-07-05T09:48:06.211Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-modliq",
+      "workspace_id": "ws-qeltrava-ai",
+      "name": "Modliq",
+      "slug": "modliq",
+      "logo": "⚡",
+      "status": "Live",
+      "overview": "Modliq is Qeltrava Group's flag SaaS model-driven dashboard builder, allowing organizations to visualize operational data, monitor LLM execution tokens, and deploy custom user facing charts in minutes.",
+      "features": [
+        {
+          "name": "Drag-and-Drop Builders",
+          "description": "Reorder stats blocks, analytics graphs, and feeds instantly without re-deploying."
+        },
+        {
+          "name": "Model Observability",
+          "description": "Real-time counters for OpenAI, Gemini, and Anthropic token budgets."
+        },
+        {
+          "name": "Fine-Tuned Embeddings RAG",
+          "description": "Load document directories and run local query models immediately."
+        }
+      ],
+      "screenshots": [],
+      "documentation_url": "/docs/modliq",
+      "website_url": "https://modliq.ai",
+      "pricing": {
+        "tiers": [
+          {
+            "name": "Starter",
+            "price": "$29/mo",
+            "features": [
+              "1 Workspace",
+              "10,000 queries",
+              "Basic analytics"
+            ]
+          },
+          {
+            "name": "Team",
+            "price": "$99/mo",
+            "features": [
+              "5 Workspaces",
+              "100,000 queries",
+              "Role permissions"
+            ]
+          },
+          {
+            "name": "Enterprise",
+            "price": "Custom",
+            "features": [
+              "Unlimited workspaces",
+              "Self-hosted R2 storage",
+              "SLA support"
+            ]
+          }
+        ]
+      },
+      "roadmap": [
+        {
+          "quarter": "Q3 2026",
+          "goals": [
+            "Stripe billing hooks integration",
+            "FuseJS global search"
+          ],
+          "status": "completed"
+        },
+        {
+          "quarter": "Q4 2026",
+          "goals": [
+            "Dynamic forms webhook routing",
+            "WhatsApp support integrations"
+          ],
+          "status": "in-progress"
+        }
+      ],
+      "published": true,
+      "created_at": "2026-07-05T09:48:06.211Z",
+      "updated_at": "2026-07-05T09:48:06.211Z"
+    }
+  ],
+  "media": [],
+  "auditLogs": [],
+  "subscribers": [],
+  "contactMessages": [],
+  "settings": [
+    {
+      "id": "settings-1",
+      "workspace_id": "ws-qeltrava-ai",
+      "company_name": "Qeltrava AI",
+      "logo_url": "/logo-bg.png",
+      "contact_email": "hello@qeltrava.ai",
+      "contact_phone": "",
+      "social_links": {
+        "linkedin": "https://www.linkedin.com/company/qeltravai/",
+        "github": "https://github.com/qeltrava",
+        "twitter": "https://twitter.com/qeltrava"
+      },
+      "navigation_header": [
+        {
+          "label": "Services",
+          "href": "/services"
+        },
+        {
+          "label": "Solutions",
+          "href": "/solutions"
+        },
+        {
+          "label": "Industries",
+          "href": "/industries"
+        },
+        {
+          "label": "Operating Model",
+          "href": "/operating-model"
+        },
+        {
+          "label": "Insights",
+          "href": "/insights"
+        },
+        {
+          "label": "About",
+          "href": "/about"
+        },
+        {
+          "label": "Careers",
+          "href": "/careers"
+        },
+        {
+          "label": "Contact",
+          "href": "/contact"
+        }
+      ],
+      "navigation_footer": [
+        {
+          "label": "Solutions",
+          "href": "/solutions"
+        },
+        {
+          "label": "Industries",
+          "href": "/industries"
+        },
+        {
+          "label": "Careers",
+          "href": "/careers"
+        },
+        {
+          "label": "Insights",
+          "href": "/insights"
+        },
+        {
+          "label": "Privacy Policy",
+          "href": "/privacy"
+        },
+        {
+          "label": "Terms of Service",
+          "href": "/terms"
+        }
+      ],
+      "feature_flags": {
+        "careers": true,
+        "products": true,
+        "blogs": true,
+        "clientPortal": true,
+        "crm": true,
+        "automation": false
+      },
+      "api_keys": {
+        "resend": "",
+        "openai": "",
+        "gemini": ""
+      },
+      "smtp_config": {},
+      "dashboard_widgets": [
+        {
+          "id": "widget-applicants",
+          "colSpan": 1,
+          "rowSpan": 1,
+          "index": 0,
+          "title": "Today's Candidates"
+        },
+        {
+          "id": "widget-crm",
+          "colSpan": 1,
+          "rowSpan": 1,
+          "index": 1,
+          "title": "Open Sales Leads"
+        },
+        {
+          "id": "widget-blogs",
+          "colSpan": 1,
+          "rowSpan": 1,
+          "index": 2,
+          "title": "Published Blog Count"
+        },
+        {
+          "id": "widget-analytics",
+          "colSpan": 2,
+          "rowSpan": 2,
+          "index": 3,
+          "title": "Weekly Visitors Funnel"
+        }
+      ],
+      "created_at": "2026-07-05T09:48:06.211Z",
+      "updated_at": "2026-07-05T09:48:06.211Z"
+    }
+  ],
+  "crmLeads": [],
+  "clientPortal": [
+    {
+      "id": "client-modliq-1",
+      "workspace_id": "ws-qeltrava-ai",
+      "company_name": "Modliq Industries",
+      "primary_email": "client@modliq.com",
+      "projects": [
+        {
+          "id": "proj-1",
+          "name": "Modliq OS Platform Ingestion & Deployment Portal",
+          "status": "In-Progress",
+          "progress": 75,
+          "milestones": [
+            {
+              "name": "Phase 1: Architecture Blueprint & Requirements Sync",
+              "status": "completed",
+              "dueDate": "2026-07-10"
+            },
+            {
+              "name": "Phase 2: Database Schema & Authentication Layer Deployment",
+              "status": "completed",
+              "dueDate": "2026-07-20"
+            },
+            {
+              "name": "Phase 3: Core Workspace Admin Panels & CMS Release",
+              "status": "in-progress",
+              "dueDate": "2026-08-05"
+            },
+            {
+              "name": "Phase 4: Client Portal Milestones & CRM Integration Checks",
+              "status": "planned",
+              "dueDate": "2026-08-20"
+            }
+          ],
+          "tasks": [
+            {
+              "name": "Setup database schema drivers",
+              "status": "done"
+            },
+            {
+              "name": "Verify Next.js session validation API controllers",
+              "status": "done"
+            },
+            {
+              "name": "Deploy client workspace portal dashboard",
+              "status": "in-progress"
+            },
+            {
+              "name": "Configure continuous integration build testing pipelines",
+              "status": "todo"
+            }
+          ]
+        }
+      ],
+      "invoices": [
+        {
+          "id": "inv-1",
+          "number": "INV-2026-001",
+          "amount": 2500,
+          "status": "paid",
+          "dueDate": "2026-07-01"
+        },
+        {
+          "id": "inv-2",
+          "number": "INV-2026-002",
+          "amount": 5000,
+          "status": "paid",
+          "dueDate": "2026-07-15"
+        }
+      ],
+      "deliverables": [],
+      "tickets": [
+        {
+          "id": "ticket-1",
+          "subject": "Milestone query: Is the CMS draft version control active?",
+          "status": "closed",
+          "priority": "medium",
+          "created_at": "2026-07-05T09:48:06.203Z"
+        }
+      ],
+      "created_at": "2026-07-05T09:48:06.203Z",
+      "updated_at": "2026-07-05T09:48:06.203Z"
+    }
+  ]
+}

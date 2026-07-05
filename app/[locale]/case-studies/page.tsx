@@ -5,13 +5,24 @@ import { Metadata } from 'next';
 import { siteConfig } from '@/lib/site-config';
 import { TechStackBadgeRow } from '@/components/ui/TechStackBadgeRow';
 import { caseStudiesData } from '@/lib/case-studies-data';
+import { getCaseStudies } from '@/platform/modules/cms/module';
 
 export const metadata: Metadata = {
   title: 'Case Studies | ' + siteConfig.companyName,
   description: 'Explore how we have engineered scalable software systems and automated complex workflows for enterprise clients.',
 };
 
-export default function CaseStudiesPage() {
+export default async function CaseStudiesPage() {
+  const dbStudies = await getCaseStudies();
+  const studiesList = dbStudies.length > 0 ? dbStudies.map(study => ({
+    id: study.id,
+    client: study.client,
+    industry: study.industry,
+    title: study.title,
+    problem: study.problem,
+    technologies: study.tech_stack || []
+  })) : caseStudiesData;
+
   return (
     <main className="min-h-screen bg-[var(--color-bg-white)] pt-32 pb-24">
       <div className="max-w-5xl mx-auto px-6 md:px-12 flex flex-col gap-12">
@@ -25,7 +36,7 @@ export default function CaseStudiesPage() {
         </FadeIn>
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {caseStudiesData.map((study, idx) => (
+          {studiesList.map((study, idx) => (
             <FadeIn key={study.id} delay={idx * 0.1}>
               <div className="p-8 bg-white border border-[var(--color-border-soft)] rounded-xl shadow-sm hover:shadow-md transition-shadow h-full flex flex-col justify-between">
                 <div>

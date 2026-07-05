@@ -1,79 +1,46 @@
-import { MetadataRoute } from 'next'
-import { siteConfig } from '@/lib/site-config'
-import { routing } from '@/src/routing'
-import { insightsArticles } from '@/lib/insights-data'
-import { caseStudiesData } from '@/lib/case-studies-data'
+// app/sitemap.ts
+// Dynamic Sitemap generator for Next.js SEO compliance
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseRoutes = [
+import { MetadataRoute } from 'next';
+import { getJobs, getBlogs } from '@/platform/shared/actions';
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://qeltrava.ai';
+
+  let jobs: any[] = [];
+  let blogs: any[] = [];
+  
+  try {
+    jobs = await getJobs();
+    blogs = await getBlogs();
+  } catch (e) {
+    console.error('Sitemap fetch failed, using fallbacks', e);
+  }
+
+  const jobUrls = jobs
+    .filter(j => j.status === 'Published')
+    .map(job => ({
+      url: `${baseUrl}/careers/${job.slug}`,
+      lastModified: new Date(job.updated_at || job.created_at),
+    }));
+
+  const blogUrls = blogs.map(blog => ({
+    url: `${baseUrl}/insights/${blog.slug}`,
+    lastModified: new Date(blog.published_at || blog.created_at),
+  }));
+
+  const staticRoutes = [
     '',
-    '/about',
     '/careers',
-    '/quiz',
-    '/roi-calculator',
-    '/services',
-    '/services/ai-automation',
-    '/services/cloud-devops',
-    '/services/cybersecurity',
-    '/services/data-analytics',
-    '/services/product-engineering',
-    '/services/saas-development',
-    '/industries',
-    '/industries/fintech',
-    '/industries/healthcare',
-    '/industries/logistics',
-    '/industries/saas',
-    '/solutions',
-    '/solutions/ai-customer-service-transformation',
-    '/solutions/ai-operations-automation',
-    '/solutions/legacy-modernization',
-    '/products',
-    '/case-studies',
-    ...caseStudiesData.map(study => `/case-studies/${study.id}`),
     '/insights',
-    ...insightsArticles.map(art => `/insights/${art.slug}`),
-    '/contact',
-    '/book-consultation',
-    '/security',
-    '/accessibility',
-    '/cookie-policy',
-    '/government',
-    '/operating-model',
-    '/privacy',
-    '/terms',
-    '/demo',
-    // New pages — P2 redesign
-    '/industries/manufacturing',
-    '/industries/retail',
-    '/industries/education',
-    '/solutions/saas-launch',
-    '/solutions/ai-readiness',
-    '/solutions/data-foundation',
-    '/solutions/security-hardening',
-    '/resources',
-    '/team',
-    '/customers',
-    '/glossary',
-    '/press',
-    '/ai-solution-architect',
-    '/ai-readiness',
-    '/playground',
-    '/proposal',
+    '/case-studies',
     '/products/modliq',
-  ];
+    '/portal',
+    '/trust',
+  ].map(route => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+  }));
 
-  const routes: MetadataRoute.Sitemap = [];
-
-  routing.locales.forEach((locale) => {
-    baseRoutes.forEach((route) => {
-      routes.push({
-        url: `${siteConfig.baseUrl}/${locale}${route}`,
-        lastModified: new Date().toISOString(),
-        changeFrequency: 'weekly' as const,
-        priority: route === '' ? 1 : 0.8,
-      });
-    });
-  });
-
-  return routes;
+  return [...staticRoutes, ...jobUrls, ...blogUrls];
 }

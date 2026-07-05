@@ -9,6 +9,7 @@ import { ArchitectureDiagram } from '@/components/ui/ArchitectureDiagram';
 import { ResultsChart } from '@/components/ui/ResultsChart';
 import { TechStackBadgeRow } from '@/components/ui/TechStackBadgeRow';
 import { caseStudiesData } from '@/lib/case-studies-data';
+import { getCaseStudy } from '@/platform/modules/cms/module';
 
 interface PageProps {
   params: Promise<{
@@ -31,7 +32,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const study = caseStudiesData.find(s => s.id === slug);
+  const dbStudy = await getCaseStudy(slug);
+  let study;
+  if (dbStudy) {
+    study = dbStudy;
+  } else {
+    study = caseStudiesData.find(s => s.id === slug);
+  }
   if (!study) return {};
 
   return {
@@ -42,7 +49,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CaseStudyDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const study = caseStudiesData.find(s => s.id === slug);
+  
+  const dbStudy = await getCaseStudy(slug);
+  let study;
+  
+  if (dbStudy) {
+    study = {
+      id: dbStudy.id,
+      client: dbStudy.client,
+      industry: dbStudy.industry,
+      title: dbStudy.title,
+      problem: dbStudy.problem,
+      approach: dbStudy.solution, // map solution as approach
+      result: dbStudy.results ? dbStudy.results.join(' ') : '', 
+      technologies: dbStudy.tech_stack || [],
+      diagramVariant: dbStudy.diagram_variant || 'operating-model',
+      metrics: dbStudy.metrics || []
+    };
+  } else {
+    study = caseStudiesData.find(s => s.id === slug);
+  }
 
   if (!study) {
     notFound();

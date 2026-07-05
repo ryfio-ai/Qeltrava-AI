@@ -64,15 +64,22 @@ const timelineStages = [
   { title: 'Public Launch', desc: 'General availability release.', active: false }
 ];
 
+import { submitNewsletter } from '@/platform/shared/actions';
+
 export default function ModliqPage() {
   const [waitlistEmail, setWaitlistEmail] = useState('');
   const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
 
-  const handleWaitlist = (e: React.FormEvent) => {
+  const handleWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
     if (waitlistEmail) {
-      setWaitlistSubmitted(true);
-      setWaitlistEmail('');
+      try {
+        await submitNewsletter(waitlistEmail);
+        setWaitlistSubmitted(true);
+        setWaitlistEmail('');
+      } catch (err) {
+        alert('Failed to register subscription.');
+      }
     }
   };
 

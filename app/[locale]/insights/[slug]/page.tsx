@@ -6,6 +6,7 @@ import { Button } from '@/components/Button';
 import { siteConfig } from '@/lib/site-config';
 import { FadeIn } from '@/components/animations/FadeIn';
 import { insightsArticles } from '@/lib/insights-data';
+import { getBlogPost } from '@/platform/modules/cms/module';
 
 interface PageProps {
   params: Promise<{
@@ -29,7 +30,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = insightsArticles.find(a => a.slug === slug);
+  const dbBlog = await getBlogPost(slug);
+  let article;
+  if (dbBlog) {
+    article = dbBlog;
+  } else {
+    article = insightsArticles.find(a => a.slug === slug);
+  }
   if (!article) return {};
 
   return {
@@ -40,7 +47,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const article = insightsArticles.find(a => a.slug === slug);
+  
+  const dbBlog = await getBlogPost(slug);
+  let article;
+  
+  if (dbBlog) {
+    article = {
+      slug: dbBlog.slug,
+      title: dbBlog.title,
+      summary: dbBlog.summary || '',
+      category: dbBlog.category,
+      date: dbBlog.published_at 
+        ? new Date(dbBlog.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+        : new Date(dbBlog.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+      readTime: dbBlog.read_time || '5 min read',
+      author: dbBlog.author,
+      content: typeof dbBlog.content === 'string' ? dbBlog.content.split('\n\n') : dbBlog.content
+    };
+  } else {
+    article = insightsArticles.find(a => a.slug === slug);
+  }
 
   if (!article) {
     notFound();

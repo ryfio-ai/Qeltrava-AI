@@ -1,13 +1,16 @@
-import { MetadataRoute } from 'next'
-import { siteConfig } from '@/lib/site-config'
+// app/robots.ts
+// Robots configuration for Next.js SEO index permissions
+
+import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://qeltrava.ai';
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/', '/admin/'],
+      disallow: ['/admin/', '/api/', '/portal/'],
     },
-    sitemap: `${siteConfig.baseUrl}/sitemap.xml`,
-  }
+    sitemap: `${baseUrl}/sitemap.xml`,
+  };
 }
