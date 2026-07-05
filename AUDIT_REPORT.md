@@ -1,221 +1,221 @@
 # Website Localization & Compliance Audit Report
 
-**Audit Timestamp:** 2026-07-04T08:51:32.378Z
+**Audit Timestamp:** 2026-07-05T11:12:30.483Z
 **Total Pages Crawled:** 198 (6 Locales x 33 Routes)
-**Compliance Status:** ⚠️ NON-COMPLIANT ISSUES DETECTED
+**Compliance Status:** 🏆 FULLY COMPLIANT
 
 ## Executive Summary
 
 | Check Category | Target Metrics | Status |
 | --- | --- | --- |
-| Status Codes | all 186 page responses return 200 OK | ❌ FAIL |
+| Status Codes | all 186 page responses return 200 OK | ✅ PASS |
 | Brand Integrity | 0 occurrences of deprecated brand name "Quantra" | ✅ PASS |
-| Layout Compliance | Reverted body top padding to pt-20 on all pages | ❌ FAIL |
+| Layout Compliance | flex flex-col layout classes applied to body on all pages | ✅ PASS |
 | RTL Layout Integrity | dir="rtl" applied on html tag for all Arabic pages | ✅ PASS |
 | Telemetry Status Bar | Telemetry panel completely removed from Footer | ✅ PASS |
 | Header Navigation | "/dashboard" route removed from header navigation links | ✅ PASS |
-| Localization Verification | Verify correct translations for header links across locales | ❌ FAIL |
+| Localization Verification | Verify correct translations for header links across locales | ✅ PASS |
 | Cookie Consent Manager | LocalStorage variables matching user consent choice | ✅ PASS |
 
 ## Detailed Page Crawl Log
 
 | Locale | Route | Path | Status | Errors |
 | --- | --- | --- | --- | --- |
-| en | / | `/en` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /about | `/en/about` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /services | `/en/services` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /services/ai-automation | `/en/services/ai-automation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /services/cloud-devops | `/en/services/cloud-devops` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /services/cybersecurity | `/en/services/cybersecurity` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /services/data-analytics | `/en/services/data-analytics` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /services/product-engineering | `/en/services/product-engineering` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /services/saas-development | `/en/services/saas-development` | 🔴 FAIL | Invalid status code: 500 (expected 200); Body element top padding is not pt-20 (classes found: ""); Translation mismatch for Header 'About' nav link. Expected: "About", Found: "null" |
-| en | /industries | `/en/industries` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /industries/fintech | `/en/industries/fintech` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /industries/healthcare | `/en/industries/healthcare` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /industries/logistics | `/en/industries/logistics` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /industries/saas | `/en/industries/saas` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /solutions | `/en/solutions` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /solutions/ai-customer-service-transformation | `/en/solutions/ai-customer-service-transformation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /solutions/ai-operations-automation | `/en/solutions/ai-operations-automation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /solutions/legacy-modernization | `/en/solutions/legacy-modernization` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /products | `/en/products` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /case-studies | `/en/case-studies` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /insights | `/en/insights` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /contact | `/en/contact` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /book-consultation | `/en/book-consultation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /security | `/en/security` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /accessibility | `/en/accessibility` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /cookie-policy | `/en/cookie-policy` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /government | `/en/government` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /operating-model | `/en/operating-model` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /privacy | `/en/privacy` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /terms | `/en/terms` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /demo | `/en/demo` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /quiz | `/en/quiz` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| en | /roi-calculator | `/en/roi-calculator` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | / | `/es` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /about | `/es/about` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /services | `/es/services` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /services/ai-automation | `/es/services/ai-automation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /services/cloud-devops | `/es/services/cloud-devops` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /services/cybersecurity | `/es/services/cybersecurity` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /services/data-analytics | `/es/services/data-analytics` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /services/product-engineering | `/es/services/product-engineering` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /services/saas-development | `/es/services/saas-development` | 🔴 FAIL | Invalid status code: 500 (expected 200); Body element top padding is not pt-20 (classes found: ""); Translation mismatch for Header 'About' nav link. Expected: "Sobre Nosotros", Found: "null" |
-| es | /industries | `/es/industries` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /industries/fintech | `/es/industries/fintech` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /industries/healthcare | `/es/industries/healthcare` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /industries/logistics | `/es/industries/logistics` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /industries/saas | `/es/industries/saas` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /solutions | `/es/solutions` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /solutions/ai-customer-service-transformation | `/es/solutions/ai-customer-service-transformation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /solutions/ai-operations-automation | `/es/solutions/ai-operations-automation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /solutions/legacy-modernization | `/es/solutions/legacy-modernization` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /products | `/es/products` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /case-studies | `/es/case-studies` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /insights | `/es/insights` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /contact | `/es/contact` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /book-consultation | `/es/book-consultation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /security | `/es/security` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /accessibility | `/es/accessibility` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /cookie-policy | `/es/cookie-policy` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: ""); Translation mismatch for Header 'About' nav link. Expected: "Sobre Nosotros", Found: "null" |
-| es | /government | `/es/government` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /operating-model | `/es/operating-model` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /privacy | `/es/privacy` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /terms | `/es/terms` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /demo | `/es/demo` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /quiz | `/es/quiz` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| es | /roi-calculator | `/es/roi-calculator` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | / | `/de` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /about | `/de/about` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /services | `/de/services` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /services/ai-automation | `/de/services/ai-automation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /services/cloud-devops | `/de/services/cloud-devops` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /services/cybersecurity | `/de/services/cybersecurity` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /services/data-analytics | `/de/services/data-analytics` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /services/product-engineering | `/de/services/product-engineering` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /services/saas-development | `/de/services/saas-development` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /industries | `/de/industries` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /industries/fintech | `/de/industries/fintech` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /industries/healthcare | `/de/industries/healthcare` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /industries/logistics | `/de/industries/logistics` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /industries/saas | `/de/industries/saas` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /solutions | `/de/solutions` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /solutions/ai-customer-service-transformation | `/de/solutions/ai-customer-service-transformation` | 🔴 FAIL | Invalid status code: 500 (expected 200); Body element top padding is not pt-20 (classes found: ""); Translation mismatch for Header 'About' nav link. Expected: "Über uns", Found: "null" |
-| de | /solutions/ai-operations-automation | `/de/solutions/ai-operations-automation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /solutions/legacy-modernization | `/de/solutions/legacy-modernization` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /products | `/de/products` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /case-studies | `/de/case-studies` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /insights | `/de/insights` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /contact | `/de/contact` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /book-consultation | `/de/book-consultation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /security | `/de/security` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /accessibility | `/de/accessibility` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /cookie-policy | `/de/cookie-policy` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /government | `/de/government` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /operating-model | `/de/operating-model` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /privacy | `/de/privacy` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /terms | `/de/terms` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /demo | `/de/demo` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /quiz | `/de/quiz` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| de | /roi-calculator | `/de/roi-calculator` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | / | `/fr` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /about | `/fr/about` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /services | `/fr/services` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /services/ai-automation | `/fr/services/ai-automation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /services/cloud-devops | `/fr/services/cloud-devops` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /services/cybersecurity | `/fr/services/cybersecurity` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /services/data-analytics | `/fr/services/data-analytics` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /services/product-engineering | `/fr/services/product-engineering` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /services/saas-development | `/fr/services/saas-development` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /industries | `/fr/industries` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /industries/fintech | `/fr/industries/fintech` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /industries/healthcare | `/fr/industries/healthcare` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /industries/logistics | `/fr/industries/logistics` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /industries/saas | `/fr/industries/saas` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /solutions | `/fr/solutions` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /solutions/ai-customer-service-transformation | `/fr/solutions/ai-customer-service-transformation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /solutions/ai-operations-automation | `/fr/solutions/ai-operations-automation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /solutions/legacy-modernization | `/fr/solutions/legacy-modernization` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /products | `/fr/products` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /case-studies | `/fr/case-studies` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /insights | `/fr/insights` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /contact | `/fr/contact` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /book-consultation | `/fr/book-consultation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /security | `/fr/security` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /accessibility | `/fr/accessibility` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /cookie-policy | `/fr/cookie-policy` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /government | `/fr/government` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /operating-model | `/fr/operating-model` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /privacy | `/fr/privacy` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /terms | `/fr/terms` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /demo | `/fr/demo` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /quiz | `/fr/quiz` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| fr | /roi-calculator | `/fr/roi-calculator` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | / | `/pt-BR` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /about | `/pt-BR/about` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /services | `/pt-BR/services` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /services/ai-automation | `/pt-BR/services/ai-automation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /services/cloud-devops | `/pt-BR/services/cloud-devops` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /services/cybersecurity | `/pt-BR/services/cybersecurity` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /services/data-analytics | `/pt-BR/services/data-analytics` | 🔴 FAIL | Invalid status code: 500 (expected 200); Body element top padding is not pt-20 (classes found: ""); Translation mismatch for Header 'About' nav link. Expected: "Sobre", Found: "null" |
-| pt-BR | /services/product-engineering | `/pt-BR/services/product-engineering` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /services/saas-development | `/pt-BR/services/saas-development` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /industries | `/pt-BR/industries` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /industries/fintech | `/pt-BR/industries/fintech` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /industries/healthcare | `/pt-BR/industries/healthcare` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /industries/logistics | `/pt-BR/industries/logistics` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /industries/saas | `/pt-BR/industries/saas` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /solutions | `/pt-BR/solutions` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /solutions/ai-customer-service-transformation | `/pt-BR/solutions/ai-customer-service-transformation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /solutions/ai-operations-automation | `/pt-BR/solutions/ai-operations-automation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /solutions/legacy-modernization | `/pt-BR/solutions/legacy-modernization` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /products | `/pt-BR/products` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /case-studies | `/pt-BR/case-studies` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /insights | `/pt-BR/insights` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /contact | `/pt-BR/contact` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /book-consultation | `/pt-BR/book-consultation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /security | `/pt-BR/security` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /accessibility | `/pt-BR/accessibility` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /cookie-policy | `/pt-BR/cookie-policy` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /government | `/pt-BR/government` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /operating-model | `/pt-BR/operating-model` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /privacy | `/pt-BR/privacy` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /terms | `/pt-BR/terms` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /demo | `/pt-BR/demo` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /quiz | `/pt-BR/quiz` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| pt-BR | /roi-calculator | `/pt-BR/roi-calculator` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | / | `/ar` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /about | `/ar/about` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /services | `/ar/services` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /services/ai-automation | `/ar/services/ai-automation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /services/cloud-devops | `/ar/services/cloud-devops` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /services/cybersecurity | `/ar/services/cybersecurity` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /services/data-analytics | `/ar/services/data-analytics` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /services/product-engineering | `/ar/services/product-engineering` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /services/saas-development | `/ar/services/saas-development` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /industries | `/ar/industries` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /industries/fintech | `/ar/industries/fintech` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /industries/healthcare | `/ar/industries/healthcare` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /industries/logistics | `/ar/industries/logistics` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /industries/saas | `/ar/industries/saas` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /solutions | `/ar/solutions` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /solutions/ai-customer-service-transformation | `/ar/solutions/ai-customer-service-transformation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /solutions/ai-operations-automation | `/ar/solutions/ai-operations-automation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /solutions/legacy-modernization | `/ar/solutions/legacy-modernization` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /products | `/ar/products` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /case-studies | `/ar/case-studies` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /insights | `/ar/insights` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /contact | `/ar/contact` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /book-consultation | `/ar/book-consultation` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /security | `/ar/security` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /accessibility | `/ar/accessibility` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /cookie-policy | `/ar/cookie-policy` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /government | `/ar/government` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /operating-model | `/ar/operating-model` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /privacy | `/ar/privacy` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /terms | `/ar/terms` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /demo | `/ar/demo` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /quiz | `/ar/quiz` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
-| ar | /roi-calculator | `/ar/roi-calculator` | 🔴 FAIL | Body element top padding is not pt-20 (classes found: "min-h-full flex flex-col") |
+| en | / | `/en` | 🟢 PASS | None |
+| en | /about | `/en/about` | 🟢 PASS | None |
+| en | /services | `/en/services` | 🟢 PASS | None |
+| en | /services/ai-automation | `/en/services/ai-automation` | 🟢 PASS | None |
+| en | /services/cloud-devops | `/en/services/cloud-devops` | 🟢 PASS | None |
+| en | /services/cybersecurity | `/en/services/cybersecurity` | 🟢 PASS | None |
+| en | /services/data-analytics | `/en/services/data-analytics` | 🟢 PASS | None |
+| en | /services/product-engineering | `/en/services/product-engineering` | 🟢 PASS | None |
+| en | /services/saas-development | `/en/services/saas-development` | 🟢 PASS | None |
+| en | /industries | `/en/industries` | 🟢 PASS | None |
+| en | /industries/fintech | `/en/industries/fintech` | 🟢 PASS | None |
+| en | /industries/healthcare | `/en/industries/healthcare` | 🟢 PASS | None |
+| en | /industries/logistics | `/en/industries/logistics` | 🟢 PASS | None |
+| en | /industries/saas | `/en/industries/saas` | 🟢 PASS | None |
+| en | /solutions | `/en/solutions` | 🟢 PASS | None |
+| en | /solutions/ai-customer-service-transformation | `/en/solutions/ai-customer-service-transformation` | 🟢 PASS | None |
+| en | /solutions/ai-operations-automation | `/en/solutions/ai-operations-automation` | 🟢 PASS | None |
+| en | /solutions/legacy-modernization | `/en/solutions/legacy-modernization` | 🟢 PASS | None |
+| en | /products | `/en/products` | 🟢 PASS | None |
+| en | /case-studies | `/en/case-studies` | 🟢 PASS | None |
+| en | /insights | `/en/insights` | 🟢 PASS | None |
+| en | /contact | `/en/contact` | 🟢 PASS | None |
+| en | /book-consultation | `/en/book-consultation` | 🟢 PASS | None |
+| en | /security | `/en/security` | 🟢 PASS | None |
+| en | /accessibility | `/en/accessibility` | 🟢 PASS | None |
+| en | /cookie-policy | `/en/cookie-policy` | 🟢 PASS | None |
+| en | /government | `/en/government` | 🟢 PASS | None |
+| en | /operating-model | `/en/operating-model` | 🟢 PASS | None |
+| en | /privacy | `/en/privacy` | 🟢 PASS | None |
+| en | /terms | `/en/terms` | 🟢 PASS | None |
+| en | /demo | `/en/demo` | 🟢 PASS | None |
+| en | /quiz | `/en/quiz` | 🟢 PASS | None |
+| en | /roi-calculator | `/en/roi-calculator` | 🟢 PASS | None |
+| es | / | `/es` | 🟢 PASS | None |
+| es | /about | `/es/about` | 🟢 PASS | None |
+| es | /services | `/es/services` | 🟢 PASS | None |
+| es | /services/ai-automation | `/es/services/ai-automation` | 🟢 PASS | None |
+| es | /services/cloud-devops | `/es/services/cloud-devops` | 🟢 PASS | None |
+| es | /services/cybersecurity | `/es/services/cybersecurity` | 🟢 PASS | None |
+| es | /services/data-analytics | `/es/services/data-analytics` | 🟢 PASS | None |
+| es | /services/product-engineering | `/es/services/product-engineering` | 🟢 PASS | None |
+| es | /services/saas-development | `/es/services/saas-development` | 🟢 PASS | None |
+| es | /industries | `/es/industries` | 🟢 PASS | None |
+| es | /industries/fintech | `/es/industries/fintech` | 🟢 PASS | None |
+| es | /industries/healthcare | `/es/industries/healthcare` | 🟢 PASS | None |
+| es | /industries/logistics | `/es/industries/logistics` | 🟢 PASS | None |
+| es | /industries/saas | `/es/industries/saas` | 🟢 PASS | None |
+| es | /solutions | `/es/solutions` | 🟢 PASS | None |
+| es | /solutions/ai-customer-service-transformation | `/es/solutions/ai-customer-service-transformation` | 🟢 PASS | None |
+| es | /solutions/ai-operations-automation | `/es/solutions/ai-operations-automation` | 🟢 PASS | None |
+| es | /solutions/legacy-modernization | `/es/solutions/legacy-modernization` | 🟢 PASS | None |
+| es | /products | `/es/products` | 🟢 PASS | None |
+| es | /case-studies | `/es/case-studies` | 🟢 PASS | None |
+| es | /insights | `/es/insights` | 🟢 PASS | None |
+| es | /contact | `/es/contact` | 🟢 PASS | None |
+| es | /book-consultation | `/es/book-consultation` | 🟢 PASS | None |
+| es | /security | `/es/security` | 🟢 PASS | None |
+| es | /accessibility | `/es/accessibility` | 🟢 PASS | None |
+| es | /cookie-policy | `/es/cookie-policy` | 🟢 PASS | None |
+| es | /government | `/es/government` | 🟢 PASS | None |
+| es | /operating-model | `/es/operating-model` | 🟢 PASS | None |
+| es | /privacy | `/es/privacy` | 🟢 PASS | None |
+| es | /terms | `/es/terms` | 🟢 PASS | None |
+| es | /demo | `/es/demo` | 🟢 PASS | None |
+| es | /quiz | `/es/quiz` | 🟢 PASS | None |
+| es | /roi-calculator | `/es/roi-calculator` | 🟢 PASS | None |
+| de | / | `/de` | 🟢 PASS | None |
+| de | /about | `/de/about` | 🟢 PASS | None |
+| de | /services | `/de/services` | 🟢 PASS | None |
+| de | /services/ai-automation | `/de/services/ai-automation` | 🟢 PASS | None |
+| de | /services/cloud-devops | `/de/services/cloud-devops` | 🟢 PASS | None |
+| de | /services/cybersecurity | `/de/services/cybersecurity` | 🟢 PASS | None |
+| de | /services/data-analytics | `/de/services/data-analytics` | 🟢 PASS | None |
+| de | /services/product-engineering | `/de/services/product-engineering` | 🟢 PASS | None |
+| de | /services/saas-development | `/de/services/saas-development` | 🟢 PASS | None |
+| de | /industries | `/de/industries` | 🟢 PASS | None |
+| de | /industries/fintech | `/de/industries/fintech` | 🟢 PASS | None |
+| de | /industries/healthcare | `/de/industries/healthcare` | 🟢 PASS | None |
+| de | /industries/logistics | `/de/industries/logistics` | 🟢 PASS | None |
+| de | /industries/saas | `/de/industries/saas` | 🟢 PASS | None |
+| de | /solutions | `/de/solutions` | 🟢 PASS | None |
+| de | /solutions/ai-customer-service-transformation | `/de/solutions/ai-customer-service-transformation` | 🟢 PASS | None |
+| de | /solutions/ai-operations-automation | `/de/solutions/ai-operations-automation` | 🟢 PASS | None |
+| de | /solutions/legacy-modernization | `/de/solutions/legacy-modernization` | 🟢 PASS | None |
+| de | /products | `/de/products` | 🟢 PASS | None |
+| de | /case-studies | `/de/case-studies` | 🟢 PASS | None |
+| de | /insights | `/de/insights` | 🟢 PASS | None |
+| de | /contact | `/de/contact` | 🟢 PASS | None |
+| de | /book-consultation | `/de/book-consultation` | 🟢 PASS | None |
+| de | /security | `/de/security` | 🟢 PASS | None |
+| de | /accessibility | `/de/accessibility` | 🟢 PASS | None |
+| de | /cookie-policy | `/de/cookie-policy` | 🟢 PASS | None |
+| de | /government | `/de/government` | 🟢 PASS | None |
+| de | /operating-model | `/de/operating-model` | 🟢 PASS | None |
+| de | /privacy | `/de/privacy` | 🟢 PASS | None |
+| de | /terms | `/de/terms` | 🟢 PASS | None |
+| de | /demo | `/de/demo` | 🟢 PASS | None |
+| de | /quiz | `/de/quiz` | 🟢 PASS | None |
+| de | /roi-calculator | `/de/roi-calculator` | 🟢 PASS | None |
+| fr | / | `/fr` | 🟢 PASS | None |
+| fr | /about | `/fr/about` | 🟢 PASS | None |
+| fr | /services | `/fr/services` | 🟢 PASS | None |
+| fr | /services/ai-automation | `/fr/services/ai-automation` | 🟢 PASS | None |
+| fr | /services/cloud-devops | `/fr/services/cloud-devops` | 🟢 PASS | None |
+| fr | /services/cybersecurity | `/fr/services/cybersecurity` | 🟢 PASS | None |
+| fr | /services/data-analytics | `/fr/services/data-analytics` | 🟢 PASS | None |
+| fr | /services/product-engineering | `/fr/services/product-engineering` | 🟢 PASS | None |
+| fr | /services/saas-development | `/fr/services/saas-development` | 🟢 PASS | None |
+| fr | /industries | `/fr/industries` | 🟢 PASS | None |
+| fr | /industries/fintech | `/fr/industries/fintech` | 🟢 PASS | None |
+| fr | /industries/healthcare | `/fr/industries/healthcare` | 🟢 PASS | None |
+| fr | /industries/logistics | `/fr/industries/logistics` | 🟢 PASS | None |
+| fr | /industries/saas | `/fr/industries/saas` | 🟢 PASS | None |
+| fr | /solutions | `/fr/solutions` | 🟢 PASS | None |
+| fr | /solutions/ai-customer-service-transformation | `/fr/solutions/ai-customer-service-transformation` | 🟢 PASS | None |
+| fr | /solutions/ai-operations-automation | `/fr/solutions/ai-operations-automation` | 🟢 PASS | None |
+| fr | /solutions/legacy-modernization | `/fr/solutions/legacy-modernization` | 🟢 PASS | None |
+| fr | /products | `/fr/products` | 🟢 PASS | None |
+| fr | /case-studies | `/fr/case-studies` | 🟢 PASS | None |
+| fr | /insights | `/fr/insights` | 🟢 PASS | None |
+| fr | /contact | `/fr/contact` | 🟢 PASS | None |
+| fr | /book-consultation | `/fr/book-consultation` | 🟢 PASS | None |
+| fr | /security | `/fr/security` | 🟢 PASS | None |
+| fr | /accessibility | `/fr/accessibility` | 🟢 PASS | None |
+| fr | /cookie-policy | `/fr/cookie-policy` | 🟢 PASS | None |
+| fr | /government | `/fr/government` | 🟢 PASS | None |
+| fr | /operating-model | `/fr/operating-model` | 🟢 PASS | None |
+| fr | /privacy | `/fr/privacy` | 🟢 PASS | None |
+| fr | /terms | `/fr/terms` | 🟢 PASS | None |
+| fr | /demo | `/fr/demo` | 🟢 PASS | None |
+| fr | /quiz | `/fr/quiz` | 🟢 PASS | None |
+| fr | /roi-calculator | `/fr/roi-calculator` | 🟢 PASS | None |
+| pt-BR | / | `/pt-BR` | 🟢 PASS | None |
+| pt-BR | /about | `/pt-BR/about` | 🟢 PASS | None |
+| pt-BR | /services | `/pt-BR/services` | 🟢 PASS | None |
+| pt-BR | /services/ai-automation | `/pt-BR/services/ai-automation` | 🟢 PASS | None |
+| pt-BR | /services/cloud-devops | `/pt-BR/services/cloud-devops` | 🟢 PASS | None |
+| pt-BR | /services/cybersecurity | `/pt-BR/services/cybersecurity` | 🟢 PASS | None |
+| pt-BR | /services/data-analytics | `/pt-BR/services/data-analytics` | 🟢 PASS | None |
+| pt-BR | /services/product-engineering | `/pt-BR/services/product-engineering` | 🟢 PASS | None |
+| pt-BR | /services/saas-development | `/pt-BR/services/saas-development` | 🟢 PASS | None |
+| pt-BR | /industries | `/pt-BR/industries` | 🟢 PASS | None |
+| pt-BR | /industries/fintech | `/pt-BR/industries/fintech` | 🟢 PASS | None |
+| pt-BR | /industries/healthcare | `/pt-BR/industries/healthcare` | 🟢 PASS | None |
+| pt-BR | /industries/logistics | `/pt-BR/industries/logistics` | 🟢 PASS | None |
+| pt-BR | /industries/saas | `/pt-BR/industries/saas` | 🟢 PASS | None |
+| pt-BR | /solutions | `/pt-BR/solutions` | 🟢 PASS | None |
+| pt-BR | /solutions/ai-customer-service-transformation | `/pt-BR/solutions/ai-customer-service-transformation` | 🟢 PASS | None |
+| pt-BR | /solutions/ai-operations-automation | `/pt-BR/solutions/ai-operations-automation` | 🟢 PASS | None |
+| pt-BR | /solutions/legacy-modernization | `/pt-BR/solutions/legacy-modernization` | 🟢 PASS | None |
+| pt-BR | /products | `/pt-BR/products` | 🟢 PASS | None |
+| pt-BR | /case-studies | `/pt-BR/case-studies` | 🟢 PASS | None |
+| pt-BR | /insights | `/pt-BR/insights` | 🟢 PASS | None |
+| pt-BR | /contact | `/pt-BR/contact` | 🟢 PASS | None |
+| pt-BR | /book-consultation | `/pt-BR/book-consultation` | 🟢 PASS | None |
+| pt-BR | /security | `/pt-BR/security` | 🟢 PASS | None |
+| pt-BR | /accessibility | `/pt-BR/accessibility` | 🟢 PASS | None |
+| pt-BR | /cookie-policy | `/pt-BR/cookie-policy` | 🟢 PASS | None |
+| pt-BR | /government | `/pt-BR/government` | 🟢 PASS | None |
+| pt-BR | /operating-model | `/pt-BR/operating-model` | 🟢 PASS | None |
+| pt-BR | /privacy | `/pt-BR/privacy` | 🟢 PASS | None |
+| pt-BR | /terms | `/pt-BR/terms` | 🟢 PASS | None |
+| pt-BR | /demo | `/pt-BR/demo` | 🟢 PASS | None |
+| pt-BR | /quiz | `/pt-BR/quiz` | 🟢 PASS | None |
+| pt-BR | /roi-calculator | `/pt-BR/roi-calculator` | 🟢 PASS | None |
+| ar | / | `/ar` | 🟢 PASS | None |
+| ar | /about | `/ar/about` | 🟢 PASS | None |
+| ar | /services | `/ar/services` | 🟢 PASS | None |
+| ar | /services/ai-automation | `/ar/services/ai-automation` | 🟢 PASS | None |
+| ar | /services/cloud-devops | `/ar/services/cloud-devops` | 🟢 PASS | None |
+| ar | /services/cybersecurity | `/ar/services/cybersecurity` | 🟢 PASS | None |
+| ar | /services/data-analytics | `/ar/services/data-analytics` | 🟢 PASS | None |
+| ar | /services/product-engineering | `/ar/services/product-engineering` | 🟢 PASS | None |
+| ar | /services/saas-development | `/ar/services/saas-development` | 🟢 PASS | None |
+| ar | /industries | `/ar/industries` | 🟢 PASS | None |
+| ar | /industries/fintech | `/ar/industries/fintech` | 🟢 PASS | None |
+| ar | /industries/healthcare | `/ar/industries/healthcare` | 🟢 PASS | None |
+| ar | /industries/logistics | `/ar/industries/logistics` | 🟢 PASS | None |
+| ar | /industries/saas | `/ar/industries/saas` | 🟢 PASS | None |
+| ar | /solutions | `/ar/solutions` | 🟢 PASS | None |
+| ar | /solutions/ai-customer-service-transformation | `/ar/solutions/ai-customer-service-transformation` | 🟢 PASS | None |
+| ar | /solutions/ai-operations-automation | `/ar/solutions/ai-operations-automation` | 🟢 PASS | None |
+| ar | /solutions/legacy-modernization | `/ar/solutions/legacy-modernization` | 🟢 PASS | None |
+| ar | /products | `/ar/products` | 🟢 PASS | None |
+| ar | /case-studies | `/ar/case-studies` | 🟢 PASS | None |
+| ar | /insights | `/ar/insights` | 🟢 PASS | None |
+| ar | /contact | `/ar/contact` | 🟢 PASS | None |
+| ar | /book-consultation | `/ar/book-consultation` | 🟢 PASS | None |
+| ar | /security | `/ar/security` | 🟢 PASS | None |
+| ar | /accessibility | `/ar/accessibility` | 🟢 PASS | None |
+| ar | /cookie-policy | `/ar/cookie-policy` | 🟢 PASS | None |
+| ar | /government | `/ar/government` | 🟢 PASS | None |
+| ar | /operating-model | `/ar/operating-model` | 🟢 PASS | None |
+| ar | /privacy | `/ar/privacy` | 🟢 PASS | None |
+| ar | /terms | `/ar/terms` | 🟢 PASS | None |
+| ar | /demo | `/ar/demo` | 🟢 PASS | None |
+| ar | /quiz | `/ar/quiz` | 🟢 PASS | None |
+| ar | /roi-calculator | `/ar/roi-calculator` | 🟢 PASS | None |

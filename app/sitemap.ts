@@ -2,7 +2,7 @@
 // Dynamic Sitemap generator for Next.js SEO compliance
 
 import { MetadataRoute } from 'next';
-import { getJobs, getBlogs } from '@/platform/shared/actions';
+import { db } from '@/platform/shared/database/db';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://qeltrava.ai';
@@ -11,8 +11,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let blogs: any[] = [];
   
   try {
-    jobs = await getJobs();
-    blogs = await getBlogs();
+    jobs = await db.jobs.list('ws-qeltrava-ai');
+    blogs = await db.blogs.list('ws-qeltrava-ai');
   } catch (e) {
     console.error('Sitemap fetch failed, using fallbacks', e);
   }
