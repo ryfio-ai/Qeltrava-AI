@@ -52,7 +52,7 @@ export default function BookConsultationPage() {
                 </ul>
                 <div className="mt-4 pt-4 border-t border-[var(--color-border-soft)] leading-relaxed">
                   <strong>Business hours:</strong> 9:00 AM – 6:00 PM IST (Mon – Fri) <br />
-                  <strong>Emergency support:</strong> WhatsApp +91 89255 75794
+                  <strong>Emergency support:</strong> WhatsApp +91 96294 63964
                 </div>
               </div>
               <div className="flex-grow w-full rounded-xl overflow-hidden min-h-[650px] relative">

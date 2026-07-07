@@ -31,7 +31,7 @@ export function MobileStickyBar() {
     >
       <div className="flex p-3 gap-3">
         <a 
-          href="https://wa.me/918925575794"
+          href="https://wa.me/919629463964"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-green-50 text-green-700 border border-green-200 font-semibold text-sm active:bg-green-100 transition-colors"

@@ -90,7 +90,7 @@ export const Footer = () => {
                 <InstagramIcon />
               </a>
               <a 
-                href="https://wa.me/918925575794?text=Hi%20Qeltrava%20AI%2C%20I%27d%20like%20to%20discuss%20a%20project" 
+                href="https://wa.me/919629463964?text=Hi%20Qeltrava%20AI%2C%20I%27d%20like%20to%20discuss%20a%20project" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="text-white/60 hover:text-[#25D366] transition-colors"

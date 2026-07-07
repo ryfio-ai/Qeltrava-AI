@@ -364,7 +364,7 @@ export const Header = () => {
 
           {/* WhatsApp Button */}
           <a 
-            href="https://wa.me/918925575794?text=Hi%20Qeltrava%20AI%2C%20I%27d%20like%20to%20discuss%20a%20project"
+            href="https://wa.me/919629463964?text=Hi%20Qeltrava%20AI%2C%20I%27d%20like%20to%20discuss%20a%20project"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center w-9 h-9 rounded-full bg-[#25D366] text-white hover:bg-[#1DA851] transition-colors"

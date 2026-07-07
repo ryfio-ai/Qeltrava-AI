@@ -32,7 +32,7 @@ export default function ContactPage() {
                 {/* WhatsApp Primary CTA */}
                 <div>
                   <a 
-                    href="https://wa.me/918925575794?text=Hi%20Qeltrava%20AI%2C%20I%27d%20like%20to%20discuss%20a%20project"
+                    href="https://wa.me/919629463964?text=Hi%20Qeltrava%20AI%2C%20I%27d%20like%20to%20discuss%20a%20project"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-[#25D366] hover:bg-[#1DA851] text-white font-bold text-lg shadow-md transition-all"
@@ -106,7 +106,7 @@ export default function ContactPage() {
             <div className="mb-6 bg-[var(--color-bg-light)] p-4 rounded-xl border border-[var(--color-border-soft)] text-sm text-[var(--color-text-main)] leading-relaxed">
               We respond to all inquiries within 1 business day.<br />
               <strong>Business hours (Mon–Fri):</strong> 9:00 AM – 6:00 PM IST | 11:30 PM – 8:30 AM EST | 4:30 AM – 1:30 PM BST<br />
-              <strong>Emergency support for active clients:</strong> WhatsApp +91 89255 75794
+              <strong>Emergency support for active clients:</strong> WhatsApp +91 96294 63964
             </div>
             <LeadForm />
           </div>
