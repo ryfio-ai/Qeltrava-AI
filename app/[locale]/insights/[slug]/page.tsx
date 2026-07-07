@@ -1,4 +1,5 @@
 import React from 'react';
+import Script from 'next/script';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Link } from '@/src/routing';
@@ -74,6 +75,31 @@ export default async function ArticlePage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-[var(--color-bg-white)] pt-32 pb-24">
+      <Script
+        id="article-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: article.title,
+            description: article.summary,
+            author: {
+              '@type': 'Person',
+              name: article.author,
+            },
+            datePublished: article.date,
+            publisher: {
+              '@type': 'Organization',
+              name: siteConfig.companyName,
+              logo: {
+                '@type': 'ImageObject',
+                url: `${siteConfig.baseUrl}/logo.png`,
+              },
+            },
+          }),
+        }}
+      />
       <div className="max-w-3xl mx-auto px-6 md:px-8 flex flex-col gap-8">
         
         {/* Breadcrumbs */}

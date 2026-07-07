@@ -131,10 +131,10 @@ export const LeadForm = () => {
               <label htmlFor="budgetRange" className="block text-sm font-semibold text-[var(--color-primary-dark)] mb-2">Budget Range *</label>
               <select id="budgetRange" {...register("budgetRange", { required: activeTab === 'sales' })} className="w-full p-3 border border-[var(--color-border-soft)] rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] text-sm cursor-pointer">
                 <option value="">{t('SelectOption')}</option>
-                <option value="$10k–$30k">$10k–$30k</option>
-                <option value="$30k–$80k">$30k–$80k</option>
-                <option value="$80k–$200k">$80k–$200k</option>
-                <option value="$200k+">$200k+</option>
+                <option value="$10k–$30k">$10k–$30k (₹8L–₹25L)</option>
+                <option value="$30k–$80k">$30k–$80k (₹25L–₹66L)</option>
+                <option value="$80k–$200k">$80k–$200k (₹66L–₹1.6Cr)</option>
+                <option value="$200k+">$200k+ (₹1.6Cr+)</option>
               </select>
               {errors.budgetRange && <p className="text-red-500 text-xs mt-1">Budget range is required</p>}
             </div>
@@ -193,9 +193,14 @@ export const LeadForm = () => {
         )}
       </div>
 
-      <Button type="submit" disabled={status === 'loading'} className="w-full md:w-auto">
-        {status === 'loading' ? t('Submitting') : 'Submit Inquiry'}
-      </Button>
+      <div className="flex flex-col items-center sm:items-start w-full md:w-auto">
+        <Button type="submit" disabled={status === 'loading'} className="w-full md:w-auto">
+          {status === 'loading' ? t('Submitting') : 'Submit Inquiry →'}
+        </Button>
+        <p className="text-[10px] text-[var(--color-text-main)] opacity-60 mt-2 font-medium">
+          Typically responds in 1 hour
+        </p>
+      </div>
     </form>
   );
 };

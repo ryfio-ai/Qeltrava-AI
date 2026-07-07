@@ -38,6 +38,29 @@ export default function ProposalPage() {
   const [step, setStep] = useState(0);
   const [generated, setGenerated] = useState(false);
 
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('fromRoi') === 'true') {
+        const process = params.get('process');
+        const team = params.get('team');
+        const rate = params.get('rate');
+        const hours = params.get('hours');
+        
+        let prefilledComponents: ComponentId[] = [];
+        if (process === 'document-processing') { prefilledComponents = ['file-storage', 'ai-assistant']; }
+        else if (process === 'customer-support') { prefilledComponents = ['ai-assistant', 'crm']; }
+        else if (process === 'data-entry') { prefilledComponents = ['admin-panel', 'analytics']; }
+        else if (process === 'approval-workflows') { prefilledComponents = ['notifications', 'webhooks']; }
+        
+        setForm(prev => ({
+          ...prev,
+          components: prefilledComponents.length > 0 ? prefilledComponents : prev.components,
+          goal: `ROI Estimate Basis: ${team} people at $${rate}/hr spending ${hours} hours/week on ${process}.`
+        }));
+      }
+    }
+  }, []);
   const metrics = calculateSolutionMetrics(form.components);
   const currentStep = STEPS[step];
 

@@ -85,9 +85,9 @@ const stories: TransformationStory[] = [
   {
     id: 'customer-support',
     industry: 'Enterprise SaaS',
-    client: 'B2B Software Company',
+    client: 'Enterprise SaaS Platform',
     before: {
-      headline: 'Human-Only Support Team',
+      headline: 'Legacy Rule-Based Routing',
       metrics: [
         { label: 'First Response', value: '11 hours', bad: true },
         { label: 'Resolution Rate', value: '61%', bad: true },
@@ -143,9 +143,14 @@ export function TransformationStories() {
                     <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
                       {story.industry}
                     </span>
-                    <span className="text-xs font-semibold px-2 py-1 bg-red-50 text-red-600 border border-red-200 rounded-full">
-                      Before
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[9px] font-medium px-2 py-1 bg-gray-100 text-gray-500 rounded-full whitespace-nowrap">
+                        Illustrative Scenario
+                      </span>
+                      <span className="text-xs font-semibold px-2 py-1 bg-red-50 text-red-600 border border-red-200 rounded-full">
+                        Before
+                      </span>
+                    </div>
                   </div>
                   <h3 className="text-base font-bold text-[var(--color-primary-dark)] mb-1">{story.client}</h3>
                   <p className="text-sm font-semibold text-red-600">{story.before.headline}</p>
@@ -190,12 +195,17 @@ export function TransformationStories() {
                     <span className="text-xs font-bold uppercase tracking-wider" style={{ color: story.color }}>
                       {story.industry}
                     </span>
-                    <span
-                      className="text-xs font-semibold px-2 py-1 border rounded-full"
-                      style={{ color: story.color, backgroundColor: story.color + '15', borderColor: story.color + '40' }}
-                    >
-                      After
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[9px] font-medium px-2 py-1 bg-white/50 text-gray-500 rounded-full border border-gray-200 whitespace-nowrap">
+                        Illustrative Scenario
+                      </span>
+                      <span
+                        className="text-xs font-semibold px-2 py-1 border rounded-full"
+                        style={{ color: story.color, backgroundColor: story.color + '15', borderColor: story.color + '40' }}
+                      >
+                        After
+                      </span>
+                    </div>
                   </div>
                   <h3 className="text-base font-bold text-[var(--color-primary-dark)] mb-1">{story.client}</h3>
                   <p className="text-sm font-semibold" style={{ color: story.color }}>{story.after.headline}</p>

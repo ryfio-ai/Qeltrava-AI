@@ -18,8 +18,9 @@ import { CapabilityMatrix } from '@/components/ui/CapabilityMatrix';
 import { TransformationStories } from '@/components/ui/TransformationStories';
 import { EngineeringWorkflow } from '@/components/ui/EngineeringWorkflow';
 import { LiveArchitectureVisualizer } from '@/components/ui/LiveArchitectureVisualizer';
-import { SystemHealthDashboard } from '@/components/ui/SystemHealthDashboard';
 import { FeaturedProductModliq } from '@/components/ui/FeaturedProductModliq';
+import { FeaturedProductStaySeat } from '@/components/ui/FeaturedProductStaySeat';
+import { ManufacturingCallout } from '@/components/ui/ManufacturingCallout';
 import dynamic from 'next/dynamic';
 
 const NetworkBackground = dynamic(() => import('@/components/backgrounds/NetworkBackground').then(mod => mod.NetworkBackground), { ssr: false });
@@ -115,6 +116,32 @@ export default function HomePage() {
             </FadeIn>
           </div>
         </div>
+      </section>
+
+      {/* Registered & Recognized */}
+      <section className="py-8 bg-white border-b border-[var(--color-border-soft)]">
+        <FadeIn direction="up">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-2">Registered & Recognized</h2>
+            <p className="text-sm text-[var(--color-text-main)]">Verified by India's startup ecosystem.</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 px-6">
+            {[
+              "DPIIT Recognised Startup",
+              "Udyam Registered MSME",
+              "StartupTN Recognized",
+              "AWS Activate",
+              "Microsoft for Startups",
+              "NASSCOM Member",
+              "Qeltrava Technologies Private Limited · CIN: XXXXXXXXXXXX"
+            ].map((badge, i) => (
+              <div key={i} className="px-4 py-2 bg-[var(--color-bg-light)] border border-[var(--color-border-soft)] rounded-lg flex items-center justify-center text-center">
+                <span className="text-sm font-semibold text-[var(--color-primary-dark)]">{badge}</span>
+                <span className="ml-2 text-[10px] italic text-[var(--color-text-main)] opacity-60">In Progress</span>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
       </section>
 
       {/* Tech Stack Ticker */}
@@ -214,6 +241,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Featured Product (StaySeat) ─────────────────────── */}
+      <section className="py-24 bg-white border-b border-[var(--color-border-soft)] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn direction="up">
+            <FeaturedProductStaySeat />
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Trust / Brand Promise */}
       <section className="py-20 bg-primary-dark text-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
@@ -265,6 +301,8 @@ export default function HomePage() {
 
       {/* Industry Showcase — Tabbed per vertical */}
       <IndustryShowcase />
+
+      <ManufacturingCallout />
 
       {/* Partner / Recognition Strip */}
       <PartnerStrip />
@@ -410,7 +448,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── System Health Dashboard ──────────────────────────── */}
+      {/* ── Built to Production Standards from Day One ──────────────────────────── */}
       <section className="py-24 bg-[var(--color-bg-light)] border-t border-[var(--color-border-soft)]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-14 max-w-3xl mx-auto">
@@ -418,14 +456,34 @@ export default function HomePage() {
               Reliability
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">
-              System Health Dashboard
+              Built to Production Standards from Day One
             </h2>
             <p className="text-lg text-[var(--color-text-main)] mt-4 leading-relaxed">
-              Real-time visibility into every layer of our infrastructure. Always operational.
+              The architectural and operational standards we apply to every engagement.
             </p>
           </div>
           <FadeIn direction="up">
-            <SystemHealthDashboard />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white p-8 rounded-2xl border border-[var(--color-border-soft)] shadow-sm">
+                <h3 className="text-lg font-bold text-[var(--color-primary-dark)] mb-3">99.99% Uptime SLA</h3>
+                <p className="text-sm text-[var(--color-text-main)] leading-relaxed">Every production system we deliver is architected for high availability with automated failover, health checks, and incident response runbooks.</p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl border border-[var(--color-border-soft)] shadow-sm">
+                <h3 className="text-lg font-bold text-[var(--color-primary-dark)] mb-3">Zero-Downtime Deployments</h3>
+                <p className="text-sm text-[var(--color-text-main)] leading-relaxed">Blue-green and canary deployment strategies mean our clients never experience maintenance windows. Rollback in under 60 seconds.</p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl border border-[var(--color-border-soft)] shadow-sm">
+                <h3 className="text-lg font-bold text-[var(--color-primary-dark)] mb-3">Sub-100ms API Response</h3>
+                <p className="text-sm text-[var(--color-text-main)] leading-relaxed">We design API layers with caching, connection pooling, and CDN edge delivery so performance is an architecture decision, not an afterthought.</p>
+              </div>
+              <div className="bg-white p-8 rounded-2xl border border-[var(--color-border-soft)] shadow-sm">
+                <h3 className="text-lg font-bold text-[var(--color-primary-dark)] mb-3">Automated Security Scanning</h3>
+                <p className="text-sm text-[var(--color-text-main)] leading-relaxed">Every codebase we ship runs Snyk dependency scanning, OWASP ZAP penetration tests, and secret detection in CI/CD before production.</p>
+              </div>
+            </div>
+            <p className="text-center text-xs text-[var(--color-text-main)] mt-8 italic">
+              These are the delivery standards we commit to in every SOW. Not aspirational metrics — contractual obligations.
+            </p>
           </FadeIn>
         </div>
       </section>

@@ -27,11 +27,8 @@ export default function LocaleSwitcher() {
         className="appearance-none bg-transparent py-1 px-2 pr-6 text-sm font-medium text-[var(--color-text-main)] hover:text-[var(--color-accent)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] cursor-pointer"
       >
         <option value="en">EN</option>
-        <option value="es">ES</option>
-        <option value="de">DE</option>
-        <option value="fr">FR</option>
-        <option value="pt-BR">PT</option>
-        <option value="ar">AR</option>
+        <option value="ta">TA</option>
+        <option value="ml">ML</option>
       </select>
       <span className="pointer-events-none absolute right-1 top-1/2 -translate-y-1/2 text-xs opacity-50">
         ▼

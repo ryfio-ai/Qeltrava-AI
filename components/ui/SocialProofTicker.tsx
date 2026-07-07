@@ -8,7 +8,6 @@ const ITEMS = [
   '99.99% uptime SLA',
   '45+ global clients',
   'AI-native from architecture to deployment',
-  'PSG College of Technology, Class of 2026',
   '320% average ROI improvement',
   'Zero downtime migrations',
   'HIPAA · PCI-DSS · SOC 2 ready',

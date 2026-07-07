@@ -13,7 +13,7 @@ export interface TechCapability {
 
 export const capabilities: TechCapability[] = [
   // AI & LLM
-  { name: 'OpenAI GPT-4o', category: 'AI & LLM', expertise: 'Expert', expertiseScore: 95, services: ['AI Automation'], since: '2023', description: 'Prompt engineering, fine-tuning, function calling, vision' },
+  { name: 'OpenAI GPT-4o', category: 'AI & LLM', expertise: 'Expert', expertiseScore: 95, services: ['AI Automation'], since: '2024', description: 'Prompt engineering, fine-tuning, function calling, vision' },
   { name: 'LangChain / LangGraph', category: 'AI & LLM', expertise: 'Expert', expertiseScore: 92, services: ['AI Automation'], since: '2023', description: 'Multi-agent orchestration, tool-use, memory systems' },
   { name: 'pgvector / RAG', category: 'AI & LLM', expertise: 'Advanced', expertiseScore: 87, services: ['AI Automation', 'Data'], since: '2023', description: 'Semantic search, retrieval-augmented generation, vector indexing' },
   { name: 'Qdrant', category: 'AI & LLM', expertise: 'Advanced', expertiseScore: 80, services: ['AI Automation'], since: '2024', description: 'High-performance vector database for production AI workloads' },

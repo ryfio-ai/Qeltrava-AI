@@ -10,7 +10,7 @@ export const siteConfig = {
   social: {
     linkedin: "https://www.linkedin.com/company/qeltravai/",
     instagram: "https://www.instagram.com/qeltravaai",
-    github: "https://github.com/qeltrava",
+    github: "https://github.com/QeltravaAI",
   },
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL || "",
   founderMode: "AI-led, human-accountable",

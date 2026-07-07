@@ -20,8 +20,11 @@ export default function BookConsultationPage() {
         <FadeIn>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Book an AI Strategy Call</h1>
-            <p className="text-xl text-[var(--color-text-main)] leading-relaxed">
+            <p className="text-xl text-[var(--color-text-main)] leading-relaxed mb-4">
               Speak directly with our senior engineering partners about your business challenges, legacy architecture, and automation opportunities.
+            </p>
+            <p className="text-sm font-medium text-[var(--color-accent)]">
+              We speak Tamil, English, and Malayalam.
             </p>
           </div>
         </FadeIn>
@@ -47,6 +50,10 @@ export default function BookConsultationPage() {
                   <li>Senior engineer on the call, not a sales rep</li>
                   <li>Written summary of recommendations within 48 hours</li>
                 </ul>
+                <div className="mt-4 pt-4 border-t border-[var(--color-border-soft)] leading-relaxed">
+                  <strong>Business hours:</strong> 9:00 AM – 6:00 PM IST (Mon – Fri) <br />
+                  <strong>Emergency support:</strong> WhatsApp +91 89255 75794
+                </div>
               </div>
               <div className="flex-grow w-full rounded-xl overflow-hidden min-h-[650px] relative">
                 <div 

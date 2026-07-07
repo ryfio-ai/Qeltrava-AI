@@ -112,17 +112,22 @@ export function FeaturedProductModliq() {
           </div>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <Button href="/contact?subject=Modliq+Waitlist" className="justify-center bg-indigo-600 text-white border-transparent hover:bg-indigo-700">
-              Notify Me at Launch
-            </Button>
-            <button 
-              disabled 
-              className="group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 border border-[var(--color-border-soft)] bg-gray-50 text-gray-400 text-sm font-semibold cursor-not-allowed select-none transition-colors"
-            >
-              <span>Learn More (Coming Soon)</span>
-              <Lock className="w-3.5 h-3.5" />
-            </button>
+          <div>
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <Button href="/contact?subject=Modliq+Waitlist" className="justify-center bg-indigo-600 text-white border-transparent hover:bg-indigo-700">
+                Request Invite →
+              </Button>
+              <button 
+                disabled 
+                className="group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 border border-[var(--color-border-soft)] bg-gray-50 text-gray-400 text-sm font-semibold cursor-not-allowed select-none transition-colors"
+              >
+                <span>Learn More (Coming Soon)</span>
+                <Lock className="w-3.5 h-3.5" />
+              </button>
+            </div>
+            <p className="text-[10px] text-[var(--color-text-main)] opacity-70 mt-2 font-medium ml-2">
+              1,200+ models trained
+            </p>
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useRouter } from '@/src/routing';
+import { useRouter, Link } from '@/src/routing';
 import { calculateRoi, ProcessType, RoiResults } from '@/lib/roi-calculator';
 import { CountUpMetric } from './CountUpMetric';
 import { Share2, Info } from 'lucide-react';
@@ -15,16 +15,10 @@ export const RoiCalculator = () => {
   const [hours, setHours] = useState<number>(12);
   const [processType, setProcessType] = useState<ProcessType>('document-processing');
   
-  // Display result state (debounced values)
-  const [results, setResults] = useState<RoiResults>({
-    annualCost: 0,
-    savingsMin: 0,
-    savingsMax: 0,
-    implCostMin: 0,
-    implCostMax: 0,
-    paybackMin: 0,
-    paybackMax: 0
-  });
+  // Display result state — seeded with defaults so first paint is never all-zeros
+  const [results, setResults] = useState<RoiResults>(() =>
+    calculateRoi(5, 45, 12, 'document-processing')
+  );
 
   const [copied, setCopied] = useState(false);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -234,7 +228,7 @@ export const RoiCalculator = () => {
             <span className="block text-sm text-white/60 mb-2 font-medium">Annual Cost of Current Process</span>
             <div className="text-3xl md:text-4xl font-extrabold text-white flex items-baseline gap-1">
               <span className="font-mono font-medium opacity-60 text-xl">$</span>
-              <CountUpMetric value={results.annualCost} className="text-white" />
+              <CountUpMetric key={results.annualCost} value={results.annualCost} className="text-white" />
               <span className="text-xs text-white/50 font-mono ml-2">/year</span>
             </div>
           </div>
@@ -244,10 +238,10 @@ export const RoiCalculator = () => {
             <span className="block text-sm text-white/60 mb-2 font-medium">Illustrative Automation Savings</span>
             <div className="text-2xl md:text-3xl font-extrabold text-[#1FAA59] flex items-baseline gap-1 flex-wrap">
               <span className="font-mono font-medium opacity-60 text-lg">$</span>
-              <CountUpMetric value={results.savingsMin} className="text-[#1FAA59]" />
+              <CountUpMetric key={results.savingsMin} value={results.savingsMin} className="text-[#1FAA59]" />
               <span className="text-lg font-mono opacity-50 px-1.5">–</span>
               <span className="font-mono font-medium opacity-60 text-lg">$</span>
-              <CountUpMetric value={results.savingsMax} className="text-[#1FAA59]" />
+              <CountUpMetric key={results.savingsMax} value={results.savingsMax} className="text-[#1FAA59]" />
               <span className="text-xs text-white/50 font-mono ml-2">/year</span>
             </div>
           </div>
@@ -278,12 +272,20 @@ export const RoiCalculator = () => {
             </p>
           </div>
           
-          <a
-            href="/en/book-consultation"
-            className="w-full flex items-center justify-center py-3.5 px-6 rounded-xl bg-white hover:bg-gray-100 text-[var(--color-primary-dark)] text-sm font-bold shadow-md hover:shadow-lg transition-all text-center cursor-pointer"
-          >
-            Get an Accurate Estimate →
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href={`/proposal?fromRoi=true&team=${people}&rate=${rate}&hours=${hours}&process=${processType}`}
+              className="flex-1 flex items-center justify-center py-3.5 px-6 rounded-xl bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all text-center cursor-pointer border border-[var(--color-accent)]"
+            >
+              Build Proposal from this estimate →
+            </Link>
+            <Link
+              href="/book-consultation"
+              className="flex-1 flex items-center justify-center py-3.5 px-6 rounded-xl bg-white hover:bg-gray-100 text-[var(--color-primary-dark)] text-sm font-bold shadow-md hover:shadow-lg transition-all text-center cursor-pointer"
+            >
+              Book Strategy Call
+            </Link>
+          </div>
         </div>
 
       </div>

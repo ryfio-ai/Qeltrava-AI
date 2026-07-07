@@ -38,8 +38,8 @@ export const CountUpMetric = ({ value, prefix = '', suffix = '', duration = 2.5,
   }, [mounted, isInView, value, duration]);
 
   const formattedValue = mounted 
-    ? displayValue.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
-    : value.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    ? displayValue.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
+    : value.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
 
   return (
     <span ref={ref} className={`font-mono ${className}`}>

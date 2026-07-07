@@ -14,6 +14,7 @@ import { ConsentProvider } from '@/components/ConsentProvider';
 import { CookieBanner } from '@/components/CookieBanner';
 import { AnnouncementBar } from '@/components/ui/AnnouncementBar';
 import { SocialProofTicker } from '@/components/ui/SocialProofTicker';
+import { MobileStickyBar } from '@/components/ui/MobileStickyBar';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -41,6 +42,13 @@ export const metadata: Metadata = {
     shortcut: "/logo-bg.png",
     apple: "/logo-bg.png",
   },
+  alternates: {
+    languages: {
+      'en-US': '/en',
+      'ta-IN': '/ta',
+      'ml-IN': '/ml'
+    }
+  }
 };
 
 export function generateStaticParams() {
@@ -87,6 +95,7 @@ export default async function RootLayout({
             <SocialProofTicker />
             <Footer />
             <CookieBanner />
+            <MobileStickyBar />
           </ConsentProvider>
         </NextIntlClientProvider>
       </body>

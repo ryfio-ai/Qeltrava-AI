@@ -6,7 +6,7 @@ import { getBlogPosts } from '@/platform/modules/cms/module';
 
 export const metadata: Metadata = {
   title: 'Insights & Engineering Research | ' + siteConfig.companyName,
-  description: 'Engineering intelligence, technical deep-dives, and original research from the Qeltrava AI team.',
+  description: 'Engineering research, AI architecture insights, and delivery intelligence from the Qeltrava AI team — published monthly.',
 };
 
 export default async function InsightsPage() {
