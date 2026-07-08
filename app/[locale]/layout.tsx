@@ -36,8 +36,42 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${siteConfig.companyName} | ${siteConfig.tagline}`,
+  metadataBase: new URL(siteConfig.baseUrl),
+  title: {
+    default: `${siteConfig.companyName} | Custom AI Software Development & Engineering`,
+    template: `%s | ${siteConfig.companyName}`,
+  },
   description: siteConfig.description,
+  keywords: [
+    "AI software development company",
+    "Enterprise SaaS engineering",
+    "Custom AI integrations",
+    "AI automation services",
+    "Cloud DevOps",
+    "Custom Software Development",
+  ],
+  openGraph: {
+    title: `${siteConfig.companyName} | Custom AI Software Development & Engineering`,
+    description: siteConfig.description,
+    url: siteConfig.baseUrl,
+    siteName: siteConfig.companyName,
+    images: [
+      {
+        url: "/logo-bg.png",
+        width: 1200,
+        height: 630,
+        alt: siteConfig.companyName,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.companyName} | Custom AI Software Development`,
+    description: siteConfig.description,
+    images: ["/logo-bg.png"],
+  },
   icons: {
     icon: "/logo-bg.png",
     shortcut: "/logo-bg.png",

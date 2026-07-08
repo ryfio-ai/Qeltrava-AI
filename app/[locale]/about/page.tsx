@@ -4,8 +4,14 @@ import { siteConfig } from '@/lib/site-config';
 import { FadeIn } from '@/components/animations/FadeIn';
 
 export const metadata: Metadata = {
-  title: 'About Qeltrava AI | Our Story, Mission & Team',
+  title: 'About Qeltrava AI | Our Story, Mission & Engineering Team',
   description: 'Four engineers from PSG College of Technology, Coimbatore, building AI-native software systems for startups, enterprises, and manufacturers worldwide.',
+  keywords: ["AI engineering team", "Software development company", "PSG College of Technology alumni", "AI startup Coimbatore", "Custom enterprise software"],
+  openGraph: {
+    title: 'About Qeltrava AI | Our Story & Mission',
+    description: 'We are an AI-first software engineering partner building secure and scalable solutions.',
+    type: 'website',
+  },
 };
 
 export default function AboutPage() {

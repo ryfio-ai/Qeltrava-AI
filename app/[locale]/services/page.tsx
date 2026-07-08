@@ -6,8 +6,14 @@ import { ServiceExplorer } from '@/components/ui/ServiceExplorer';
 import { VisualWhatSoftwareCompanyDoes } from '@/components/ui/VisualWhatSoftwareCompanyDoes';
 
 export const metadata: Metadata = {
-  title: 'Engineering Services | ' + siteConfig.companyName,
-  description: 'Explore our AI-native engineering services, from SaaS development to AI automation.',
+  title: 'Custom Software & AI Engineering Services | Qeltrava AI',
+  description: 'Explore our AI-native engineering services. We build custom SaaS platforms, AI automations, cloud infrastructure, and data analytics systems.',
+  keywords: ["Software engineering services", "Custom SaaS development", "AI automation agency", "Cloud infrastructure setup", "Data engineering"],
+  openGraph: {
+    title: 'Custom Software & AI Engineering Services',
+    description: 'Explore our AI-native engineering services. We build custom SaaS platforms, AI automations, cloud infrastructure, and data analytics systems.',
+    type: 'website',
+  },
 };
 
 export default function ServicesPage() {

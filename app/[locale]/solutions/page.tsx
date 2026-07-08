@@ -7,8 +7,14 @@ import { siteConfig } from '@/lib/site-config';
 import { VisualDigitalTransformation } from '@/components/ui/VisualDigitalTransformation';
 
 export const metadata: Metadata = {
-  title: 'Solutions | ' + siteConfig.companyName,
-  description: 'Outcome-bundled solutions combining multiple engineering services.',
+  title: 'AI Business Solutions & Digital Transformation | Qeltrava AI',
+  description: 'Outcome-bundled solutions combining AI automation, enterprise software engineering, and secure infrastructure modernization to transform your business operations.',
+  keywords: ["AI business solutions", "Digital transformation services", "AI workflow automation", "Legacy system modernization", "Enterprise software solutions"],
+  openGraph: {
+    title: 'AI Business Solutions & Digital Transformation',
+    description: 'Outcome-bundled solutions combining AI automation, enterprise software engineering, and secure infrastructure modernization to transform your business operations.',
+    type: 'website',
+  },
 };
 
 export default function SolutionsPage() {

@@ -5,8 +5,14 @@ import { Metadata } from 'next';
 import { siteConfig } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Industries | ' + siteConfig.companyName,
-  description: 'Explore the industries we serve with our AI-native engineering capabilities.',
+  title: 'Industry-Specific AI & Software Engineering | Qeltrava AI',
+  description: 'Explore the industries we serve with our AI-native engineering capabilities. We build secure systems for Fintech, Healthcare, Logistics, SaaS, and more.',
+  keywords: ["Fintech software development", "Healthcare IT solutions", "Logistics AI automation", "SaaS infrastructure", "Industry specific AI"],
+  openGraph: {
+    title: 'Industry-Specific AI & Software Engineering',
+    description: 'Explore the industries we serve with our AI-native engineering capabilities. We build secure systems for Fintech, Healthcare, Logistics, SaaS, and more.',
+    type: 'website',
+  },
 };
 
 export default function IndustriesPage() {

@@ -5,8 +5,14 @@ import { Metadata } from 'next';
 import { Mail, MapPin, ShieldCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: `Contact Us | ${siteConfig.companyName}`,
-  description: "Get in touch with Qeltrava AI to discuss your software engineering, AI automation, or infrastructure needs.",
+  title: `Contact Us | AI Software Development Consultation | ${siteConfig.companyName}`,
+  description: "Get in touch with Qeltrava AI to discuss your software engineering, AI automation, or infrastructure needs. Book a free discovery call today.",
+  keywords: ["Contact Qeltrava AI", "Hire AI developers", "Software engineering consultation", "AI automation agency contact", "Custom software consultation"],
+  openGraph: {
+    title: 'Contact Us | AI Software Development Consultation',
+    description: "Get in touch with Qeltrava AI to discuss your software engineering, AI automation, or infrastructure needs.",
+    type: 'website',
+  },
 };
 
 export default function ContactPage() {
