@@ -85,12 +85,12 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <FadeIn delay={0.1}>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6">
-                AI-Native Software Engineering for Real Business Outcomes.
+                Qeltrava AI is a specialized software and AI engineering team.
               </h1>
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="text-xl md:text-2xl text-white/80 mb-4 leading-relaxed max-w-2xl">
-                {siteConfig.companyName} helps startups, enterprises, and public-sector organizations design, build, and scale intelligent software systems — from AI automation and SaaS platforms to cloud infrastructure, data systems, and secure enterprise integrations.
+                We partner with growing businesses to ship production-ready applications fast. Currently delivering active projects across AI, Web, and Mobile. We are proudly bootstrapped and building in the open.
               </p>
               <p className="text-sm font-medium text-[var(--color-accent)] tracking-wider mb-10 opacity-90">
                 Trusted by teams building eDrift, Thiranoli, and Tamizh Tech
@@ -99,7 +99,7 @@ export default function HomePage() {
             <FadeIn delay={0.3}>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button href="/book-consultation" variant="primary" className="text-lg px-8 py-4">
-                  Book an AI Strategy Call
+                  Book a Free Demo
                 </Button>
                 <Button href="/solutions" variant="outline" className="text-lg px-8 py-4">
                   View Solutions
@@ -118,28 +118,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Registered & Recognized */}
+      {/* Security & Best Practices */}
       <section className="py-8 bg-white border-b border-[var(--color-border-soft)]">
         <FadeIn direction="up">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-2">Registered & Recognized</h2>
-            <p className="text-sm text-[var(--color-text-main)]">Verified by India's startup ecosystem.</p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4 px-6">
-            {[
-              "DPIIT Recognised Startup",
-              "Udyam Registered MSME",
-              "StartupTN Recognized",
-              "AWS Activate",
-              "Microsoft for Startups",
-              "NASSCOM Member",
-              "Qeltrava Technologies Private Limited · CIN: XXXXXXXXXXXX"
-            ].map((badge, i) => (
-              <div key={i} className="px-4 py-2 bg-[var(--color-bg-light)] border border-[var(--color-border-soft)] rounded-lg flex items-center justify-center text-center">
-                <span className="text-sm font-semibold text-[var(--color-primary-dark)]">{badge}</span>
-                <span className="ml-2 text-[10px] italic text-[var(--color-text-main)] opacity-60">In Progress</span>
-              </div>
-            ))}
+          <div className="text-center mb-8 max-w-3xl mx-auto px-6">
+            <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-4">Security & Best Practices</h2>
+            <p className="text-base text-[var(--color-text-main)] leading-relaxed">
+              We build with standard security practices and modern architecture from day one. As our client base grows, we are actively laying the groundwork for formal SOC 2 and ISO 27001 compliance.
+            </p>
           </div>
         </FadeIn>
       </section>
@@ -147,7 +133,7 @@ export default function HomePage() {
       {/* Tech Stack Ticker */}
       <TechTicker />
 
-      {/* Metrics Band */}
+      {/* Core Capabilities Band */}
       <section className="py-12 bg-white border-b border-[var(--color-border-soft)] relative overflow-hidden">
         <div 
           className="absolute inset-0 pointer-events-none" 
@@ -160,42 +146,28 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-[var(--color-border-soft)]">
             <FadeIn delay={0.1}>
-              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-2">Systems Deployed</div>
-              <div className="text-4xl font-bold text-[var(--color-primary-dark)] flex items-center justify-center gap-4">
-                <CountUpMetric value={150} suffix="+" duration={2.5} />
-                <MiniSparkline width={40} height={20} data={[2, 4, 8, 15, 25, 40, 70, 150]} />
+              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-4">Core Capability</div>
+              <div className="text-xl md:text-2xl font-bold text-[var(--color-primary-dark)] flex items-center justify-center px-4">
+                Rapid MVPs in Weeks, Not Months
               </div>
-              <p className="text-xs text-[var(--color-text-main)] mt-2 max-w-[200px] mx-auto opacity-80">
-                150+ custom applications and integrations launched globally.
-              </p>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-2">ROI Realized</div>
-              <div className="text-4xl font-bold text-[var(--color-primary-dark)] flex items-center justify-center gap-4">
-                <CountUpMetric value={320} suffix="%" duration={2.5} />
-                <MiniSparkline width={40} height={20} data={[0, 50, 100, 150, 200, 250, 280, 320]} />
+              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-4">Core Capability</div>
+              <div className="text-xl md:text-2xl font-bold text-[var(--color-primary-dark)] flex items-center justify-center px-4">
+                Custom AI Integrations
               </div>
-              <p className="text-xs text-[var(--color-text-main)] mt-2 max-w-[200px] mx-auto opacity-80">
-                320% average client ROI realized within 12 months.
-              </p>
             </FadeIn>
             <FadeIn delay={0.3}>
-              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-2">Uptime Target</div>
-              <div className="text-4xl font-bold text-[var(--color-primary-dark)]">
-                <CountUpMetric value={99.99} suffix="%" duration={2.5} />
+              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-4">Core Capability</div>
+              <div className="text-xl md:text-2xl font-bold text-[var(--color-primary-dark)] flex items-center justify-center px-4">
+                Full-Stack Web & Mobile Apps
               </div>
-              <p className="text-xs text-[var(--color-text-main)] mt-2 max-w-[200px] mx-auto opacity-80">
-                99.99% operational uptime maintained across production nodes.
-              </p>
             </FadeIn>
             <FadeIn delay={0.4}>
-              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-2">Global Clients</div>
-              <div className="text-4xl font-bold text-[var(--color-primary-dark)]">
-                <CountUpMetric value={45} suffix="+" duration={2.5} />
+              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-4">Core Capability</div>
+              <div className="text-xl md:text-2xl font-bold text-[var(--color-primary-dark)] flex items-center justify-center px-4">
+                Transparent, Milestone-Based Delivery
               </div>
-              <p className="text-xs text-[var(--color-text-main)] mt-2 max-w-[200px] mx-auto opacity-80">
-                45+ active enterprise partners scaling with our technology.
-              </p>
             </FadeIn>
           </div>
         </div>

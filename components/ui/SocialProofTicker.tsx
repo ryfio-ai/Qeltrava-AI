@@ -4,13 +4,13 @@ import React from 'react';
 
 // Subtle strip that cycles outcome stats above the footer
 const ITEMS = [
-  '150+ systems deployed',
-  '99.99% uptime SLA',
-  '45+ global clients',
+  'Rapid MVPs in Weeks, Not Months',
+  'Custom AI Integrations',
+  'Full-Stack Web & Mobile Apps',
   'AI-native from architecture to deployment',
-  '320% average ROI improvement',
-  'Zero downtime migrations',
-  'HIPAA · PCI-DSS · SOC 2 ready',
+  'Transparent, Milestone-Based Delivery',
+  'Designed for Scale',
+  'Modern Security Best Practices',
 ];
 
 export const SocialProofTicker = () => {
