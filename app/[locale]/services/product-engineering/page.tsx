@@ -5,8 +5,14 @@ import { Metadata } from 'next';
 import { siteConfig } from '@/lib/site-config';
 
 export const metadata: Metadata = {
-  title: 'Product Engineering Engineering | ' + siteConfig.companyName,
-  description: 'We design and deploy enterprise-grade product engineering systems that automate complex workflows, reduce operational overhead, and ensure absolute compliance.',
+  title: 'AI MVP Development & LLM Integration Services | Qeltrava AI',
+  description: 'We design and deploy custom product engineering systems and MVPs that automate workflows and scale with your startup.',
+  keywords: ["AI MVP development company India", "LLM integration services for startups", "Custom AI integration", "Product engineering agency"],
+  openGraph: {
+    title: 'AI MVP Development & LLM Integration Services',
+    description: 'We design and deploy custom product engineering systems and MVPs that automate workflows and scale with your startup.',
+    type: 'website',
+  },
 };
 
 export default function Page() {
@@ -15,9 +21,9 @@ export default function Page() {
       <div className="max-w-5xl mx-auto px-6 md:px-12">
         <FadeIn>
           <div className="mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Product Engineering Engineering</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Product Engineering</h1>
             <p className="text-xl text-[var(--color-text-main)] leading-relaxed max-w-3xl">
-              We design and deploy enterprise-grade product engineering systems that automate complex workflows, reduce operational overhead, and ensure absolute compliance.
+              We design and deploy custom product engineering systems and MVPs that automate complex workflows, reduce operational overhead, and help you launch faster.
             </p>
           </div>
         </FadeIn>

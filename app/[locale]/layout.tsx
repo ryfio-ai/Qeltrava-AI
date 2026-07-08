@@ -38,20 +38,20 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.baseUrl),
   title: {
-    default: `${siteConfig.companyName} | Custom AI Software Development & Engineering`,
+    default: `${siteConfig.companyName} | Custom AI & Software Engineering`,
     template: `%s | ${siteConfig.companyName}`,
   },
   description: siteConfig.description,
   keywords: [
     "AI software development company",
-    "Enterprise SaaS engineering",
+    "Custom SaaS development India",
     "Custom AI integrations",
     "AI automation services",
     "Cloud DevOps",
-    "Custom Software Development",
+    "MVP development agency",
   ],
   openGraph: {
-    title: `${siteConfig.companyName} | Custom AI Software Development & Engineering`,
+    title: `${siteConfig.companyName} | Custom AI & Software Engineering`,
     description: siteConfig.description,
     url: siteConfig.baseUrl,
     siteName: siteConfig.companyName,

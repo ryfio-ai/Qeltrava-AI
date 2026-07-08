@@ -6,8 +6,14 @@ import { siteConfig } from '@/lib/site-config';
 import { VisualWhyWebsite } from '@/components/ui/VisualWhyWebsite';
 
 export const metadata: Metadata = {
-  title: 'Saas Development Engineering | ' + siteConfig.companyName,
-  description: 'We design and deploy enterprise-grade saas development systems that automate complex workflows, reduce operational overhead, and ensure absolute compliance.',
+  title: 'Custom SaaS Development Company India | Qeltrava AI',
+  description: 'We design and deploy custom SaaS applications and robust software systems that scale rapidly for startups and established businesses.',
+  keywords: ["Custom SaaS development company India", "Rapid MVP development agency India", "SaaS development agency", "Custom software SaaS"],
+  openGraph: {
+    title: 'Custom SaaS Development Company India',
+    description: 'We design and deploy custom SaaS applications and robust software systems that scale rapidly for startups and established businesses.',
+    type: 'website',
+  },
 };
 
 export default function Page() {
@@ -16,9 +22,9 @@ export default function Page() {
       <div className="max-w-5xl mx-auto px-6 md:px-12">
         <FadeIn>
           <div className="mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Saas Development Engineering</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Custom SaaS Development</h1>
             <p className="text-xl text-[var(--color-text-main)] leading-relaxed max-w-3xl">
-              We design and deploy enterprise-grade saas development systems that automate complex workflows, reduce operational overhead, and ensure absolute compliance.
+              We design and deploy robust SaaS systems that automate complex workflows, scale effortlessly, and deliver real value to your users.
             </p>
           </div>
         </FadeIn>
