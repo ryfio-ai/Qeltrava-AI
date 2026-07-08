@@ -15,6 +15,7 @@ import { CookieBanner } from '@/components/CookieBanner';
 import { AnnouncementBar } from '@/components/ui/AnnouncementBar';
 import { SocialProofTicker } from '@/components/ui/SocialProofTicker';
 import { MobileStickyBar } from '@/components/ui/MobileStickyBar';
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -98,6 +99,7 @@ export default async function RootLayout({
             <MobileStickyBar />
           </ConsentProvider>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );
