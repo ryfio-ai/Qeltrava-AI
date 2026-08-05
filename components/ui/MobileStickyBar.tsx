@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { MessageCircle, Calendar } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { Link } from '@/src/routing';
 
 export function MobileStickyBar() {
@@ -29,16 +29,7 @@ export function MobileStickyBar() {
         isVisible ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
-      <div className="flex p-3 gap-3">
-        <a 
-          href="https://wa.me/919629463964"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-green-50 text-green-700 border border-green-200 font-semibold text-sm active:bg-green-100 transition-colors"
-        >
-          <MessageCircle className="w-4 h-4" />
-          WhatsApp
-        </a>
+      <div className="flex p-3">
         <Link 
           href="/book-consultation"
           className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-[var(--color-accent)] text-white font-semibold text-sm active:bg-blue-600 transition-colors"
