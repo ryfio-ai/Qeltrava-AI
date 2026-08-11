@@ -11,7 +11,10 @@ export const metadata: Metadata = {
   description: 'Join the Qeltrava AI Talent & Engineering Community. Submit your technical background, skills, and availability for project opportunities.',
 };
 
-export default async function CareersPage() {
+export default async function CareersPage({ params }: { params: Promise<{ locale: string }> }) {
+  const resolvedParams = await params;
+  const locale = resolvedParams?.locale || 'en';
+
   return (
     <main className="min-h-screen bg-[var(--color-bg-white)] pt-32 pb-24">
       <div className="max-w-4xl mx-auto px-6 md:px-12 flex flex-col gap-16">
@@ -85,7 +88,7 @@ export default async function CareersPage() {
             </div>
             <div className="pt-2">
               <Link
-                href="/careers/apply"
+                href={`/${locale}/careers/apply`}
                 className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white font-bold text-sm px-8 py-3.5 rounded-full hover:bg-[var(--color-accent)]/90 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02]"
               >
                 Complete Engineering Profile →

@@ -11,14 +11,17 @@ export const metadata: Metadata = {
   description: 'Join the Qeltrava AI Talent & Engineering Community. Submit your technical background, skills, and availability for project opportunities.',
 };
 
-export default function TalentApplyPage() {
+export default async function TalentApplyPage({ params }: { params: Promise<{ locale: string }> }) {
+  const resolvedParams = await params;
+  const locale = resolvedParams?.locale || 'en';
+
   return (
     <main className="min-h-screen bg-[var(--color-bg-white)] pt-28 pb-24 text-slate-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Navigation Breadcrumb */}
         <nav className="flex items-center gap-2 text-xs font-mono text-slate-500">
-          <Link href="/careers" className="hover:text-[var(--color-accent)] flex items-center gap-1 transition-colors">
+          <Link href={`/${locale}/careers`} className="hover:text-[var(--color-accent)] flex items-center gap-1 transition-colors">
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Careers
           </Link>
           <span>/</span>
