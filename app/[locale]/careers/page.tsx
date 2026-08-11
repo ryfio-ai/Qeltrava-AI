@@ -29,6 +29,15 @@ export default async function CareersPage({ params }: { params: Promise<{ locale
             <p className="text-xl text-[var(--color-text-main)] leading-relaxed">
               We are looking for builders, systems thinkers, and engineers who care deeply about code quality, mathematical precision, and absolute user value.
             </p>
+
+            <div className="pt-2">
+              <Link
+                href={`/${locale}/careers/apply`}
+                className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white font-extrabold text-sm px-8 py-3.5 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02] cursor-pointer"
+              >
+                Submit Your Application →
+              </Link>
+            </div>
           </div>
         </FadeIn>
 
@@ -76,26 +85,29 @@ export default async function CareersPage({ params }: { params: Promise<{ locale
 
         {/* Talent & Engineering Community Banner */}
         <FadeIn direction="up">
-          <div className="p-8 md:p-12 bg-[var(--color-primary-dark)] text-white rounded-3xl text-center space-y-6 shadow-2xl relative overflow-hidden">
+          <div className="p-8 md:p-12 bg-[var(--color-primary-dark)] text-white rounded-3xl text-center space-y-6 shadow-2xl relative overflow-hidden border border-slate-800">
             <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mx-auto text-[var(--color-accent)] shadow-inner">
               <Briefcase className="w-7 h-7" />
             </div>
             <div className="space-y-3 max-w-xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-extrabold">Qeltrava AI — Talent & Engineering Profile</h2>
+              <span className="text-[var(--color-accent)] font-mono text-xs font-bold uppercase tracking-wider bg-[var(--color-accent)]/10 px-3 py-1 rounded-full border border-[var(--color-accent)]/20">
+                Talent & Engineering Community
+              </span>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-white">Qeltrava AI — Submit Your Application</h2>
               <p className="text-white/80 text-sm leading-relaxed">
-                Join our talent community to share your technical background, skills, experience, availability, and area of interest for role-specific assessments, product development, internships, freelance opportunities, and AI/software projects.
+                Join our engineering community. Submit your technical background, skills, experience, availability, and area of interest for technical assessments, product development, internships, freelance opportunities, and AI software projects.
               </p>
             </div>
             <div className="pt-2">
               <Link
                 href={`/${locale}/careers/apply`}
-                className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white font-bold text-sm px-8 py-3.5 rounded-full hover:bg-[var(--color-accent)]/90 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white font-extrabold text-base px-9 py-4 rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-[1.03] cursor-pointer"
               >
-                Complete Engineering Profile →
+                Submit Your Application →
               </Link>
             </div>
-            <p className="text-white/40 text-[11px] font-mono">
-              Direct form application • No external redirects
+            <p className="text-white/50 text-xs font-mono">
+              Direct form application • Role-specific assessments • No external redirects
             </p>
           </div>
         </FadeIn>
