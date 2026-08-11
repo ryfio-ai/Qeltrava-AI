@@ -3,7 +3,7 @@
 
 import { createClient } from '@supabase/supabase-js';
 import crypto from 'crypto';
-import { DBClient, Job, Applicant, Blog, CaseStudy, Product, MediaAsset, AuditLog, NewsletterSubscriber, ContactMessage, SystemSettings, CRMLead, ClientPortalAccount } from './types';
+import { DBClient, Job, Applicant, Blog, CaseStudy, Product, MediaAsset, AuditLog, NewsletterSubscriber, ContactMessage, SystemSettings, CRMLead, ClientPortalAccount, Candidate, CandidateStatusHistory } from './types';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-service-key-for-build-resolution';
@@ -711,5 +711,93 @@ export const supabaseDBClient: DBClient = {
       if (error) throw error;
       return client as ClientPortalAccount;
     }
+  },
+
+  talentCandidates: {
+    list: async (workspaceId, filters) => {
+      let query = supabase.from('candidates').select('*');
+      if (filters?.status) query = query.eq('current_status', filters.status);
+      if (filters?.search) {
+        query = query.or(`full_name.ilike.%${filters.search}%,email.ilike.%${filters.search}%,candidate_code.ilike.%${filters.search}%`);
+      }
+      const { data, error } = await query.order('created_at', { ascending: false });
+      if (error) {
+        // Fallback to local if table doesn't exist yet in Supabase
+        const { localDBClient } = await import('./db-client-local');
+        return localDBClient.talentCandidates.list(workspaceId, filters);
+      }
+      return (data || []) as Candidate[];
+    },
+    get: async (workspaceId, idOrCode) => {
+      const isUUID = idOrCode.includes('-');
+      let query = supabase.from('candidates').select('*');
+      if (isUUID && idOrCode.length === 36) {
+        query = query.eq('id', idOrCode);
+      } else {
+        query = query.eq('candidate_code', idOrCode);
+      }
+      const { data, error } = await query.maybeSingle();
+      if (error || !data) {
+        const { localDBClient } = await import('./db-client-local');
+        return localDBClient.talentCandidates.get(workspaceId, idOrCode);
+      }
+      return data as Candidate;
+    },
+    create: async (workspaceId, data) => {
+      const { data: candidate, error } = await supabase
+        .from('candidates')
+        .insert([data])
+        .select()
+        .single();
+      if (error) {
+        const { localDBClient } = await import('./db-client-local');
+        return localDBClient.talentCandidates.create(workspaceId, data);
+      }
+      return candidate as Candidate;
+    },
+    update: async (workspaceId, id, data) => {
+      const { data: candidate, error } = await supabase
+        .from('candidates')
+        .update(data)
+        .eq('id', id)
+        .select()
+        .single();
+      if (error) {
+        const { localDBClient } = await import('./db-client-local');
+        return localDBClient.talentCandidates.update(workspaceId, id, data);
+      }
+      return candidate as Candidate;
+    },
+    logStatus: async (workspaceId, candidateId, newStatus, changedBy, oldStatus, reason) => {
+      const { data, error } = await supabase
+        .from('candidate_status_history')
+        .insert([{
+          candidate_id: candidateId,
+          old_status: oldStatus,
+          new_status: newStatus,
+          changed_by: changedBy,
+          reason
+        }])
+        .select()
+        .single();
+      if (error) {
+        const { localDBClient } = await import('./db-client-local');
+        return localDBClient.talentCandidates.logStatus(workspaceId, candidateId, newStatus, changedBy, oldStatus, reason);
+      }
+      return data as CandidateStatusHistory;
+    },
+    listHistory: async (workspaceId, candidateId) => {
+      const { data, error } = await supabase
+        .from('candidate_status_history')
+        .select('*')
+        .eq('candidate_id', candidateId)
+        .order('created_at', { ascending: false });
+      if (error) {
+        const { localDBClient } = await import('./db-client-local');
+        return localDBClient.talentCandidates.listHistory(workspaceId, candidateId);
+      }
+      return (data || []) as CandidateStatusHistory[];
+    }
   }
 };
+

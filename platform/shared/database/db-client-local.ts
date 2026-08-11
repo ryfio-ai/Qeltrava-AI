@@ -3,7 +3,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { DBClient, Job, Applicant, Blog, CaseStudy, Product, MediaAsset, AuditLog, NewsletterSubscriber, ContactMessage, SystemSettings, CRMLead, ClientPortalAccount } from './types';
+import { DBClient, Job, Applicant, Blog, CaseStudy, Product, MediaAsset, AuditLog, NewsletterSubscriber, ContactMessage, SystemSettings, CRMLead, ClientPortalAccount, Candidate, CandidateStatusHistory } from './types';
 
 const DB_FILE_PATH = path.join(process.cwd(), 'platform/shared/database/db-local.json');
 
@@ -24,6 +24,8 @@ interface LocalDBStructure {
   settings: SystemSettings[];
   crmLeads: CRMLead[];
   clientPortal: ClientPortalAccount[];
+  talentCandidates?: Candidate[];
+  candidateStatusHistory?: CandidateStatusHistory[];
 }
 
 function readDB(): LocalDBStructure {
@@ -1210,5 +1212,96 @@ export const localDBClient: DBClient = {
       writeDB(db);
       return db.clientPortal[idx];
     }
+  },
+
+  talentCandidates: {
+    list: async (workspaceId, filters) => {
+      const db = readDB();
+      const candidates = db.talentCandidates || [];
+      if (!filters) return candidates as Candidate[];
+      return candidates.filter(c => {
+        let match = true;
+        if (filters.status && c.current_status !== filters.status) match = false;
+        if (filters.search) {
+          const q = filters.search.toLowerCase();
+          const matchName = c.full_name.toLowerCase().includes(q);
+          const matchEmail = c.email.toLowerCase().includes(q);
+          const matchCode = c.candidate_code.toLowerCase().includes(q);
+          const matchSkill = c.primary_interest.toLowerCase().includes(q);
+          if (!matchName && !matchEmail && !matchCode && !matchSkill) match = false;
+        }
+        return match;
+      }) as Candidate[];
+    },
+    get: async (workspaceId, idOrCode) => {
+      const db = readDB();
+      const candidates = db.talentCandidates || [];
+      return candidates.find(c => c.id === idOrCode || c.candidate_code.toLowerCase() === idOrCode.toLowerCase()) || null;
+    },
+    create: async (workspaceId, data) => {
+      const db = readDB();
+      if (!db.talentCandidates) db.talentCandidates = [];
+      if (!db.candidateStatusHistory) db.candidateStatusHistory = [];
+
+      const candidate: Candidate = {
+        ...data,
+        id: `cand-${Date.now()}`,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      };
+
+      db.talentCandidates.unshift(candidate);
+
+      // Create initial history log
+      const historyItem: CandidateStatusHistory = {
+        id: `hist-${Date.now()}`,
+        candidate_id: candidate.id,
+        old_status: undefined,
+        new_status: candidate.current_status || 'APPLIED',
+        changed_by: 'Candidate (Self-Applied)',
+        reason: 'Application submitted via Community Profile Form',
+        created_at: new Date().toISOString()
+      };
+      db.candidateStatusHistory.unshift(historyItem);
+
+      writeDB(db);
+      return candidate;
+    },
+    update: async (workspaceId, id, data) => {
+      const db = readDB();
+      if (!db.talentCandidates) db.talentCandidates = [];
+      const idx = db.talentCandidates.findIndex(c => c.id === id);
+      if (idx === -1) throw new Error(`Candidate not found: ${id}`);
+
+      db.talentCandidates[idx] = {
+        ...db.talentCandidates[idx],
+        ...data,
+        updated_at: new Date().toISOString()
+      };
+      writeDB(db);
+      return db.talentCandidates[idx];
+    },
+    logStatus: async (workspaceId, candidateId, newStatus, changedBy, oldStatus, reason) => {
+      const db = readDB();
+      if (!db.candidateStatusHistory) db.candidateStatusHistory = [];
+      const historyItem: CandidateStatusHistory = {
+        id: `hist-${Date.now()}`,
+        candidate_id: candidateId,
+        old_status: oldStatus,
+        new_status: newStatus,
+        changed_by: changedBy,
+        reason: reason || 'Status transition',
+        created_at: new Date().toISOString()
+      };
+      db.candidateStatusHistory.unshift(historyItem);
+      writeDB(db);
+      return historyItem;
+    },
+    listHistory: async (workspaceId, candidateId) => {
+      const db = readDB();
+      const history = db.candidateStatusHistory || [];
+      return history.filter(h => h.candidate_id === candidateId) as CandidateStatusHistory[];
+    }
   }
 };
+

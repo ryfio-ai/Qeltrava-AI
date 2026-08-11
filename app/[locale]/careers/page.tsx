@@ -4,9 +4,11 @@ import { siteConfig } from '@/lib/site-config';
 import { FadeIn } from '@/components/animations/FadeIn';
 import { Briefcase, Award, Zap, Shield } from 'lucide-react';
 
+import Link from 'next/link';
+
 export const metadata: Metadata = {
-  title: 'Careers | ' + siteConfig.companyName,
-  description: 'Join Qeltrava AI to design, build, and scale the next generation of intelligent software systems.',
+  title: 'Careers & Talent Community | ' + siteConfig.companyName,
+  description: 'Join the Qeltrava AI Talent & Engineering Community. Submit your technical background, skills, and availability for project opportunities.',
 };
 
 export default async function CareersPage() {
@@ -16,8 +18,11 @@ export default async function CareersPage() {
         
         {/* Header */}
         <FadeIn>
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)] mb-6">Build the Foundation</h1>
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <span className="bg-[var(--color-accent)]/10 text-[var(--color-accent)] font-mono font-bold text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-full">
+              Qeltrava AI Community
+            </span>
+            <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-primary-dark)]">Build the Foundation</h1>
             <p className="text-xl text-[var(--color-text-main)] leading-relaxed">
               We are looking for builders, systems thinkers, and engineers who care deeply about code quality, mathematical precision, and absolute user value.
             </p>
@@ -31,7 +36,7 @@ export default async function CareersPage() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FadeIn delay={0.1}>
-              <div className="text-center p-6">
+              <div className="text-center p-6 bg-slate-50 border border-slate-100 rounded-2xl">
                 <div className="w-12 h-12 bg-[var(--color-accent)]/10 text-[var(--color-accent)] rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Zap className="w-6 h-6" />
                 </div>
@@ -42,7 +47,7 @@ export default async function CareersPage() {
               </div>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <div className="text-center p-6">
+              <div className="text-center p-6 bg-slate-50 border border-slate-100 rounded-2xl">
                 <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Award className="w-6 h-6" />
                 </div>
@@ -53,7 +58,7 @@ export default async function CareersPage() {
               </div>
             </FadeIn>
             <FadeIn delay={0.3}>
-              <div className="text-center p-6">
+              <div className="text-center p-6 bg-slate-50 border border-slate-100 rounded-2xl">
                 <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Shield className="w-6 h-6" />
                 </div>
@@ -66,23 +71,29 @@ export default async function CareersPage() {
           </div>
         </section>
 
-        {/* No Current Openings CTA */}
+        {/* Talent & Engineering Community Banner */}
         <FadeIn direction="up">
-          <div className="p-8 md:p-12 bg-[var(--color-primary-dark)] text-white rounded-2xl text-center">
-            <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Briefcase className="w-6 h-6 text-[var(--color-accent)]" />
+          <div className="p-8 md:p-12 bg-[var(--color-primary-dark)] text-white rounded-3xl text-center space-y-6 shadow-2xl relative overflow-hidden">
+            <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mx-auto text-[var(--color-accent)] shadow-inner">
+              <Briefcase className="w-7 h-7" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">No Current Openings</h2>
-            <p className="text-white/80 mb-8 max-w-lg mx-auto leading-relaxed">
-              We don't have any open positions at the moment. If you're interested in joining the team, we'd love to hear from you — send your resume and we'll keep you in mind for future opportunities.
+            <div className="space-y-3 max-w-xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-extrabold">Qeltrava AI — Talent & Engineering Profile</h2>
+              <p className="text-white/80 text-sm leading-relaxed">
+                Join our talent community to share your technical background, skills, experience, availability, and area of interest for role-specific assessments, product development, internships, freelance opportunities, and AI/software projects.
+              </p>
+            </div>
+            <div className="pt-2">
+              <Link
+                href="/careers/apply"
+                className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white font-bold text-sm px-8 py-3.5 rounded-full hover:bg-[var(--color-accent)]/90 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02]"
+              >
+                Complete Engineering Profile →
+              </Link>
+            </div>
+            <p className="text-white/40 text-[11px] font-mono">
+              Direct form application • No external redirects
             </p>
-            <a
-              href="mailto:ryfioai@gmail.com?subject=Resume%20Submission%20-%20Future%20Opportunities"
-              className="inline-flex items-center gap-2 bg-white text-[var(--color-primary-dark)] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors duration-200"
-            >
-              Share Your Resume
-            </a>
-            <p className="mt-4 text-white/50 text-xs">ryfioai@gmail.com</p>
           </div>
         </FadeIn>
 
@@ -90,3 +101,4 @@ export default async function CareersPage() {
     </main>
   );
 }
+

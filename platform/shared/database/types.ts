@@ -398,4 +398,89 @@ export interface DBClient {
     create: (workspaceId: string, data: Omit<ClientPortalAccount, 'id' | 'created_at' | 'updated_at' | 'projects' | 'invoices' | 'deliverables' | 'tickets'>) => Promise<ClientPortalAccount>;
     update: (workspaceId: string, id: string, data: Partial<ClientPortalAccount>) => Promise<ClientPortalAccount>;
   };
+  talentCandidates: {
+    list: (workspaceId: string, filters?: Record<string, any>) => Promise<Candidate[]>;
+    get: (workspaceId: string, idOrCode: string) => Promise<Candidate | null>;
+    create: (workspaceId: string, data: Omit<Candidate, 'id' | 'created_at' | 'updated_at'>) => Promise<Candidate>;
+    update: (workspaceId: string, id: string, data: Partial<Candidate>) => Promise<Candidate>;
+    logStatus: (workspaceId: string, candidateId: string, newStatus: string, changedBy: string, oldStatus?: string, reason?: string) => Promise<CandidateStatusHistory>;
+    listHistory: (workspaceId: string, candidateId: string) => Promise<CandidateStatusHistory[]>;
+  };
 }
+
+export interface Candidate {
+  id: string;
+  candidate_code: string;
+  full_name: string;
+  email: string;
+  whatsapp: string;
+  location: string;
+  linkedin?: string;
+  github?: string;
+  portfolio?: string;
+  degree: string;
+  specialization: string;
+  college: string;
+  graduation_year: string;
+  current_status_education: string;
+  primary_interest: string;
+  secondary_languages: string[];
+  frameworks?: string;
+  ai_ml_tech?: string;
+  databases: string[];
+  cloud_devops?: string;
+  technical_level: string;
+  years_experience: string;
+  built_production_project: boolean;
+  best_projects?: string;
+  worked_real_client: boolean;
+  difficult_problem_desc?: string;
+  use_ai_tools: boolean;
+  ai_tools_list?: string[];
+  ai_workflow_desc?: string;
+  weekly_hours: string;
+  availability_status: string;
+  preferred_collaboration: string;
+  preferred_qeltrava_area: string;
+  learning_goals?: string;
+  immediate_contributions?: string;
+  remote_comfort: boolean;
+  agile_comfort: boolean;
+  deadline_comfort: boolean;
+  compensation_expectation?: string;
+  additional_notes?: string;
+
+  // Governance & Scores
+  triage_score: number;
+  current_status: 'APPLIED' | 'UNDER_REVIEW' | 'TASK_ASSIGNED' | 'TASK_SUBMITTED' | 'TASK_EVALUATION' | 'INTERVIEW_INVITED' | 'INTERVIEW_COMPLETED' | 'FINAL_REVIEW' | 'PROJECT_READY' | 'TALENT_POOL' | 'REJECTED' | 'WITHDRAWN' | 'ARCHIVED';
+  
+  // Evaluated Scores
+  background_score?: number; // Out of 20
+  task_score?: number;       // Out of 45
+  interview_score?: number;  // Out of 35
+  final_score?: number;      // Out of 100
+
+  // Details & History
+  assigned_task_slug?: string;
+  submission_github_url?: string;
+  submission_demo_url?: string;
+  task_evaluation_feedback?: string;
+  interview_notes?: string;
+  
+  reviewer_notes?: string;
+  reviewer_email?: string;
+  
+  created_at: string;
+  updated_at: string;
+}
+
+export interface CandidateStatusHistory {
+  id: string;
+  candidate_id: string;
+  old_status?: string;
+  new_status: string;
+  changed_by: string;
+  reason?: string;
+  created_at: string;
+}
+

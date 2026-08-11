@@ -294,6 +294,79 @@ CREATE TABLE IF NOT EXISTS client_portal (
 );
 CREATE INDEX IF NOT EXISTS idx_client_portal_workspace ON client_portal(workspace_id);
 
+-- 16. Technical Talent Candidates
+CREATE TABLE IF NOT EXISTS candidates (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    candidate_code VARCHAR(50) UNIQUE NOT NULL,
+    full_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    whatsapp VARCHAR(50) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    degree VARCHAR(100) NOT NULL,
+    specialization VARCHAR(100) NOT NULL,
+    college VARCHAR(255) NOT NULL,
+    graduation_year VARCHAR(10) NOT NULL,
+    current_status_education VARCHAR(100) NOT NULL,
+    primary_interest VARCHAR(100) NOT NULL,
+    secondary_languages TEXT[] DEFAULT '{}',
+    frameworks TEXT,
+    ai_ml_tech TEXT,
+    databases TEXT[] DEFAULT '{}',
+    cloud_devops TEXT,
+    technical_level VARCHAR(50) NOT NULL,
+    years_experience VARCHAR(50) NOT NULL,
+    built_production_project BOOLEAN NOT NULL,
+    best_projects TEXT,
+    worked_real_client BOOLEAN NOT NULL,
+    difficult_problem_desc TEXT,
+    use_ai_tools BOOLEAN NOT NULL,
+    ai_tools_list TEXT[] DEFAULT '{}',
+    ai_workflow_desc TEXT,
+    weekly_hours VARCHAR(50) NOT NULL,
+    availability_status VARCHAR(100) NOT NULL,
+    preferred_collaboration VARCHAR(100) NOT NULL,
+    preferred_qeltrava_area VARCHAR(100) NOT NULL,
+    learning_goals TEXT,
+    immediate_contributions TEXT,
+    remote_comfort BOOLEAN NOT NULL,
+    agile_comfort BOOLEAN NOT NULL,
+    deadline_comfort BOOLEAN NOT NULL,
+    compensation_expectation TEXT,
+    additional_notes TEXT,
+    
+    triage_score INTEGER DEFAULT 0,
+    current_status VARCHAR(50) DEFAULT 'APPLIED',
+    background_score INTEGER DEFAULT 0,
+    task_score NUMERIC(5,2) DEFAULT 0,
+    interview_score INTEGER DEFAULT 0,
+    final_score NUMERIC(5,2) DEFAULT 0,
+    
+    assigned_task_slug VARCHAR(100),
+    submission_github_url VARCHAR(255),
+    submission_demo_url VARCHAR(255),
+    task_evaluation_feedback TEXT,
+    interview_notes TEXT,
+    reviewer_notes TEXT,
+    reviewer_email VARCHAR(255),
+    
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_candidates_status ON candidates(current_status);
+CREATE INDEX IF NOT EXISTS idx_candidates_code ON candidates(candidate_code);
+
+-- 17. Candidate Status History (Full Audit Trail)
+CREATE TABLE IF NOT EXISTS candidate_status_history (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    candidate_id UUID NOT NULL REFERENCES candidates(id) ON DELETE CASCADE,
+    old_status VARCHAR(50),
+    new_status VARCHAR(50) NOT NULL,
+    changed_by VARCHAR(255) NOT NULL,
+    reason TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_candidate_history ON candidate_status_history(candidate_id);
+
 -- Trigger to automatically update updated_at timestamps
 CREATE OR REPLACE FUNCTION update_updated_at_column()
 RETURNS TRIGGER AS $$
@@ -317,3 +390,5 @@ CREATE TRIGGER update_contact_messages_modtime BEFORE UPDATE ON contact_messages
 CREATE TRIGGER update_system_settings_modtime BEFORE UPDATE ON system_settings FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 CREATE TRIGGER update_crm_leads_modtime BEFORE UPDATE ON crm_leads FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 CREATE TRIGGER update_client_portal_modtime BEFORE UPDATE ON client_portal FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+CREATE TRIGGER update_candidates_modtime BEFORE UPDATE ON candidates FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
