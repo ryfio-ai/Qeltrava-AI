@@ -17,9 +17,11 @@ Follow this guide to enable automatic, real-time synchronization from the Qeltra
 
 ```javascript
 /**
- * Qeltrava AI — Talent & Engineering Operating System Receiver v2.1
+ * Qeltrava AI — Talent & Engineering Operating System Receiver v2.2
  * Spreadsheet ID: 1HLXi5rshfjYqHQdYo3hqUIbnLNJjQ2XoaqHmrNzAGjc
  */
+
+var SPREADSHEET_ID = "1HLXi5rshfjYqHQdYo3hqUIbnLNJjQ2XoaqHmrNzAGjc";
 
 var HEADERS = [
   "Candidate Code",
@@ -78,9 +80,18 @@ var HEADERS = [
   "Canonical Lifecycle Status"
 ];
 
-// Run this function once manually or let doPost auto-run it to fix row 1 headers!
+function getTargetSheet() {
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    if (ss) return ss.getActiveSheet();
+  } catch (err) {
+    // Fallback if active spreadsheet isn't bound directly
+  }
+  return SpreadsheetApp.openById(SPREADSHEET_ID).getActiveSheet();
+}
+
 function setupHeaders() {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var sheet = getTargetSheet();
   sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
   var headerRange = sheet.getRange(1, 1, 1, HEADERS.length);
   headerRange.setBackground("#1B2A4A");
@@ -91,7 +102,7 @@ function setupHeaders() {
 
 function doPost(e) {
   try {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var sheet = getTargetSheet();
     var data = JSON.parse(e.postData.contents);
     
     // Auto-update row 1 headers if not updated to 54 columns
@@ -99,7 +110,6 @@ function doPost(e) {
       setupHeaders();
     }
     
-    // Append Candidate Data Row matching exact 54 columns
     sheet.appendRow([
       data.candidate_code || "",
       data.submitted_at || new Date().toISOString(),
@@ -168,11 +178,3 @@ function doPost(e) {
   }
 }
 ```
-
----
-
-## Step 3: Deploy New Version
-
-1. In Apps Script, click **setupHeaders** from the top dropdown and click **Run** (this instantly fixes Row 1 in your Google Sheet!).
-2. Click **Deploy** → **Manage deployments**.
-3. Edit the active deployment, change Version to **New version**, and click **Deploy**.
