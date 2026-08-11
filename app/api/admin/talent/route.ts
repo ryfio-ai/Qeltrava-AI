@@ -100,14 +100,14 @@ export async function POST(request: Request) {
         background_score: backgroundScore,
         task_score: taskScore45,
         task_evaluation_feedback: feedback,
-        current_status: 'TASK_EVALUATION',
+        current_status: 'TASK_EVALUATED',
         reviewer_email: reviewerEmail
       });
 
       await db.talentCandidates.logStatus(
         workspaceId,
         candidate.id,
-        'TASK_EVALUATION',
+        'TASK_EVALUATED',
         reviewerEmail,
         oldStatus,
         `Evaluated task submission: ${taskScore45}/45 pts`

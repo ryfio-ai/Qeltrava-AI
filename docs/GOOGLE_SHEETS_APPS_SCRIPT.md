@@ -1,4 +1,4 @@
-# Google Apps Script Setup Guide for Qeltrava AI Talent Sheet
+# Google Apps Script Setup Guide for Qeltrava AI Talent Sheet (5-Layer Architecture)
 
 Follow this guide to enable automatic, real-time synchronization from the Qeltrava AI web application (`/en/careers/apply`) to your Google Sheet:
 **Spreadsheet URL:** `https://docs.google.com/spreadsheets/d/1HLXi5rshfjYqHQdYo3hqUIbnLNJjQ2XoaqHmrNzAGjc/edit#gid=0`
@@ -17,7 +17,7 @@ Follow this guide to enable automatic, real-time synchronization from the Qeltra
 
 ```javascript
 /**
- * Qeltrava AI — Talent & Engineering Community Profile Webhook Receiver
+ * Qeltrava AI — Talent & Engineering Community Operating System Receiver
  * Spreadsheet ID: 1HLXi5rshfjYqHQdYo3hqUIbnLNJjQ2XoaqHmrNzAGjc
  */
 
@@ -26,7 +26,7 @@ function doPost(e) {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var data = JSON.parse(e.postData.contents);
     
-    // Ensure Header Row Exists
+    // Ensure Header Row Exists with complete 5-layer columns (No duplicates)
     if (sheet.getLastRow() === 0) {
       sheet.appendRow([
         "Candidate Code",
@@ -35,11 +35,14 @@ function doPost(e) {
         "Email",
         "WhatsApp",
         "Location",
+        "LinkedIn",
+        "GitHub",
+        "Portfolio",
         "Degree",
         "Specialization",
         "College",
         "Graduation Year",
-        "Current Status",
+        "Current Education Status",
         "Primary Interest",
         "Secondary Languages",
         "Frameworks",
@@ -56,13 +59,34 @@ function doPost(e) {
         "Availability",
         "Preferred Collaboration",
         "Qeltrava Area",
-        "Triage Score",
+        "Triage Score (0-100)",
         "Recommended Track",
-        "Current Status"
+        "Reviewer Name",
+        "Profile Review Score (/20)",
+        "Reviewer Decision",
+        "Reviewer Notes",
+        "Task ID",
+        "Task Title",
+        "Task Status",
+        "Task Repo URL",
+        "Task Demo URL",
+        "Task Score (/45)",
+        "Interview Date",
+        "Technical Understanding (/20)",
+        "Communication Score (/10)",
+        "Ownership Score (/5)",
+        "Interview Score (/35)",
+        "Final Score (/100)",
+        "Talent Tier",
+        "Talent Pool Status",
+        "Assigned Project",
+        "Assigned Role",
+        "WhatsApp Contacted",
+        "Canonical Lifecycle Status"
       ]);
       
       // Format Header Row (Dark Blue background, white bold text)
-      var headerRange = sheet.getRange(1, 1, 1, 30);
+      var headerRange = sheet.getRange(1, 1, 1, 54);
       headerRange.setBackground("#1B2A4A");
       headerRange.setFontColor("#FFFFFF");
       headerRange.setFontWeight("bold");
@@ -77,11 +101,14 @@ function doPost(e) {
       data.email || "",
       data.whatsapp || "",
       data.location || "",
+      data.linkedin || "",
+      data.github || "",
+      data.portfolio || "",
       data.degree || "",
       data.specialization || "",
       data.college || "",
       data.graduation_year || "",
-      data.current_status || "",
+      data.current_status_education || data.current_status || "",
       data.primary_interest || "",
       data.secondary_languages || "",
       data.frameworks || "",
@@ -100,7 +127,28 @@ function doPost(e) {
       data.qeltrava_area || "",
       data.triage_score || 0,
       data.recommended_track || "",
-      data.status || "APPLIED"
+      data.reviewer_name || "",
+      data.profile_review_score || "",
+      data.reviewer_decision || "",
+      data.reviewer_notes || "",
+      data.task_id || "",
+      data.task_title || "",
+      data.task_status || "",
+      data.task_repository_url || "",
+      data.task_demo_url || "",
+      data.task_score || "",
+      data.interview_date || "",
+      data.technical_understanding_score || "",
+      data.communication_score || "",
+      data.ownership_score || "",
+      data.interview_score || "",
+      data.final_score || "",
+      data.talent_tier || "",
+      data.talent_pool_status || "",
+      data.assigned_project || "",
+      data.assigned_role || "",
+      data.whatsapp_contacted ? "Yes" : "No",
+      data.canonical_status || data.status || "APPLIED"
     ]);
     
     return ContentService
@@ -122,21 +170,8 @@ function doPost(e) {
 1. Click **Deploy** → **New deployment**.
 2. Select type: **Web app**.
 3. Configuration:
-   - **Description**: `Qeltrava Talent Profile Receiver v1.0`
+   - **Description**: `Qeltrava Talent System Receiver v2.0`
    - **Execute as**: `Me`
-   - **Who has access**: `Anyone` (so Next.js server route can POST silently).
+   - **Who has access**: `Anyone`
 4. Click **Deploy**.
-5. Copy the generated **Web App URL** (e.g. `https://script.google.com/macros/s/AKfycb.../exec`).
-
----
-
-## Step 4: Add Webhook URL to Next.js Environment
-
-In your `.env.local` or Vercel Environment Variables:
-
-```env
-GOOGLE_SHEETS_WEBHOOK_URL=https://script.google.com/macros/s/YOUR_APPS_SCRIPT_ID/exec
-```
-
-> [!NOTE]
-> Server-side route handler `/api/talent/apply` will dispatch submissions directly to this URL. The URL remains 100% private on the server and is never exposed to the client.
+5. Copy the generated **Web App URL** into `.env.local` as `GOOGLE_SHEETS_WEBHOOK_URL`.

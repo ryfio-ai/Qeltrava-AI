@@ -85,11 +85,14 @@ export async function POST(request: Request) {
             email: validated.email,
             whatsapp: validated.whatsapp,
             location: validated.location,
+            linkedin: validated.linkedin,
+            github: validated.github || '',
+            portfolio: validated.portfolio || '',
             degree: validated.degree,
             specialization: validated.specialization,
             college: validated.college,
             graduation_year: validated.graduationYear,
-            current_status: validated.currentStatus,
+            current_status_education: validated.currentStatus,
             primary_interest: validated.primaryInterest,
             secondary_languages: validated.secondaryLanguages.join(', '),
             frameworks: validated.frameworks,
@@ -108,7 +111,7 @@ export async function POST(request: Request) {
             qeltrava_area: validated.preferredQeltravaArea,
             triage_score: triageResult.score,
             recommended_track: triageResult.recommendedTrack,
-            status: 'APPLIED'
+            canonical_status: 'APPLIED'
           })
         });
       } catch (sheetErr) {

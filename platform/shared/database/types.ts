@@ -450,29 +450,104 @@ export interface Candidate {
   compensation_expectation?: string;
   additional_notes?: string;
 
-  // Governance & Scores
-  triage_score: number;
-  current_status: 'APPLIED' | 'UNDER_REVIEW' | 'TASK_ASSIGNED' | 'TASK_SUBMITTED' | 'TASK_EVALUATION' | 'INTERVIEW_INVITED' | 'INTERVIEW_COMPLETED' | 'FINAL_REVIEW' | 'PROJECT_READY' | 'TALENT_POOL' | 'REJECTED' | 'WITHDRAWN' | 'ARCHIVED';
-  
-  // Evaluated Scores
-  background_score?: number; // Out of 20
-  task_score?: number;       // Out of 45
-  interview_score?: number;  // Out of 35
-  final_score?: number;      // Out of 100
+  // Canonical Lifecycle Status
+  current_status: 
+    | 'APPLIED' 
+    | 'PROFILE_REVIEW' 
+    | 'SHORTLISTED' 
+    | 'TASK_ASSIGNED' 
+    | 'TASK_IN_PROGRESS' 
+    | 'TASK_SUBMITTED' 
+    | 'TASK_EVALUATED' 
+    | 'INTERVIEW_SCHEDULED' 
+    | 'INTERVIEW_COMPLETED' 
+    | 'PROJECT_READY' 
+    | 'PROJECT_ASSIGNED' 
+    | 'ACTIVE_COLLABORATOR' 
+    | 'ON_HOLD' 
+    | 'TALENT_POOL' 
+    | 'REJECTED' 
+    | 'WITHDRAWN';
 
-  // Details & History
-  assigned_task_slug?: string;
-  submission_github_url?: string;
-  submission_demo_url?: string;
-  task_evaluation_feedback?: string;
-  interview_notes?: string;
-  
+  // Layer 2: Triage & Human Review
+  triage_score: number;
+  reviewer_name?: string;
+  profile_review_score?: number; // Out of 20
+  reviewer_decision?: string;
   reviewer_notes?: string;
+  profile_reviewed_at?: string;
+
+  // Layer 3: Technical Task & Sub-Scores (45 pts max)
+  task_id?: string;
+  task_title?: string;
+  task_category?: string;
+  task_difficulty?: string;
+  task_assigned_at?: string;
+  task_due_date?: string;
+  task_status?: string;
+  task_repository_url?: string;
+  task_demo_url?: string;
+  task_submission_notes?: string;
+  task_submitted_at?: string;
+
+  arch_score?: number;
+  code_quality_score?: number;
+  frontend_score?: number;
+  backend_score?: number;
+  ai_impl_score?: number;
+  db_score?: number;
+  problem_solving_score?: number;
+  doc_score?: number;
+  testing_score?: number;
+  task_score?: number; // Out of 45
+  evaluator_notes?: string;
+
+  // AI Usage & Verification
+  ai_tools_task?: string;
+  ai_code_used?: string;
+  can_explain_impl?: boolean;
+  ai_validation_approach?: string;
+
+  // Layer 4: One-on-One Interview (35 pts max)
+  interview_status?: string;
+  interview_date?: string;
+  interviewer?: string;
+  technical_understanding_score?: number; // Out of 20
+  system_design_score?: number;
+  communication_score?: number; // Out of 10
+  ownership_score?: number; // Out of 5
+  interview_notes?: string;
+  interview_recommendation?: string;
+  interview_score?: number; // Out of 35
+
+  // Layer 5: Final Evaluation & Allocation
+  background_score?: number; // Out of 20
+  final_score?: number;      // Out of 100
+  final_recommendation?: string;
+  final_decision?: string;
+
+  talent_tier?: string; // Tier 1, Tier 2, Tier 3
+  talent_pool_status?: string; // Project Ready, Future Work, On Hold
+  recommended_project?: string;
+  assigned_project?: string;
+  assigned_role?: string;
+  project_start_date?: string;
+  project_status?: string;
+  contribution_area?: string;
+
+  // WhatsApp & Communication Tracking
+  whatsapp_contacted?: boolean;
+  last_contacted_at?: string;
+  last_contact_method?: string;
+  candidate_response?: string;
+  assigned_task_slug?: string;
+  task_evaluation_feedback?: string;
   reviewer_email?: string;
-  
+
   created_at: string;
   updated_at: string;
 }
+
 
 export interface CandidateStatusHistory {
   id: string;

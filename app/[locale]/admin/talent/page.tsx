@@ -135,11 +135,11 @@ export default function AdminTalentPage() {
   // Metrics calculation
   const totalCount = candidates.length;
   const appliedCount = candidates.filter(c => c.current_status === 'APPLIED').length;
-  const underReviewCount = candidates.filter(c => c.current_status === 'UNDER_REVIEW').length;
+  const underReviewCount = candidates.filter(c => c.current_status === 'PROFILE_REVIEW').length;
   const taskAssignedCount = candidates.filter(c => c.current_status === 'TASK_ASSIGNED').length;
   const taskSubmittedCount = candidates.filter(c => c.current_status === 'TASK_SUBMITTED').length;
-  const interviewCount = candidates.filter(c => c.current_status === 'INTERVIEW_INVITED' || c.current_status === 'INTERVIEW_COMPLETED').length;
-  const projectReadyCount = candidates.filter(c => c.current_status === 'PROJECT_READY').length;
+  const interviewCount = candidates.filter(c => c.current_status === 'INTERVIEW_SCHEDULED' || c.current_status === 'INTERVIEW_COMPLETED').length;
+  const projectReadyCount = candidates.filter(c => c.current_status === 'PROJECT_READY' || c.current_status === 'PROJECT_ASSIGNED' || c.current_status === 'ACTIVE_COLLABORATOR').length;
   const talentPoolCount = candidates.filter(c => c.current_status === 'TALENT_POOL').length;
 
   return (
@@ -213,7 +213,7 @@ export default function AdminTalentPage() {
         {/* Filter and Search Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900 border border-slate-800 p-4 rounded-2xl">
           <div className="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0 scrollbar-none">
-            {['ALL', 'APPLIED', 'UNDER_REVIEW', 'TASK_ASSIGNED', 'TASK_SUBMITTED', 'TASK_EVALUATION', 'INTERVIEW_INVITED', 'INTERVIEW_COMPLETED', 'PROJECT_READY', 'TALENT_POOL', 'REJECTED'].map((st) => (
+            {['ALL', 'APPLIED', 'PROFILE_REVIEW', 'TASK_ASSIGNED', 'TASK_SUBMITTED', 'TASK_EVALUATED', 'INTERVIEW_SCHEDULED', 'INTERVIEW_COMPLETED', 'PROJECT_READY', 'TALENT_POOL', 'REJECTED'].map((st) => (
               <button
                 key={st}
                 onClick={() => setSelectedStatus(st)}
@@ -429,11 +429,19 @@ export default function AdminTalentPage() {
 
                   <div className="flex flex-wrap gap-3 pt-2">
                     <button
-                      onClick={() => handleAction('update_status', { newStatus: 'UNDER_REVIEW', reviewerNotes })}
+                      onClick={() => handleAction('update_status', { newStatus: 'PROFILE_REVIEW', reviewerNotes })}
                       disabled={actionLoading}
                       className="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-xl text-xs cursor-pointer"
                     >
-                      Move to UNDER_REVIEW
+                      Move to PROFILE_REVIEW
+                    </button>
+
+                    <button
+                      onClick={() => handleAction('update_status', { newStatus: 'SHORTLISTED', reviewerNotes })}
+                      disabled={actionLoading}
+                      className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-xs cursor-pointer"
+                    >
+                      Shortlist Candidate
                     </button>
 
                     <button
