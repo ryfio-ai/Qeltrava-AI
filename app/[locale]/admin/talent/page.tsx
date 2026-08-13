@@ -19,6 +19,11 @@ import {
   BookOpen
 } from 'lucide-react';
 import { Candidate, CandidateStatusHistory } from '@/platform/shared/database/types';
+import { 
+  getCandidatesLocal, 
+  saveCandidateLocal, 
+  bulkSaveCandidatesLocal 
+} from '@/lib/indexeddb-talent';
 
 export default function AdminTalentPage() {
   const [candidates, setCandidates] = useState<Candidate[]>([]);
@@ -61,15 +66,50 @@ export default function AdminTalentPage() {
   const fetchCandidates = async () => {
     setLoading(true);
     try {
-      let url = '/api/admin/talent?';
-      if (selectedStatus !== 'ALL') url += `status=${selectedStatus}&`;
-      if (searchQuery) url += `search=${encodeURIComponent(searchQuery)}&`;
+      // 1. Load local IndexedDB candidates first for zero-latency UI
+      const localItems = await getCandidatesLocal();
+      let combined: Candidate[] = [...localItems];
 
-      const res = await fetch(url);
-      const data = await res.json();
-      if (res.ok && data.success) {
-        setCandidates(data.candidates || []);
+      // 2. Fetch server API candidates
+      try {
+        let url = '/api/admin/talent?';
+        if (selectedStatus !== 'ALL') url += `status=${selectedStatus}&`;
+        if (searchQuery) url += `search=${encodeURIComponent(searchQuery)}&`;
+
+        const res = await fetch(url);
+        const data = await res.json();
+        if (res.ok && data.success && Array.isArray(data.candidates) && data.candidates.length > 0) {
+          // Sync server items to IndexedDB
+          await bulkSaveCandidatesLocal(data.candidates);
+          // Merge deduplicated by candidate_code or id
+          const map = new Map<string, Candidate>();
+          for (const item of [...data.candidates, ...localItems]) {
+            const key = item.candidate_code || item.id;
+            if (key && !map.has(key)) {
+              map.set(key, item);
+            }
+          }
+          combined = Array.from(map.values());
+        }
+      } catch (apiErr) {
+        console.warn('Server API offline/warning, presenting IndexedDB local data:', apiErr);
       }
+
+      // Filter local combined list by status & search query
+      if (selectedStatus !== 'ALL') {
+        combined = combined.filter(c => c.current_status === selectedStatus);
+      }
+      if (searchQuery) {
+        const q = searchQuery.toLowerCase();
+        combined = combined.filter(c => 
+          (c.full_name && c.full_name.toLowerCase().includes(q)) ||
+          (c.email && c.email.toLowerCase().includes(q)) ||
+          (c.candidate_code && c.candidate_code.toLowerCase().includes(q)) ||
+          (c.primary_interest && c.primary_interest.toLowerCase().includes(q))
+        );
+      }
+
+      setCandidates(combined);
     } catch (err) {
       console.error('Failed to load candidate list:', err);
     } finally {
@@ -116,7 +156,10 @@ export default function AdminTalentPage() {
 
       const data = await res.json();
       if (res.ok && data.success) {
-        setActiveCandidate(data.candidate);
+        if (data.candidate) {
+          await saveCandidateLocal(data.candidate);
+          setActiveCandidate(data.candidate);
+        }
         await fetchCandidates();
         // Refresh history
         const histRes = await fetch(`/api/admin/talent?id=${activeCandidate.id}`);
