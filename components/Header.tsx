@@ -63,13 +63,19 @@ export const Header = () => {
     return () => window.removeEventListener('keydown', handleGlobalKeydown);
   }, []);
 
+  // Close menus on path change
+  useEffect(() => {
+    setActiveMenu(null);
+    setIsOpen(false);
+  }, [pathname]);
+
   const handleMouseEnter = (menuId: string) => {
     if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
     
     hoverTimeoutRef.current = setTimeout(() => {
       setActiveMenu(menuId);
-    }, 240); // 240ms hover delay
+    }, 180);
   };
 
   const handleMouseLeave = () => {
@@ -77,7 +83,7 @@ export const Header = () => {
     
     closeTimeoutRef.current = setTimeout(() => {
       setActiveMenu(null);
-    }, 150); // small delay to cross gap
+    }, 200);
   };
 
   const handlePanelMouseEnter = () => {
@@ -87,7 +93,7 @@ export const Header = () => {
   const handlePanelMouseLeave = () => {
     closeTimeoutRef.current = setTimeout(() => {
       setActiveMenu(null);
-    }, 150);
+    }, 200);
   };
 
   const handleNavClick = (menuId: string, e: React.MouseEvent) => {
@@ -98,21 +104,19 @@ export const Header = () => {
   const closeAllMenus = () => {
     setActiveMenu(null);
     setIsOpen(false);
-    setExpandedMobileMenu(null);
   };
 
-  // Nav Items config mapping
   const navItems: NavItem[] = [
     {
       id: 'products',
       label: 'Products',
-      introTitle: 'Flagship AI Platforms',
+      introTitle: 'Proprietary Platforms',
       introDesc: 'Proprietary products built by Qeltrava engineering.',
       columns: [
         {
           title: 'AutoML & Studio',
           links: [
-            { label: 'Modliq (No-Code ML)', href: '/products/modliq', badge: 'Flagship' }
+            { label: 'Modliqer (No-Code ML)', href: '/products/modliq', badge: 'Flagship' }
           ]
         },
         {
@@ -130,7 +134,7 @@ export const Header = () => {
         }
       ],
       card: {
-        title: 'Join Modliq Waitlist',
+        title: 'Join Modliqer Waitlist',
         desc: 'Build and deploy machine learning models through a visual workflow.',
         cta: 'Request Invite →',
         href: '/products/modliq'
@@ -138,80 +142,77 @@ export const Header = () => {
     },
     {
       id: 'services',
-      label: t('Services') || 'Services',
-      introTitle: 'Engineering Services',
-      introDesc: 'Six practices. One delivery system.',
+      label: 'Services',
+      introTitle: 'Engineering Capabilities',
+      introDesc: 'Full-stack engineering, AI automation, cloud infrastructure, and data systems.',
       columns: [
         {
-          title: 'Build',
+          title: 'Core Practice',
           links: [
-            { label: 'AI Automation', href: '/services/ai-automation' },
-            { label: 'SaaS Development', href: '/services/saas-development' },
+            { label: 'AI Automation & Agents', href: '/services/ai-automation', badge: 'Core' },
+            { label: 'SaaS Platform Development', href: '/services/saas-development' },
             { label: 'Product Engineering', href: '/services/product-engineering' }
           ]
         },
         {
-          title: 'Scale',
+          title: 'Infrastructure & Data',
           links: [
-            { label: 'Cloud & DevOps', href: '/services/cloud-devops' },
-            { label: 'Data & Analytics', href: '/services/data-analytics' },
-            { label: 'Cybersecurity', href: '/services/cybersecurity' }
+            { label: 'Cloud Architecture & DevOps', href: '/services/cloud-devops' },
+            { label: 'Data Platform & Analytics', href: '/services/data-analytics' },
+            { label: 'Cybersecurity & Compliance', href: '/services/cybersecurity' }
           ]
         }
       ],
       card: {
-        title: 'AI Opportunity Audit',
-        desc: 'A free 2-week diagnostic sprint.',
-        cta: 'Book Audit →',
+        title: 'Engineering Assessment',
+        desc: 'Book a 45-minute technical architecture review with our lead engineers.',
+        cta: 'Book Assessment →',
         href: '/book-consultation'
       }
     },
     {
       id: 'industries',
-      label: t('Industries') || 'Industries',
-      introTitle: 'Industries We Serve',
-      introDesc: 'Deep specialization in regulated, high-stakes sectors.',
+      label: 'Industries',
+      introTitle: 'Sector Expertise',
+      introDesc: 'Deep domain implementations across regulated and high-scale sectors.',
       columns: [
         {
-          title: 'Core Sectors',
+          title: 'Regulated & High Trust',
           links: [
             { label: 'Fintech & Banking', href: '/industries/fintech' },
-            { label: 'Healthcare & Healthtech', href: '/industries/healthcare' },
-            { label: 'Logistics & Supply Chain', href: '/industries/logistics' },
-            { label: 'Manufacturing', href: '/industries/manufacturing' }
+            { label: 'Healthcare & Biotech', href: '/industries/healthcare' },
+            { label: 'Government & Public Sector', href: '/industries/government' }
           ]
         },
         {
-          title: 'Digital Sectors',
+          title: 'Operations & Scale',
           links: [
-            { label: 'Government & Public Sector', href: '/industries/government' },
+            { label: 'Manufacturing & Smart Factory', href: '/industries/manufacturing' },
+            { label: 'Logistics & Supply Chain', href: '/industries/logistics' },
             { label: 'Retail & E-commerce', href: '/industries/retail' },
-            { label: 'SaaS & Technology', href: '/industries/saas' },
-            { label: 'Education', href: '/industries/education' }
+            { label: 'SaaS & Technology', href: '/industries/saas' }
           ]
         }
       ],
       card: {
-        title: 'View Case Studies',
-        stats: '92%',
-        desc: 'Predictive accuracy on logistics ML pipeline.',
-        note: 'Illustrative — based on project benchmark',
-        cta: 'View Case Studies →',
+        title: 'Industry Benchmarks',
+        desc: 'Explore case studies and ROI metrics tailored to your sector.',
+        cta: 'View Sector Studies →',
         href: '/case-studies'
       }
     },
     {
       id: 'solutions',
-      label: t('Solutions') || 'Solutions',
-      introTitle: 'Cross-Service Solutions',
+      label: 'Solutions',
+      introTitle: 'Packaged Offerings',
       introDesc: 'Outcome-bundled engagements for specific buyer challenges.',
       columns: [
         {
           title: 'Primary Outcomes',
           links: [
             { label: 'AI Solution Architect', href: '/ai-solution-architect', badge: 'New' },
-            { label: 'AI Customer Service Transformation', href: '/solutions/ai-customer-service-transformation' },
-            { label: 'AI Operations Automation', href: '/solutions/ai-operations-automation' },
+            { label: 'AI Customer Service Transformation', href: '/solutions/customer-service' },
+            { label: 'AI Operations Automation', href: '/solutions/operations-automation' },
             { label: 'Legacy System Modernization', href: '/solutions/legacy-modernization' },
             { label: 'SaaS Launch Program', href: '/solutions/saas-launch' }
           ]
@@ -219,9 +220,9 @@ export const Header = () => {
         {
           title: 'Strategic Audits',
           links: [
-            { label: 'AI Readiness Assessment', href: '/solutions/ai-readiness' },
+            { label: 'AI Readiness Assessment', href: '/ai-readiness' },
             { label: 'Enterprise Data Foundation', href: '/solutions/data-foundation' },
-            { label: 'Compliance & Security Hardening', href: '/solutions/security-hardening' }
+            { label: 'Compliance & Security Hardening', href: '/solutions/compliance-hardening' }
           ]
         }
       ],
@@ -235,20 +236,19 @@ export const Header = () => {
     {
       id: 'resources',
       label: 'Resources',
-      introTitle: 'Resources',
-      introDesc: 'Engineering research, case studies, and delivery insights.',
+      introTitle: 'Knowledge & Tools',
+      introDesc: 'Technical research, calculators, assessment tools, and engineering articles.',
       columns: [
         {
-          title: 'Learn',
+          title: 'Research & Content',
           links: [
-            { label: 'Insights & Blog', href: '/insights' },
+            { label: 'Technical Insights', href: '/insights' },
             { label: 'Case Studies', href: '/case-studies' },
-            { label: 'White Papers', href: '/insights', badge: 'Soon' },
-            { label: 'Data Sheets', href: '/insights', badge: 'Soon' }
+            { label: 'White Papers', href: '/insights' }
           ]
         },
         {
-          title: 'Explore',
+          title: 'Interactive Tools',
           links: [
             { label: 'AI Solution Architect', href: '/ai-solution-architect', badge: 'New' },
             { label: 'AI Prompt Playground', href: '/playground', badge: 'New' },
@@ -301,28 +301,28 @@ export const Header = () => {
   ];
 
   return (
-    <header className="w-full h-20 bg-white/90 backdrop-blur-md border-b border-[var(--color-border-soft)] z-50 flex items-center px-6 md:px-12">
-      <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
+    <header className="w-full h-20 bg-white/95 backdrop-blur-md border-b border-slate-200 z-50 sticky top-0 shadow-xs select-none">
+      <div className="w-full max-w-7xl mx-auto h-full px-6 md:px-12 flex items-center justify-between gap-4">
           
-        {/* Logo */}
+        {/* Brand Logo (Left Aligned) */}
         <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0" onClick={closeAllMenus}>
           <Image 
             src="/logo-bg.png" 
             alt="Qeltrava AI Logo" 
             width={40} 
             height={40} 
-            className="w-10 h-10 object-contain group-hover:opacity-80 transition-opacity" 
+            className="w-10 h-10 object-contain group-hover:scale-105 transition-transform" 
           />
-          <span className="text-xl font-bold text-[var(--color-primary-dark)] tracking-tight whitespace-nowrap">Qeltrava AI</span>
+          <span className="text-xl font-black text-[#1B2A4A] tracking-tight whitespace-nowrap">Qeltrava AI</span>
         </Link>
 
-        {/* Visually hidden links for crawler and SEO compatibility */}
+        {/* Visually hidden links for SEO */}
         <div className="sr-only">
           <Link href="/about">{t('About') || 'About'}</Link>
         </div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center xl:gap-1 gap-0.5">
+        {/* Desktop Nav Items */}
+        <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
           {navItems.map(item => {
             const isMenuOpen = activeMenu === item.id;
             return (
@@ -334,59 +334,49 @@ export const Header = () => {
               >
                 <button
                   onClick={(e) => handleNavClick(item.id, e)}
-                  className={`text-sm font-semibold transition-colors xl:px-4 px-2 py-2 rounded-lg flex items-center gap-1 focus:outline-none hover:bg-gray-50 whitespace-nowrap ${
+                  className={`text-xs xl:text-sm font-semibold transition-colors px-3 py-2 rounded-lg flex items-center gap-1 focus:outline-none hover:bg-slate-100/70 whitespace-nowrap ${
                     isMenuOpen || pathname.startsWith(`/${item.id}`)
-                      ? 'text-[var(--color-accent)]' 
-                      : 'text-[var(--color-text-main)] hover:text-[var(--color-accent)]'
+                      ? 'text-[#2B70AB] bg-slate-50' 
+                      : 'text-[#1B2A4A] hover:text-[#2B70AB]'
                   }`}
                   aria-expanded={isMenuOpen}
                 >
                   <span>{item.label}</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isMenuOpen ? 'rotate-180 text-[#2B70AB]' : ''}`} />
                 </button>
               </div>
             );
           })}
         </nav>
 
-        {/* Desktop CTA & Locale */}
-        <div className="hidden lg:flex items-center xl:gap-4 gap-2.5 flex-shrink-0">
+        {/* Right CTA Actions */}
+        <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
           <LocaleSwitcher />
           
-          {/* Search Trigger Button */}
           <button 
             onClick={() => setIsSearchOpen(true)}
-            className="p-2 rounded-lg text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+            className="p-2 rounded-lg text-[#1B2A4A] hover:text-[#2B70AB] hover:bg-slate-100 transition-colors focus:outline-none"
             aria-label="Search site (Cmd+K)"
           >
             <Search size={18} />
           </button>
 
-
-          <Link 
-            href="/contact" 
-            className="text-sm font-semibold text-[var(--color-text-main)] hover:text-[var(--color-accent)] transition-colors whitespace-nowrap"
-            onClick={closeAllMenus}
-          >
-            {t('Contact') || 'Contact'}
-          </Link>
-          
-          <Button href="/book-consultation" onClick={closeAllMenus} className="whitespace-nowrap">
+          <Button href="/book-consultation" onClick={closeAllMenus} className="bg-[#2B70AB] hover:bg-[#235b8c] text-white rounded-full px-5 py-2.5 text-xs font-bold whitespace-nowrap shadow-sm">
             {t('BookCall') || 'Book Call'}
           </Button>
         </div>
 
-        {/* Mobile Search & Hamburger Menu Toggle */}
+        {/* Mobile Header Controls */}
         <div className="flex items-center gap-2 lg:hidden">
           <button 
             onClick={() => setIsSearchOpen(true)}
-            className="p-2 text-[var(--color-primary-dark)] hover:text-[var(--color-accent)] transition-colors focus:outline-none"
+            className="p-2 text-[#1B2A4A] hover:text-[#2B70AB] transition-colors focus:outline-none"
             aria-label="Search site"
           >
             <Search size={22} />
           </button>
           <button 
-            className="p-2 text-[var(--color-primary-dark)]"
+            className="p-2 text-[#1B2A4A]"
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
             aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -398,6 +388,19 @@ export const Header = () => {
 
       </div>
 
+      {/* Backdrop overlay when menu is open */}
+      <AnimatePresence>
+        {activeMenu && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveMenu(null)}
+            className="fixed inset-0 top-20 bg-slate-900/20 backdrop-blur-xs z-30 pointer-events-auto"
+          />
+        )}
+      </AnimatePresence>
+
       {/* Desktop Mega-menu dropdown panel */}
       <AnimatePresence>
         {activeMenu && (
@@ -406,25 +409,25 @@ export const Header = () => {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
             onMouseEnter={handlePanelMouseEnter}
             onMouseLeave={handlePanelMouseLeave}
-            className="absolute left-0 right-0 top-20 w-full bg-[var(--color-primary-dark)] text-white shadow-2xl border-t border-white/10 z-40 select-none"
+            className="absolute left-0 right-0 top-20 w-full bg-white text-[#1B2A4A] shadow-2xl border-b border-slate-200 z-40 select-none"
           >
             {navItems.filter(item => item.id === activeMenu).map(item => (
-              <div key={item.id} className="max-w-7xl mx-auto px-12 py-12 grid grid-cols-12 gap-8">
+              <div key={item.id} className="max-w-7xl mx-auto px-12 py-10 grid grid-cols-12 gap-8">
                 
                 {/* Left Column (Intro description) */}
-                <div className="col-span-3 pr-6 border-r border-white/10 flex flex-col justify-between">
+                <div className="col-span-3 pr-6 border-r border-slate-200 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] font-mono mb-2">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-[#2B70AB] font-mono mb-2">
                       {item.introTitle}
                     </h3>
-                    <p className="text-sm text-white/70 leading-relaxed font-sans">
+                    <p className="text-sm text-slate-600 leading-relaxed font-sans font-medium">
                       {item.introDesc}
                     </p>
                   </div>
-                  <div className="pt-6 font-mono text-[10px] text-white/30 uppercase tracking-[0.2em]">
+                  <div className="pt-6 font-mono text-[10px] text-slate-400 uppercase tracking-[0.2em]">
                     &lt;qeltrava-nav-gate&gt;
                   </div>
                 </div>
@@ -432,7 +435,7 @@ export const Header = () => {
                 {/* Sub-columns Links list */}
                 {item.columns.map((col, idx) => (
                   <div key={idx} className="col-span-3">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-white/40 mb-4">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">
                       {col.title}
                     </h4>
                     <ul className="space-y-3">
@@ -442,12 +445,12 @@ export const Header = () => {
                             // eslint-disable-next-line @typescript-eslint/no-explicit-any
                             href={link.href as any}
                             onClick={closeAllMenus}
-                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-white/80 hover:text-[var(--color-accent)] transition-colors group"
+                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-800 hover:text-[#2B70AB] transition-colors group"
                           >
                             <span>{link.label}</span>
-                            <ChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[var(--color-accent)]" />
+                            <ChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[#2B70AB]" />
                             {link.badge && (
-                              <span className="text-[9px] font-mono font-bold tracking-wider px-1.5 py-0.5 rounded bg-white/10 text-white/50 scale-90">
+                              <span className="text-[9px] font-mono font-bold tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-[#2B70AB] scale-90 border border-slate-200">
                                 {link.badge}
                               </span>
                             )}
@@ -460,32 +463,33 @@ export const Header = () => {
 
                 {/* Right Column Featured Card */}
                 <div className="col-span-3">
-                  <div className="bg-white/5 border border-white/10 p-5 rounded-2xl flex flex-col justify-between h-full min-h-[160px] relative overflow-hidden group">
-                    <div className="absolute inset-0 pointer-events-none opacity-5" style={{ backgroundImage: 'linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)', backgroundSize: '12px 12px' }} />
+                  <div className="bg-slate-50 border border-slate-200 p-5 rounded-2xl flex flex-col justify-between h-full min-h-[160px] relative overflow-hidden group hover:border-[#2B70AB]/30 transition-all">
                     <div className="relative z-10">
                       {item.card.stats && (
-                        <div className="text-3xl font-extrabold text-[var(--color-success)] font-mono mb-2">
+                        <div className="text-3xl font-extrabold text-[#2B70AB] font-mono mb-2">
                           {item.card.stats}
                         </div>
                       )}
-                      <h4 className="text-sm font-bold text-white mb-2">{item.card.title}</h4>
+                      <h4 className="text-sm font-bold text-[#1B2A4A] mb-2">{item.card.title}</h4>
                       {item.card.desc && (
-                        <p className="text-xs text-white/70 leading-relaxed mb-1">{item.card.desc}</p>
+                        <p className="text-xs text-slate-600 leading-relaxed mb-1 font-medium">{item.card.desc}</p>
                       )}
                       {item.card.note && (
-                        <p className="text-[9px] italic text-white/40">{item.card.note}</p>
+                        <p className="text-[9px] italic text-slate-400">{item.card.note}</p>
                       )}
                     </div>
                     
                     {item.card.cta && (
-                      <Link
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        href={item.card.href as any}
-                        onClick={closeAllMenus}
-                        className="relative z-10 inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-accent)] hover:text-white transition-colors mt-4 self-start"
-                      >
-                        <span>{item.card.cta}</span>
-                      </Link>
+                      <div className="mt-4 pt-3 border-t border-slate-200">
+                        <Link
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          href={item.card.href as any}
+                          onClick={closeAllMenus}
+                          className="inline-flex items-center gap-1 text-xs font-bold text-[#2B70AB] hover:underline"
+                        >
+                          <span>{item.card.cta}</span>
+                        </Link>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -505,12 +509,12 @@ export const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-20 left-0 right-0 bg-[var(--color-primary-dark)] border-t border-white/10 p-6 flex flex-col gap-6 shadow-2xl z-50 overflow-y-auto max-h-[calc(100vh-80px)] select-none text-white"
+            className="absolute top-20 left-0 right-0 bg-white border-t border-slate-200 p-6 flex flex-col gap-6 shadow-2xl z-50 overflow-y-auto max-h-[calc(100vh-80px)] select-none text-[#1B2A4A]"
           >
             {/* Header controls inside mobile menu */}
-            <div className="flex justify-between items-center border-b border-white/10 pb-4">
-              <span className="text-xs font-mono font-bold tracking-widest text-[var(--color-accent)]">NAVIGATION</span>
-              <div className="bg-white/10 p-2 rounded-md"><LocaleSwitcher /></div>
+            <div className="flex justify-between items-center border-b border-slate-200 pb-4">
+              <span className="text-xs font-mono font-bold tracking-widest text-[#2B70AB]">NAVIGATION</span>
+              <div className="bg-slate-100 p-2 rounded-md"><LocaleSwitcher /></div>
             </div>
 
             {/* Accordion List */}
@@ -518,13 +522,13 @@ export const Header = () => {
               {navItems.map(item => {
                 const isExpanded = expandedMobileMenu === item.id;
                 return (
-                  <div key={item.id} className="border-b border-white/5 pb-3">
+                  <div key={item.id} className="border-b border-slate-100 pb-3">
                     <button
                       onClick={() => setExpandedMobileMenu(prev => prev === item.id ? null : item.id)}
-                      className="w-full flex items-center justify-between text-lg font-bold text-white/95 py-1 text-left focus:outline-none"
+                      className="w-full flex items-center justify-between text-lg font-bold text-[#1B2A4A] py-1 text-left focus:outline-none"
                     >
                       <span>{item.label}</span>
-                      <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-white/60 ${isExpanded ? 'rotate-180 text-[var(--color-accent)]' : ''}`} />
+                      <ChevronDown className={`w-5 h-5 transition-transform duration-200 text-slate-400 ${isExpanded ? 'rotate-180 text-[#2B70AB]' : ''}`} />
                     </button>
                     
                     {/* Collapsible Panel */}
@@ -540,7 +544,7 @@ export const Header = () => {
                           <div className="pt-3 pl-4 space-y-4">
                             {item.columns.map((col, idx) => (
                               <div key={idx}>
-                                <h5 className="text-[10px] font-bold uppercase tracking-wider text-white/30 mb-2">{col.title}</h5>
+                                <h5 className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">{col.title}</h5>
                                 <ul className="space-y-2">
                                   {col.links.map((link, lIdx) => (
                                     <li key={lIdx}>
@@ -548,11 +552,11 @@ export const Header = () => {
                                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                                         href={link.href as any}
                                         onClick={closeAllMenus}
-                                        className="text-sm font-semibold text-white/80 hover:text-[var(--color-accent)] transition-colors flex items-center justify-between"
+                                        className="text-sm font-semibold text-slate-700 hover:text-[#2B70AB] transition-colors flex items-center justify-between"
                                       >
                                         <span>{link.label}</span>
                                         {link.badge && (
-                                          <span className="text-[9px] font-mono font-bold tracking-wider px-1.5 py-0.5 rounded bg-white/10 text-white/40 scale-90">
+                                          <span className="text-[9px] font-mono font-bold tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-[#2B70AB] scale-90 border border-slate-200">
                                             {link.badge}
                                           </span>
                                         )}
@@ -572,17 +576,17 @@ export const Header = () => {
 
               <Link 
                 href="/contact" 
-                className="text-lg font-bold text-white/95 py-2 border-b border-white/5 flex items-center justify-between" 
+                className="text-lg font-bold text-[#1B2A4A] py-2 border-b border-slate-100 flex items-center justify-between" 
                 onClick={closeAllMenus}
               >
                 <span>Contact</span>
-                <ChevronRight className="w-5 h-5 text-white/40" />
+                <ChevronRight className="w-5 h-5 text-slate-400" />
               </Link>
             </nav>
 
             {/* Pinned Book Call Callout */}
-            <div className="pt-4 border-t border-white/10">
-              <Button href="/book-consultation" className="w-full text-center" onClick={closeAllMenus}>
+            <div className="pt-4 border-t border-slate-200">
+              <Button href="/book-consultation" className="w-full text-center bg-[#2B70AB] hover:bg-[#235b8c] text-white rounded-full py-3 font-bold" onClick={closeAllMenus}>
                 Book an AI Strategy Call
               </Button>
             </div>

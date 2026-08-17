@@ -580,11 +580,11 @@ function initializeDB(): LocalDBStructure {
     {
       id: 'prod-modliq',
       workspace_id: workspaceAIId,
-      name: 'Modliq',
+      name: 'Modliqer',
       slug: 'modliq',
       logo: '⚡',
       status: 'Live',
-      overview: 'Modliq is Qeltrava Group\'s flag SaaS model-driven dashboard builder, allowing organizations to visualize operational data, monitor LLM execution tokens, and deploy custom user facing charts in minutes.',
+      overview: 'Modliqer is Qeltrava Group\'s flagship No-Code ML & Manufacturing Analytics platform, enabling organizations to build, train, evaluate, and deploy machine learning models through an intuitive visual workflow.',
       features: [
         { name: 'Drag-and-Drop Builders', description: 'Reorder stats blocks, analytics graphs, and feeds instantly without re-deploying.' },
         { name: 'Model Observability', description: 'Real-time counters for OpenAI, Gemini, and Anthropic token budgets.' },

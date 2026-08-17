@@ -60,7 +60,7 @@ const PROGRAMMING_LANGUAGES = ['Python', 'JavaScript', 'TypeScript', 'Java', 'C'
 const DATABASES = ['PostgreSQL', 'MongoDB', 'MySQL', 'Supabase', 'Firebase', 'Redis', 'Other'];
 const AI_TOOLS = ['ChatGPT', 'Claude', 'Gemini', 'GitHub Copilot', 'Cursor', 'Windsurf', 'Antigravity', 'Other'];
 const QELTRAVA_AREAS = [
-  'Modliq — Manufacturing AI / Process Optimization',
+  'Modliqer — Manufacturing AI / Process Optimization',
   'AI Applications',
   'Full-Stack SaaS',
   'AI Agents / Automation',

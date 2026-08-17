@@ -403,7 +403,7 @@ export default function AdminWorkspacePage() {
     { id: 'applicants', label: 'Careers ATS', icon: Users, resource: 'applicants' as Resource },
     { id: 'blogs', label: 'Blog CMS', icon: BookOpen, resource: 'blogs' as Resource },
     { id: 'case-studies', label: 'Case Studies', icon: Award, resource: 'caseStudies' as Resource },
-    { id: 'products', label: 'Products & Modliq', icon: Cpu, resource: 'products' as Resource },
+    { id: 'products', label: 'Products & Modliqer', icon: Cpu, resource: 'products' as Resource },
     { id: 'media', label: 'Media Library', icon: FolderOpen, resource: 'media' as Resource },
     { id: 'crm', label: 'CRM Sales', icon: LineChart, resource: 'crm' as Resource },
     { id: 'clients', label: 'Client Portal', icon: Layers, resource: 'clients' as Resource },
@@ -1592,11 +1592,11 @@ export default function AdminWorkspacePage() {
                 </div>
               )}
 
-              {/* 9. PRODUCTS & MODLIQ SCREEN */}
+              {/* 9. PRODUCTS & MODLIQER SCREEN */}
               {currentTab === 'products' && (
                 <div className="space-y-6">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-bold text-slate-800">Products & Modliq Manager</h3>
+                    <h3 className="text-lg font-bold text-slate-800">Products & Modliqer Manager</h3>
                     {hasAccess('products', 'create') && (
                       <Button onClick={() => { setSelectedItem(null); setFormFields({ name: '', slug: '', status: 'Beta', overview: '', documentation_url: '', website_url: '', pricing: '', published: false }); setActiveForm('create'); }} className="bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90 text-white rounded-full text-xs font-semibold h-9 px-4 flex items-center gap-1.5">
                         <Plus className="w-4 h-4" /> Add Product

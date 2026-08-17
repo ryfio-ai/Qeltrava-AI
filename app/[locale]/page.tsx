@@ -19,6 +19,7 @@ import { TransformationStories } from '@/components/ui/TransformationStories';
 import { EngineeringWorkflow } from '@/components/ui/EngineeringWorkflow';
 import { LiveArchitectureVisualizer } from '@/components/ui/LiveArchitectureVisualizer';
 import { FeaturedProductModliq } from '@/components/ui/FeaturedProductModliq';
+import { ProductHuntHeroBanner } from '@/components/ui/ProductHuntEmbeds';
 import { FeaturedProductStaySeat } from '@/components/ui/FeaturedProductStaySeat';
 import { ManufacturingCallout } from '@/components/ui/ManufacturingCallout';
 import dynamic from 'next/dynamic';
@@ -83,6 +84,9 @@ export default function HomePage() {
         <NetworkBackground />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="max-w-3xl">
+            <FadeIn delay={0.05}>
+              <ProductHuntHeroBanner postSlug="modliqer" />
+            </FadeIn>
             <FadeIn delay={0.1}>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6">
                 Qeltrava AI is a specialized software and AI engineering team.
@@ -204,7 +208,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Featured Product (Modliq) ───────────────────────── */}
+      {/* ── Featured Product (Modliqer) ───────────────────────── */}
       <section className="py-24 bg-[var(--color-bg-light)] border-b border-[var(--color-border-soft)] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <FadeIn direction="up">

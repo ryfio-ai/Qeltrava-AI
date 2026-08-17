@@ -117,7 +117,18 @@ export const Footer = () => {
               Products
             </h3>
             <ul className="space-y-4 text-[13px] text-white/70 font-sans font-semibold">
-              <li><Link href="/products/modliq" className="hover:text-white transition-colors">Modliq</Link></li>
+              <li><Link href="/products/modliq" className="hover:text-white transition-colors">Modliqer</Link></li>
+              <li>
+                <a
+                  href="https://www.producthunt.com/products/modliqer?launch=modliqer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#FF6154] hover:underline"
+                >
+                  <span className="w-3.5 h-3.5 rounded-full bg-[#FF6154] text-white flex items-center justify-center text-[8px] font-bold">P</span>
+                  <span>Product Hunt Launch ↗</span>
+                </a>
+              </li>
             </ul>
           </div>
 

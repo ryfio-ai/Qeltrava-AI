@@ -43,7 +43,7 @@ export default async function TalentApplyPage({ params }: { params: Promise<{ lo
               Build With Qeltrava AI
             </h1>
             <p className="text-slate-600 text-sm md:text-base leading-relaxed max-w-3xl">
-              We match software engineers, AI developers, and technical talent with product development initiatives (including our flagship Modliq AI platform), client projects, and freelance assignments.
+              We match software engineers, AI developers, and technical talent with product development initiatives (including our flagship Modliqer AI platform), client projects, and freelance assignments.
             </p>
           </header>
         </FadeIn>

@@ -20,6 +20,8 @@ import {
   Layers
 } from 'lucide-react';
 
+import { ProductHuntDriveSupportBadge, ProductHuntSocialProofBadge } from '@/components/ui/ProductHuntEmbeds';
+
 const workflowSteps = [
   { label: 'Upload Dataset', icon: Database, desc: 'CSV, JSON, or SQL' },
   { label: 'Clean Data', icon: Wand2, desc: 'Auto-handle nulls' },
@@ -71,17 +73,15 @@ export function FeaturedProductModliq() {
       <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
         {/* Left Info Column */}
         <div className="space-y-6">
-          <div className="flex flex-wrap gap-2.5">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-[10px] font-mono font-bold uppercase tracking-wider rounded-full">
-              ✨ Coming Soon
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-orange-500/10 text-orange-600 border border-orange-500/20 text-[10px] font-mono font-bold uppercase tracking-wider rounded-full">
+              🚀 LIVE ON PRODUCT HUNT
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/5 text-gray-300 border border-white/10 text-[10px] font-mono font-bold uppercase tracking-wider rounded-full">
-              Flagship Product
-            </span>
+            <ProductHuntDriveSupportBadge theme="neutral" postSlug="modliqer" />
           </div>
 
           <h2 className="text-4xl md:text-5xl font-black text-[var(--color-primary-dark)] tracking-tight leading-tight">
-            Introducing Modliq
+            Introducing Modliqer
           </h2>
 
           <p className="text-lg md:text-xl font-bold text-gray-700 leading-relaxed">
@@ -89,7 +89,7 @@ export function FeaturedProductModliq() {
           </p>
 
           <p className="text-sm text-[var(--color-text-main)] leading-relaxed">
-            Modliq simplifies machine learning through an intuitive visual workflow, making AI development accessible for businesses, researchers, educators, and product teams.
+            Modliqer simplifies machine learning through an intuitive visual workflow, making AI development accessible for businesses, researchers, educators, and product teams.
           </p>
 
           {/* Status Panel */}
@@ -103,7 +103,7 @@ export function FeaturedProductModliq() {
             </div>
             <div>
               <div className="text-[10px] font-bold uppercase tracking-wider text-gray-400 font-mono mb-1">Estimated Launch</div>
-              <div className="text-xs font-bold text-[var(--color-primary-dark)]">Coming Soon</div>
+              <div className="text-xs font-bold text-[var(--color-primary-dark)] font-mono">Aug 2026</div>
             </div>
             <div>
               <div className="text-[10px] font-bold uppercase tracking-wider text-gray-400 font-mono mb-1">Availability</div>
@@ -114,16 +114,12 @@ export function FeaturedProductModliq() {
           {/* CTAs */}
           <div>
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <Button href="/contact?subject=Modliq+Waitlist" className="justify-center bg-indigo-600 text-white border-transparent hover:bg-indigo-700">
+              <Button href="/contact?subject=Modliqer+Waitlist" className="justify-center bg-indigo-600 text-white border-transparent hover:bg-indigo-700">
                 Request Invite →
               </Button>
-              <button 
-                disabled 
-                className="group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 border border-[var(--color-border-soft)] bg-gray-50 text-gray-400 text-sm font-semibold cursor-not-allowed select-none transition-colors"
-              >
-                <span>Learn More (Coming Soon)</span>
-                <Lock className="w-3.5 h-3.5" />
-              </button>
+              <Button href="/products/modliq" className="justify-center bg-white text-slate-800 border-slate-300 hover:bg-slate-50">
+                Explore Modliqer →
+              </Button>
             </div>
             <p className="text-[10px] text-[var(--color-text-main)] opacity-70 mt-2 font-medium ml-2">
               1,200+ models trained
@@ -143,7 +139,7 @@ export function FeaturedProductModliq() {
                 <div className="w-3 h-3 rounded-full bg-red-500/80" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                <span className="text-[10px] font-mono text-white/40 ml-2 uppercase tracking-widest">Modliq Editor v0.8</span>
+                <span className="text-[10px] font-mono text-white/40 ml-2 uppercase tracking-widest">Modliqer Editor v0.9</span>
               </div>
               <span className="px-2 py-0.5 bg-indigo-500/20 text-indigo-300 text-[9px] font-mono rounded">No-Code Workspace</span>
             </div>

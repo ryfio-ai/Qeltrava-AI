@@ -3,20 +3,20 @@
 
 :root {
   --primary: #1B2A4A;
-  --accent: #2E75B6;
-  --text: #2B2B2B;
-  --bg-light: #EAF1FA;
+  --accent: #2B70AB;
+  --text: #1B2A4A;
+  --bg-light: #F8FAFC;
   --bg-white: #FFFFFF;
   --success: #1FAA59;
 
-  --primary-dark: #111827;
-  --primary-soft: #243656;
-  --border-soft: #D8E3F0;
-  --hero-safe-dark: #151E33;
+  --primary-dark: #1B2A4A;
+  --primary-soft: #243B68;
+  --border-soft: #E2E8F0;
+  --hero-safe-dark: #1B2A4A;
 }
 
 [data-theme="dark"] {
-  --accent: #5BA3D9;
+  --accent: #2B70AB;
 }
 
 body.pt-20 {
@@ -24,20 +24,20 @@ body.pt-20 {
 }
 
 @theme {
-  --color-primary: var(--primary);
-  --color-accent: var(--accent);
-  --color-text-main: var(--text);
-  --color-bg-light: var(--bg-light);
-  --color-bg-white: var(--bg-white);
-  --color-success: var(--success);
+  --color-primary: #1B2A4A;
+  --color-accent: #2B70AB;
+  --color-text-main: #1B2A4A;
+  --color-bg-light: #F8FAFC;
+  --color-bg-white: #FFFFFF;
+  --color-success: #1FAA59;
   
-  --color-primary-dark: var(--primary-dark);
-  --color-primary-soft: var(--primary-soft);
-  --color-border-soft: var(--border-soft);
-  --color-hero-safe: var(--hero-safe-dark);
+  --color-primary-dark: #1B2A4A;
+  --color-primary-soft: #243B68;
+  --color-border-soft: #E2E8F0;
+  --color-hero-safe: #1B2A4A;
 
-  --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-display: var(--font-inter-tight), system-ui, sans-serif;
+  --font-sans: var(--font-inter), 'Poppins', system-ui, sans-serif;
+  --font-display: var(--font-inter-tight), 'Poppins', system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
@@ -50,30 +50,39 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   letter-spacing: -0.025em;
+  color: #1B2A4A;
 }
 
 .dark-section {
-  background: var(--color-primary);
-  color: var(--color-bg-white);
+  background: #1B2A4A;
+  color: #FFFFFF;
 }
 
 .light-section {
-  background: var(--color-bg-white);
-  color: var(--color-text-main);
+  background: #FFFFFF;
+  color: #1B2A4A;
 }
 
 .mist-section {
-  background: var(--color-bg-light);
-  color: var(--color-text-main);
+  background: #F8FAFC;
+  color: #1B2A4A;
 }
 
 .cta-button {
-  background: var(--accent);
-  color: var(--bg-white);
+  background: #2B70AB;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+}
+
+.cta-button:hover {
+  background: #235b8c;
+  box-shadow: 0 10px 25px -5px rgba(43, 112, 171, 0.3);
 }
 
 .metric-number {
-  color: var(--color-success);
+  color: #2B70AB;
 }
 
 /* ─── Tech & Social Proof Ticker ──────────────────────────────── */
@@ -91,4 +100,3 @@ h1, h2, h3, h4, h5, h6 {
     animation: none;
   }
 }
-
