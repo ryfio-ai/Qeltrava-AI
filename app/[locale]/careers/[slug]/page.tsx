@@ -9,7 +9,7 @@ import { Button } from '@/components/Button';
 import { siteConfig } from '@/lib/site-config';
 import { FadeIn } from '@/components/animations/FadeIn';
 import { MapPin, Clock, Calendar, ShieldCheck, Edit, Plus, Trash } from 'lucide-react';
-import { db } from '@/platform/shared/database/db';
+import { db, localDBClient } from '@/platform/shared/database/db';
 import { cookies } from 'next/headers';
 import { decryptSession, ADMIN_COOKIE_NAME } from '@/platform/auth';
 import { deleteJob } from '@/platform/shared/actions';
@@ -23,23 +23,44 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const jobs = await db.jobs.list('ws-qeltrava-ai');
-  const locales = ['en', 'es', 'de', 'fr', 'pt-BR', 'ar'];
-  const params: { locale: string; slug: string }[] = [];
-  
-  for (const locale of locales) {
-    for (const job of jobs) {
-      if (job.status === 'Published') {
-        params.push({ locale, slug: job.slug });
+  try {
+    const jobs = await db.jobs.list('ws-qeltrava-ai');
+    const locales = ['en', 'es', 'de', 'fr', 'pt-BR', 'ar'];
+    const params: { locale: string; slug: string }[] = [];
+    
+    for (const locale of locales) {
+      for (const job of jobs) {
+        if (job.status === 'Published') {
+          params.push({ locale, slug: job.slug });
+        }
       }
     }
+    return params;
+  } catch (err) {
+    console.warn('[Build Warning] Supabase fetch failed in generateStaticParams, falling back to local seed jobs:', err);
+    const jobs = await localDBClient.jobs.list('ws-qeltrava-ai');
+    const locales = ['en', 'es', 'de', 'fr', 'pt-BR', 'ar'];
+    const params: { locale: string; slug: string }[] = [];
+    
+    for (const locale of locales) {
+      for (const job of jobs) {
+        if (job.status === 'Published') {
+          params.push({ locale, slug: job.slug });
+        }
+      }
+    }
+    return params;
   }
-  return params;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const job = await db.jobs.get('ws-qeltrava-ai', slug);
+  let job = null;
+  try {
+    job = await db.jobs.get('ws-qeltrava-ai', slug);
+  } catch (err) {
+    job = await localDBClient.jobs.get('ws-qeltrava-ai', slug);
+  }
   if (!job) return {};
 
   return {
@@ -50,7 +71,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function JobDetailPage({ params }: PageProps) {
   const { locale, slug } = await params;
-  const job = await db.jobs.get('ws-qeltrava-ai', slug);
+  let job = null;
+  try {
+    job = await db.jobs.get('ws-qeltrava-ai', slug);
+  } catch (err) {
+    job = await localDBClient.jobs.get('ws-qeltrava-ai', slug);
+  }
 
   if (!job || job.status !== 'Published') {
     notFound();

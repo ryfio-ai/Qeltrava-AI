@@ -4,6 +4,7 @@
 import { createClient } from '@supabase/supabase-js';
 import crypto from 'crypto';
 import { DBClient, Job, Applicant, Blog, CaseStudy, Product, MediaAsset, AuditLog, NewsletterSubscriber, ContactMessage, SystemSettings, CRMLead, ClientPortalAccount, Candidate, CandidateStatusHistory } from './types';
+import { localDBClient } from './db-client-local';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-service-key-for-build-resolution';
@@ -44,36 +45,46 @@ function resolveIdOrSlug(val: string): { isUuid: boolean; value: string } {
 export const supabaseDBClient: DBClient = {
   jobs: {
     list: async (workspaceId, filters) => {
-      let query = supabase.from('jobs').select('*').eq('workspace_id', toUUID(workspaceId));
-      if (filters) {
-        Object.keys(filters).forEach(key => {
-          const val = filters[key];
-          if (val !== undefined && val !== '') {
-            if (key === 'tech_stack') {
-              query = query.contains('tech_stack', [val]);
-            } else if (typeof val === 'string') {
-              query = query.ilike(key, `%${val}%`);
-            } else {
-              query = query.eq(key, val);
+      try {
+        let query = supabase.from('jobs').select('*').eq('workspace_id', toUUID(workspaceId));
+        if (filters) {
+          Object.keys(filters).forEach(key => {
+            const val = filters[key];
+            if (val !== undefined && val !== '') {
+              if (key === 'tech_stack') {
+                query = query.contains('tech_stack', [val]);
+              } else if (typeof val === 'string') {
+                query = query.ilike(key, `%${val}%`);
+              } else {
+                query = query.eq(key, val);
+              }
             }
-          }
-        });
+          });
+        }
+        const { data, error } = await query.order('posted_date', { ascending: false });
+        if (error) throw error;
+        return (data || []) as Job[];
+      } catch (err: any) {
+        console.warn('[Qeltrava OS DB] Supabase jobs.list failed, falling back to local DB:', err?.message || err);
+        return await localDBClient.jobs.list(workspaceId, filters);
       }
-      const { data, error } = await query.order('posted_date', { ascending: false });
-      if (error) throw error;
-      return (data || []) as Job[];
     },
     get: async (workspaceId, idOrSlug) => {
-      const resolved = resolveIdOrSlug(idOrSlug);
-      let query = supabase.from('jobs').select('*').eq('workspace_id', toUUID(workspaceId));
-      if (resolved.isUuid) {
-        query = query.eq('id', resolved.value);
-      } else {
-        query = query.eq('slug', resolved.value);
+      try {
+        const resolved = resolveIdOrSlug(idOrSlug);
+        let query = supabase.from('jobs').select('*').eq('workspace_id', toUUID(workspaceId));
+        if (resolved.isUuid) {
+          query = query.eq('id', resolved.value);
+        } else {
+          query = query.eq('slug', resolved.value);
+        }
+        const { data, error } = await query.maybeSingle();
+        if (error) throw error;
+        return data as Job | null;
+      } catch (err: any) {
+        console.warn('[Qeltrava OS DB] Supabase jobs.get failed, falling back to local DB:', err?.message || err);
+        return await localDBClient.jobs.get(workspaceId, idOrSlug);
       }
-      const { data, error } = await query.maybeSingle();
-      if (error) throw error;
-      return data as Job | null;
     },
     create: async (workspaceId, data) => {
       const { data: job, error } = await supabase
@@ -197,36 +208,46 @@ export const supabaseDBClient: DBClient = {
 
   blogs: {
     list: async (workspaceId, filters) => {
-      let query = supabase.from('blogs').select('*').eq('workspace_id', toUUID(workspaceId));
-      if (filters) {
-        Object.keys(filters).forEach(key => {
-          const val = filters[key];
-          if (val !== undefined && val !== '') {
-            if (key === 'tags') {
-              query = query.contains('tags', [val]);
-            } else if (typeof val === 'string') {
-              query = query.ilike(key, `%${val}%`);
-            } else {
-              query = query.eq(key, val);
+      try {
+        let query = supabase.from('blogs').select('*').eq('workspace_id', toUUID(workspaceId));
+        if (filters) {
+          Object.keys(filters).forEach(key => {
+            const val = filters[key];
+            if (val !== undefined && val !== '') {
+              if (key === 'tags') {
+                query = query.contains('tags', [val]);
+              } else if (typeof val === 'string') {
+                query = query.ilike(key, `%${val}%`);
+              } else {
+                query = query.eq(key, val);
+              }
             }
-          }
-        });
+          });
+        }
+        const { data, error } = await query.order('published_at', { ascending: false });
+        if (error) throw error;
+        return (data || []) as Blog[];
+      } catch (err: any) {
+        console.warn('[Qeltrava OS DB] Supabase blogs.list failed, falling back to local DB:', err?.message || err);
+        return await localDBClient.blogs.list(workspaceId, filters);
       }
-      const { data, error } = await query.order('published_at', { ascending: false });
-      if (error) throw error;
-      return (data || []) as Blog[];
     },
     get: async (workspaceId, idOrSlug) => {
-      const resolved = resolveIdOrSlug(idOrSlug);
-      let query = supabase.from('blogs').select('*').eq('workspace_id', toUUID(workspaceId));
-      if (resolved.isUuid) {
-        query = query.eq('id', resolved.value);
-      } else {
-        query = query.eq('slug', resolved.value);
+      try {
+        const resolved = resolveIdOrSlug(idOrSlug);
+        let query = supabase.from('blogs').select('*').eq('workspace_id', toUUID(workspaceId));
+        if (resolved.isUuid) {
+          query = query.eq('id', resolved.value);
+        } else {
+          query = query.eq('slug', resolved.value);
+        }
+        const { data, error } = await query.maybeSingle();
+        if (error) throw error;
+        return data as Blog | null;
+      } catch (err: any) {
+        console.warn('[Qeltrava OS DB] Supabase blogs.get failed, falling back to local DB:', err?.message || err);
+        return await localDBClient.blogs.get(workspaceId, idOrSlug);
       }
-      const { data, error } = await query.maybeSingle();
-      if (error) throw error;
-      return data as Blog | null;
     },
     create: async (workspaceId, data) => {
       const { data: blog, error } = await supabase
