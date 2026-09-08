@@ -7,9 +7,10 @@ interface FadeInProps extends HTMLMotionProps<"div"> {
   children: React.ReactNode;
   delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right' | 'none';
+  amount?: number | 'some' | 'all';
 }
 
-export const FadeIn = ({ children, delay = 0, direction = 'up', className, ...props }: FadeInProps) => {
+export const FadeIn = ({ children, delay = 0, direction = 'up', amount = 0, className, ...props }: FadeInProps) => {
   const [mounted, setMounted] = useState(false);
   // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
@@ -30,7 +31,7 @@ export const FadeIn = ({ children, delay = 0, direction = 'up', className, ...pr
     <motion.div
       initial={{ opacity: 0, ...directions[direction] }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
       className={className}
       {...props}

@@ -80,39 +80,45 @@ export default function HomePage() {
     <main className="min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-primary-dark">
+      <section className="relative pt-10 pb-20 lg:pt-16 lg:pb-28 overflow-hidden bg-primary-dark">
         <NetworkBackground />
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="max-w-3xl">
-            <FadeIn delay={0.05}>
-              <ProductHuntHeroBanner postSlug="modliqer" />
+          <div className="max-w-4xl">
+            <FadeIn delay={0.02} amount={0}>
+              <div className="mb-4 inline-block">
+                <ProductHuntHeroBanner postSlug="modliqer" />
+              </div>
             </FadeIn>
-            <FadeIn delay={0.1}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6">
-                Qeltrava AI is a specialized software and AI engineering team.
+            <FadeIn delay={0.08} amount={0}>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+                Qeltrava AI is a specialized <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-indigo-300">software &amp; AI engineering team.</span>
               </h1>
             </FadeIn>
-            <FadeIn delay={0.2}>
-              <p className="text-xl md:text-2xl text-white/80 mb-4 leading-relaxed max-w-2xl">
+            <FadeIn delay={0.14} amount={0}>
+              <p className="text-lg sm:text-xl md:text-2xl text-slate-300/90 mb-4 leading-relaxed max-w-3xl font-normal">
                 We partner with growing businesses to ship production-ready applications fast. Currently delivering active projects across AI, Web, and Mobile. We are proudly bootstrapped and building in the open.
               </p>
-              <p className="text-sm font-medium text-[var(--color-accent)] tracking-wider mb-10 opacity-90">
-                Trusted by teams building eDrift, Thiranoli, and Tamizh Tech
-              </p>
+              <div className="flex items-center gap-2.5 mb-10 text-sm font-semibold text-emerald-400/90">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span>Trusted by teams building eDrift, Thiranoli, and Tamizh Tech</span>
+              </div>
             </FadeIn>
-            <FadeIn delay={0.3}>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button href="/book-consultation" variant="primary" className="text-lg px-8 py-4">
-                  Book a Free Demo
+            <FadeIn delay={0.2} amount={0}>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <Button href="/book-consultation" variant="primary" className="text-base sm:text-lg px-8 py-4 shadow-lg shadow-blue-500/20">
+                  Book a Free Demo →
                 </Button>
-                <Button href="/solutions" variant="outline" className="text-lg px-8 py-4">
+                <Button href="/solutions" variant="outline" className="text-base sm:text-lg px-8 py-4 border-slate-700 text-slate-200 hover:bg-slate-800/60">
                   View Solutions
                 </Button>
               </div>
               <div className="mt-6 flex justify-start">
                 <Link 
                   href="/quiz" 
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:underline"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:underline opacity-95 transition-opacity"
                 >
                   <span>Not sure where to start? → Take the 2-minute assessment</span>
                 </Link>
