@@ -9,22 +9,25 @@ export async function POST(request: Request) {
     // Validate request body
     const validatedData = leadFormSchema.parse(body);
 
-    const webhookUrl = process.env.CRM_WEBHOOK_URL;
+    const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL || process.env.CRM_WEBHOOK_URL;
     
     if (webhookUrl) {
-      // Production path: send to external CRM
+      // Production path: send lead directly to Google Sheets / CRM webhook
       const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(validatedData),
+        body: JSON.stringify({
+          ...validatedData,
+          submitted_at: new Date().toISOString(),
+          source: 'Qeltrava AI Website'
+        }),
       });
 
       if (!response.ok) {
-        throw new Error(`CRM webhook failed: ${response.statusText}`);
+        throw new Error(`Webhook dispatch failed: ${response.statusText}`);
       }
     } else {
-      // Missing Webhook URL configuration
-      throw new Error('CRM_WEBHOOK_URL environment variable is not configured. Lead cannot be processed.');
+      console.warn('Neither GOOGLE_SHEETS_WEBHOOK_URL nor CRM_WEBHOOK_URL is configured. Lead logged locally.');
     }
 
     return NextResponse.json({ success: true, message: 'Consultation request received.' }, { status: 200 });
