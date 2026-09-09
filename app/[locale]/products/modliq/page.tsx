@@ -114,7 +114,7 @@ export default function ModliqPage() {
         inputs: 'XGBoost, Random Forest, Neural Net',
         health: 'Gating Passed',
         tag: 'SAFETY CHECK',
-        note: 'Modliq Gating: Engineers stay in control. Every step requires clear confirmation before ML setpoints are generated.'
+        note: 'Modliqer Gating: Engineers stay in control. Every step requires clear confirmation before ML setpoints are generated.'
       }
     },
     {
@@ -190,28 +190,28 @@ export default function ModliqPage() {
   // FAQs
   const faqs = [
     {
-      q: 'Do I need a data scientist or programming skills to use Modliq?',
-      a: 'No. Modliq is built specifically as a visual, no-code platform. Plant engineers, quality managers, teachers, and students can perform complete exploratory data analysis, train predictive models, and calculate Cp/Cpk math through intuitive guided workflows without writing code.'
+      q: 'Do I need a data scientist or programming skills to use Modliqer?',
+      a: 'No. Modliqer is built specifically as a visual, no-code platform. Plant engineers, quality managers, teachers, and students can perform complete exploratory data analysis, train predictive models, and calculate Cp/Cpk math through intuitive guided workflows without writing code.'
     },
     {
-      q: 'Does Modliq replace teachers, engineers, or data scientists?',
-      a: 'No. Modliq is a decision-support tool and interactive learning platform that keeps humans in control. Modliq handles repetitive data cleaning, model comparison, and statistical math, allowing engineers and researchers to make informed decisions faster.'
+      q: 'Does Modliqer replace teachers, engineers, or data scientists?',
+      a: 'No. Modliqer is a decision-support tool and interactive learning platform that keeps humans in control. Modliqer handles repetitive data cleaning, model comparison, and statistical math, allowing engineers and researchers to make informed decisions faster.'
     },
     {
-      q: 'How does Modliq serve Manufacturing Industries?',
-      a: 'Modliq converts Excel production logs, machine sensor databases, and quality reports into actionable optimization setpoints, SPC control charts, OEE metrics, supplier lot risk analysis, and OEM buyer-accepted Quality Passports.'
+      q: 'How does Modliqer serve Manufacturing Industries?',
+      a: 'Modliqer converts Excel production logs, machine sensor databases, and quality reports into actionable optimization setpoints, SPC control charts, OEE metrics, supplier lot risk analysis, and OEM buyer-accepted Quality Passports.'
     },
     {
-      q: 'How does Modliq serve Education & Research?',
-      a: 'Modliq provides a clean visual environment for teaching data science, quality engineering, and AutoML. Teachers demonstrate ML concepts without managing complex Python environments, while research scholars run exploratory analysis and model benchmarking efficiently.'
+      q: 'How does Modliqer serve Education & Research?',
+      a: 'Modliqer provides a clean visual environment for teaching data science, quality engineering, and AutoML. Teachers demonstrate ML concepts without managing complex Python environments, while research scholars run exploratory analysis and model benchmarking efficiently.'
     },
     {
       q: 'How can I schedule a demo for my plant, department, or lab?',
-      a: 'You can click "Book Your Free Demo" anywhere on this page or email support@modliq.io to schedule a tailored live walkthrough for your manufacturing plant or academic institution.'
+      a: 'You can click "Book Your Free Demo" anywhere on this page or launch the platform directly at https://modliq-io.vercel.app/ to explore tailored live workflows for your manufacturing plant or academic institution.'
     },
     {
-      q: 'Is Modliq an ISO certification body or a replacement for accredited testing?',
-      a: 'No. Modliq is a computational analytics platform. It generates mathematical proof records, capability math (Cp/Cpk), and Quality Passports based on your uploaded inspection logs, but does not act as an accredited third-party testing laboratory.'
+      q: 'Is Modliqer an ISO certification body or a replacement for accredited testing?',
+      a: 'No. Modliqer is a computational analytics platform. It generates mathematical proof records, capability math (Cp/Cpk), and Quality Passports based on your uploaded inspection logs, but does not act as an accredited third-party testing laboratory.'
     }
   ];
 
@@ -269,17 +269,18 @@ export default function ModliqPage() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
                 <a 
-                  href="/contact?interest=demo" 
-                  className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 bg-[#2B70AB] hover:bg-[#235b8c] text-white font-bold text-base transition-all shadow-lg shadow-[#2B70AB]/25 cursor-pointer w-full sm:w-auto"
+                  href="https://modliq-io.vercel.app/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 bg-[#2196F3] hover:bg-[#1976D2] text-white font-bold text-base transition-all shadow-lg shadow-[#2196F3]/25 cursor-pointer w-full sm:w-auto"
                 >
-                  Book Your Free Demo
-                  <ArrowRight className="w-5 h-5" />
+                  Launch Modliqer Platform ↗
                 </a>
                 <a 
-                  href="#industry" 
+                  href="/contact?interest=demo" 
                   className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 border border-slate-300 bg-white hover:bg-slate-50 text-[#1B2A4A] font-bold text-base transition-all shadow-xs cursor-pointer w-full sm:w-auto"
                 >
-                  Explore Platform
+                  Book Your Free Demo →
                 </a>
               </div>
             </FadeIn>
@@ -296,10 +297,10 @@ export default function ModliqPage() {
               INTERACTIVE DEMO PREVIEW
             </span>
             <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900">
-              Modliq Console — Guided No-Code Workflow
+              Modliqer Console — Guided No-Code Workflow
             </h2>
             <p className="text-base text-slate-600 font-medium">
-              Modliq Gating: Engineers stay in control. Every step requires clear confirmation before ML setpoint recommendations are generated.
+              Modliqer Gating: Engineers stay in control. Every step requires clear confirmation before ML setpoint recommendations are generated.
             </p>
           </div>
 
@@ -485,10 +486,10 @@ export default function ModliqPage() {
               MANUFACTURING SOLUTIONS
             </span>
             <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900">
-              Modliq for Manufacturing Industries
+              Modliqer for Manufacturing Industries
             </h2>
             <p className="text-base text-slate-600">
-              Manufacturing teams can use Modliq to convert Excel logs, QC reports, supplier records, machine data, and production databases into analysis, optimization, quality validation, and buyer-ready evidence.
+              Manufacturing teams can use Modliqer to convert Excel logs, QC reports, supplier records, machine data, and production databases into analysis, optimization, quality validation, and buyer-ready evidence.
             </p>
           </div>
 
@@ -545,10 +546,10 @@ export default function ModliqPage() {
               ACADEMIC SOLUTIONS
             </span>
             <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900">
-              Modliq for Education & Research
+              Modliqer for Education & Research
             </h2>
             <p className="text-base text-slate-600">
-              Teachers, professors, students, and research scholars can use Modliq as a no-code environment for data analysis and machine learning practice.
+              Teachers, professors, students, and research scholars can use Modliqer as a no-code environment for data analysis and machine learning practice.
             </p>
           </div>
 
@@ -589,7 +590,7 @@ export default function ModliqPage() {
               </div>
               <h3 className="text-lg font-bold text-slate-900">Research Scholars</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Use Modliq for early-stage exploratory analysis, feature discovery, visualization, model benchmarking, and research report preparation.
+                Use Modliqer for early-stage exploratory analysis, feature discovery, visualization, model benchmarking, and research report preparation.
               </p>
             </div>
           </div>
@@ -615,10 +616,10 @@ export default function ModliqPage() {
               WORKFLOW STAGES
             </span>
             <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900">
-              How Modliq guides manufacturing decisions.
+              How Modliqer guides manufacturing decisions.
             </h2>
             <p className="text-base text-slate-600 font-medium">
-              Click through the 6 stages below to see what the user does, what Modliq calculates, and what output is generated.
+              Click through the 6 stages below to see what the user does, what Modliqer calculates, and what output is generated.
             </p>
           </div>
 
@@ -657,7 +658,7 @@ export default function ModliqPage() {
               </div>
 
               <div className="space-y-2 bg-slate-50 p-5 rounded-2xl border border-slate-200">
-                <span className="text-[10px] font-mono text-indigo-600 uppercase font-bold">What Modliq Calculates</span>
+                <span className="text-[10px] font-mono text-indigo-600 uppercase font-bold">What Modliqer Calculates</span>
                 <p className="text-xs text-slate-800 leading-relaxed font-medium">
                   {sixStages[activeStageIdx].modliqCalculates}
                 </p>
@@ -687,7 +688,7 @@ export default function ModliqPage() {
               Transparent methods, not black-box claims.
             </h2>
             <p className="text-base text-slate-600">
-              Modliq clearly separates predictive machine learning, deterministic quality calculations, and AI language assistance. Modliq calculates. AI explains. Engineers approve.
+              Modliqer clearly separates predictive machine learning, deterministic quality calculations, and AI language assistance. Modliqer calculates. AI explains. Engineers approve.
             </p>
           </div>
 
@@ -762,7 +763,7 @@ export default function ModliqPage() {
               Manufacturing-Specific ML vs Generic Tools
             </h2>
             <p className="text-base text-slate-600">
-              Generic AutoML tools can train models, but they don't understand manufacturing workflows like SPC, Cp/Cpk, OEE, supplier lots, trial SOPs, or Quality Passports. Modliq is no-code ML built specifically for factory process decisions.
+              Generic AutoML tools can train models, but they don't understand manufacturing workflows like SPC, Cp/Cpk, OEE, supplier lots, trial SOPs, or Quality Passports. Modliqer is no-code ML built specifically for factory process decisions.
             </p>
           </div>
 
@@ -774,7 +775,7 @@ export default function ModliqPage() {
                   <tr className="bg-slate-100 border-b border-slate-200 text-slate-800 text-xs font-mono uppercase">
                     <th className="p-4 sm:p-6 font-bold">Capability / Feature</th>
                     <th className="p-4 sm:p-6 font-bold text-slate-500">Generic AutoML</th>
-                    <th className="p-4 sm:p-6 font-bold text-indigo-600">Modliq Platform</th>
+                    <th className="p-4 sm:p-6 font-bold text-indigo-600">Modliqer Platform</th>
                     <th className="p-4 sm:p-6 font-bold text-slate-700">Why It Matters</th>
                   </tr>
                 </thead>
@@ -856,7 +857,7 @@ export default function ModliqPage() {
               FREQUENTLY ASKED QUESTIONS
             </span>
             <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900">
-              Everything you need to know about Modliq for industry and education.
+              Everything you need to know about Modliqer for industry and education.
             </h2>
           </div>
 
@@ -891,13 +892,13 @@ export default function ModliqPage() {
         <div className="max-w-3xl mx-auto px-6 md:px-12 text-center relative z-10 space-y-8">
           <FadeIn>
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-600">
-              GET STARTED WITH MODLIQ
+              GET STARTED WITH MODLIQER
             </span>
             <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 mt-2">
               Analyze data. Build models. Prove results — without code.
             </h2>
             <p className="text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
-              Whether you are a manufacturer, teacher, student, professor, or research scholar, Modliq helps you explore data and machine learning without code.
+              Whether you are a manufacturer, teacher, student, professor, or research scholar, Modliqer helps you explore data and machine learning without code.
             </p>
 
             <div className="max-w-md mx-auto pt-4">
@@ -926,7 +927,7 @@ export default function ModliqPage() {
             {/* Disclaimer */}
             <div className="p-6 bg-white border border-slate-200 rounded-2xl text-[11px] text-slate-600 leading-relaxed text-left mt-8 shadow-sm">
               <span className="font-bold text-slate-900 block mb-1">Platform & Decision Disclaimer:</span>
-              Modliq supports learning and decision-making, reduces technical friction, automates repetitive workflows, and keeps humans in control. It does not replace teachers, researchers, engineers, or data scientists. Manufacturing recommendations must be validated through controlled engineering review before production use. Education and research workflows assist with learning and exploratory analysis, but do not replace foundational learning of statistics and domain knowledge.
+              Modliqer supports learning and decision-making, reduces technical friction, automates repetitive workflows, and keeps humans in control. It does not replace teachers, researchers, engineers, or data scientists. Manufacturing recommendations must be validated through controlled engineering review before production use. Education and research workflows assist with learning and exploratory analysis, but do not replace foundational learning of statistics and domain knowledge.
             </div>
           </FadeIn>
         </div>
