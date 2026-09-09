@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from '@/src/routing';
 import { Button } from '@/components/Button';
 import { FadeIn } from '@/components/animations/FadeIn';
+import { Magnetic } from '@/components/motion/Magnetic';
 import { ClientLogos } from '@/components/ClientLogos';
 import { ProductHuntHeroBanner } from '@/components/ui/ProductHuntEmbeds';
 import { QeltravaIntelligenceVisual } from '@/components/ui/QeltravaIntelligenceVisual';
@@ -105,82 +106,97 @@ export default function HomePage() {
     <main className="min-h-screen bg-[#FFFFFF] text-[#0F172A] font-sans selection:bg-[#E3F2FD] selection:text-[#0D47A1]">
       
       {/* ─── 1. HERO SECTION (#FFFFFF) ────────────────────────────────────────── */}
-      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-[#FFFFFF] border-b border-[#E2E8F0]">
+      <section className="relative pt-8 pb-16 lg:pt-16 lg:pb-24 overflow-hidden bg-[#FFFFFF] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="max-w-4xl mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
-            {/* Product Hunt Announcement Pill */}
-            <FadeIn delay={0.02} amount={0}>
-              <div className="mb-6 inline-block">
-                <ProductHuntHeroBanner postSlug="modliqer" />
-              </div>
-            </FadeIn>
+            {/* Left Column (Content - 6 cols) */}
+            <div className="lg:col-span-6 flex flex-col justify-center">
+              {/* Product Hunt Announcement Pill */}
+              <FadeIn delay={0.02} amount={0}>
+                <div className="mb-5 inline-block">
+                  <ProductHuntHeroBanner postSlug="modliqer" />
+                </div>
+              </FadeIn>
 
-            {/* Eyebrow */}
-            <FadeIn delay={0.06} amount={0}>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E3F2FD] border border-[#90CAF9] text-[#0D47A1] text-xs font-mono font-bold uppercase tracking-widest mb-6">
-                <span>AI ENGINEERING · SOFTWARE · AUTOMATION</span>
-              </div>
-            </FadeIn>
+              {/* Eyebrow */}
+              <FadeIn delay={0.06} amount={0}>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E3F2FD] border border-[#90CAF9] text-[#0D47A1] text-xs font-mono font-bold uppercase tracking-widest mb-5 self-start">
+                  <span>AI ENGINEERING · INTELLIGENT SYSTEMS · INDUSTRIAL INTELLIGENCE</span>
+                </div>
+              </FadeIn>
 
-            {/* Main Headline with Editorial Serif Emphasis */}
-            <FadeIn delay={0.1} amount={0}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0F172A] tracking-tight leading-[1.08] mb-6 font-anek">
-                Engineering <span className="font-serif italic font-normal text-[#2196F3]">Intelligence</span> for Real-World Operations.
-              </h1>
-            </FadeIn>
+              {/* Main Headline with Editorial Serif Emphasis */}
+              <FadeIn delay={0.1} amount={0}>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F172A] tracking-tight leading-[1.08] mb-5 font-anek">
+                  Engineering <span className="font-serif italic font-normal text-[#2196F3]">Intelligence</span> for Real-World Operations.
+                </h1>
+              </FadeIn>
 
-            {/* Subheadline */}
-            <FadeIn delay={0.16} amount={0}>
-              <p className="text-lg sm:text-xl md:text-2xl text-[#475569] mb-8 leading-relaxed max-w-3xl font-normal font-anek">
-                From AI-powered automation to complete digital platforms, Qeltrava AI builds intelligent systems that understand your operations, work with your data, and create measurable business outcomes.
-              </p>
-            </FadeIn>
+              {/* Subheadline */}
+              <FadeIn delay={0.16} amount={0}>
+                <p className="text-base sm:text-lg text-[#475569] mb-7 leading-relaxed font-normal font-anek max-w-xl">
+                  From AI-powered automation to complete digital platforms, Qeltrava AI builds intelligent systems that understand your operations, work with your data, and create measurable business outcomes.
+                </p>
+              </FadeIn>
 
-            {/* Action Buttons */}
-            <FadeIn delay={0.22} amount={0}>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6">
-                <Button href="/book-consultation" variant="primary" className="text-base sm:text-lg px-8 py-4 bg-[#2196F3] hover:bg-[#1976D2] text-white shadow-xs font-semibold rounded-xl">
-                  Build With Qeltrava →
-                </Button>
-                <Button href="/tools" variant="outline" className="text-base sm:text-lg px-8 py-4 border-[#CBD5E1] text-[#0D47A1] hover:bg-[#E3F2FD] font-semibold rounded-xl">
-                  Try Builder Lab
-                </Button>
-              </div>
+              {/* Action Buttons */}
+              <FadeIn delay={0.22} amount={0}>
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-5">
+                  <Magnetic strength={6}>
+                    <Button href="/book-consultation" variant="primary" className="w-full sm:w-auto text-base px-7 py-3.5 bg-[#2196F3] hover:bg-[#1976D2] text-white shadow-xs font-semibold rounded-xl">
+                      Start a Project →
+                    </Button>
+                  </Magnetic>
+                  <Button href="/tools" variant="outline" className="text-base px-7 py-3.5 border-[#CBD5E1] text-[#0D47A1] hover:bg-[#E3F2FD] font-semibold rounded-xl">
+                    Explore Our Engineering →
+                  </Button>
+                </div>
 
-              <div className="flex items-center gap-2">
-                <Link 
-                  href="/contact" 
-                  className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[#0D47A1] hover:text-[#2196F3] hover:underline transition-all"
-                >
-                  <span>Not sure what you need? → Talk to an AI Engineer</span>
-                </Link>
-              </div>
-            </FadeIn>
+                <div className="flex items-center gap-2 mb-6">
+                  <Link 
+                    href="/contact" 
+                    className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[#0D47A1] hover:text-[#2196F3] hover:underline transition-all"
+                  >
+                    <span>Not sure what you need? → Talk to an AI Engineer</span>
+                  </Link>
+                </div>
+
+                {/* Engineering Accountability Banner */}
+                <div className="pt-4 border-t border-[#E2E8F0] flex items-center gap-3 text-xs font-mono font-semibold text-[#64748B]">
+                  <span className="text-[#0D47A1]">AI-Led</span>
+                  <span>·</span>
+                  <span className="text-[#0D47A1]">Human-Accountable</span>
+                  <span>·</span>
+                  <span className="text-[#0D47A1]">Outcome-Driven</span>
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* Right Column (Visual Canvas System - 6 cols) */}
+            <div className="lg:col-span-6 w-full">
+              <FadeIn delay={0.28} amount={0}>
+                <QeltravaIntelligenceVisual />
+              </FadeIn>
+            </div>
+
           </div>
-
-          {/* Signature Visual Canvas Component */}
-          <FadeIn delay={0.28} amount={0}>
-            <QeltravaIntelligenceVisual />
-          </FadeIn>
         </div>
       </section>
 
       {/* ─── 2. PROOF STRIP & LOCATION (#F8FAFC) ──────────────────────────────── */}
-      <section className="py-8 bg-[#F8FAFC] border-b border-[#E2E8F0] relative select-none">
+      <section className="py-7 bg-[#F8FAFC] border-b border-[#E2E8F0] relative select-none">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 text-xs font-mono font-semibold text-[#475569]">
             <span className="text-[#0D47A1]">AI ENGINEERING</span>
             <span className="text-[#CBD5E1]">·</span>
-            <span>AUTOMATION</span>
+            <span>INTELLIGENT AUTOMATION</span>
             <span className="text-[#CBD5E1]">·</span>
-            <span className="text-[#0D47A1]">PRODUCT DEVELOPMENT</span>
+            <span className="text-[#0D47A1]">PRODUCT ENGINEERING</span>
             <span className="text-[#CBD5E1]">·</span>
-            <span>DATA SYSTEMS</span>
+            <span>INDUSTRIAL INTELLIGENCE</span>
             <span className="text-[#CBD5E1]">·</span>
-            <span className="text-[#0D47A1]">CLOUD</span>
-            <span className="text-[#CBD5E1]">·</span>
-            <span>MANUFACTURING</span>
+            <span className="text-[#0D47A1]">MANUFACTURING SOFTWARE</span>
           </div>
 
           <div className="flex items-center gap-2 text-xs font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-full whitespace-nowrap font-bold">

@@ -368,17 +368,12 @@ export function ProductHuntHeroBanner({
       href={MODLIQER_PH_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#FF6154]/20 via-amber-500/15 to-[#FF6154]/20 border border-[#FF6154]/40 hover:border-[#FF6154] text-white transition-all duration-300 group shadow-lg shadow-[#FF6154]/10 cursor-pointer mb-6"
+      className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E3F2FD] border border-[#90CAF9] text-[#0D47A1] hover:border-[#2196F3] transition-all duration-300 group shadow-xs cursor-pointer text-xs font-mono font-semibold"
     >
-      <span className="w-5 h-5 rounded-full bg-[#FF6154] text-white flex items-center justify-center font-black text-[10px] shadow-sm group-hover:rotate-12 transition-transform">
+      <span className="w-4 h-4 rounded-full bg-[#2196F3] text-white flex items-center justify-center font-bold text-[9px]">
         P
       </span>
-      <span className="text-xs font-bold tracking-tight text-white/90 group-hover:text-white font-sans">
-        Modliqer is <span className="text-[#FF6154] font-extrabold underline decoration-[#FF6154]/50 underline-offset-2">LIVE on Product Hunt</span>!
-      </span>
-      <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded-full bg-[#FF6154]/30 text-orange-200 border border-[#FF6154]/30">
-        Support Launch →
-      </span>
+      <span>Modliq is live on Product Hunt →</span>
     </a>
   );
 }
