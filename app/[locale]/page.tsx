@@ -5,467 +5,654 @@ import { Link } from '@/src/routing';
 import { Button } from '@/components/Button';
 import { siteConfig } from '@/lib/site-config';
 import { FadeIn } from '@/components/animations/FadeIn';
-import { CountUpMetric } from '@/components/ui/CountUpMetric';
-import { MiniSparkline } from '@/components/ui/MiniSparkline';
-import { TerminalWindow } from '@/components/ui/TerminalWindow';
 import { ClientLogos } from '@/components/ClientLogos';
-import { RoiCalculator } from '@/components/ui/RoiCalculator';
-import { TechTicker } from '@/components/ui/TechTicker';
-import { IndustryShowcase } from '@/components/ui/IndustryShowcase';
-import { PartnerStrip } from '@/components/ui/PartnerStrip';
-import { AISolutionArchitect } from '@/components/ui/AISolutionArchitect';
-import { CapabilityMatrix } from '@/components/ui/CapabilityMatrix';
-import { TransformationStories } from '@/components/ui/TransformationStories';
-import { EngineeringWorkflow } from '@/components/ui/EngineeringWorkflow';
-import { LiveArchitectureVisualizer } from '@/components/ui/LiveArchitectureVisualizer';
-import { FeaturedProductModliq } from '@/components/ui/FeaturedProductModliq';
 import { ProductHuntHeroBanner } from '@/components/ui/ProductHuntEmbeds';
-import { FeaturedProductStaySeat } from '@/components/ui/FeaturedProductStaySeat';
-import { ManufacturingCallout } from '@/components/ui/ManufacturingCallout';
+import { QeltravaIntelligenceVisual } from '@/components/ui/QeltravaIntelligenceVisual';
+import { IndustrialDataFlow } from '@/components/ui/IndustrialDataFlow';
 import dynamic from 'next/dynamic';
+import { ArrowRight, Cpu, Zap, Layers, Factory, CheckCircle2, Shield, Sparkles, Server, ChevronRight } from 'lucide-react';
 
 const NetworkBackground = dynamic(() => import('@/components/backgrounds/NetworkBackground').then(mod => mod.NetworkBackground), { ssr: false });
 
 export default function HomePage() {
   const [activeStage, setActiveStage] = useState(0);
 
-  const stages = [
+  const differenceSteps = [
     {
       number: "01",
-      name: "Diagnose & Architect",
-      desc: "We map your current operational and technical landscape, identify where AI and modern architecture create measurable ROI, and produce a 90-day implementation roadmap. No code written until the problem is fully understood.",
-      deliverables: [
-        "Workflow analysis report",
-        "ROI hypothesis matrix",
-        "Architecture recommendation"
-      ],
-      timeline: "1–2 weeks"
+      title: "Understand the operation",
+      desc: "We map your workflows, data, constraints and business objectives before deciding what technology belongs in the solution. No code written until the problem is fully understood.",
+      deliverables: ["Workflow analysis report", "Data landscape map", "ROI hypothesis matrix"]
     },
     {
       number: "02",
-      name: "Build & Validate",
-      desc: "Engineering pods build in 2-week sprints — modular, tested, and documented from day one. Every sprint ends with a working demo, not a status update.",
-      deliverables: [
-        "Sprint-by-sprint working software",
-        "Automated test suite",
-        "Security review checklist"
-      ],
-      timeline: "4–16 weeks"
+      title: "Build the intelligence",
+      desc: "AI models, agents, automation, APIs, software platforms and data systems engineered around the actual business problem in 2-week validation cycles.",
+      deliverables: ["Modular software architecture", "AI Agent & RAG pipelines", "Automated test suites"]
     },
     {
       number: "03",
-      name: "Deploy",
-      desc: "Staged rollout (blue-green where applicable), infrastructure-as-code, runbook documentation, and a 30-day hypercare window with the build team.",
-      deliverables: [
-        "Production deployment",
-        "Runbook",
-        "Post-launch monitoring setup"
-      ],
-      timeline: "1–2 weeks"
-    },
-    {
-      number: "04",
-      name: "Optimize (Retainer)",
-      desc: "Dedicated pods for continuous iteration, model monitoring, cloud cost optimization, and security patching — month-to-month or annual contracts.",
-      deliverables: [
-        "Monthly health reports",
-        "Feature velocity",
-        "Proactive issue detection"
-      ],
-      timeline: "Ongoing"
+      title: "Measure the outcome",
+      desc: "We don't stop at deployment. Systems are monitored, evaluated and continuously improved around measurable business outcomes and operational throughput.",
+      deliverables: ["Post-launch telemetry", "Hypercare support", "Continuous model evaluation"]
     }
   ];
 
+  const pillars = [
+    {
+      title: "AI ENGINEERING",
+      subtitle: "AI systems that reason over your business data.",
+      icon: Cpu,
+      items: [
+        "AI Agents",
+        "LLM Applications",
+        "RAG Systems",
+        "Machine Learning",
+        "Computer Vision",
+        "AI Decision Systems"
+      ],
+      color: "border-[#2E75B6]/30 bg-gradient-to-b from-blue-950/20 to-slate-900/40"
+    },
+    {
+      title: "INTELLIGENT AUTOMATION",
+      subtitle: "Turn repetitive operations into intelligent workflows.",
+      icon: Zap,
+      items: [
+        "Workflow Automation",
+        "Document Intelligence",
+        "Process Automation",
+        "AI Assistants",
+        "Business Automation",
+        "API Integrations"
+      ],
+      color: "border-teal-500/30 bg-gradient-to-b from-teal-950/20 to-slate-900/40"
+    },
+    {
+      title: "PRODUCT ENGINEERING",
+      subtitle: "From idea to production software.",
+      icon: Layers,
+      items: [
+        "SaaS Platforms",
+        "Enterprise Applications",
+        "Internal Systems",
+        "Web Applications",
+        "Mobile Applications",
+        "Custom ERP / CRM"
+      ],
+      color: "border-indigo-500/30 bg-gradient-to-b from-indigo-950/20 to-slate-900/40"
+    },
+    {
+      title: "INDUSTRIAL INTELLIGENCE",
+      subtitle: "AI engineered for the physical world.",
+      icon: Factory,
+      items: [
+        "Manufacturing AI",
+        "Process Optimization",
+        "Quality Intelligence",
+        "Predictive Analytics",
+        "Production Systems",
+        "Industrial Data Platforms"
+      ],
+      color: "border-amber-500/30 bg-gradient-to-b from-amber-950/20 to-slate-900/40"
+    }
+  ];
+
+  const workflowStages = [
+    { number: "01", name: "Understand", desc: "Map current operational and technical landscape, constraints, and business goals." },
+    { number: "02", name: "Architect", desc: "Design AI pipelines, data models, security boundaries, and software architecture." },
+    { number: "03", name: "Build", desc: "Iterative 2-week engineering sprints ending in production-ready working software." },
+    { number: "04", name: "Validate", desc: "Automated test suites, security checks, and real-world data validation." },
+    { number: "05", name: "Deploy", desc: "Staged deployment, infrastructure-as-code, and 30-day hypercare support." },
+    { number: "06", name: "Improve", desc: "Continuous monitoring, latency tuning, and model accuracy optimization." }
+  ];
+
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#0A0F1A] text-slate-100 font-sans selection:bg-[#2E75B6] selection:text-white">
       
-      {/* Hero Section */}
-      <section className="relative pt-10 pb-20 lg:pt-16 lg:pb-28 overflow-hidden bg-primary-dark">
+      {/* ─── 1. HERO SECTION ────────────────────────────────────────── */}
+      <section className="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-[#0A0F1A] border-b border-slate-800/80">
         <NetworkBackground />
+        
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mb-12">
+            
+            {/* Product Hunt Announcement Pill */}
             <FadeIn delay={0.02} amount={0}>
-              <div className="mb-4 inline-block">
+              <div className="mb-6 inline-block">
                 <ProductHuntHeroBanner postSlug="modliqer" />
               </div>
             </FadeIn>
-            <FadeIn delay={0.08} amount={0}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
-                Qeltrava AI is a specialized <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-indigo-300">software &amp; AI engineering team.</span>
+
+            {/* Eyebrow */}
+            <FadeIn delay={0.06} amount={0}>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2E75B6]/10 border border-[#2E75B6]/30 text-[#2E75B6] text-xs font-mono font-bold uppercase tracking-widest mb-6">
+                <span>AI ENGINEERING · SOFTWARE · AUTOMATION</span>
+              </div>
+            </FadeIn>
+
+            {/* Main Headline */}
+            <FadeIn delay={0.1} amount={0}>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08] mb-6">
+                We Engineer <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-[#2E75B6]">Intelligence Into Your Business.</span>
               </h1>
             </FadeIn>
-            <FadeIn delay={0.14} amount={0}>
-              <p className="text-lg sm:text-xl md:text-2xl text-slate-300/90 mb-4 leading-relaxed max-w-3xl font-normal">
-                We partner with growing businesses to ship production-ready applications fast. Currently delivering active projects across AI, Web, and Mobile. We are proudly bootstrapped and building in the open.
+
+            {/* Subheadline */}
+            <FadeIn delay={0.16} amount={0}>
+              <p className="text-lg sm:text-xl md:text-2xl text-slate-300/90 mb-8 leading-relaxed max-w-3xl font-normal">
+                From AI-powered automation to complete digital platforms, Qeltrava AI builds intelligent systems that understand your operations, work with your data, and create measurable business outcomes.
               </p>
-              <div className="flex items-center gap-2.5 mb-10 text-sm font-semibold text-emerald-400/90">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                </span>
-                <span>Trusted by teams building eDrift, Thiranoli, and Tamizh Tech</span>
-              </div>
             </FadeIn>
-            <FadeIn delay={0.2} amount={0}>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <Button href="/book-consultation" variant="primary" className="text-base sm:text-lg px-8 py-4 shadow-lg shadow-blue-500/20">
-                  Book a Free Demo →
+
+            {/* Action Buttons */}
+            <FadeIn delay={0.22} amount={0}>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6">
+                <Button href="/book-consultation" variant="primary" className="text-base sm:text-lg px-8 py-4 bg-[#2E75B6] hover:bg-[#256096] text-white shadow-lg shadow-[#2E75B6]/20 font-bold rounded-xl">
+                  Build With Qeltrava →
                 </Button>
-                <Button href="/solutions" variant="outline" className="text-base sm:text-lg px-8 py-4 border-slate-700 text-slate-200 hover:bg-slate-800/60">
-                  View Solutions
+                <Button href="/case-studies" variant="outline" className="text-base sm:text-lg px-8 py-4 border-slate-700 text-slate-200 hover:bg-slate-800/80 font-bold rounded-xl">
+                  Explore Our Work
                 </Button>
               </div>
-              <div className="mt-6 flex justify-start">
+
+              <div className="flex items-center gap-2">
                 <Link 
-                  href="/quiz" 
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-accent)] hover:underline opacity-95 transition-opacity"
+                  href="/contact" 
+                  className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[#2E75B6] hover:underline transition-all"
                 >
-                  <span>Not sure where to start? → Take the 2-minute assessment</span>
+                  <span>Not sure what you need? → Talk to an AI Engineer</span>
                 </Link>
               </div>
             </FadeIn>
           </div>
+
+          {/* 2. Signature Visual Canvas Component */}
+          <FadeIn delay={0.28} amount={0}>
+            <QeltravaIntelligenceVisual />
+          </FadeIn>
         </div>
       </section>
 
-      {/* Security & Best Practices */}
-      <section className="py-8 bg-white border-b border-[var(--color-border-soft)]">
-        <FadeIn direction="up">
-          <div className="text-center mb-8 max-w-3xl mx-auto px-6">
-            <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-4">Security & Best Practices</h2>
-            <p className="text-base text-[var(--color-text-main)] leading-relaxed">
-              We build with standard security practices and modern architecture from day one. As our client base grows, we are actively laying the groundwork for formal SOC 2 and ISO 27001 compliance.
-            </p>
+      {/* ─── 3. PROOF STRIP & LOCATION ──────────────────────────────── */}
+      <section className="py-8 bg-slate-950 border-b border-slate-800/80 relative select-none">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 text-xs font-mono font-semibold text-slate-400">
+            <span className="text-white">AI ENGINEERING</span>
+            <span className="text-slate-600">·</span>
+            <span>AUTOMATION</span>
+            <span className="text-slate-600">·</span>
+            <span className="text-white">PRODUCT DEVELOPMENT</span>
+            <span className="text-slate-600">·</span>
+            <span>DATA SYSTEMS</span>
+            <span className="text-slate-600">·</span>
+            <span className="text-white">CLOUD</span>
+            <span className="text-slate-600">·</span>
+            <span>MANUFACTURING</span>
           </div>
-        </FadeIn>
-      </section>
 
-      {/* Tech Stack Ticker */}
-      <TechTicker />
-
-      {/* Core Capabilities Band */}
-      <section className="py-12 bg-white border-b border-[var(--color-border-soft)] relative overflow-hidden">
-        <div 
-          className="absolute inset-0 pointer-events-none" 
-          style={{ 
-            backgroundImage: 'linear-gradient(to right, rgba(99, 102, 241, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(99, 102, 241, 0.03) 1px, transparent 1px)',
-            backgroundSize: '24px 24px',
-            opacity: 0.8
-          }} 
-        />
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-[var(--color-border-soft)]">
-            <FadeIn delay={0.1}>
-              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-4">Core Capability</div>
-              <div className="text-xl md:text-2xl font-bold text-[var(--color-primary-dark)] flex items-center justify-center px-4">
-                Rapid MVPs in Weeks, Not Months
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-4">Core Capability</div>
-              <div className="text-xl md:text-2xl font-bold text-[var(--color-primary-dark)] flex items-center justify-center px-4">
-                Custom AI Integrations
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-4">Core Capability</div>
-              <div className="text-xl md:text-2xl font-bold text-[var(--color-primary-dark)] flex items-center justify-center px-4">
-                Full-Stack Web & Mobile Apps
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.4}>
-              <div className="text-sm font-semibold text-[var(--color-primary-dark)] uppercase tracking-wider mb-4">Core Capability</div>
-              <div className="text-xl md:text-2xl font-bold text-[var(--color-primary-dark)] flex items-center justify-center px-4">
-                Transparent, Milestone-Based Delivery
-              </div>
-            </FadeIn>
+          <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-full whitespace-nowrap">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>Built from Coimbatore · Working globally</span>
           </div>
-        </div>
-      </section>
-
-      {/* Client Logos Section */}
-      <ClientLogos />
-
-      {/* ── AI Solution Architect ───────────────────────────── */}
-      <section className="py-24 bg-white border-b border-[var(--color-border-soft)] relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 10% 50%, rgba(99,102,241,0.04) 0%, transparent 50%), radial-gradient(circle at 90% 20%, rgba(16,185,129,0.04) 0%, transparent 40%)' }} />
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <FadeIn direction="up">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 rounded-full text-[var(--color-accent)] text-xs font-bold font-mono uppercase tracking-wider mb-4">
-                ⚡ Interactive Tool · New
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)] mb-4">
-                Design Your AI Solution
-              </h2>
-              <p className="text-lg text-[var(--color-text-main)] max-w-2xl mx-auto leading-relaxed">
-                Select the components your product needs. Your architecture diagram, tech stack, team, and cost estimate generate instantly.
-              </p>
-            </div>
-          </FadeIn>
-          <FadeIn direction="up">
-            <AISolutionArchitect />
-          </FadeIn>
-          <div className="text-center mt-8">
-            <Link href="/ai-solution-architect" className="text-sm font-semibold text-[var(--color-accent)] hover:underline">
-              Open full-screen architect →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Featured Product (Modliqer) ───────────────────────── */}
-      <section className="py-24 bg-[var(--color-bg-light)] border-b border-[var(--color-border-soft)] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <FadeIn direction="up">
-            <FeaturedProductModliq />
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ── Featured Product (StaySeat) ─────────────────────── */}
-      <section className="py-24 bg-white border-b border-[var(--color-border-soft)] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <FadeIn direction="up">
-            <FeaturedProductStaySeat />
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Trust / Brand Promise */}
-      <section className="py-20 bg-primary-dark text-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
-          <FadeIn direction="up">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-6">We turn business complexity into intelligent software systems.</h2>
-            <p className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
-              We are not a generic web development agency. We are an AI-first engineering partner.
-              We build secure, scalable platforms that automate operations, modernize legacy architectures, and create measurable ROI.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Services Hub Link Section */}
-      <section className="py-24 bg-[var(--color-bg-light)] border-b border-[var(--color-border-soft)] relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(circle at center, var(--color-text-main) 1px, transparent 1px)', backgroundSize: '24px 24px', opacity: 0.02 }} aria-hidden="true" />
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center">
-          <FadeIn direction="up">
-            <Link 
-              href="/services" 
-              className="inline-flex items-center gap-4 text-2xl md:text-3xl font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-accent)] transition-colors group"
-            >
-              <span>Six engineering practices. One delivery system.</span>
-              <span className="transform group-hover:translate-x-2 transition-transform">→</span>
-            </Link>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ── Engineering Capability Matrix ────────────────────── */}
-      <section className="py-24 bg-[var(--color-bg-light)] border-t border-[var(--color-border-soft)]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block font-mono">
-              Engineering Excellence
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">
-              Our Engineering Capability Matrix
-            </h2>
-            <p className="text-lg text-[var(--color-text-main)] mt-4 leading-relaxed">
-              28 technologies. 8 domains. Hover any row to see how we apply each capability in production.
-            </p>
-          </div>
-          <FadeIn direction="up">
-            <CapabilityMatrix />
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Industry Showcase — Tabbed per vertical */}
-      <IndustryShowcase />
-
-      <ManufacturingCallout />
-
-      {/* Partner / Recognition Strip */}
-      <PartnerStrip />
-
-      {/* Delivery OS / Process */}
-      <section className="py-24 bg-primary-dark text-white" data-theme="dark">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center">
-          <h2 className="text-4xl font-bold mb-4">Qeltrava Delivery OS</h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Our systematic, human-accountable delivery model designed for engineering success.
-          </p>
         </div>
         
-        <div className="max-w-5xl mx-auto px-6">
-          {/* Interactive tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {stages.map((stage, idx) => (
-              <button
-                key={stage.number}
-                onClick={() => setActiveStage(idx)}
-                className={`px-5 py-3 rounded-full text-sm font-semibold border transition-all ${
-                  activeStage === idx
-                    ? 'bg-white text-[var(--color-primary-dark)] border-white shadow-lg'
-                    : 'bg-white/5 text-white/70 border-white/10 hover:bg-white/10'
-                }`}
-              >
-                {stage.number} {stage.name}
-              </button>
-            ))}
-          </div>
+        <div className="mt-6 border-t border-slate-900 pt-6">
+          <ClientLogos />
+        </div>
+      </section>
 
-          {/* Active Tab Panel */}
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl backdrop-blur-sm min-h-[300px] flex flex-col justify-between">
-            <div>
-              <div className="flex items-center gap-4 mb-4">
-                <span className="text-xs font-bold font-mono text-[var(--color-accent)] bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 px-3 py-1 rounded-full">
-                  Stage {stages[activeStage].number}
-                </span>
-                <span className="text-sm font-medium text-white/50">
-                  Timeline: {stages[activeStage].timeline}
-                </span>
+      {/* ─── 4. THE QELTRAVA DIFFERENCE ─────────────────────────────── */}
+      <section className="py-24 bg-[#0A0F1A] border-b border-slate-800/80 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn direction="up">
+            <div className="max-w-3xl mb-16">
+              <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#2E75B6] mb-3">
+                THE QELTRAVA DIFFERENCE
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                {stages[activeStage].name}
-              </h3>
-              <p className="text-lg text-white/80 leading-relaxed max-w-3xl mb-8">
-                {stages[activeStage].desc}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+                Software is easy to build. <br className="hidden sm:inline" />
+                <span className="text-slate-400">Systems that create value are not.</span>
+              </h2>
+              <p className="text-lg text-slate-300 font-normal">
+                We don't start with technology. We start with the problem.
               </p>
             </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {differenceSteps.map((step, idx) => (
+              <FadeIn key={step.number} delay={idx * 0.1} direction="up">
+                <div className="bg-slate-900/80 border border-slate-800 p-8 rounded-2xl h-full flex flex-col justify-between hover:border-[#2E75B6]/50 transition-all duration-300">
+                  <div>
+                    <div className="text-2xl font-mono font-extrabold text-[#2E75B6] mb-4">
+                      {step.number}
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-slate-300 leading-relaxed mb-6 font-sans">
+                      {step.desc}
+                    </p>
+                  </div>
+                  
+                  <div className="border-t border-slate-800 pt-4">
+                    <div className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-2">
+                      Key Deliverables
+                    </div>
+                    <ul className="space-y-1.5">
+                      {step.deliverables.map((item, dIdx) => (
+                        <li key={dIdx} className="flex items-center gap-2 text-xs text-slate-300 font-sans">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 5. CAPABILITIES (4 PILLARS) ────────────────────────────── */}
+      <section className="py-24 bg-slate-950 border-b border-slate-800/80 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn direction="up">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#2E75B6] mb-3">
+                ENGINEERING PILLARS
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                Four Pillars of Qeltrava Engineering
+              </h2>
+              <p className="text-base sm:text-lg text-slate-400 leading-relaxed">
+                Structured capabilities engineered around the exact operational needs of your business.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {pillars.map((pillar, idx) => {
+              const Icon = pillar.icon;
+              return (
+                <FadeIn key={pillar.title} delay={idx * 0.1} direction="up">
+                  <div className={`border p-8 rounded-2xl h-full flex flex-col justify-between ${pillar.color} transition-all duration-300 hover:border-white/20`}>
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="text-xs font-mono font-bold text-[#2E75B6] uppercase tracking-wider">
+                          PILLAR 0{idx + 1}
+                        </span>
+                        <Icon className="w-6 h-6 text-slate-300" />
+                      </div>
+                      
+                      <h3 className="text-2xl font-extrabold text-white mb-2 tracking-tight">
+                        {pillar.title}
+                      </h3>
+                      <p className="text-sm text-slate-300 leading-relaxed mb-6 font-medium">
+                        {pillar.subtitle}
+                      </p>
+
+                      <div className="grid grid-cols-2 gap-2.5 mb-6">
+                        {pillar.items.map((item, iIdx) => (
+                          <div key={iIdx} className="bg-slate-900/90 border border-slate-800/80 px-3 py-2 rounded-lg text-xs font-mono text-slate-200 flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#2E75B6]" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <Link 
+                      href="/solutions" 
+                      className="inline-flex items-center gap-2 text-xs font-bold text-[#2E75B6] hover:underline tracking-wider uppercase font-mono mt-2"
+                    >
+                      <span>Explore Pillar Capabilities</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </FadeIn>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 6. BUILT BY QELTRAVA (PROPRIETARY PRODUCTS) ─────────────── */}
+      <section className="py-24 bg-[#0A0F1A] border-b border-slate-800/80 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn direction="up">
+            <div className="max-w-3xl mb-16">
+              <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#2E75B6] mb-3">
+                BUILT BY QELTRAVA
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                We don't only build for clients. <br />
+                <span className="text-slate-400">We build systems of our own.</span>
+              </h2>
+              <p className="text-base text-slate-300">
+                Proprietary platforms engineered in-house to solve operational friction at scale.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             
-            <div className="border-t border-white/10 pt-6">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-white/70 mb-4">Key Deliverables</h4>
-              <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {stages[activeStage].deliverables.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-sm text-white/80 font-medium">
-                    <span className="text-[var(--color-accent)] text-lg leading-none">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+            {/* Product 1: MODLIQ */}
+            <div className="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col justify-between hover:border-[#FF6154]/50 transition-all duration-300">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-3 py-1 rounded-full bg-[#FF6154]/20 border border-[#FF6154]/40 text-[#FF6154] text-[10px] font-mono font-bold uppercase tracking-wider">
+                    FLAGSHIP PRODUCT · LIVE
+                  </span>
+                  <span className="text-xs font-mono text-slate-400">MODLIQER</span>
+                </div>
+
+                <h3 className="text-3xl font-extrabold text-white mb-2 tracking-tight">MODLIQ</h3>
+                <h4 className="text-base font-semibold text-orange-200 mb-4">AI Process Optimization Copilot</h4>
+                <p className="text-sm text-slate-300 leading-relaxed mb-6 font-sans">
+                  Turn process data into better operating decisions. Modular ML workflows designed for manufacturing analytics, quality intelligence, and throughput optimization.
+                </p>
+
+                {/* Data flow pipeline visual */}
+                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 text-[10px] font-mono text-slate-300 space-y-2 mb-6">
+                  <div className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1">DATA PROCESSING LOOP</div>
+                  <div className="flex flex-wrap items-center gap-2 text-white font-bold">
+                    <span className="px-2 py-1 bg-slate-800 rounded">DATA</span>
+                    <span className="text-slate-500">→</span>
+                    <span className="px-2 py-1 bg-slate-800 rounded">UNDERSTAND</span>
+                    <span className="text-slate-500">→</span>
+                    <span className="px-2 py-1 bg-slate-800 rounded">MODEL</span>
+                    <span className="text-slate-500">→</span>
+                    <span className="px-2 py-1 bg-slate-800 rounded">OPTIMIZE</span>
+                    <span className="text-slate-500">→</span>
+                    <span className="px-2 py-1 bg-orange-500/20 text-orange-300 rounded border border-orange-500/30">RECOMMEND</span>
+                    <span className="text-slate-500">→</span>
+                    <span className="px-2 py-1 bg-emerald-500/20 text-emerald-300 rounded border border-emerald-500/30">ACTION</span>
+                  </div>
+                </div>
+              </div>
+
+              <Link 
+                href="/products/modliq" 
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#FF6154] hover:underline font-mono"
+              >
+                <span>Explore Modliq →</span>
+              </Link>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ROI Calculator Section */}
-      <section className="py-24 bg-[var(--color-bg-light)] border-t border-[var(--color-border-soft)] relative overflow-hidden select-none">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16 text-center">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block">
-            ROI Projection
-          </span>
-          <h2 className="text-4xl font-bold text-[var(--color-primary-dark)]">
-            Estimate Your Process Automation Savings
-          </h2>
-          <p className="text-lg text-[var(--color-text-main)] max-w-2xl mx-auto mt-4 leading-relaxed">
-            See how much operational overhead can be recaptured by deploying intelligent software and automated task pipelines.
-          </p>
-        </div>
-        <div className="max-w-7xl mx-auto px-6">
-          <FadeIn direction="up">
-            <RoiCalculator />
-          </FadeIn>
-        </div>
-      </section>
+            {/* Product 2: STAYSEAT */}
+            <div className="lg:col-span-5 bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col justify-between hover:border-teal-500/50 transition-all duration-300">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-3 py-1 rounded-full bg-teal-500/20 border border-teal-500/40 text-teal-300 text-[10px] font-mono font-bold uppercase tracking-wider">
+                    PROPTECH PLATFORM
+                  </span>
+                  <span className="text-xs font-mono text-slate-400">STAYSEAT</span>
+                </div>
 
-      {/* ── Transformation Stories ───────────────────────────── */}
-      <section className="py-24 bg-white border-t border-[var(--color-border-soft)] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block font-mono">
-              Before / After
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">
-              Transformation Stories
-            </h2>
-            <p className="text-lg text-[var(--color-text-main)] mt-4 leading-relaxed">
-              Flip each card to see the exact before-and-after across three real engagements.
-            </p>
-          </div>
-          <FadeIn direction="up">
-            <TransformationStories />
-          </FadeIn>
-        </div>
-      </section>
+                <h3 className="text-3xl font-extrabold text-white mb-2 tracking-tight">STAYSEAT</h3>
+                <h4 className="text-base font-semibold text-teal-300 mb-4">Accommodation Intelligence</h4>
+                <p className="text-sm text-slate-300 leading-relaxed mb-6 font-sans">
+                  Discovery, availability and booking — reimagined for modern accommodation. Smart spatial allocation algorithms and verified property workflows.
+                </p>
 
-      {/* ── Engineering Workflow ─────────────────────────────── */}
-      <section className="py-24 bg-[var(--color-bg-light)] border-t border-[var(--color-border-soft)]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block font-mono">
-              How We Work
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">
-              Engineering Workflow
-            </h2>
-            <p className="text-lg text-[var(--color-text-main)] mt-4 leading-relaxed">
-              From discovery to hypercare — every step of our delivery process, fully transparent and documented.
-            </p>
-          </div>
-          <FadeIn direction="up">
-            <EngineeringWorkflow />
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ── Live Architecture Visualizer ─────────────────────── */}
-      <section className="py-24 bg-white border-t border-[var(--color-border-soft)]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block font-mono">
-              System Design
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">
-              Live Architecture Visualizer
-            </h2>
-            <p className="text-lg text-[var(--color-text-main)] mt-4 leading-relaxed">
-              Hover any node to explore our production-grade, AI-native reference architecture.
-            </p>
-          </div>
-          <FadeIn direction="up">
-            <LiveArchitectureVisualizer />
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ── Built to Production Standards from Day One ──────────────────────────── */}
-      <section className="py-24 bg-[var(--color-bg-light)] border-t border-[var(--color-border-soft)]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block font-mono">
-              Reliability
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">
-              Built to Production Standards from Day One
-            </h2>
-            <p className="text-lg text-[var(--color-text-main)] mt-4 leading-relaxed">
-              The architectural and operational standards we apply to every engagement.
-            </p>
-          </div>
-          <FadeIn direction="up">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white p-8 rounded-2xl border border-[var(--color-border-soft)] shadow-sm">
-                <h3 className="text-lg font-bold text-[var(--color-primary-dark)] mb-3">99.99% Uptime SLA</h3>
-                <p className="text-sm text-[var(--color-text-main)] leading-relaxed">Every production system we deliver is architected for high availability with automated failover, health checks, and incident response runbooks.</p>
+                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2 text-xs font-mono text-slate-400 mb-6">
+                  <div className="flex justify-between items-center text-white font-bold">
+                    <span>Spatial Allocation</span>
+                    <span className="text-teal-400">Optimized</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span>Booking Engine</span>
+                    <span>Real-time Sync</span>
+                  </div>
+                </div>
               </div>
-              <div className="bg-white p-8 rounded-2xl border border-[var(--color-border-soft)] shadow-sm">
-                <h3 className="text-lg font-bold text-[var(--color-primary-dark)] mb-3">Zero-Downtime Deployments</h3>
-                <p className="text-sm text-[var(--color-text-main)] leading-relaxed">Blue-green and canary deployment strategies mean our clients never experience maintenance windows. Rollback in under 60 seconds.</p>
+
+              <Link 
+                href="/products/stayseat" 
+                className="inline-flex items-center gap-2 text-sm font-bold text-teal-400 hover:underline font-mono"
+              >
+                <span>Explore StaySeat →</span>
+              </Link>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 7. REAL-WORLD ENGINEERING (PROOF / CASE STUDIES) ────────── */}
+      <section className="py-24 bg-slate-950 border-b border-slate-800/80 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn direction="up">
+            <div className="max-w-3xl mb-16">
+              <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#2E75B6] mb-3">
+                OPERATIONAL PROOF
               </div>
-              <div className="bg-white p-8 rounded-2xl border border-[var(--color-border-soft)] shadow-sm">
-                <h3 className="text-lg font-bold text-[var(--color-primary-dark)] mb-3">Sub-100ms API Response</h3>
-                <p className="text-sm text-[var(--color-text-main)] leading-relaxed">We design API layers with caching, connection pooling, and CDN edge delivery so performance is an architecture decision, not an afterthought.</p>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                Built for real operations.
+              </h2>
+              <p className="text-base sm:text-lg text-slate-400 leading-relaxed">
+                From EV infrastructure to education platforms and digital systems, we engineer software that operates beyond the demo.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Proof 1: eDrift */}
+            <FadeIn delay={0.1} direction="up">
+              <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl h-full flex flex-col justify-between hover:border-[#2E75B6]/50 transition-all duration-300">
+                <div>
+                  <div className="text-xs font-mono font-bold text-blue-400 uppercase tracking-wider mb-2">
+                    ELECTRIC MOBILITY
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2">eDrift Electric</h3>
+                  <h4 className="text-xs font-mono text-slate-400 mb-4">EV Intelligence & Digital Systems</h4>
+                  <p className="text-sm text-slate-300 leading-relaxed mb-6 font-sans">
+                    Engineering software systems for electric mobility operations, telemetry management, and charging network integration.
+                  </p>
+                </div>
+
+                <Link href="/case-studies" className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#2E75B6] hover:underline">
+                  <span>View Case Architecture</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
-              <div className="bg-white p-8 rounded-2xl border border-[var(--color-border-soft)] shadow-sm">
-                <h3 className="text-lg font-bold text-[var(--color-primary-dark)] mb-3">Automated Security Scanning</h3>
-                <p className="text-sm text-[var(--color-text-main)] leading-relaxed">Every codebase we ship runs Snyk dependency scanning, OWASP ZAP penetration tests, and secret detection in CI/CD before production.</p>
+            </FadeIn>
+
+            {/* Proof 2: ThiranOli */}
+            <FadeIn delay={0.2} direction="up">
+              <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl h-full flex flex-col justify-between hover:border-teal-500/50 transition-all duration-300">
+                <div>
+                  <div className="text-xs font-mono font-bold text-teal-400 uppercase tracking-wider mb-2">
+                    EDTECH PLATFORM
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2">ThiranOli</h3>
+                  <h4 className="text-xs font-mono text-slate-400 mb-4">Education Infrastructure</h4>
+                  <p className="text-sm text-slate-300 leading-relaxed mb-6 font-sans">
+                    Building connected digital infrastructure and scalable web platforms for regional education delivery and student tracking.
+                  </p>
+                </div>
+
+                <Link href="/case-studies" className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-teal-400 hover:underline">
+                  <span>View Case Architecture</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </FadeIn>
+
+            {/* Proof 3: Tamizh Tech */}
+            <FadeIn delay={0.3} direction="up">
+              <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl h-full flex flex-col justify-between hover:border-indigo-500/50 transition-all duration-300">
+                <div>
+                  <div className="text-xs font-mono font-bold text-indigo-400 uppercase tracking-wider mb-2">
+                    ROBOTICS & MEDIA
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2">Tamizh Tech</h3>
+                  <h4 className="text-xs font-mono text-slate-400 mb-4">Operational Systems</h4>
+                  <p className="text-sm text-slate-300 leading-relaxed mb-6 font-sans">
+                    Engineering content and operational systems for a leading robotics and technology media organization.
+                  </p>
+                </div>
+
+                <Link href="/case-studies" className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-indigo-400 hover:underline">
+                  <span>View Case Architecture</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </FadeIn>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 8. INDUSTRIAL INTELLIGENCE / MANUFACTURING ──────────────── */}
+      <section className="py-24 bg-[#0A0F1A] border-b border-slate-800/80 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn direction="up">
+            <div className="max-w-3xl mb-12">
+              <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#2E75B6] mb-3">
+                STRATEGIC FOCUS · INDUSTRIAL AI
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                The factory is becoming intelligent.
+              </h2>
+              <p className="text-lg text-slate-300 leading-relaxed mb-6 font-normal">
+                Every production line generates data — machine data, quality data, production data, maintenance data, operator data. The opportunity isn't collecting more data. <strong className="text-white">It's turning that data into better decisions.</strong>
+              </p>
+            </div>
+          </FadeIn>
+
+          {/* Interactive Industrial Pipeline Visual */}
+          <FadeIn delay={0.15} direction="up">
+            <div className="mb-8">
+              <IndustrialDataFlow />
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.25} direction="up">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+              <div>
+                <h4 className="text-base font-bold text-white">Qeltrava Industrial Intelligence Solutions</h4>
+                <p className="text-xs text-slate-400">Custom ML, OEE optimization, and sensor data pipelines for manufacturing leaders.</p>
+              </div>
+              <Button href="/industries/manufacturing" variant="primary" className="bg-[#2E75B6] hover:bg-[#256096] text-white px-6 py-3 text-xs font-bold font-mono rounded-xl">
+                Explore Manufacturing AI →
+              </Button>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ─── 9. PHILOSOPHY: AI-LED. HUMAN-ACCOUNTABLE. ──────────────── */}
+      <section className="py-24 bg-slate-950 border-b border-slate-800/80 relative overflow-hidden select-none">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn direction="up">
+            <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#2E75B6] mb-4">
+              BRAND PHILOSOPHY
+            </div>
+            
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-8 max-w-4xl">
+              AI-Led. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-teal-200 to-white">
+                Human-Accountable.
+              </span>
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start border-t border-slate-800 pt-8">
+              <div className="space-y-3 font-mono text-sm sm:text-base font-bold text-slate-300">
+                <div className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#2E75B6]" />
+                  <span>AI can generate.</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-teal-400" />
+                  <span>AI can predict.</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-indigo-400" />
+                  <span>AI can automate.</span>
+                </div>
+                <div className="flex items-center gap-3 text-white text-lg pt-2 border-t border-slate-800">
+                  <Shield className="w-5 h-5 text-emerald-400" />
+                  <span>But humans remain accountable.</span>
+                </div>
+              </div>
+
+              <div className="text-base text-slate-300 leading-relaxed font-sans space-y-4">
+                <p>
+                  Every intelligent system we build has explicit human oversight, measurable evaluation criteria, strict security boundaries, and clear operational ownership.
+                </p>
+                <p className="text-xs font-mono text-slate-400">
+                  // Quiet Confidence · Enterprise Precision · Radical Transparency
+                </p>
               </div>
             </div>
-            <p className="text-center text-xs text-[var(--color-text-main)] mt-8 italic">
-              These are the delivery standards we commit to in every SOW. Not aspirational metrics — contractual obligations.
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ─── 10. HOW WE WORK (METHODOLOGY) ─────────────────────────── */}
+      <section className="py-24 bg-[#0A0F1A] border-b border-slate-800/80 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn direction="up">
+            <div className="max-w-3xl mb-16">
+              <div className="text-xs font-mono font-bold uppercase tracking-widest text-[#2E75B6] mb-3">
+                ENGINEERING METHODOLOGY
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                How We Work
+              </h2>
+              <p className="text-base text-slate-400">
+                Six disciplined steps from operational diagnosis to continuous evaluation.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+            {workflowStages.map((stage, idx) => (
+              <FadeIn key={stage.number} delay={idx * 0.08} direction="up">
+                <div className="bg-slate-900 border border-slate-800 p-5 rounded-xl h-full flex flex-col justify-between hover:border-[#2E75B6]/50 transition-all">
+                  <div>
+                    <div className="text-xs font-mono font-bold text-[#2E75B6] mb-2">{stage.number}</div>
+                    <h4 className="text-sm font-bold text-white mb-2">{stage.name}</h4>
+                    <p className="text-[11px] text-slate-400 leading-normal font-sans">{stage.desc}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 11. FINAL HIGH-CONVERTING CTA ──────────────────────────── */}
+      <section className="py-24 bg-gradient-to-b from-[#0A0F1A] via-slate-950 to-[#0A0F1A] relative overflow-hidden text-center">
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
+          <FadeIn direction="up">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2E75B6]/10 border border-[#2E75B6]/30 text-[#2E75B6] text-xs font-mono font-bold uppercase tracking-widest mb-6">
+              <span>START YOUR SYSTEM</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+              YOUR NEXT SYSTEM SHOULD DO MORE THAN WORK. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-[#2E75B6]">
+                IT SHOULD THINK.
+              </span>
+            </h2>
+
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+              Ready to engineer intelligence into your business operations? Book a discovery call with a senior Qeltrava engineer.
             </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button href="/book-consultation" variant="primary" className="text-lg px-9 py-4 bg-[#2E75B6] hover:bg-[#256096] text-white shadow-xl shadow-[#2E75B6]/30 font-bold rounded-xl w-full sm:w-auto">
+                Talk to Qeltrava →
+              </Button>
+              <Button href="/solutions" variant="outline" className="text-lg px-8 py-4 border-slate-700 text-slate-200 hover:bg-slate-800/80 font-bold rounded-xl w-full sm:w-auto">
+                View Solutions
+              </Button>
+            </div>
           </FadeIn>
         </div>
       </section>
