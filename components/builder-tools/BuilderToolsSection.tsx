@@ -5,7 +5,7 @@ import { QeltravaBuildLab } from '../builder-lab/QeltravaBuildLab';
 import { AIReadinessAssessment } from '../ai-readiness/AIReadinessAssessment';
 import { MVPPlanner } from '../mvp-planner/MVPPlanner';
 import { ArchitectureBuilder } from '../architecture-builder/ArchitectureBuilder';
-import { Cpu, Zap, CheckCircle2, Layers, Network, Database } from 'lucide-react';
+import { Cpu, Zap, CheckCircle2, Layers } from 'lucide-react';
 
 export function BuilderToolsSection() {
   const [activeTab, setActiveTab] = useState<'build-lab' | 'ai-readiness' | 'mvp-planner' | 'architecture'>('build-lab');
@@ -19,8 +19,8 @@ export function BuilderToolsSection() {
 
   return (
     <div className="w-full space-y-8">
-      {/* Navigation Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-[#0B0F19] border border-slate-800 rounded-2xl max-w-4xl mx-auto">
+      {/* Navigation Tabs (Light Mode) */}
+      <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-[#F7F9FC] border border-[#E5E7EB] rounded-2xl max-w-4xl mx-auto shadow-sm">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -30,14 +30,14 @@ export function BuilderToolsSection() {
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2.5 px-5 py-3 rounded-xl font-mono text-xs font-bold transition-all cursor-pointer ${
                 isActive
-                  ? 'bg-gradient-to-r from-[#2E75B6] to-blue-600 text-white shadow-lg shadow-blue-900/30'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-900/60'
+                  ? 'bg-[#2E75B6] text-white shadow-md'
+                  : 'text-[#4B5563] hover:text-[#080B12] hover:bg-[#FFFFFF]'
               }`}
             >
               <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[#2E75B6]'}`} />
               <div className="text-left">
                 <div className="leading-none mb-0.5">{tab.name}</div>
-                <div className="text-[10px] font-sans font-normal opacity-75">{tab.desc}</div>
+                <div className="text-[10px] font-sans font-normal opacity-85">{tab.desc}</div>
               </div>
             </button>
           );

@@ -8,7 +8,7 @@ import { BuilderExport } from '../builder/BuilderExport';
 import { BuilderDisclaimer } from '../builder/BuilderDisclaimer';
 import { BuilderCTA } from '../builder/BuilderCTA';
 import { MVPClassifierResult } from '@/lib/builder-lab/mvp/mvp-classifier';
-import { ArrowRight, CheckCircle2, ShieldAlert, XCircle, Clock, Users } from 'lucide-react';
+import { ArrowRight, CheckCircle2, XCircle, Clock, Users } from 'lucide-react';
 
 export function MVPPlanner() {
   const [productIdea, setProductIdea] = useState('');
@@ -66,7 +66,7 @@ export function MVPPlanner() {
             <button
               type="submit"
               disabled={loading || !productIdea.trim() || !featuresText.trim()}
-              className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#2E75B6] to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-mono font-bold text-sm tracking-wide shadow-lg shadow-blue-900/30 flex items-center justify-center gap-2 disabled:opacity-50 transition-all cursor-pointer"
+              className="w-full py-3.5 px-6 rounded-xl bg-[#2E75B6] hover:bg-[#256096] text-white font-mono font-bold text-sm tracking-wide shadow-md flex items-center justify-center gap-2 disabled:opacity-50 transition-all cursor-pointer"
             >
               {loading ? 'Classifying Features...' : 'Classify MVP Scope'}
               <ArrowRight className="w-4 h-4" />
@@ -80,31 +80,31 @@ export function MVPPlanner() {
             <BuilderResult title="MVP Scope Classification Matrix">
               <div className="space-y-6">
                 {/* Meta stats */}
-                <div className="grid grid-cols-2 gap-3 p-3 bg-slate-900/80 rounded-xl border border-slate-800 text-xs">
-                  <div className="flex items-center gap-2 text-slate-300">
+                <div className="grid grid-cols-2 gap-3 p-3 bg-[#F7F9FC] rounded-xl border border-[#E5E7EB] text-xs">
+                  <div className="flex items-center gap-2 text-[#4B5563]">
                     <Clock className="w-4 h-4 text-[#2E75B6]" />
-                    <span>Timeline: <strong className="text-white">{result.recommendedTimeline}</strong></span>
+                    <span>Timeline: <strong className="text-[#080B12]">{result.recommendedTimeline}</strong></span>
                   </div>
-                  <div className="flex items-center gap-2 text-slate-300">
-                    <Users className="w-4 h-4 text-emerald-400" />
-                    <span>Team: <strong className="text-white">{result.estimatedTeamSize}</strong></span>
+                  <div className="flex items-center gap-2 text-[#4B5563]">
+                    <Users className="w-4 h-4 text-emerald-600" />
+                    <span>Team: <strong className="text-[#080B12]">{result.estimatedTeamSize}</strong></span>
                   </div>
                 </div>
 
                 {/* MVP Core Features */}
                 <div>
-                  <h5 className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-4 h-4" />
+                  <h5 className="text-xs font-mono font-bold text-emerald-700 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                     <span>MVP Core Scope (Must Build for V1)</span>
                   </h5>
                   <div className="space-y-2">
                     {result.mvpFeatures.map((item, idx) => (
-                      <div key={idx} className="p-3 rounded-lg bg-emerald-950/20 border border-emerald-900/40 flex items-start justify-between">
+                      <div key={idx} className="p-3 rounded-lg bg-emerald-50 border border-emerald-200 flex items-start justify-between">
                         <div>
-                          <span className="font-semibold text-white text-xs block">{item.feature}</span>
-                          <span className="text-[11px] text-slate-400">{item.reason}</span>
+                          <span className="font-semibold text-[#080B12] text-xs block">{item.feature}</span>
+                          <span className="text-[11px] text-[#4B5563]">{item.reason}</span>
                         </div>
-                        <span className="px-2 py-0.5 rounded bg-emerald-900/50 text-emerald-300 text-[10px] font-mono font-bold shrink-0">
+                        <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-mono font-bold shrink-0">
                           {item.priority}
                         </span>
                       </div>
@@ -114,15 +114,15 @@ export function MVPPlanner() {
 
                 {/* V2 Expansion */}
                 <div>
-                  <h5 className="text-xs font-mono font-bold text-blue-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                    <Clock className="w-4 h-4" />
+                  <h5 className="text-xs font-mono font-bold text-blue-700 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <Clock className="w-4 h-4 text-[#2E75B6]" />
                     <span>V2 Post-Launch Scope</span>
                   </h5>
                   <div className="space-y-2">
                     {result.v2Features.map((item, idx) => (
-                      <div key={idx} className="p-3 rounded-lg bg-slate-900 border border-slate-800">
-                        <span className="font-semibold text-white text-xs block">{item.feature}</span>
-                        <span className="text-[11px] text-slate-400">{item.reason}</span>
+                      <div key={idx} className="p-3 rounded-lg bg-blue-50 border border-blue-200">
+                        <span className="font-semibold text-[#080B12] text-xs block">{item.feature}</span>
+                        <span className="text-[11px] text-[#4B5563]">{item.reason}</span>
                       </div>
                     ))}
                   </div>
@@ -130,15 +130,15 @@ export function MVPPlanner() {
 
                 {/* Don't Build Yet */}
                 <div>
-                  <h5 className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                    <XCircle className="w-4 h-4" />
+                  <h5 className="text-xs font-mono font-bold text-amber-700 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <XCircle className="w-4 h-4 text-amber-600" />
                     <span>Don't Build Yet (Defer to Avoid Overhead)</span>
                   </h5>
                   <div className="space-y-2">
                     {result.dontBuildYet.map((item, idx) => (
-                      <div key={idx} className="p-3 rounded-lg bg-amber-950/10 border border-amber-900/30">
-                        <span className="font-semibold text-amber-200 text-xs block">{item.feature}</span>
-                        <span className="text-[11px] text-slate-400">{item.reason}</span>
+                      <div key={idx} className="p-3 rounded-lg bg-amber-50 border border-amber-200">
+                        <span className="font-semibold text-amber-900 text-xs block">{item.feature}</span>
+                        <span className="text-[11px] text-[#4B5563]">{item.reason}</span>
                       </div>
                     ))}
                   </div>
@@ -150,10 +150,10 @@ export function MVPPlanner() {
               </div>
             </BuilderResult>
           ) : (
-            <div className="h-full min-h-[300px] border border-dashed border-slate-800 rounded-xl p-8 flex flex-col items-center justify-center text-center">
-              <CheckCircle2 className="w-12 h-12 text-slate-700 mb-3" />
-              <h4 className="text-lg font-bold text-slate-400 mb-1">Your Scope Matrix Will Appear Here</h4>
-              <p className="text-xs text-slate-500 max-w-md">
+            <div className="h-full min-h-[300px] border border-dashed border-[#D1D5DB] rounded-xl p-8 flex flex-col items-center justify-center text-center bg-[#F7F9FC]">
+              <CheckCircle2 className="w-12 h-12 text-[#6B7280] mb-3" />
+              <h4 className="text-lg font-bold text-[#080B12] mb-1">Your Scope Matrix Will Appear Here</h4>
+              <p className="text-xs text-[#6B7280] max-w-md">
                 List your planned product features on the left to organize them into MVP, V2, and deferred categories automatically.
               </p>
             </div>

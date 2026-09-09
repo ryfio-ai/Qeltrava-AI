@@ -48,28 +48,28 @@ export function BuilderExport({ data, filename = "qeltrava-builder-report" }: Bu
   };
 
   return (
-    <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-slate-800">
+    <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#E5E7EB]">
       <button
         onClick={handleCopy}
-        className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-mono font-bold text-slate-300 flex items-center gap-1.5 transition-all cursor-pointer"
+        className="px-3 py-1.5 rounded-lg bg-[#F7F9FC] border border-[#E5E7EB] hover:border-[#D1D5DB] text-xs font-mono font-bold text-[#080B12] flex items-center gap-1.5 transition-all cursor-pointer shadow-sm"
       >
-        {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+        {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-[#2E75B6]" />}
         <span>{copied ? 'Copied!' : 'Copy Summary'}</span>
       </button>
 
       <button
         onClick={handleDownloadJSON}
-        className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-mono font-bold text-slate-300 flex items-center gap-1.5 transition-all cursor-pointer"
+        className="px-3 py-1.5 rounded-lg bg-[#F7F9FC] border border-[#E5E7EB] hover:border-[#D1D5DB] text-xs font-mono font-bold text-[#080B12] flex items-center gap-1.5 transition-all cursor-pointer shadow-sm"
       >
-        <Download className="w-3.5 h-3.5" />
+        <Download className="w-3.5 h-3.5 text-[#2E75B6]" />
         <span>JSON</span>
       </button>
 
       <button
         onClick={handleDownloadMarkdown}
-        className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-mono font-bold text-slate-300 flex items-center gap-1.5 transition-all cursor-pointer"
+        className="px-3 py-1.5 rounded-lg bg-[#F7F9FC] border border-[#E5E7EB] hover:border-[#D1D5DB] text-xs font-mono font-bold text-[#080B12] flex items-center gap-1.5 transition-all cursor-pointer shadow-sm"
       >
-        <FileText className="w-3.5 h-3.5" />
+        <FileText className="w-3.5 h-3.5 text-[#2E75B6]" />
         <span>Markdown</span>
       </button>
     </div>

@@ -9,7 +9,7 @@ import { BuilderExport } from '../builder/BuilderExport';
 import { BuilderDisclaimer } from '../builder/BuilderDisclaimer';
 import { BuilderCTA } from '../builder/BuilderCTA';
 import { BuildBlueprintResult } from '@/lib/builder-lab/blueprint/build-blueprint';
-import { ArrowRight, CheckCircle2, Cpu, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowRight, Cpu, Zap } from 'lucide-react';
 
 export function QeltravaBuildLab() {
   const [idea, setIdea] = useState('');
@@ -75,7 +75,7 @@ export function QeltravaBuildLab() {
             <button
               type="submit"
               disabled={loading || idea.trim().length < 5}
-              className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#2E75B6] to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-mono font-bold text-sm tracking-wide shadow-lg shadow-blue-900/30 flex items-center justify-center gap-2 disabled:opacity-50 transition-all cursor-pointer"
+              className="w-full py-3.5 px-6 rounded-xl bg-[#2E75B6] hover:bg-[#256096] text-white font-mono font-bold text-sm tracking-wide shadow-md flex items-center justify-center gap-2 disabled:opacity-50 transition-all cursor-pointer"
             >
               {loading ? 'Generating Blueprint...' : 'Generate Blueprint'}
               <ArrowRight className="w-4 h-4" />
@@ -89,12 +89,12 @@ export function QeltravaBuildLab() {
         <div className="lg:col-span-7">
           {result ? (
             <BuilderResult title="Technical Product Brief">
-              <div className="space-y-6 text-sm text-slate-300">
+              <div className="space-y-6 text-sm text-[#4B5563]">
                 {/* Problem & Users */}
                 <div>
                   <h5 className="text-xs font-mono font-bold text-[#2E75B6] uppercase tracking-wider mb-1">01. Problem & Target Users</h5>
-                  <p className="text-white font-medium mb-1">{result.problemDefinition}</p>
-                  <p className="text-xs text-slate-400">Target Users: {result.targetUsers}</p>
+                  <p className="text-[#080B12] font-medium mb-1">{result.problemDefinition}</p>
+                  <p className="text-xs text-[#6B7280]">Target Users: {result.targetUsers}</p>
                 </div>
 
                 {/* Core Workflow */}
@@ -102,13 +102,13 @@ export function QeltravaBuildLab() {
                   <h5 className="text-xs font-mono font-bold text-[#2E75B6] uppercase tracking-wider mb-2">02. Core Operational Workflow</h5>
                   <div className="space-y-2">
                     {result.coreWorkflow.map((item, idx) => (
-                      <div key={idx} className="p-3 rounded-lg bg-slate-900/80 border border-slate-800/80 flex items-start gap-3">
-                        <span className="w-5 h-5 rounded-full bg-[#2E75B6]/20 text-[#2E75B6] text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      <div key={idx} className="p-3 rounded-lg bg-[#F7F9FC] border border-[#E5E7EB] flex items-start gap-3">
+                        <span className="w-5 h-5 rounded-full bg-[#F3F6FA] text-[#2E75B6] border border-[#D1D5DB] text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
                           {idx + 1}
                         </span>
                         <div>
-                          <span className="font-semibold text-white block">{item.step}</span>
-                          <span className="text-xs text-slate-400">{item.detail}</span>
+                          <span className="font-semibold text-[#080B12] block">{item.step}</span>
+                          <span className="text-xs text-[#4B5563]">{item.detail}</span>
                         </div>
                       </div>
                     ))}
@@ -117,20 +117,29 @@ export function QeltravaBuildLab() {
 
                 {/* Architecture & AI Layer */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
-                    <div className="flex items-center gap-2 text-white font-bold mb-2">
+                  <div className="p-4 rounded-xl bg-[#F7F9FC] border border-[#E5E7EB]">
+                    <div className="flex items-center gap-2 text-[#080B12] font-bold mb-2">
                       <Cpu className="w-4 h-4 text-[#2E75B6]" />
                       <span>System Architecture</span>
                     </div>
-                    <p className="text-xs text-slate-300">{result.systemArchitecture}</p>
+                    <p className="text-xs text-[#4B5563]">{result.systemArchitecture}</p>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
-                    <div className="flex items-center gap-2 text-white font-bold mb-2">
-                      <Zap className="w-4 h-4 text-emerald-400" />
+                  <div className="p-4 rounded-xl bg-[#F7F9FC] border border-[#E5E7EB]">
+                    <div className="flex items-center gap-2 text-[#080B12] font-bold mb-2">
+                      <Zap className="w-4 h-4 text-emerald-600" />
                       <span>AI Model Strategy</span>
                     </div>
-                    <p className="text-xs text-slate-300">{result.aiLayer.modelCategory}</p>
+                    <p className="text-xs text-[#4B5563]">{result.aiLayer.modelCategory}</p>
+                  </div>
+                </div>
+
+                {/* AI Layer explicitly USE / DO NOT USE */}
+                <div className="p-4 rounded-xl bg-[#F7F9FC] border border-[#E5E7EB] space-y-2">
+                  <h5 className="text-xs font-mono font-bold text-[#2E75B6] uppercase tracking-wider">AI Boundary Recommendations</h5>
+                  <div className="text-xs space-y-1">
+                    <p className="text-emerald-700"><strong>USE AI:</strong> {result.aiLayer.usefulWhere.join(', ')}</p>
+                    <p className="text-[#6B7280]"><strong>DO NOT USE AI:</strong> {result.aiLayer.unnecessaryWhere.join(', ')}</p>
                   </div>
                 </div>
 
@@ -138,17 +147,17 @@ export function QeltravaBuildLab() {
                 <div>
                   <h5 className="text-xs font-mono font-bold text-[#2E75B6] uppercase tracking-wider mb-2">03. Execution Roadmap</h5>
                   <div className="space-y-2 text-xs">
-                    <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex justify-between">
-                      <span className="font-semibold text-white">Phase 1</span>
-                      <span className="text-slate-400">{result.roadmap.phase1}</span>
+                    <div className="p-2.5 rounded bg-[#F7F9FC] border border-[#E5E7EB] flex justify-between">
+                      <span className="font-semibold text-[#080B12]">Phase 1</span>
+                      <span className="text-[#4B5563]">{result.roadmap.phase1}</span>
                     </div>
-                    <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex justify-between">
-                      <span className="font-semibold text-white">Phase 2</span>
-                      <span className="text-slate-400">{result.roadmap.phase2}</span>
+                    <div className="p-2.5 rounded bg-[#F7F9FC] border border-[#E5E7EB] flex justify-between">
+                      <span className="font-semibold text-[#080B12]">Phase 2</span>
+                      <span className="text-[#4B5563]">{result.roadmap.phase2}</span>
                     </div>
-                    <div className="p-2.5 rounded bg-slate-900 border border-slate-800 flex justify-between">
-                      <span className="font-semibold text-white">Phase 3</span>
-                      <span className="text-slate-400">{result.roadmap.phase3}</span>
+                    <div className="p-2.5 rounded bg-[#F7F9FC] border border-[#E5E7EB] flex justify-between">
+                      <span className="font-semibold text-[#080B12]">Phase 3</span>
+                      <span className="text-[#4B5563]">{result.roadmap.phase3}</span>
                     </div>
                   </div>
                 </div>
@@ -159,10 +168,10 @@ export function QeltravaBuildLab() {
               </div>
             </BuilderResult>
           ) : (
-            <div className="h-full min-h-[300px] border border-dashed border-slate-800 rounded-xl p-8 flex flex-col items-center justify-center text-center">
-              <Cpu className="w-12 h-12 text-slate-700 mb-3" />
-              <h4 className="text-lg font-bold text-slate-400 mb-1">Your Blueprint Will Appear Here</h4>
-              <p className="text-xs text-slate-500 max-w-md">
+            <div className="h-full min-h-[300px] border border-dashed border-[#D1D5DB] rounded-xl p-8 flex flex-col items-center justify-center text-center bg-[#F7F9FC]">
+              <Cpu className="w-12 h-12 text-[#6B7280] mb-3" />
+              <h4 className="text-lg font-bold text-[#080B12] mb-1">Your Blueprint Will Appear Here</h4>
+              <p className="text-xs text-[#6B7280] max-w-md">
                 Enter your product idea on the left to generate an operational workflow, technical stack, AI model recommendation, and execution plan.
               </p>
             </div>

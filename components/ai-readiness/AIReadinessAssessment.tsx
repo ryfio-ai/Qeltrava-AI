@@ -9,7 +9,7 @@ import { BuilderExport } from '../builder/BuilderExport';
 import { BuilderDisclaimer } from '../builder/BuilderDisclaimer';
 import { BuilderCTA } from '../builder/BuilderCTA';
 import { AIReadinessResult } from '@/lib/builder-lab/scoring/ai-readiness';
-import { ArrowRight, CheckCircle2, ShieldAlert, Cpu } from 'lucide-react';
+import { ArrowRight, Cpu } from 'lucide-react';
 
 export function AIReadinessAssessment() {
   const [companyProduct, setCompanyProduct] = useState('');
@@ -65,13 +65,13 @@ export function AIReadinessAssessment() {
             />
 
             <div>
-              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300 mb-2">
+              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#080B12] mb-2">
                 Data Volume
               </label>
               <select
                 value={dataVolume}
                 onChange={(e) => setDataVolume(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-[#2E75B6]"
+                className="w-full bg-[#FFFFFF] border border-[#D1D5DB] rounded-xl px-4 py-3 text-sm text-[#080B12] focus:outline-none focus:border-[#2E75B6] shadow-sm"
               >
                 <option value="Low">Low (&lt; 1,000 records/mo)</option>
                 <option value="Medium">Medium (1,000 - 50,000 records/mo)</option>
@@ -80,13 +80,13 @@ export function AIReadinessAssessment() {
             </div>
 
             <div>
-              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300 mb-2">
+              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#080B12] mb-2">
                 Current Manual Overhead
               </label>
               <select
                 value={manualEffort}
                 onChange={(e) => setManualEffort(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-100 focus:outline-none focus:border-[#2E75B6]"
+                className="w-full bg-[#FFFFFF] border border-[#D1D5DB] rounded-xl px-4 py-3 text-sm text-[#080B12] focus:outline-none focus:border-[#2E75B6] shadow-sm"
               >
                 <option value="Low">Low (&lt; 5 hours/week)</option>
                 <option value="Medium">Medium (5 - 20 hours/week)</option>
@@ -97,7 +97,7 @@ export function AIReadinessAssessment() {
             <button
               type="submit"
               disabled={loading || !companyProduct.trim() || !processName.trim()}
-              className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#2E75B6] to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-mono font-bold text-sm tracking-wide shadow-lg shadow-blue-900/30 flex items-center justify-center gap-2 disabled:opacity-50 transition-all cursor-pointer"
+              className="w-full py-3.5 px-6 rounded-xl bg-[#2E75B6] hover:bg-[#256096] text-white font-mono font-bold text-sm tracking-wide shadow-md flex items-center justify-center gap-2 disabled:opacity-50 transition-all cursor-pointer"
             >
               {loading ? 'Evaluating Score...' : 'Calculate AI Readiness Score'}
               <ArrowRight className="w-4 h-4" />
@@ -117,37 +117,37 @@ export function AIReadinessAssessment() {
                 />
 
                 {/* Score Breakdown Bars */}
-                <div className="space-y-3 p-4 bg-slate-900/60 rounded-xl border border-slate-800">
+                <div className="space-y-3 p-4 bg-[#F7F9FC] rounded-xl border border-[#E5E7EB]">
                   <h5 className="text-xs font-mono font-bold text-[#2E75B6] uppercase tracking-wider">Scoring Breakdown</h5>
                   
                   <div className="space-y-2 text-xs">
                     <div>
-                      <div className="flex justify-between text-slate-300 mb-1">
+                      <div className="flex justify-between text-[#080B12] mb-1 font-semibold">
                         <span>Intelligent Automation Potential</span>
                         <span className="font-mono font-bold">{result.breakdown.automation}%</span>
                       </div>
-                      <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                        <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${result.breakdown.automation}%` }} />
+                      <div className="w-full h-2 bg-[#E5E7EB] rounded-full overflow-hidden">
+                        <div className="h-full bg-emerald-600 rounded-full" style={{ width: `${result.breakdown.automation}%` }} />
                       </div>
                     </div>
 
                     <div>
-                      <div className="flex justify-between text-slate-300 mb-1">
+                      <div className="flex justify-between text-[#080B12] mb-1 font-semibold">
                         <span>Predictive Intelligence Opportunity</span>
                         <span className="font-mono font-bold">{result.breakdown.prediction}%</span>
                       </div>
-                      <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                        <div className="h-full bg-blue-500 rounded-full" style={{ width: `${result.breakdown.prediction}%` }} />
+                      <div className="w-full h-2 bg-[#E5E7EB] rounded-full overflow-hidden">
+                        <div className="h-full bg-[#2E75B6] rounded-full" style={{ width: `${result.breakdown.prediction}%` }} />
                       </div>
                     </div>
 
                     <div>
-                      <div className="flex justify-between text-slate-300 mb-1">
+                      <div className="flex justify-between text-[#080B12] mb-1 font-semibold">
                         <span>Traditional Software Leverage (ACID Rules)</span>
                         <span className="font-mono font-bold">{result.breakdown.traditionalSoftware}%</span>
                       </div>
-                      <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                        <div className="h-full bg-amber-500 rounded-full" style={{ width: `${result.breakdown.traditionalSoftware}%` }} />
+                      <div className="w-full h-2 bg-[#E5E7EB] rounded-full overflow-hidden">
+                        <div className="h-full bg-amber-600 rounded-full" style={{ width: `${result.breakdown.traditionalSoftware}%` }} />
                       </div>
                     </div>
                   </div>
@@ -158,14 +158,14 @@ export function AIReadinessAssessment() {
                   <h5 className="text-xs font-mono font-bold text-[#2E75B6] uppercase tracking-wider">Engineering Recommendations</h5>
                   <div className="space-y-2">
                     {result.valueAreas.map((area, idx) => (
-                      <div key={idx} className="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+                      <div key={idx} className="p-3.5 rounded-xl bg-[#F7F9FC] border border-[#E5E7EB]">
                         <div className="flex items-center justify-between mb-1">
-                          <span className="font-bold text-white text-sm">{area.title}</span>
-                          <span className={`text-[10px] font-mono px-2 py-0.5 rounded font-bold ${area.type === 'AI' ? 'bg-blue-900/40 text-blue-400 border border-blue-800/50' : 'bg-emerald-900/40 text-emerald-400 border border-emerald-800/50'}`}>
+                          <span className="font-bold text-[#080B12] text-sm">{area.title}</span>
+                          <span className={`text-[10px] font-mono px-2 py-0.5 rounded font-bold ${area.type === 'AI' ? 'bg-blue-50 text-blue-700 border border-blue-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}`}>
                             {area.recommendation}
                           </span>
                         </div>
-                        <p className="text-xs text-slate-400">{area.rationale}</p>
+                        <p className="text-xs text-[#4B5563]">{area.rationale}</p>
                       </div>
                     ))}
                   </div>
@@ -177,10 +177,10 @@ export function AIReadinessAssessment() {
               </div>
             </BuilderResult>
           ) : (
-            <div className="h-full min-h-[300px] border border-dashed border-slate-800 rounded-xl p-8 flex flex-col items-center justify-center text-center">
-              <Cpu className="w-12 h-12 text-slate-700 mb-3" />
-              <h4 className="text-lg font-bold text-slate-400 mb-1">Your AI Scorecard Will Appear Here</h4>
-              <p className="text-xs text-slate-500 max-w-md">
+            <div className="h-full min-h-[300px] border border-dashed border-[#D1D5DB] rounded-xl p-8 flex flex-col items-center justify-center text-center bg-[#F7F9FC]">
+              <Cpu className="w-12 h-12 text-[#6B7280] mb-3" />
+              <h4 className="text-lg font-bold text-[#080B12] mb-1">Your AI Scorecard Will Appear Here</h4>
+              <p className="text-xs text-[#6B7280] max-w-md">
                 Enter your company and process parameters to compute your AI Opportunity Scorecard and engineering leverage breakdown.
               </p>
             </div>
