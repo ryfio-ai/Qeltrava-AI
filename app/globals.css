@@ -2,21 +2,30 @@
 @import "../styles/design-tokens.css";
 
 :root {
-  --primary: #1B2A4A;
-  --accent: #2B70AB;
-  --text: #1B2A4A;
+  --qeltrava-blue-50: #E3F2FD;
+  --qeltrava-blue-200: #90CAF9;
+  --qeltrava-blue-500: #2196F3;
+  --qeltrava-blue-900: #0D47A1;
+  --qeltrava-white: #FFFFFF;
+  --qeltrava-text: #0F172A;
+  --qeltrava-text-secondary: #475569;
+  --qeltrava-text-muted: #64748B;
+  --qeltrava-border: #E2E8F0;
+  --qeltrava-border-strong: #CBD5E1;
+  --qeltrava-surface: #FFFFFF;
+  --qeltrava-surface-soft: #F8FAFC;
+
+  --primary: #2196F3;
+  --accent: #2196F3;
+  --text: #0F172A;
   --bg-light: #F8FAFC;
   --bg-white: #FFFFFF;
   --success: #1FAA59;
 
-  --primary-dark: #1B2A4A;
-  --primary-soft: #243B68;
+  --primary-dark: #0D47A1;
+  --primary-soft: #1976D2;
   --border-soft: #E2E8F0;
-  --hero-safe-dark: #1B2A4A;
-}
-
-[data-theme="dark"] {
-  --accent: #2B70AB;
+  --hero-safe-dark: #0D47A1;
 }
 
 body.pt-20 {
@@ -24,65 +33,91 @@ body.pt-20 {
 }
 
 @theme {
-  --color-primary: #1B2A4A;
-  --color-accent: #2B70AB;
-  --color-text-main: #1B2A4A;
+  --color-qeltrava-blue-50: #E3F2FD;
+  --color-qeltrava-blue-200: #90CAF9;
+  --color-qeltrava-blue-500: #2196F3;
+  --color-qeltrava-blue-900: #0D47A1;
+  --color-qeltrava-white: #FFFFFF;
+  --color-qeltrava-text: #0F172A;
+  --color-qeltrava-text-secondary: #475569;
+  --color-qeltrava-text-muted: #64748B;
+  --color-qeltrava-border: #E2E8F0;
+  --color-qeltrava-border-strong: #CBD5E1;
+  --color-qeltrava-surface: #FFFFFF;
+  --color-qeltrava-surface-soft: #F8FAFC;
+
+  --color-primary: #2196F3;
+  --color-accent: #2196F3;
+  --color-text-main: #0F172A;
   --color-bg-light: #F8FAFC;
   --color-bg-white: #FFFFFF;
   --color-success: #1FAA59;
   
-  --color-primary-dark: #1B2A4A;
-  --color-primary-soft: #243B68;
+  --color-primary-dark: #0D47A1;
+  --color-primary-soft: #1976D2;
   --color-border-soft: #E2E8F0;
-  --color-hero-safe: #1B2A4A;
+  --color-hero-safe: #0D47A1;
 
-  --font-sans: var(--font-inter), 'Poppins', system-ui, sans-serif;
-  --font-display: var(--font-inter-tight), 'Poppins', system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), monospace;
+  --font-sans: "Anek Tamil", var(--font-anek-tamil), system-ui, sans-serif;
+  --font-display: "Anek Tamil", var(--font-anek-tamil), system-ui, sans-serif;
+  --font-serif: "Instrument Serif", var(--font-instrument-serif), Georgia, serif;
+  --font-mono: "JetBrains Mono", var(--font-jetbrains-mono), monospace;
 }
 
 body {
-  background: var(--color-bg-white);
-  color: var(--color-text-main);
+  background: var(--qeltrava-surface);
+  color: var(--qeltrava-text);
   font-family: var(--font-sans);
+  font-variation-settings: "wdth" 112.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   letter-spacing: -0.025em;
-  color: #1B2A4A;
+  color: #0D47A1;
 }
 
-.dark-section {
-  background: #1B2A4A;
-  color: #FFFFFF;
+.font-serif,
+.font-instrument {
+  font-family: var(--font-serif);
+}
+
+.font-anek,
+.font-sans {
+  font-family: var(--font-sans);
+  font-variation-settings: "wdth" 112.5;
 }
 
 .light-section {
   background: #FFFFFF;
-  color: #1B2A4A;
+  color: #0F172A;
 }
 
 .mist-section {
   background: #F8FAFC;
-  color: #1B2A4A;
+  color: #0F172A;
+}
+
+.blue-highlight-section {
+  background: #E3F2FD;
+  color: #0F172A;
 }
 
 .cta-button {
-  background: #2B70AB;
+  background: #2196F3;
   color: #FFFFFF;
   border-radius: 9999px;
-  font-weight: 700;
+  font-weight: 600;
   transition: all 0.2s ease-in-out;
 }
 
 .cta-button:hover {
-  background: #235b8c;
-  box-shadow: 0 10px 25px -5px rgba(43, 112, 171, 0.3);
+  background: #1976D2;
+  box-shadow: 0 10px 25px -5px rgba(33, 150, 243, 0.3);
 }
 
 .metric-number {
-  color: #2B70AB;
+  color: #2196F3;
 }
 
 /* ─── Tech & Social Proof Ticker ──────────────────────────────── */

@@ -48,28 +48,28 @@ export function BuilderExport({ data, filename = "qeltrava-builder-report" }: Bu
   };
 
   return (
-    <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#E5E7EB]">
+    <div className="flex flex-wrap items-center gap-2 pt-4 border-t border-[#E2E8F0]">
       <button
         onClick={handleCopy}
-        className="px-3 py-1.5 rounded-lg bg-[#F7F9FC] border border-[#E5E7EB] hover:border-[#D1D5DB] text-xs font-mono font-bold text-[#080B12] flex items-center gap-1.5 transition-all cursor-pointer shadow-sm"
+        className="px-3 py-1.5 rounded-lg bg-[#FFFFFF] border border-[#CBD5E1] hover:bg-[#E3F2FD] text-xs font-mono font-bold text-[#0D47A1] flex items-center gap-1.5 transition-all cursor-pointer shadow-xs"
       >
-        {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-[#2E75B6]" />}
+        {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-[#2196F3]" />}
         <span>{copied ? 'Copied!' : 'Copy Summary'}</span>
       </button>
 
       <button
         onClick={handleDownloadJSON}
-        className="px-3 py-1.5 rounded-lg bg-[#F7F9FC] border border-[#E5E7EB] hover:border-[#D1D5DB] text-xs font-mono font-bold text-[#080B12] flex items-center gap-1.5 transition-all cursor-pointer shadow-sm"
+        className="px-3 py-1.5 rounded-lg bg-[#FFFFFF] border border-[#CBD5E1] hover:bg-[#E3F2FD] text-xs font-mono font-bold text-[#0D47A1] flex items-center gap-1.5 transition-all cursor-pointer shadow-xs"
       >
-        <Download className="w-3.5 h-3.5 text-[#2E75B6]" />
+        <Download className="w-3.5 h-3.5 text-[#2196F3]" />
         <span>JSON</span>
       </button>
 
       <button
         onClick={handleDownloadMarkdown}
-        className="px-3 py-1.5 rounded-lg bg-[#F7F9FC] border border-[#E5E7EB] hover:border-[#D1D5DB] text-xs font-mono font-bold text-[#080B12] flex items-center gap-1.5 transition-all cursor-pointer shadow-sm"
+        className="px-3 py-1.5 rounded-lg bg-[#FFFFFF] border border-[#CBD5E1] hover:bg-[#E3F2FD] text-xs font-mono font-bold text-[#0D47A1] flex items-center gap-1.5 transition-all cursor-pointer shadow-xs"
       >
-        <FileText className="w-3.5 h-3.5 text-[#2E75B6]" />
+        <FileText className="w-3.5 h-3.5 text-[#2196F3]" />
         <span>Markdown</span>
       </button>
     </div>

@@ -34,11 +34,11 @@ export function BuilderInput({
   required = false
 }: BuilderInputProps) {
   const useTextArea = isTextArea || multiline;
-  const baseStyles = "w-full bg-[#FFFFFF] border border-[#D1D5DB] focus:border-[#2E75B6] rounded-xl px-4 py-3 text-sm text-[#080B12] placeholder-[#6B7280] focus:outline-none focus:ring-2 focus:ring-[#2E75B6]/20 transition-all font-sans disabled:opacity-50 shadow-sm";
+  const baseStyles = "w-full bg-[#FFFFFF] border border-[#CBD5E1] focus:border-[#2196F3] rounded-xl px-4 py-3 text-sm text-[#0F172A] placeholder-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#90CAF9]/40 transition-all font-sans disabled:opacity-50 shadow-xs";
 
   return (
     <div className="space-y-1.5 w-full">
-      <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#080B12]">
+      <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#0D47A1]">
         {label}
       </label>
       {useTextArea ? (
@@ -65,7 +65,7 @@ export function BuilderInput({
         />
       )}
       {helperText && (
-        <p className="text-[11px] text-[#6B7280] font-sans">{helperText}</p>
+        <p className="text-[11px] text-[#64748B] font-sans">{helperText}</p>
       )}
     </div>
   );

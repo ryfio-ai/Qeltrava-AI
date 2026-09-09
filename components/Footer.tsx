@@ -3,10 +3,8 @@
 import React, { useState } from 'react';
 import { Link } from '@/src/routing';
 import Image from 'next/image';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { siteConfig } from '@/lib/site-config';
 import { useTranslations } from 'next-intl';
-// Social icons (inline SVG — lucide-react version doesn't include brand icons)
+
 const LinkedInIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5" aria-hidden="true">
     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -38,29 +36,29 @@ export const Footer = () => {
   };
 
   return (
-    <footer data-theme="dark" className="bg-[var(--color-primary-dark)] text-white flex flex-col relative overflow-hidden select-none">
+    <footer className="bg-[#F8FAFC] border-t border-[#E2E8F0] text-[#475569] flex flex-col relative overflow-hidden select-none">
       
-      {/* ROW 1 — Top Footer (padding: 80px top/bottom) */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full pt-20 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-12">
+      {/* ROW 1 — Top Footer */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full pt-16 pb-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-10">
           
           {/* Logo & Tagline */}
           <div className="lg:col-span-2 flex flex-col justify-between h-full">
             <div>
-              <Link href="/" className="flex items-center gap-3 mb-6">
+              <Link href="/" className="flex items-center gap-3 mb-4">
                 <Image 
                   src="/logo-bg.png" 
                   alt="Qeltrava AI Logo" 
-                  width={40} 
-                  height={40} 
-                  className="w-10 h-10 object-contain brightness-0 invert" 
+                  width={36} 
+                  height={36} 
+                  className="w-9 h-9 object-contain" 
                 />
-                <span className="font-bold text-xl tracking-tight text-white">
+                <span className="font-bold text-xl tracking-tight text-[#0D47A1]">
                   Qeltrava AI
                 </span>
               </Link>
-              <p className="text-white/70 max-w-sm mb-8 leading-relaxed font-sans text-sm font-medium">
-                Engineering Intelligence. Delivering Outcomes.
+              <p className="text-[#475569] max-w-sm mb-6 leading-relaxed font-sans text-sm font-normal">
+                Engineering Intelligence for Real-World Operations.
               </p>
             </div>
             
@@ -70,7 +68,7 @@ export const Footer = () => {
                 href="https://www.linkedin.com/company/qeltravai/" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="text-white/60 hover:text-white transition-colors"
+                className="text-[#0D47A1] hover:text-[#2196F3] transition-colors"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon />
@@ -79,7 +77,7 @@ export const Footer = () => {
                 href="https://www.instagram.com/qeltravaai" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="text-white/60 hover:text-white transition-colors"
+                className="text-[#0D47A1] hover:text-[#2196F3] transition-colors"
                 aria-label="Instagram"
               >
                 <InstagramIcon />
@@ -88,7 +86,7 @@ export const Footer = () => {
                 href="https://github.com/QeltravaAI" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="text-white/60 hover:text-white transition-colors"
+                className="text-[#0D47A1] hover:text-[#2196F3] transition-colors"
                 aria-label="GitHub"
               >
                 <GitHubIcon />
@@ -98,34 +96,34 @@ export const Footer = () => {
 
           {/* Services Column */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-6 font-mono">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0D47A1] mb-4">
               Services
             </h3>
-            <ul className="space-y-4 text-[13px] text-white/70 font-sans font-semibold">
-              <li><Link href="/services/ai-automation" className="hover:text-white transition-colors">AI Automation</Link></li>
-              <li><Link href="/services/saas-development" className="hover:text-white transition-colors">SaaS Development</Link></li>
-              <li><Link href="/services/product-engineering" className="hover:text-white transition-colors">Product Engineering</Link></li>
-              <li><Link href="/services/cloud-devops" className="hover:text-white transition-colors">Cloud & DevOps</Link></li>
-              <li><Link href="/services/data-analytics" className="hover:text-white transition-colors">Data & Analytics</Link></li>
-              <li><Link href="/services/cybersecurity" className="hover:text-white transition-colors">Cybersecurity</Link></li>
+            <ul className="space-y-3 text-[13px] text-[#0D47A1] font-sans font-medium">
+              <li><Link href="/services/ai-automation" className="hover:text-[#2196F3] transition-colors">AI Automation</Link></li>
+              <li><Link href="/services/saas-development" className="hover:text-[#2196F3] transition-colors">SaaS Development</Link></li>
+              <li><Link href="/services/product-engineering" className="hover:text-[#2196F3] transition-colors">Product Engineering</Link></li>
+              <li><Link href="/services/cloud-devops" className="hover:text-[#2196F3] transition-colors">Cloud & DevOps</Link></li>
+              <li><Link href="/services/data-analytics" className="hover:text-[#2196F3] transition-colors">Data & Analytics</Link></li>
+              <li><Link href="/services/cybersecurity" className="hover:text-[#2196F3] transition-colors">Cybersecurity</Link></li>
             </ul>
           </div>
 
           {/* Products Column */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-6 font-mono">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0D47A1] mb-4">
               Products
             </h3>
-            <ul className="space-y-4 text-[13px] text-white/70 font-sans font-semibold">
-              <li><Link href="/products/modliq" className="hover:text-white transition-colors">Modliqer</Link></li>
+            <ul className="space-y-3 text-[13px] text-[#0D47A1] font-sans font-medium">
+              <li><Link href="/products/modliq" className="hover:text-[#2196F3] transition-colors">Modliqer</Link></li>
               <li>
                 <a
                   href="https://www.producthunt.com/products/modliqer?launch=modliqer"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#FF6154] hover:underline"
+                  className="inline-flex items-center gap-1.5 text-[12px] font-medium text-orange-700 hover:underline"
                 >
-                  <span className="w-3.5 h-3.5 rounded-full bg-[#FF6154] text-white flex items-center justify-center text-[8px] font-bold">P</span>
+                  <span className="w-3.5 h-3.5 rounded-full bg-orange-600 text-white flex items-center justify-center text-[8px] font-bold">P</span>
                   <span>Product Hunt Launch ↗</span>
                 </a>
               </li>
@@ -134,65 +132,65 @@ export const Footer = () => {
 
           {/* Industries Column */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-6 font-mono">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0D47A1] mb-4">
               Industries
             </h3>
-            <ul className="space-y-4 text-[13px] text-white/70 font-sans font-semibold">
-              <li><Link href="/industries/fintech" className="hover:text-white transition-colors">Fintech</Link></li>
-              <li><Link href="/industries/healthcare" className="hover:text-white transition-colors">Healthcare</Link></li>
-              <li><Link href="/industries/logistics" className="hover:text-white transition-colors">Logistics</Link></li>
-              <li><Link href="/industries/government" className="hover:text-white transition-colors">Government</Link></li>
-              <li><Link href="/industries/manufacturing" className="hover:text-white transition-colors">Manufacturing</Link></li>
-              <li><Link href="/industries/retail" className="hover:text-white transition-colors">Retail</Link></li>
-              <li><Link href="/industries/saas" className="hover:text-white transition-colors">SaaS & Tech</Link></li>
+            <ul className="space-y-3 text-[13px] text-[#0D47A1] font-sans font-medium">
+              <li><Link href="/industries/fintech" className="hover:text-[#2196F3] transition-colors">Fintech</Link></li>
+              <li><Link href="/industries/healthcare" className="hover:text-[#2196F3] transition-colors">Healthcare</Link></li>
+              <li><Link href="/industries/logistics" className="hover:text-[#2196F3] transition-colors">Logistics</Link></li>
+              <li><Link href="/industries/government" className="hover:text-[#2196F3] transition-colors">Government</Link></li>
+              <li><Link href="/industries/manufacturing" className="hover:text-[#2196F3] transition-colors">Manufacturing</Link></li>
+              <li><Link href="/industries/retail" className="hover:text-[#2196F3] transition-colors">Retail</Link></li>
+              <li><Link href="/industries/saas" className="hover:text-[#2196F3] transition-colors">SaaS & Tech</Link></li>
             </ul>
           </div>
 
           {/* Resources Column */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-6 font-mono">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0D47A1] mb-4">
               Resources
             </h3>
-            <ul className="space-y-4 text-[13px] text-white/70 font-sans font-semibold">
-              <li><Link href="/insights" className="hover:text-white transition-colors">Insights</Link></li>
-              <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
-              <li><Link href="/quiz" className="hover:text-white transition-colors">AI Quiz</Link></li>
-              <li><Link href="/roi-calculator" className="hover:text-white transition-colors">ROI Calculator</Link></li>
-              <li><Link href="/insights" className="hover:text-white transition-colors">White Papers</Link></li>
-              <li><Link href="/glossary" className="hover:text-white transition-colors">Glossary</Link></li>
+            <ul className="space-y-3 text-[13px] text-[#0D47A1] font-sans font-medium">
+              <li><Link href="/insights" className="hover:text-[#2196F3] transition-colors">Insights</Link></li>
+              <li><Link href="/case-studies" className="hover:text-[#2196F3] transition-colors">Case Studies</Link></li>
+              <li><Link href="/quiz" className="hover:text-[#2196F3] transition-colors">AI Quiz</Link></li>
+              <li><Link href="/roi-calculator" className="hover:text-[#2196F3] transition-colors">ROI Calculator</Link></li>
+              <li><Link href="/insights" className="hover:text-[#2196F3] transition-colors">White Papers</Link></li>
+              <li><Link href="/glossary" className="hover:text-[#2196F3] transition-colors">Glossary</Link></li>
             </ul>
           </div>
 
           {/* Company Column */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-6 font-mono">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[#0D47A1] mb-4">
               Company
             </h3>
-            <ul className="space-y-4 text-[13px] text-white/70 font-sans font-semibold">
-              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/team" className="hover:text-white transition-colors">Our Team</Link></li>
-              <li><Link href="/operating-model" className="hover:text-white transition-colors">Operating Model</Link></li>
-              <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
-              <li><Link href="/security" className="hover:text-white transition-colors">Security & Trust</Link></li>
-              <li><Link href="/press" className="hover:text-white transition-colors">Press & Media</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+            <ul className="space-y-3 text-[13px] text-[#0D47A1] font-sans font-medium">
+              <li><Link href="/about" className="hover:text-[#2196F3] transition-colors">About Us</Link></li>
+              <li><Link href="/team" className="hover:text-[#2196F3] transition-colors">Our Team</Link></li>
+              <li><Link href="/operating-model" className="hover:text-[#2196F3] transition-colors">Operating Model</Link></li>
+              <li><Link href="/careers" className="hover:text-[#2196F3] transition-colors">Careers</Link></li>
+              <li><Link href="/security" className="hover:text-[#2196F3] transition-colors">Security & Trust</Link></li>
+              <li><Link href="/press" className="hover:text-[#2196F3] transition-colors">Press & Media</Link></li>
+              <li><Link href="/contact" className="hover:text-[#2196F3] transition-colors">Contact</Link></li>
             </ul>
           </div>
 
         </div>
       </div>
 
-      {/* ROW 2 — Newsletter Strip (--primary-soft background, 1px top border) */}
-      <div className="border-t border-white/10 bg-[var(--color-primary-soft)]/20 py-10 w-full relative overflow-hidden">
+      {/* ROW 2 — Newsletter Strip */}
+      <div className="border-t border-[#E2E8F0] bg-[#E3F2FD] py-8 w-full relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
           <div className="max-w-md">
-            <h4 className="text-sm font-bold text-white mb-1">Subscribe to Qeltrava AI Insights</h4>
-            <p className="text-xs text-white/60">Monthly engineering research. No weekly noise.</p>
+            <h4 className="text-sm font-bold text-[#0D47A1] mb-1">Subscribe to Qeltrava AI Insights</h4>
+            <p className="text-xs text-[#475569]">Monthly engineering research & system architecture insights.</p>
           </div>
           
           <div className="w-full md:max-w-md">
             {subscribed ? (
-              <div className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 py-2.5 px-4 rounded-xl">
+              <div className="text-xs font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200 py-2.5 px-4 rounded-xl">
                 ✔ Thanks for subscribing! You will receive our next update.
               </div>
             ) : (
@@ -203,11 +201,11 @@ export const Footer = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
-                  className="flex-grow px-4 py-2.5 rounded-xl border border-white/10 text-xs bg-white/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent text-white placeholder-gray-400 font-medium"
+                  className="flex-grow px-4 py-2.5 rounded-xl border border-[#CBD5E1] text-xs bg-[#FFFFFF] focus:outline-none focus:ring-2 focus:ring-[#2196F3] text-[#0F172A] placeholder-[#64748B] font-medium"
                 />
                 <button 
                   type="submit" 
-                  className="bg-white hover:bg-gray-100 text-[var(--color-primary-dark)] font-bold text-xs py-2.5 px-6 rounded-xl transition-colors whitespace-nowrap cursor-pointer"
+                  className="bg-[#2196F3] hover:bg-[#1976D2] text-white font-bold text-xs py-2.5 px-6 rounded-xl transition-colors whitespace-nowrap cursor-pointer shadow-xs"
                 >
                   Subscribe →
                 </button>
@@ -217,32 +215,29 @@ export const Footer = () => {
         </div>
       </div>
 
-      {/* ROW 3 — Legal Bar (--primary-dark background, 48px height) */}
-      <div className="border-t border-white/10 bg-[var(--color-primary-dark)]/90 py-6 w-full text-xs text-white/50">
+      {/* ROW 3 — Legal Bar */}
+      <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] py-6 w-full text-xs text-[#64748B]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <address className="not-italic flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 leading-normal">
-            <span className="font-semibold text-white/70">© {new Date().getFullYear()} Qeltrava Technologies Private Limited</span>
-            <span className="hidden sm:inline text-white/20">|</span>
-            <span>Coimbatore, Tamil Nadu, India — 641 004 <span className="mx-2 opacity-30">•</span> CIN: [actual number once incorporated] <span className="mx-2 opacity-30">•</span> GST: [actual number once registered]</span>
+            <span className="font-semibold text-[#0F172A]">© {new Date().getFullYear()} Qeltrava Technologies Private Limited</span>
+            <span className="hidden sm:inline text-[#CBD5E1]">|</span>
+            <span>Coimbatore, Tamil Nadu, India — 641 004</span>
           </address>
           
           <div className="flex flex-wrap items-center gap-6">
-            <span className="text-[10px] uppercase tracking-wider text-white/40 hidden md:inline-block">
-              STPI: <span className="italic">Registration in Progress</span> <span className="mx-1">•</span> IEC: <span className="italic">Pending</span>
-            </span>
             <a 
               href="https://qeltravaai.vercel.app" 
-              className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full text-[10px] text-emerald-400 font-medium select-none hover:bg-emerald-500/20 transition-all"
+              className="flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full text-[10px] text-emerald-800 font-medium select-none hover:bg-emerald-100 transition-all"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
               All systems operational
             </a>
             
-            <div className="flex items-center gap-4 text-xs font-semibold">
-              <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-              <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
-              <Link href="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
-              <Link href="/security" className="hover:text-white transition-colors">Security</Link>
+            <div className="flex items-center gap-4 text-xs font-semibold text-[#0D47A1]">
+              <Link href="/privacy" className="hover:text-[#2196F3] transition-colors">Privacy</Link>
+              <Link href="/terms" className="hover:text-[#2196F3] transition-colors">Terms</Link>
+              <Link href="/cookie-policy" className="hover:text-[#2196F3] transition-colors">Cookie Policy</Link>
+              <Link href="/security" className="hover:text-[#2196F3] transition-colors">Security</Link>
             </div>
           </div>
         </div>

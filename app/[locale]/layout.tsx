@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Anek_Tamil, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import { siteConfig } from "@/lib/site-config";
 import { Header } from "@/components/Header";
@@ -17,15 +17,18 @@ import { SocialProofTicker } from '@/components/ui/SocialProofTicker';
 import { MobileStickyBar } from '@/components/ui/MobileStickyBar';
 import { Analytics } from "@vercel/analytics/next";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+const anekTamil = Anek_Tamil({
+  variable: "--font-anek-tamil",
+  subsets: ["latin", "tamil"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
   display: 'swap',
 });
 
-const interTight = Inter_Tight({
-  variable: "--font-inter-tight",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
   display: 'swap',
 });
 
@@ -112,7 +115,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir={dir}
-      className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${anekTamil.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>

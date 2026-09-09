@@ -313,7 +313,7 @@ export const Header = () => {
             height={40} 
             className="w-10 h-10 object-contain group-hover:scale-105 transition-transform" 
           />
-          <span className="text-xl font-black text-[#1B2A4A] tracking-tight whitespace-nowrap">Qeltrava AI</span>
+          <span className="text-xl font-bold text-[#0D47A1] tracking-tight whitespace-nowrap">Qeltrava AI</span>
         </Link>
 
         {/* Visually hidden links for SEO */}
@@ -334,15 +334,15 @@ export const Header = () => {
               >
                 <button
                   onClick={(e) => handleNavClick(item.id, e)}
-                  className={`text-xs xl:text-sm font-semibold transition-colors px-3 py-2 rounded-lg flex items-center gap-1 focus:outline-none hover:bg-slate-100/70 whitespace-nowrap ${
+                  className={`text-xs xl:text-sm font-medium transition-colors px-3 py-2 rounded-lg flex items-center gap-1 focus:outline-none hover:bg-[#F8FAFC] whitespace-nowrap ${
                     isMenuOpen || pathname.startsWith(`/${item.id}`)
-                      ? 'text-[#2B70AB] bg-slate-50' 
-                      : 'text-[#1B2A4A] hover:text-[#2B70AB]'
+                      ? 'text-[#0D47A1] bg-[#E3F2FD]/60' 
+                      : 'text-[#0F172A] hover:text-[#2196F3]'
                   }`}
                   aria-expanded={isMenuOpen}
                 >
                   <span>{item.label}</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isMenuOpen ? 'rotate-180 text-[#2B70AB]' : ''}`} />
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isMenuOpen ? 'rotate-180 text-[#2196F3]' : ''}`} />
                 </button>
               </div>
             );
@@ -355,13 +355,13 @@ export const Header = () => {
           
           <button 
             onClick={() => setIsSearchOpen(true)}
-            className="p-2 rounded-lg text-[#1B2A4A] hover:text-[#2B70AB] hover:bg-slate-100 transition-colors focus:outline-none"
+            className="p-2 rounded-lg text-[#0F172A] hover:text-[#2196F3] hover:bg-[#F8FAFC] transition-colors focus:outline-none"
             aria-label="Search site (Cmd+K)"
           >
             <Search size={18} />
           </button>
 
-          <Button href="/book-consultation" onClick={closeAllMenus} className="bg-[#2B70AB] hover:bg-[#235b8c] text-white rounded-full px-5 py-2.5 text-xs font-bold whitespace-nowrap shadow-sm">
+          <Button href="/book-consultation" onClick={closeAllMenus} className="bg-[#2196F3] hover:bg-[#1976D2] text-white rounded-full px-5 py-2.5 text-xs font-semibold whitespace-nowrap shadow-xs">
             {t('BookCall') || 'Book Call'}
           </Button>
         </div>

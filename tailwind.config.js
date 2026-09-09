@@ -119,9 +119,12 @@ module.exports = {
 
       // ── Typography ─────────────────────────────────────────────────────────
       fontFamily: {
-        sans:    'var(--font-family-sans)',
-        display: 'var(--font-family-display)',
-        mono:    'var(--font-family-mono)',
+        sans:       'var(--font-family-sans)',
+        display:    'var(--font-family-display)',
+        serif:      'var(--font-family-serif)',
+        instrument: 'var(--font-family-serif)',
+        anek:       'var(--font-family-sans)',
+        mono:       'var(--font-family-mono)',
       },
       fontSize: {
         xs:   ['var(--font-size-xs)',   { lineHeight: 'var(--line-height-snug)' }],
