@@ -1,5 +1,8 @@
 import { queryGroq } from './groq';
 import { queryOpenRouter } from './openrouter';
+import { queryGemini } from './gemini';
+import { queryAIMLAPI } from './aimlapi';
+import { queryCerebras } from './cerebras';
 import { z } from 'zod';
 
 export type TaskType = 
@@ -9,6 +12,8 @@ export type TaskType =
   | 'architecture' 
   | 'api-planner' 
   | 'database-planner';
+
+export type ProviderName = 'cerebras' | 'groq' | 'gemini' | 'aimlapi' | 'openrouter' | 'deterministic';
 
 export interface GenerateOptions<T> {
   task: TaskType;
@@ -21,7 +26,7 @@ export interface GenerateOptions<T> {
 export interface AIResponse<T> {
   success: boolean;
   data: T;
-  provider: 'groq' | 'openrouter' | 'deterministic';
+  provider: ProviderName;
   fallbackUsed: boolean;
   generatedAt: string;
 }
@@ -29,67 +34,41 @@ export interface AIResponse<T> {
 export async function generateStructuredAI<T>(options: GenerateOptions<T>): Promise<AIResponse<T>> {
   const { task, prompt, systemPrompt, schema, fallback } = options;
 
-  // Determine provider routing order
+  // Determine priority chain based on task type
   const isDeepReasoningTask = task === 'architecture';
-  const primaryProvider = isDeepReasoningTask ? 'openrouter' : 'groq';
-  const secondaryProvider = isDeepReasoningTask ? 'groq' : 'openrouter';
+  const providerChain: ProviderName[] = isDeepReasoningTask
+    ? ['openrouter', 'aimlapi', 'gemini', 'cerebras', 'groq']
+    : ['cerebras', 'groq', 'gemini', 'openrouter', 'aimlapi'];
 
-  // 1. Try Primary Provider
-  let rawJson = primaryProvider === 'groq' 
-    ? await queryGroq({ prompt, systemPrompt })
-    : await queryOpenRouter({ prompt, systemPrompt });
+  // Iterate through provider chain
+  for (let i = 0; i < providerChain.length; i++) {
+    const provider = providerChain[i];
+    const rawJson = await fetchFromProvider(provider, prompt, systemPrompt);
 
-  let parsed = parseAndValidate(rawJson, schema);
+    if (rawJson) {
+      let parsed = parseAndValidate(rawJson, schema);
 
-  if (parsed.success && parsed.data !== undefined) {
-    return {
-      success: true,
-      data: parsed.data,
-      provider: primaryProvider,
-      fallbackUsed: false,
-      generatedAt: new Date().toISOString()
-    };
-  }
+      // Retry once with schema correction if JSON was malformed
+      if (!parsed.success) {
+        const retryPrompt = `${prompt}\n\nIMPORTANT: Your previous output failed JSON schema validation. Return strictly valid JSON matching the schema.`;
+        const retryRaw = await fetchFromProvider(provider, retryPrompt, systemPrompt);
+        parsed = parseAndValidate(retryRaw, schema);
+      }
 
-  // Retry once if JSON was malformed
-  if (rawJson && !parsed.success) {
-    const retryPrompt = `${prompt}\n\nIMPORTANT: Your previous output failed schema validation. Return strictly valid JSON.`;
-    rawJson = primaryProvider === 'groq' 
-      ? await queryGroq({ prompt: retryPrompt, systemPrompt })
-      : await queryOpenRouter({ prompt: retryPrompt, systemPrompt });
-    
-    parsed = parseAndValidate(rawJson, schema);
-    if (parsed.success && parsed.data !== undefined) {
-      return {
-        success: true,
-        data: parsed.data,
-        provider: primaryProvider,
-        fallbackUsed: false,
-        generatedAt: new Date().toISOString()
-      };
+      if (parsed.success && parsed.data !== undefined) {
+        return {
+          success: true,
+          data: parsed.data,
+          provider,
+          fallbackUsed: i > 0,
+          generatedAt: new Date().toISOString()
+        };
+      }
     }
   }
 
-  // 2. Try Secondary Provider
-  console.warn(`Primary provider (${primaryProvider}) failed for task [${task}]. Falling back to ${secondaryProvider}...`);
-  rawJson = secondaryProvider === 'groq'
-    ? await queryGroq({ prompt, systemPrompt })
-    : await queryOpenRouter({ prompt, systemPrompt });
-
-  parsed = parseAndValidate(rawJson, schema);
-
-  if (parsed.success && parsed.data !== undefined) {
-    return {
-      success: true,
-      data: parsed.data,
-      provider: secondaryProvider,
-      fallbackUsed: true,
-      generatedAt: new Date().toISOString()
-    };
-  }
-
-  // 3. Final Deterministic Fallback Engine
-  console.warn(`Both AI providers failed for task [${task}]. Executing deterministic fallback engine...`);
+  // Final Deterministic Fallback Engine if all AI providers fail or are unavailable
+  console.warn(`All AI providers in chain failed for task [${task}]. Executing deterministic fallback engine...`);
   return {
     success: true,
     data: fallback(),
@@ -97,6 +76,24 @@ export async function generateStructuredAI<T>(options: GenerateOptions<T>): Prom
     fallbackUsed: true,
     generatedAt: new Date().toISOString()
   };
+}
+
+async function fetchFromProvider(provider: ProviderName, prompt: string, systemPrompt: string): Promise<string | null> {
+  const payload = { prompt, systemPrompt };
+  switch (provider) {
+    case 'cerebras':
+      return await queryCerebras(payload);
+    case 'groq':
+      return await queryGroq(payload);
+    case 'gemini':
+      return await queryGemini(payload);
+    case 'aimlapi':
+      return await queryAIMLAPI(payload);
+    case 'openrouter':
+      return await queryOpenRouter(payload);
+    default:
+      return null;
+  }
 }
 
 function parseAndValidate<T>(rawJson: string | null, schema: z.ZodSchema<T>): { success: boolean; data?: T } {
