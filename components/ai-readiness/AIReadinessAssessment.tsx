@@ -65,13 +65,13 @@ export function AIReadinessAssessment() {
             />
 
             <div>
-              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#080B12] mb-2">
+              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#0D47A1] mb-2">
                 Data Volume
               </label>
               <select
                 value={dataVolume}
                 onChange={(e) => setDataVolume(e.target.value)}
-                className="w-full bg-[#FFFFFF] border border-[#D1D5DB] rounded-xl px-4 py-3 text-sm text-[#080B12] focus:outline-none focus:border-[#2E75B6] shadow-sm"
+                className="w-full bg-[#FFFFFF] border border-[#CBD5E1] rounded-xl px-4 py-3 text-sm text-[#0F172A] focus:outline-none focus:border-[#2196F3] shadow-xs font-sans"
               >
                 <option value="Low">Low (&lt; 1,000 records/mo)</option>
                 <option value="Medium">Medium (1,000 - 50,000 records/mo)</option>
@@ -80,13 +80,13 @@ export function AIReadinessAssessment() {
             </div>
 
             <div>
-              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#080B12] mb-2">
+              <label className="block text-xs font-mono font-bold uppercase tracking-wider text-[#0D47A1] mb-2">
                 Current Manual Overhead
               </label>
               <select
                 value={manualEffort}
                 onChange={(e) => setManualEffort(e.target.value)}
-                className="w-full bg-[#FFFFFF] border border-[#D1D5DB] rounded-xl px-4 py-3 text-sm text-[#080B12] focus:outline-none focus:border-[#2E75B6] shadow-sm"
+                className="w-full bg-[#FFFFFF] border border-[#CBD5E1] rounded-xl px-4 py-3 text-sm text-[#0F172A] focus:outline-none focus:border-[#2196F3] shadow-xs font-sans"
               >
                 <option value="Low">Low (&lt; 5 hours/week)</option>
                 <option value="Medium">Medium (5 - 20 hours/week)</option>
@@ -97,7 +97,7 @@ export function AIReadinessAssessment() {
             <button
               type="submit"
               disabled={loading || !companyProduct.trim() || !processName.trim()}
-              className="w-full py-3.5 px-6 rounded-xl bg-[#2E75B6] hover:bg-[#256096] text-white font-mono font-bold text-sm tracking-wide shadow-md flex items-center justify-center gap-2 disabled:opacity-50 transition-all cursor-pointer"
+              className="w-full py-3.5 px-6 rounded-xl bg-[#2196F3] hover:bg-[#1976D2] text-white font-mono font-bold text-sm tracking-wide shadow-xs flex items-center justify-center gap-2 disabled:opacity-50 transition-all cursor-pointer"
             >
               {loading ? 'Evaluating Score...' : 'Calculate AI Readiness Score'}
               <ArrowRight className="w-4 h-4" />

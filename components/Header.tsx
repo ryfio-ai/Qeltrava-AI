@@ -7,6 +7,8 @@ import { Menu, X, Search, ChevronDown, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useGSAP } from '@gsap/react';
+import { gsap, prefersReducedMotion } from '@/lib/motion/gsap';
 import LocaleSwitcher from './LocaleSwitcher';
 import { SearchModal } from '@/components/ui/SearchModal';
 
@@ -44,12 +46,33 @@ export const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   
   const t = useTranslations('Header');
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
   
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Scroll listener for compact header state
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // GSAP Header entrance animation
+  useGSAP(() => {
+    if (!headerRef.current || prefersReducedMotion()) return;
+    gsap.fromTo(
+      headerRef.current,
+      { opacity: 0, y: -20 },
+      { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
+    );
+  }, { scope: headerRef });
 
   // Global Ctrl+K / Cmd+K listener
   useEffect(() => {
@@ -301,7 +324,7 @@ export const Header = () => {
   ];
 
   return (
-    <header className="w-full h-20 bg-white/95 backdrop-blur-md border-b border-slate-200 z-50 sticky top-0 shadow-xs select-none">
+    <header ref={headerRef} className={`w-full bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] z-50 sticky top-0 transition-all duration-300 select-none ${scrolled ? 'h-16 shadow-xs' : 'h-20'}`}>
       <div className="w-full max-w-7xl mx-auto h-full px-6 md:px-12 flex items-center justify-between gap-4">
           
         {/* Brand Logo (Left Aligned) */}

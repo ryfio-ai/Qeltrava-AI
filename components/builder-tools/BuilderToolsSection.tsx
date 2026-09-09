@@ -19,8 +19,8 @@ export function BuilderToolsSection() {
 
   return (
     <div className="w-full space-y-8">
-      {/* Navigation Tabs (Light Mode) */}
-      <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-[#F7F9FC] border border-[#E5E7EB] rounded-2xl max-w-4xl mx-auto shadow-sm">
+      {/* Navigation Tabs (Qeltrava Palette) */}
+      <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-[#FFFFFF] border border-[#90CAF9] rounded-2xl max-w-4xl mx-auto shadow-xs">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -30,14 +30,14 @@ export function BuilderToolsSection() {
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2.5 px-5 py-3 rounded-xl font-mono text-xs font-bold transition-all cursor-pointer ${
                 isActive
-                  ? 'bg-[#2E75B6] text-white shadow-md'
-                  : 'text-[#4B5563] hover:text-[#080B12] hover:bg-[#FFFFFF]'
+                  ? 'bg-[#2196F3] text-white shadow-xs'
+                  : 'text-[#475569] hover:text-[#0D47A1] hover:bg-[#E3F2FD]'
               }`}
             >
-              <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[#2E75B6]'}`} />
+              <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[#2196F3]'}`} />
               <div className="text-left">
-                <div className="leading-none mb-0.5">{tab.name}</div>
-                <div className="text-[10px] font-sans font-normal opacity-85">{tab.desc}</div>
+                <div className="leading-none mb-0.5 font-anek">{tab.name}</div>
+                <div className="text-[10px] font-sans font-normal opacity-90">{tab.desc}</div>
               </div>
             </button>
           );

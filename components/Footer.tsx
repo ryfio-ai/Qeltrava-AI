@@ -21,11 +21,35 @@ const InstagramIcon = () => (
   </svg>
 );
 
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap, prefersReducedMotion } from '@/lib/motion/gsap';
+
 export const Footer = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const t = useTranslations('Footer');
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const footerRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    if (!footerRef.current || prefersReducedMotion()) return;
+    gsap.fromTo(
+      footerRef.current,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top 90%",
+          toggleActions: "play none none none"
+        }
+      }
+    );
+  }, { scope: footerRef });
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,7 +60,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#F8FAFC] border-t border-[#E2E8F0] text-[#475569] flex flex-col relative overflow-hidden select-none">
+    <footer ref={footerRef} className="bg-[#F8FAFC] border-t border-[#E2E8F0] text-[#475569] flex flex-col relative overflow-hidden select-none">
       
       {/* ROW 1 — Top Footer */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full pt-16 pb-14">
