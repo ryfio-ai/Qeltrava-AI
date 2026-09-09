@@ -9,6 +9,7 @@ import { ClientLogos } from '@/components/ClientLogos';
 import { ProductHuntHeroBanner } from '@/components/ui/ProductHuntEmbeds';
 import { QeltravaIntelligenceVisual } from '@/components/ui/QeltravaIntelligenceVisual';
 import { IndustrialDataFlow } from '@/components/ui/IndustrialDataFlow';
+import { BuilderToolsSection } from '@/components/builder-tools/BuilderToolsSection';
 import dynamic from 'next/dynamic';
 import { ArrowRight, Cpu, Zap, Layers, Factory, CheckCircle2, Shield, Sparkles, Server, ChevronRight } from 'lucide-react';
 
@@ -150,8 +151,8 @@ export default function HomePage() {
                 <Button href="/book-consultation" variant="primary" className="text-base sm:text-lg px-8 py-4 bg-[#2E75B6] hover:bg-[#256096] text-white shadow-lg shadow-[#2E75B6]/20 font-bold rounded-xl">
                   Build With Qeltrava →
                 </Button>
-                <Button href="/case-studies" variant="outline" className="text-base sm:text-lg px-8 py-4 border-slate-700 text-slate-200 hover:bg-slate-800/80 font-bold rounded-xl">
-                  Explore Our Work
+                <Button href="/tools" variant="outline" className="text-base sm:text-lg px-8 py-4 border-slate-700 text-slate-200 hover:bg-slate-800/80 font-bold rounded-xl">
+                  Try Builder Lab
                 </Button>
               </div>
 
@@ -201,7 +202,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 4. THE QELTRAVA DIFFERENCE ─────────────────────────────── */}
+      {/* ─── 4. QELTRAVA BUILDER LAB (INTERACTIVE TOOLS) ────────────── */}
+      <section className="py-24 bg-[#050810] border-b border-slate-800/80 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
+          <FadeIn direction="up">
+            <div className="text-center max-w-3xl mx-auto space-y-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#2E75B6]/10 border border-[#2E75B6]/30 text-[#2E75B6] text-xs font-mono font-bold uppercase tracking-widest">
+                <span>QELTRAVA BUILDER LAB</span>
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                Build Smarter Before You Build Bigger.
+              </h2>
+              <p className="text-base sm:text-lg text-slate-400 font-sans">
+                Free engineering intelligence tools for founders, developers, and product teams. Evaluate AI opportunity, organize MVP scope, and generate technical briefs instantly.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.15} direction="up">
+            <BuilderToolsSection />
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ─── 5. THE QELTRAVA DIFFERENCE ─────────────────────────────── */}
       <section className="py-24 bg-[#0A0F1A] border-b border-slate-800/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <FadeIn direction="up">
@@ -255,7 +279,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 5. CAPABILITIES (4 PILLARS) ────────────────────────────── */}
+      {/* ─── 6. CAPABILITIES (4 PILLARS) ────────────────────────────── */}
       <section className="py-24 bg-slate-950 border-b border-slate-800/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <FadeIn direction="up">
@@ -318,7 +342,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 6. BUILT BY QELTRAVA (PROPRIETARY PRODUCTS) ─────────────── */}
+      {/* ─── 7. BUILT BY QELTRAVA (PROPRIETARY PRODUCTS) ─────────────── */}
       <section className="py-24 bg-[#0A0F1A] border-b border-slate-800/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <FadeIn direction="up">
@@ -421,7 +445,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 7. REAL-WORLD ENGINEERING (PROOF / CASE STUDIES) ────────── */}
+      {/* ─── 8. REAL-WORLD ENGINEERING (PROOF / CASE STUDIES) ────────── */}
       <section className="py-24 bg-slate-950 border-b border-slate-800/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <FadeIn direction="up">
@@ -507,7 +531,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 8. INDUSTRIAL INTELLIGENCE / MANUFACTURING ──────────────── */}
+      {/* ─── 9. INDUSTRIAL INTELLIGENCE / MANUFACTURING ──────────────── */}
       <section className="py-24 bg-[#0A0F1A] border-b border-slate-800/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <FadeIn direction="up">
@@ -545,7 +569,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 9. PHILOSOPHY: AI-LED. HUMAN-ACCOUNTABLE. ──────────────── */}
+      {/* ─── 10. PHILOSOPHY: AI-LED. HUMAN-ACCOUNTABLE. ──────────────── */}
       <section className="py-24 bg-slate-950 border-b border-slate-800/80 relative overflow-hidden select-none">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <FadeIn direction="up">
@@ -593,7 +617,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 10. HOW WE WORK (METHODOLOGY) ─────────────────────────── */}
+      {/* ─── 11. HOW WE WORK (METHODOLOGY) ─────────────────────────── */}
       <section className="py-24 bg-[#0A0F1A] border-b border-slate-800/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <FadeIn direction="up">
@@ -626,7 +650,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 11. FINAL HIGH-CONVERTING CTA ──────────────────────────── */}
+      {/* ─── 12. FINAL HIGH-CONVERTING CTA ──────────────────────────── */}
       <section className="py-24 bg-gradient-to-b from-[#0A0F1A] via-slate-950 to-[#0A0F1A] relative overflow-hidden text-center">
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <FadeIn direction="up">
