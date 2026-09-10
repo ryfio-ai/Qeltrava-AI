@@ -44,3 +44,5 @@ next-env.d.ts
 playwright-report/
 test-results/
 eslint-report.json
+AUDIT_REPORT.md
+
