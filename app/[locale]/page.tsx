@@ -10,70 +10,101 @@ import { ProductHuntHeroBanner } from '@/components/ui/ProductHuntEmbeds';
 import { QeltravaIntelligenceVisual } from '@/components/ui/QeltravaIntelligenceVisual';
 import { QeltravaManufacturingSignal } from '@/components/ui/QeltravaManufacturingSignal';
 import { BuilderToolsSection } from '@/components/builder-tools/BuilderToolsSection';
-import { ArrowRight, Cpu, Zap, Layers, Factory, CheckCircle2, Shield, Activity, Database } from 'lucide-react';
+import { ArrowRight, Cpu, Zap, Layers, Factory, CheckCircle2, Shield, Activity, Database, Wrench } from 'lucide-react';
 
 export default function HomePage() {
-  const capabilities = [
+  const coreSolutions = [
     {
       number: "01",
       idTag: "QELTRAVA / AI-01",
-      title: "AI ENGINEERING",
-      subtitle: "AI systems that reason over your business data.",
+      title: "AI SOLUTIONS",
+      subtitle: "Machine learning, computer vision, and decision models built for operational workflows.",
       icon: Cpu,
       items: [
-        "AI Agents & Autonomous Pipelines",
-        "LLM Applications & Domain Models",
-        "RAG Systems & Vector Search",
+        "Predictive Analytics & Forecasting",
         "Machine Learning Optimization",
-        "Computer Vision & Inspection",
-        "AI Decision Support Systems"
+        "Computer Vision & Quality Inspection",
+        "AI Copilots & Operational Assistants",
+        "Decision Intelligence Engines"
       ]
     },
     {
       number: "02",
-      idTag: "QELTRAVA / AUTO-02",
-      title: "INTELLIGENT AUTOMATION",
-      subtitle: "Turn repetitive operations into executable workflows.",
-      icon: Zap,
+      idTag: "QELTRAVA / MFG-02",
+      title: "MANUFACTURING INTELLIGENCE",
+      subtitle: "Turn machine sensor telemetry and production logs into process setpoints and capability math.",
+      icon: Factory,
       items: [
-        "Workflow Automation Engines",
-        "Document Intelligence & Parsing",
-        "Process Automation & Verification",
-        "AI Operational Assistants",
-        "Business Automation Systems",
-        "Enterprise API Integrations"
+        "Process Setpoint Optimization",
+        "Quality Intelligence & Cp/Cpk Math",
+        "Production Analytics & Bottleneck Parsing",
+        "Root-Cause Analysis & Defect Reduction",
+        "Predictive Maintenance & Health Scores"
       ]
     },
     {
       number: "03",
-      idTag: "QELTRAVA / PROD-03",
-      title: "PRODUCT ENGINEERING",
-      subtitle: "From idea to production software.",
-      icon: Layers,
+      idTag: "QELTRAVA / AUTO-03",
+      title: "INTELLIGENT AUTOMATION",
+      subtitle: "Automate complex, repetitive operational workflows with verified AI agents.",
+      icon: Zap,
       items: [
-        "SaaS Platforms & Web Applications",
-        "Enterprise Core Modernization",
-        "Internal Systems & Tooling",
-        "Mobile Applications",
-        "Custom ERP / CRM Infrastructure",
-        "Cloud Architecture & DevOps"
+        "Workflow Automation Engines",
+        "Autonomous AI Agents",
+        "Document Intelligence & Data Extraction",
+        "Industrial & Enterprise System Integration",
+        "Operational Action Automation"
       ]
     },
     {
       number: "04",
-      idTag: "QELTRAVA / IND-04",
-      title: "INDUSTRIAL INTELLIGENCE",
-      subtitle: "AI engineered for the physical world.",
-      icon: Factory,
+      idTag: "QELTRAVA / SOFT-04",
+      title: "DIGITAL MANUFACTURING SOFTWARE",
+      subtitle: "Custom digital platforms, internal tools, and SaaS engineered for industrial scale.",
+      icon: Layers,
       items: [
-        "Manufacturing AI & AutoML",
-        "Process Setpoint Optimization",
-        "Quality & SPC Math (Cp/Cpk)",
-        "Predictive Maintenance Systems",
-        "Factory Production Control",
-        "Industrial Data Platforms"
+        "Custom Software & Enterprise Platforms",
+        "Industrial SaaS & Operational Tooling",
+        "Production Data Systems & Storage",
+        "Legacy System Modernization",
+        "Custom Engineering Applications"
       ]
     }
+  ];
+
+  const howAiHelps = [
+    {
+      domain: "QUALITY",
+      verbs: "Detect → Understand → Improve",
+      desc: "Identify defects early, analyze root causes, and calculate deterministic Cp/Cpk capability math."
+    },
+    {
+      domain: "PROCESS",
+      verbs: "Analyze → Optimize → Validate",
+      desc: "Evaluate machine sensor parameters, discover optimal operating setpoints, and validate trial SOPs."
+    },
+    {
+      domain: "PRODUCTION",
+      verbs: "Monitor → Predict → Act",
+      desc: "Track line throughput, predict production bottlenecks, and automate operational scheduling."
+    },
+    {
+      domain: "MAINTENANCE",
+      verbs: "Detect → Predict → Prevent",
+      desc: "Monitor equipment vibration, temperature, and wear telemetry to prevent unplanned downtime."
+    },
+    {
+      domain: "OPERATIONS",
+      verbs: "Connect → Automate → Decide",
+      desc: "Link fragmented factory databases, automate document parsing, and give managers instant decision support."
+    }
+  ];
+
+  const caseStudies = [
+    { name: "Modliqer AI Platform", tag: "NO-CODE MANUFACTURING ML", desc: "No-code AutoML & quality capability platform engineered for factories, teachers, and researchers." },
+    { name: "eDrift Energy Intelligence", tag: "INDUSTRIAL ENERGY OPTIMIZATION", desc: "Real-time energy consumption telemetry & peak-load prediction engine for heavy industrial plants." },
+    { name: "Tamizh Tech Systems", tag: "AUTOMATED QUALITY INSPECTION", desc: "Computer vision quality inspection pipeline detecting surface micro-defects at production speed." },
+    { name: "ThiranOli Operations", tag: "WORKFLOW AUTOMATION", desc: "Intelligent document parsing and ERP integration pipeline automating supplier compliance records." }
   ];
 
   const workflowStages = [
@@ -88,16 +119,16 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#FFFFFF] text-[#0F172A] font-sans selection:bg-[#E3F2FD] selection:text-[#0D47A1]">
       
-      {/* ─── 1. HERO SECTION (#FFFFFF) ────────────────────────────────────────── */}
+      {/* ─── 01. HERO SECTION (#FFFFFF) ────────────────────────────────────────── */}
       <section className="relative pt-8 pb-16 lg:pt-16 lg:pb-24 overflow-hidden bg-[#FFFFFF] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
-            {/* Left Column (Content - 48% / 6 cols) */}
-            <div className="lg:col-span-6 flex flex-col justify-center">
-              {/* Product Hunt Announcement Pill */}
+            {/* Left Column (55% / 7 cols) */}
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              {/* Product Hunt Announcement Bar */}
               <FadeIn delay={0.02} amount={0}>
-                <div className="mb-5 inline-block">
+                <div className="mb-4 inline-block">
                   <ProductHuntHeroBanner postSlug="modliqer" />
                 </div>
               </FadeIn>
@@ -105,22 +136,21 @@ export default function HomePage() {
               {/* Eyebrow */}
               <FadeIn delay={0.06} amount={0}>
                 <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E3F2FD] border border-[#90CAF9] text-[#0D47A1] text-xs font-mono font-bold uppercase tracking-widest mb-5 self-start">
-                  <span>FROM INTELLIGENCE TO EXECUTION</span>
+                  <span>FROM AI TO INDUSTRIAL IMPACT</span>
                 </div>
               </FadeIn>
 
-              {/* Main Headline with Editorial Serif Emphasis */}
+              {/* Main Headline */}
               <FadeIn delay={0.1} amount={0}>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0F172A] tracking-tight leading-[1.08] mb-5 font-anek">
-                  Engineering <span className="font-serif italic font-normal text-[#2196F3]">Intelligence.</span> <br className="hidden sm:inline" />
-                  for Real-World Operations.
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-[#0F172A] tracking-tight leading-[1.06] mb-5 font-anek">
+                  Engineering <span className="font-serif italic font-normal text-[#2196F3]">AI</span> for Manufacturing.
                 </h1>
               </FadeIn>
 
-              {/* Concise Supporting Copy */}
+              {/* Direct Supporting Copy */}
               <FadeIn delay={0.16} amount={0}>
-                <p className="text-base sm:text-lg text-[#475569] mb-7 leading-relaxed font-normal font-anek max-w-xl">
-                  We engineer AI-powered software, automation and intelligent systems for real-world operations.
+                <p className="text-base sm:text-lg text-[#475569] mb-7 leading-relaxed font-normal font-anek max-w-2xl">
+                  We build intelligent software and AI solutions that help manufacturers improve quality, optimize processes, automate operations, and make better decisions.
                 </p>
               </FadeIn>
 
@@ -129,26 +159,28 @@ export default function HomePage() {
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-5">
                   <Magnetic strength={6}>
                     <Button href="/book-consultation" variant="primary" className="w-full sm:w-auto text-base px-7 py-3.5 bg-[#2196F3] hover:bg-[#1976D2] text-white shadow-xs font-semibold rounded-xl">
-                      Start a Project →
+                      Talk to an AI Engineer →
                     </Button>
                   </Magnetic>
-                  <Button href="/tools" variant="outline" className="text-base px-7 py-3.5 border-[#CBD5E1] text-[#0D47A1] hover:bg-[#E3F2FD] font-semibold rounded-xl">
-                    Explore Our Engineering →
+                  <Button href="/solutions" variant="outline" className="text-base px-7 py-3.5 border-[#CBD5E1] text-[#0D47A1] hover:bg-[#E3F2FD] font-semibold rounded-xl">
+                    Explore Manufacturing Solutions →
                   </Button>
                 </div>
 
                 <div className="flex items-center gap-2 mb-6">
                   <Link 
-                    href="/contact" 
+                    href="/solutions/ai-readiness" 
                     className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[#0D47A1] hover:text-[#2196F3] hover:underline transition-all"
                   >
-                    <span>Not sure what to build? → Talk to an AI Engineer</span>
+                    <span>Not sure where AI fits? → Start with our AI Readiness Assessment</span>
                   </Link>
                 </div>
 
-                {/* Engineering Accountability Banner */}
+                {/* Supporting Micro-Positioning Banner */}
                 <div className="pt-4 border-t border-[#E2E8F0] flex items-center gap-3 text-xs font-mono font-semibold text-[#64748B]">
                   <span className="text-[#0D47A1]">AI-Led</span>
+                  <span>·</span>
+                  <span className="text-[#0D47A1]">Manufacturing-Focused</span>
                   <span>·</span>
                   <span className="text-[#0D47A1]">Human-Accountable</span>
                   <span>·</span>
@@ -157,8 +189,8 @@ export default function HomePage() {
               </FadeIn>
             </div>
 
-            {/* Right Column (Qeltrava Intelligence Field Visual - 52% / 6 cols) */}
-            <div className="lg:col-span-6 w-full">
+            {/* Right Column (45% / 5 cols) - Single Manufacturing Visual */}
+            <div className="lg:col-span-5 w-full">
               <FadeIn delay={0.28} amount={0}>
                 <QeltravaIntelligenceVisual />
               </FadeIn>
@@ -168,19 +200,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 2. PROOF STRIP & LOCATION (#F8FAFC) ──────────────────────────────── */}
-      <section className="py-7 bg-[#F8FAFC] border-b border-[#E2E8F0] relative select-none">
+      {/* ─── BELOW HERO CAPABILITY STRIP (#F8FAFC) ──────────────────────────── */}
+      <section className="py-6 bg-[#F8FAFC] border-b border-[#E2E8F0] relative select-none">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 text-xs font-mono font-semibold text-[#475569]">
-            <span className="text-[#0D47A1]">AI ENGINEERING</span>
+            <span className="text-[#0D47A1]">AI SOLUTIONS</span>
             <span className="text-[#CBD5E1]">·</span>
-            <span>INTELLIGENT AUTOMATION</span>
+            <span>PROCESS OPTIMIZATION</span>
             <span className="text-[#CBD5E1]">·</span>
-            <span className="text-[#0D47A1]">PRODUCT ENGINEERING</span>
+            <span className="text-[#0D47A1]">QUALITY INTELLIGENCE</span>
             <span className="text-[#CBD5E1]">·</span>
-            <span>INDUSTRIAL INTELLIGENCE</span>
+            <span>PRODUCTION ANALYTICS</span>
             <span className="text-[#CBD5E1]">·</span>
-            <span className="text-[#0D47A1]">MANUFACTURING SOFTWARE</span>
+            <span className="text-[#0D47A1]">INTELLIGENT AUTOMATION</span>
           </div>
 
           <div className="flex items-center gap-2 text-xs font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-full whitespace-nowrap font-bold">
@@ -194,69 +226,75 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 3. EDITORIAL BRAND TRANSITION STATEMENT (#FFFFFF) ────────────────── */}
-      <section className="py-20 bg-[#FFFFFF] border-b border-[#E2E8F0] relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-6 md:px-12 text-center relative z-10 space-y-4">
+      {/* ─── 02. THE PROBLEM & EDITORIAL STATEMENT (#FFFFFF) ─────────────────── */}
+      <section className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0] relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6 md:px-12 text-center relative z-10 space-y-6">
           <FadeIn direction="up">
             <span className="text-xs font-mono font-bold text-[#0D47A1] uppercase tracking-widest">
-              QELTRAVA PHILOSOPHY
+              THE MANUFACTURING CHALLENGE
             </span>
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#0F172A] tracking-tight leading-tight font-anek mt-2">
-              Software can digitize a process. <br className="hidden sm:inline" />
-              <span className="font-serif italic font-normal text-[#2196F3]">Intelligence can change how the process works.</span>
+              Manufacturing already has the data. <br className="hidden sm:inline" />
+              <span className="font-serif italic font-normal text-[#2196F3]">The challenge is turning it into better decisions.</span>
             </h2>
-            <p className="text-base sm:text-lg text-[#475569] font-sans max-w-2xl mx-auto pt-4">
-              We don't add AI because it is fashionable. We engineer intelligence where it creates measurable operational throughput and real business value.
+            <p className="text-base sm:text-lg text-[#475569] font-sans max-w-3xl mx-auto pt-4">
+              Production data · Quality logs · Machine sensors · Process limits · Operational logs
+            </p>
+            <div className="inline-flex items-center gap-2 text-sm font-mono text-[#0D47A1] font-bold bg-[#E3F2FD] px-4 py-2 rounded-full border border-[#90CAF9] mt-2">
+              <span>Production Data → AI → Insight · Decision · Action</span>
+            </div>
+            <p className="text-xs font-mono font-semibold text-[#64748B] pt-4">
+              Engineering Intelligence for Real-World Operations.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* ─── 4. NUMBERED CAPABILITIES SYSTEM (#FFFFFF) ───────────────────────── */}
+      {/* ─── 03. CORE QELTRAVA OFFERINGS (4 SOLUTION AREAS) (#FFFFFF) ─────────── */}
       <section className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-16">
           <FadeIn direction="up">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#E2E8F0]">
               <div>
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D47A1]">
-                  SYSTEM CAPABILITIES
+                  CORE SOLUTIONS
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight font-anek mt-2">
-                  Four Pillars of Qeltrava Engineering
+                  Four Primary Areas of Manufacturing AI
                 </h2>
               </div>
               <p className="text-sm text-[#475569] max-w-md font-sans">
-                Structured capabilities engineered around the exact operational needs of your business.
+                We build software where software is enough, and apply AI where intelligence creates measurable operational value.
               </p>
             </div>
           </FadeIn>
 
           <div className="space-y-12">
-            {capabilities.map((cap, idx) => {
-              const Icon = cap.icon;
+            {coreSolutions.map((sol, idx) => {
+              const Icon = sol.icon;
               return (
-                <FadeIn key={cap.number} delay={idx * 0.08} direction="up">
+                <FadeIn key={sol.number} delay={idx * 0.08} direction="up">
                   <div className="bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#2196F3] p-8 md:p-10 rounded-2xl shadow-xs transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div className="lg:col-span-5 space-y-4">
                       <div className="flex items-center gap-3">
-                        <span className="text-2xl font-mono font-bold text-[#2196F3]">{cap.number}</span>
-                        <span className="text-xs font-mono font-bold text-[#64748B] uppercase tracking-wider">{cap.idTag}</span>
+                        <span className="text-2xl font-mono font-bold text-[#2196F3]">{sol.number}</span>
+                        <span className="text-xs font-mono font-bold text-[#64748B] uppercase tracking-wider">{sol.idTag}</span>
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-bold text-[#0D47A1] font-anek flex items-center gap-3">
                         <Icon className="w-6 h-6 text-[#2196F3]" />
-                        <span>{cap.title}</span>
+                        <span>{sol.title}</span>
                       </h3>
                       <p className="text-sm text-[#475569] leading-relaxed font-sans font-medium">
-                        {cap.subtitle}
+                        {sol.subtitle}
                       </p>
                     </div>
 
                     <div className="lg:col-span-7 bg-[#F8FAFC] border border-[#E2E8F0] p-6 rounded-xl">
                       <div className="text-[10px] font-mono font-bold text-[#64748B] uppercase tracking-wider mb-3">
-                        CORE DELIVERABLES & TECHNICAL SCOPE
+                        KEY CAPABILITIES & SCOPE
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-sans font-bold text-[#0F172A]">
-                        {cap.items.map((item, itemIdx) => (
+                        {sol.items.map((item, itemIdx) => (
                           <div key={itemIdx} className="flex items-center gap-2 bg-[#FFFFFF] p-3 rounded-lg border border-[#E2E8F0]">
                             <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                             <span>{item}</span>
@@ -272,180 +310,139 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 5. SIGNATURE INDUSTRIAL MANUFACTURING PIPELINE (#F8FAFC) ────────── */}
+      {/* ─── 04. HOW AI HELPS MANUFACTURING (#F8FAFC) ─────────────────────────── */}
       <section className="py-24 bg-[#F8FAFC] border-b border-[#E2E8F0] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
           <FadeIn direction="up">
             <div className="max-w-3xl space-y-4">
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D47A1]">
-                05 / INDUSTRIAL MANUFACTURING PIPELINE
+                DOMAIN IMPACT
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight font-anek">
-                From Machine Sensor Telemetry to Buyer-Ready Quality Passports.
+                Where AI Creates Measurable Value in Manufacturing
               </h2>
               <p className="text-base text-[#475569] font-sans">
-                Our signature industrial signal engine converts factory logs, machine sensor databases, and quality inspection records into optimization setpoints and statistical proof.
+                Clear operational workflows designed to eliminate plant friction and improve decision accuracy.
               </p>
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.12} direction="up">
-            <QeltravaManufacturingSignal />
-          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {howAiHelps.map((item, idx) => (
+              <FadeIn key={item.domain} delay={idx * 0.06} direction="up">
+                <div className="bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#2196F3] p-6 rounded-2xl shadow-xs h-full flex flex-col justify-between space-y-4">
+                  <div>
+                    <span className="text-xs font-mono font-bold text-[#2196F3] block mb-1">{item.domain}</span>
+                    <div className="text-[11px] font-mono font-bold text-[#0D47A1] mb-3">{item.verbs}</div>
+                    <p className="text-xs text-[#475569] leading-relaxed font-sans">{item.desc}</p>
+                  </div>
+                  <div className="pt-3 border-t border-[#E2E8F0] text-[9px] font-mono text-[#64748B] uppercase font-bold">
+                    DOMAIN IMPACT 0{idx + 1}
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ─── 6. QELTRAVA BUILDER LAB WORKSTATION (#E3F2FD) ───────────────────── */}
-      <section className="py-24 bg-[#E3F2FD] border-b border-[#90CAF9]/40 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
-          <FadeIn direction="up">
-            <div className="text-center max-w-3xl mx-auto space-y-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFFFFF] border border-[#90CAF9] text-[#0D47A1] text-xs font-mono font-bold uppercase tracking-widest shadow-xs">
-                <span>QELTRAVA BUILDER LAB WORKSTATION</span>
-              </div>
-              <h2 className="text-3xl sm:text-5xl font-bold text-[#0D47A1] tracking-tight font-anek">
-                Build <span className="font-serif italic font-normal text-[#2196F3]">Smarter</span> Before You Build Bigger.
-              </h2>
-              <p className="text-base sm:text-lg text-[#475569] font-sans">
-                Free engineering intelligence tools for founders, developers, and product teams. Evaluate AI readiness, plan MVP scope, and generate production architecture briefs.
-              </p>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.15} direction="up">
-            <BuilderToolsSection />
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ─── 7. PROPRIETARY PRODUCT SUITE (#FFFFFF) ─────────────────────────── */}
+      {/* ─── 05. FLAGSHIP PRODUCT: MODLIQER (#FFFFFF) ─────────────────────────── */}
       <section className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
           <FadeIn direction="up">
             <div className="max-w-3xl space-y-4">
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D47A1]">
-                PROPRIETARY PRODUCT SUITE
+                PROPRIETARY MANUFACTURING PRODUCT
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight font-anek">
-                We don't only build for clients. <br />
-                <span className="font-serif italic font-normal text-[#2196F3]">We build platforms of our own.</span>
+                Turn manufacturing data into <br className="hidden sm:inline" />
+                <span className="font-serif italic font-normal text-[#2196F3]">better engineering decisions.</span>
               </h2>
               <p className="text-base text-[#475569]">
-                In-house software engineered to eliminate operational friction at scale.
+                Modliqer is our no-code manufacturing intelligence and AutoML platform built specifically for plant engineers, quality managers, teachers, and researchers.
               </p>
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            {/* Product 1: MODLIQER */}
-            <div className="lg:col-span-7 bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl p-8 flex flex-col justify-between hover:border-[#2196F3] shadow-xs transition-all duration-300">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-800 text-[10px] font-mono font-bold uppercase tracking-wider">
-                    01 / FLAGSHIP PRODUCT · LIVE
-                  </span>
-                  <span className="text-xs font-mono text-[#64748B]">MODLIQER</span>
-                </div>
-
-                <h3 className="text-3xl font-bold text-[#0D47A1] mb-2 tracking-tight">MODLIQER</h3>
-                <h4 className="text-base font-semibold text-orange-800 mb-4">No-Code Manufacturing Intelligence & ML Platform</h4>
-                <p className="text-sm text-[#475569] leading-relaxed mb-6 font-sans">
-                  Turn process data into better operating decisions. Modular ML workflows designed for manufacturing analytics, quality intelligence, and throughput optimization.
-                </p>
-
-                {/* Data flow pipeline visual */}
-                <div className="bg-[#F8FAFC] p-4 rounded-xl border border-[#E2E8F0] text-[10px] font-mono text-[#0F172A] space-y-2 mb-6">
-                  <div className="text-[9px] font-bold text-[#64748B] uppercase tracking-widest mb-1">DATA PROCESSING LOOP</div>
-                  <div className="flex flex-wrap items-center gap-2 font-bold">
-                    <span className="px-2 py-1 bg-[#FFFFFF] border border-[#E2E8F0] rounded">DATA</span>
-                    <span className="text-[#94A3B8]">→</span>
-                    <span className="px-2 py-1 bg-[#FFFFFF] border border-[#E2E8F0] rounded">UNDERSTAND</span>
-                    <span className="text-[#94A3B8]">→</span>
-                    <span className="px-2 py-1 bg-[#FFFFFF] border border-[#E2E8F0] rounded">MODEL</span>
-                    <span className="text-[#94A3B8]">→</span>
-                    <span className="px-2 py-1 bg-[#FFFFFF] border border-[#E2E8F0] rounded">OPTIMIZE</span>
-                    <span className="text-[#94A3B8]">→</span>
-                    <span className="px-2 py-1 bg-orange-50 text-orange-800 rounded border border-orange-200">RECOMMEND</span>
-                    <span className="text-[#94A3B8]">→</span>
-                    <span className="px-2 py-1 bg-emerald-50 text-emerald-800 rounded border border-emerald-200">ACTION</span>
-                  </div>
-                </div>
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-8 md:p-10 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-3">
+                <span className="px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-800 text-[10px] font-mono font-bold uppercase tracking-wider">
+                  FLAGSHIP PRODUCT · LIVE
+                </span>
+                <span className="text-xs font-mono text-[#64748B]">MODLIQER</span>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <h3 className="text-3xl font-bold text-[#0D47A1] font-anek">MODLIQER</h3>
+              <p className="text-sm text-[#475569] leading-relaxed font-sans font-medium">
+                Upload CSV/Excel production logs, run visual EDA, train AutoML models, calculate SPC math (Cp/Cpk), and export buyer-ready Quality Passports without writing code.
+              </p>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono font-bold text-[#0F172A]">
+                <div className="bg-[#FFFFFF] p-3 rounded-lg border border-[#E2E8F0] text-center">ANALYZE</div>
+                <div className="bg-[#FFFFFF] p-3 rounded-lg border border-[#E2E8F0] text-center">OPTIMIZE</div>
+                <div className="bg-[#FFFFFF] p-3 rounded-lg border border-[#E2E8F0] text-center">IMPROVE</div>
+                <div className="bg-[#E3F2FD] p-3 rounded-lg border border-[#90CAF9] text-center text-[#0D47A1]">DECIDE</div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link 
                   href="/products/modliq" 
                   className="inline-flex items-center gap-2 text-sm font-bold text-[#0D47A1] hover:text-[#2196F3] hover:underline font-mono"
                 >
-                  <span>Explore Modliqer →</span>
+                  <span>Explore Modliqer Product Page →</span>
                 </Link>
                 <a
                   href="https://modliq-io.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2196F3] hover:text-[#0D47A1] hover:underline font-mono bg-[#E3F2FD] px-3 py-1.5 rounded-lg border border-[#90CAF9]"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2196F3] hover:text-[#0D47A1] hover:underline font-mono bg-[#FFFFFF] px-4 py-2 rounded-lg border border-[#90CAF9] shadow-xs"
                 >
-                  <span>Launch Platform ↗</span>
+                  <span>Launch Platform (modliq-io.vercel.app) ↗</span>
                 </a>
               </div>
             </div>
 
-            {/* Product 2: STAYSEAT */}
-            <div className="lg:col-span-5 bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl p-8 flex flex-col justify-between hover:border-[#2196F3] shadow-xs transition-all duration-300">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-[10px] font-mono font-bold uppercase tracking-wider">
-                    02 / PROPTECH PLATFORM
-                  </span>
-                  <span className="text-xs font-mono text-[#64748B]">STAYSEAT</span>
-                </div>
-
-                <h3 className="text-3xl font-bold text-[#0D47A1] mb-2 tracking-tight">STAYSEAT</h3>
-                <h4 className="text-base font-semibold text-teal-800 mb-4">Accommodation Intelligence</h4>
-                <p className="text-sm text-[#475569] leading-relaxed mb-6 font-sans">
-                  Discovery, availability and booking — reimagined for modern accommodation. Smart spatial allocation algorithms and verified property workflows.
-                </p>
-
-                <div className="bg-[#F8FAFC] p-4 rounded-xl border border-[#E2E8F0] text-[10px] font-mono text-[#0F172A] space-y-2 mb-6">
-                  <div className="text-[9px] font-bold text-[#64748B] uppercase tracking-widest mb-1">PLATFORM ENGINE</div>
-                  <div className="flex flex-wrap items-center gap-2 font-bold">
-                    <span className="px-2 py-1 bg-[#FFFFFF] border border-[#E2E8F0] rounded">SEARCH</span>
-                    <span className="text-[#94A3B8]">→</span>
-                    <span className="px-2 py-1 bg-[#FFFFFF] border border-[#E2E8F0] rounded">ALLOCATE</span>
-                    <span className="text-[#94A3B8]">→</span>
-                    <span className="px-2 py-1 bg-[#FFFFFF] border border-[#E2E8F0] rounded">VERIFY</span>
-                    <span className="text-[#94A3B8]">→</span>
-                    <span className="px-2 py-1 bg-teal-50 text-teal-800 rounded border border-teal-200">BOOK</span>
-                  </div>
-                </div>
+            <div className="lg:col-span-5 bg-[#FFFFFF] border border-[#CBD5E1] p-6 rounded-xl space-y-4">
+              <div className="text-xs font-mono font-bold text-[#0D47A1] uppercase tracking-wider">
+                PRODUCT CAPABILITIES
               </div>
-
-              <Link 
-                href="/products/stayseat" 
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#0D47A1] hover:text-[#2196F3] hover:underline font-mono"
-              >
-                <span>Explore StaySeat →</span>
-              </Link>
+              <ul className="space-y-2 text-xs font-sans font-bold text-[#0F172A]">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span>No-Code AutoML & Regression Leaderboard</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span>SPC Math Engine (Cp, Cpk, Pp, Ppk, Control Limits)</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span>Buyer-Ready Quality Passport & PPAP Documents</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span>Interactive Classroom & Research Learning Mode</span>
+                </li>
+              </ul>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* ─── 8. 7-STAGE ENGINEERING METHODOLOGY (#F8FAFC) ───────────────────── */}
+      {/* ─── 06. ENGINEERING & TECHNICAL CREDIBILITY (#F8FAFC) ────────────────── */}
       <section className="py-24 bg-[#F8FAFC] border-b border-[#E2E8F0] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
           <FadeIn direction="up">
             <div className="max-w-3xl space-y-4">
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D47A1]">
-                7-STAGE METHODOLOGY
+                TECHNICAL CREDIBILITY & METHODOLOGY
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight font-anek">
-                How We Engineer Systems
+                Engineering Discipline Behind Our Systems
               </h2>
               <p className="text-base text-[#475569] font-sans">
-                Predictable, 2-week sprint cadence with clear technical deliverables at every stage.
+                Predictable 2-week sprint cadence with clear technical deliverables at every stage.
               </p>
             </div>
           </FadeIn>
@@ -466,26 +463,72 @@ export default function HomePage() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Final Call to Action Box */}
-          <FadeIn delay={0.2} direction="up">
-            <div className="bg-[#E3F2FD] border border-[#90CAF9] rounded-2xl p-8 md:p-12 text-center max-w-4xl mx-auto space-y-6 shadow-xs">
-              <h3 className="text-2xl sm:text-4xl font-bold text-[#0D47A1] font-anek">
-                Ready to engineer intelligence for your operations?
-              </h3>
-              <p className="text-base text-[#475569] font-sans max-w-xl mx-auto">
-                Talk directly with an AI engineer. No sales pitch, just practical discussion about your technical landscape.
-              </p>
-              <div className="pt-2">
-                <Magnetic strength={6}>
-                  <Button href="/book-consultation" variant="primary" className="text-base px-8 py-4 bg-[#2196F3] hover:bg-[#1976D2] text-white shadow-xs font-semibold rounded-xl inline-flex items-center gap-2">
-                    <span>Start a Project →</span>
-                  </Button>
-                </Magnetic>
+      {/* ─── 07. VERIFIED CASE STUDIES (#FFFFFF) ────────────────────────────── */}
+      <section className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
+          <FadeIn direction="up">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#E2E8F0]">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D47A1]">
+                  VERIFIED INITIATIVES & CASE STUDIES
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight font-anek mt-2">
+                  Proven Systems & Product Engineering
+                </h2>
               </div>
+              <Link 
+                href="/case-studies" 
+                className="text-xs font-mono font-bold text-[#0D47A1] hover:text-[#2196F3] hover:underline"
+              >
+                <span>View All Case Studies →</span>
+              </Link>
             </div>
           </FadeIn>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {caseStudies.map((cs, idx) => (
+              <FadeIn key={cs.name} delay={idx * 0.08} direction="up">
+                <div className="bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#2196F3] p-8 rounded-2xl shadow-xs transition-all duration-300 flex flex-col justify-between space-y-4">
+                  <div>
+                    <span className="text-[10px] font-mono font-bold text-[#2196F3] uppercase tracking-wider block mb-2">{cs.tag}</span>
+                    <h3 className="text-xl font-bold text-[#0D47A1] font-anek mb-2">{cs.name}</h3>
+                    <p className="text-xs text-[#475569] leading-relaxed font-sans">{cs.desc}</p>
+                  </div>
+                  <div className="pt-4 border-t border-[#E2E8F0] flex items-center justify-between text-xs font-mono text-[#0D47A1] font-bold">
+                    <span>VERIFIED IMPLEMENTATION</span>
+                    <ArrowRight className="w-4 h-4 text-[#2196F3]" />
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 08. FINAL CALL TO ACTION (#E3F2FD) ─────────────────────────────── */}
+      <section className="py-24 bg-[#E3F2FD] border-b border-[#90CAF9]/40 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-6">
+          <FadeIn direction="up">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D47A1]">
+              START A CONVERSATION
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-bold text-[#0D47A1] font-anek">
+              Have a manufacturing problem worth solving with AI?
+            </h2>
+            <p className="text-base sm:text-lg text-[#475569] font-sans max-w-xl mx-auto">
+              Talk directly with an AI engineer. No sales pitch — just a practical evaluation of your manufacturing data and operations.
+            </p>
+            <div className="pt-4">
+              <Magnetic strength={6}>
+                <Button href="/book-consultation" variant="primary" className="text-base px-8 py-4 bg-[#2196F3] hover:bg-[#1976D2] text-white shadow-xs font-semibold rounded-xl inline-flex items-center gap-2">
+                  <span>Talk to an AI Engineer →</span>
+                </Button>
+              </Magnetic>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
