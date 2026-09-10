@@ -7,113 +7,93 @@ import { FadeIn } from '@/components/animations/FadeIn';
 import { Magnetic } from '@/components/motion/Magnetic';
 import { ClientLogos } from '@/components/ClientLogos';
 import { ProductHuntHeroBanner } from '@/components/ui/ProductHuntEmbeds';
-import { QeltravaIntelligenceVisual } from '@/components/ui/QeltravaIntelligenceVisual';
-import { QeltravaManufacturingSignal } from '@/components/ui/QeltravaManufacturingSignal';
-import { BuilderToolsSection } from '@/components/builder-tools/BuilderToolsSection';
-import { ArrowRight, Cpu, Zap, Layers, Factory, CheckCircle2, Shield, ShieldCheck, Activity, Database, Wrench } from 'lucide-react';
+import { IndustrialHeroVisual } from '@/components/ui/IndustrialHeroVisual';
+import { ArrowRight, CheckCircle2, ShieldCheck, ExternalLink } from 'lucide-react';
 
 export default function HomePage() {
-  const coreSolutions = [
+  // 03 WHAT WE DO — 5 Editorial Solution Rows
+  const editorialSolutions = [
     {
       number: "01",
-      idTag: "QELTRAVA / AI-01",
       title: "AI SOLUTIONS",
-      subtitle: "Machine learning, computer vision, and decision models built for operational workflows.",
-      icon: Cpu,
-      items: [
-        "Predictive Analytics & Forecasting",
-        "Machine Learning Optimization",
-        "Computer Vision & Quality Inspection",
-        "AI Copilots & Operational Assistants",
-        "Decision Intelligence Engines"
-      ]
+      desc: "Machine learning, computer vision, and decision intelligence models built directly into manufacturing workflows.",
+      tags: ["Predictive Analytics", "Computer Vision", "Machine Learning", "AI Copilots", "Decision Intelligence"]
     },
     {
       number: "02",
-      idTag: "QELTRAVA / MFG-02",
       title: "MANUFACTURING INTELLIGENCE",
-      subtitle: "Turn machine sensor telemetry and production logs into process setpoints and capability math.",
-      icon: Factory,
-      items: [
-        "Process Setpoint Optimization",
-        "Quality Intelligence & Cp/Cpk Math",
-        "Production Analytics & Bottleneck Parsing",
-        "Root-Cause Analysis & Defect Reduction",
-        "Predictive Maintenance & Health Scores"
-      ]
+      desc: "Turn machine sensor telemetry and production logs into process setpoints, capability math, and defect reduction.",
+      tags: ["Quality Intelligence", "Process Optimization", "Production Analytics", "Root-Cause Analysis", "Predictive Maintenance"]
     },
     {
       number: "03",
-      idTag: "QELTRAVA / AUTO-03",
       title: "INTELLIGENT AUTOMATION",
-      subtitle: "Automate complex, repetitive operational workflows with verified AI agents.",
-      icon: Zap,
-      items: [
-        "Workflow Automation Engines",
-        "Autonomous AI Agents",
-        "Document Intelligence & Data Extraction",
-        "Industrial & Enterprise System Integration",
-        "Operational Action Automation"
-      ]
+      desc: "Automate complex, repetitive operational workflows with verified autonomous AI agents and enterprise integrations.",
+      tags: ["Workflow Automation", "AI Agents", "Document Intelligence", "System Integration", "Operational Automation"]
     },
     {
       number: "04",
-      idTag: "QELTRAVA / SOFT-04",
       title: "DIGITAL MANUFACTURING SOFTWARE",
-      subtitle: "Custom digital platforms, internal tools, and SaaS engineered for industrial scale.",
-      icon: Layers,
-      items: [
-        "Custom Software & Enterprise Platforms",
-        "Industrial SaaS & Operational Tooling",
-        "Production Data Systems & Storage",
-        "Legacy System Modernization",
-        "Custom Engineering Applications"
-      ]
+      desc: "Custom digital platforms, internal operational tooling, and enterprise industrial SaaS built for scale.",
+      tags: ["Industrial SaaS", "Data Platforms", "Custom Software", "Legacy Modernization", "Engineering Apps"]
+    },
+    {
+      number: "05",
+      title: "PRODUCT COMPLIANCE",
+      desc: "BIS / ISI Compliance & Certification Support: Helping manufacturers identify applicable Indian Standards, assess gaps, prepare technical documentation, and become certification-ready.",
+      tags: ["Indian Standard ID", "Testing Requirements", "Technical Documentation", "Factory Readiness", "Pre-Certification Audit"],
+      href: "/services/bis-isi-compliance",
+      ctaText: "Explore Compliance Services →"
     }
   ];
 
-  const howAiHelps = [
+  // 04 WHERE AI CREATES VALUE — Domain Impact Matrix
+  const domainImpact = [
+    { domain: "QUALITY", verbs: "Detect → Understand → Improve", desc: "Identify defects early, analyze root causes, and calculate deterministic Cp/Cpk capability math." },
+    { domain: "PROCESS", verbs: "Analyze → Optimize → Validate", desc: "Evaluate machine sensor parameters, discover optimal operating setpoints, and validate trial SOPs." },
+    { domain: "PRODUCTION", verbs: "Monitor → Predict → Act", desc: "Track line throughput, predict production bottlenecks, and automate operational scheduling." },
+    { domain: "MAINTENANCE", verbs: "Detect → Predict → Prevent", desc: "Monitor equipment vibration, temperature, and wear telemetry to prevent unplanned downtime." },
+    { domain: "OPERATIONS", verbs: "Connect → Automate → Decide", desc: "Link fragmented factory databases, automate document parsing, and give managers instant decision support." }
+  ];
+
+  // 06 SELECTED ENGINEERING WORK — Editorial List
+  const selectedWork = [
     {
-      domain: "QUALITY",
-      verbs: "Detect → Understand → Improve",
-      desc: "Identify defects early, analyze root causes, and calculate deterministic Cp/Cpk capability math."
+      number: "01",
+      name: "eDrift",
+      category: "Electric Mobility & Energy Intelligence",
+      desc: "Real-time energy consumption telemetry & peak-load prediction engine for industrial fleets."
     },
     {
-      domain: "PROCESS",
-      verbs: "Analyze → Optimize → Validate",
-      desc: "Evaluate machine sensor parameters, discover optimal operating setpoints, and validate trial SOPs."
+      number: "02",
+      name: "Tamizh Tech",
+      category: "Automated Quality Inspection & Vision",
+      desc: "Computer vision quality inspection pipeline detecting surface micro-defects at production speed."
     },
     {
-      domain: "PRODUCTION",
-      verbs: "Monitor → Predict → Act",
-      desc: "Track line throughput, predict production bottlenecks, and automate operational scheduling."
+      number: "03",
+      name: "ThiranOli",
+      category: "Operations & Workflow Automation",
+      desc: "Intelligent document parsing and ERP integration pipeline automating supplier compliance records."
     },
     {
-      domain: "MAINTENANCE",
-      verbs: "Detect → Predict → Prevent",
-      desc: "Monitor equipment vibration, temperature, and wear telemetry to prevent unplanned downtime."
-    },
-    {
-      domain: "OPERATIONS",
-      verbs: "Connect → Automate → Decide",
-      desc: "Link fragmented factory databases, automate document parsing, and give managers instant decision support."
+      number: "04",
+      name: "Modliqer",
+      category: "Manufacturing Intelligence & AutoML",
+      desc: "No-code AutoML & quality capability platform engineered for factories, teachers, and researchers.",
+      isProduct: true,
+      productLink: "https://modliq-io.vercel.app/"
     }
   ];
 
-  const caseStudies = [
-    { name: "Modliqer AI Platform", tag: "NO-CODE MANUFACTURING ML", desc: "No-code AutoML & quality capability platform engineered for factories, teachers, and researchers." },
-    { name: "eDrift Energy Intelligence", tag: "INDUSTRIAL ENERGY OPTIMIZATION", desc: "Real-time energy consumption telemetry & peak-load prediction engine for heavy industrial plants." },
-    { name: "Tamizh Tech Systems", tag: "AUTOMATED QUALITY INSPECTION", desc: "Computer vision quality inspection pipeline detecting surface micro-defects at production speed." },
-    { name: "ThiranOli Operations", tag: "WORKFLOW AUTOMATION", desc: "Intelligent document parsing and ERP integration pipeline automating supplier compliance records." }
-  ];
-
-  const workflowStages = [
-    { number: "01", name: "Understand", desc: "Map current operational landscape, constraints, and business goals before writing code." },
-    { number: "02", name: "Architect", desc: "Design AI pipelines, data models, security boundaries, and modular software architecture." },
-    { number: "03", name: "Build", desc: "Iterative 2-week engineering sprints ending in production-ready working software." },
-    { number: "04", name: "Validate", desc: "Automated test suites, mathematical proof checks, and real-world data validation." },
+  // 07 HOW WE ENGINEER — Method Stages
+  const methodology = [
+    { number: "01", name: "Discover", desc: "Map current operational landscape, constraints, and business goals." },
+    { number: "02", name: "Architect", desc: "Design AI pipelines, data models, security boundaries, and modular software." },
+    { number: "03", name: "Build", desc: "Iterative 2-week engineering sprints ending in production-ready software." },
+    { number: "04", name: "Validate", desc: "Automated test suites, mathematical proof checks, and real-world validation." },
     { number: "05", name: "Deploy", desc: "Staged deployment, infrastructure-as-code, and 30-day hypercare support." },
-    { number: "06", name: "Improve", desc: "Continuous telemetry monitoring, latency tuning, and model accuracy optimization." }
+    { number: "06", name: "Improve", desc: "Continuous telemetry monitoring, latency tuning, and accuracy optimization." }
   ];
 
   return (
@@ -124,7 +104,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
-            {/* Left Column (55% / 7 cols) */}
+            {/* Left Column — 58% Content (7/12 cols) */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               {/* Product Hunt Announcement Bar */}
               <FadeIn delay={0.02} amount={0}>
@@ -136,33 +116,43 @@ export default function HomePage() {
               {/* Eyebrow */}
               <FadeIn delay={0.06} amount={0}>
                 <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E3F2FD] border border-[#90CAF9] text-[#0D47A1] text-xs font-mono font-bold uppercase tracking-widest mb-5 self-start">
-                  <span>FROM AI TO INDUSTRIAL IMPACT</span>
+                  <span>AI ENGINEERING · MANUFACTURING</span>
                 </div>
               </FadeIn>
 
               {/* Main Headline */}
               <FadeIn delay={0.1} amount={0}>
-                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-[#0F172A] tracking-tight leading-[1.06] mb-5 font-anek">
+                <h1 className="text-5xl sm:text-7xl lg:text-[88px] font-bold text-[#0F172A] tracking-tight leading-[1.04] mb-6 font-anek">
                   Engineering <span className="font-serif italic font-normal text-[#2196F3]">AI</span> for Manufacturing.
                 </h1>
               </FadeIn>
 
               {/* Direct Supporting Copy */}
               <FadeIn delay={0.16} amount={0}>
-                <p className="text-base sm:text-lg text-[#475569] mb-7 leading-relaxed font-normal font-anek max-w-2xl">
+                <p className="text-base sm:text-lg text-[#475569] mb-8 leading-relaxed font-normal font-anek max-w-2xl">
                   We build intelligent software and AI solutions that help manufacturers improve quality, optimize processes, automate operations, and make better decisions.
                 </p>
               </FadeIn>
 
-              {/* Action Buttons */}
+              {/* Action CTAs */}
               <FadeIn delay={0.22} amount={0}>
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-5">
                   <Magnetic strength={6}>
-                    <Button href="/book-consultation" variant="primary" className="w-full sm:w-auto text-base px-7 py-3.5 bg-[#2196F3] hover:bg-[#1976D2] text-white shadow-xs font-semibold rounded-xl">
+                    <Button 
+                      suppressHydrationWarning
+                      href="/book-consultation" 
+                      variant="primary" 
+                      className="w-full sm:w-auto text-base px-7 py-3.5 bg-[#2196F3] hover:bg-[#1976D2] text-white shadow-xs font-semibold rounded-xl"
+                    >
                       Talk to an AI Engineer →
                     </Button>
                   </Magnetic>
-                  <Button href="/solutions" variant="outline" className="text-base px-7 py-3.5 border-[#CBD5E1] text-[#0D47A1] hover:bg-[#E3F2FD] font-semibold rounded-xl">
+                  <Button 
+                    suppressHydrationWarning
+                    href="/solutions" 
+                    variant="outline" 
+                    className="text-base px-7 py-3.5 border-[#CBD5E1] text-[#0D47A1] hover:bg-[#E3F2FD] font-semibold rounded-xl"
+                  >
                     Explore Manufacturing Solutions →
                   </Button>
                 </div>
@@ -183,16 +173,14 @@ export default function HomePage() {
                   <span className="text-[#0D47A1]">Manufacturing-Focused</span>
                   <span>·</span>
                   <span className="text-[#0D47A1]">Human-Accountable</span>
-                  <span>·</span>
-                  <span className="text-[#0D47A1]">Outcome-Driven</span>
                 </div>
               </FadeIn>
             </div>
 
-            {/* Right Column (45% / 5 cols) - Single Manufacturing Visual */}
-            <div className="lg:col-span-5 w-full">
+            {/* Right Column — 42% Visual (5/12 cols) — Single Industrial Visual */}
+            <div className="lg:col-span-5 w-full flex justify-center">
               <FadeIn delay={0.28} amount={0}>
-                <QeltravaIntelligenceVisual />
+                <IndustrialHeroVisual />
               </FadeIn>
             </div>
 
@@ -200,144 +188,97 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── BELOW HERO CAPABILITY STRIP (#F8FAFC) ──────────────────────────── */}
-      <section className="py-6 bg-[#F8FAFC] border-b border-[#E2E8F0] relative select-none">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 text-xs font-mono font-semibold text-[#475569]">
-            <span className="text-[#0D47A1]">AI SOLUTIONS</span>
-            <span className="text-[#CBD5E1]">·</span>
-            <span>PROCESS OPTIMIZATION</span>
-            <span className="text-[#CBD5E1]">·</span>
-            <span className="text-[#0D47A1]">QUALITY INTELLIGENCE</span>
-            <span className="text-[#CBD5E1]">·</span>
-            <span>PRODUCTION ANALYTICS</span>
-            <span className="text-[#CBD5E1]">·</span>
-            <span className="text-[#0D47A1]">INTELLIGENT AUTOMATION</span>
-          </div>
-
-          <div className="flex items-center gap-2 text-xs font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-full whitespace-nowrap font-bold">
-            <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
-            <span>Built from Coimbatore · Working globally</span>
-          </div>
-        </div>
-        
-        <div className="mt-6 border-t border-[#E2E8F0] pt-6">
-          <ClientLogos />
-        </div>
-      </section>
-
-      {/* ─── 02. THE PROBLEM & EDITORIAL STATEMENT (#FFFFFF) ─────────────────── */}
-      <section className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0] relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-6 md:px-12 text-center relative z-10 space-y-6">
+      {/* ─── 02. THE MANUFACTURING CHALLENGE (#F8FAFC) ───────────────────────── */}
+      <section className="py-24 bg-[#F8FAFC] border-b border-[#E2E8F0] relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6 md:px-12 text-center relative z-10 space-y-8">
           <FadeIn direction="up">
             <span className="text-xs font-mono font-bold text-[#0D47A1] uppercase tracking-widest">
               THE MANUFACTURING CHALLENGE
             </span>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#0F172A] tracking-tight leading-tight font-anek mt-2">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#0F172A] tracking-tight leading-tight font-anek mt-3">
               Manufacturing already has the data. <br className="hidden sm:inline" />
               <span className="font-serif italic font-normal text-[#2196F3]">The challenge is turning it into better decisions.</span>
             </h2>
-            <p className="text-base sm:text-lg text-[#475569] font-sans max-w-3xl mx-auto pt-4">
-              Production data · Quality logs · Machine sensors · Process limits · Operational logs
-            </p>
-            <div className="inline-flex items-center gap-2 text-sm font-mono text-[#0D47A1] font-bold bg-[#E3F2FD] px-4 py-2 rounded-full border border-[#90CAF9] mt-2">
-              <span>Production Data → AI → Insight · Decision · Action</span>
+
+            {/* Horizontal 5-Column Text List (No cards, no icons, no diagrams) */}
+            <div className="pt-8 border-t border-[#E2E8F0] flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm font-mono font-bold text-[#0D47A1] tracking-wider uppercase">
+              <span>QUALITY</span>
+              <span className="text-[#CBD5E1]">·</span>
+              <span>PROCESS</span>
+              <span className="text-[#CBD5E1]">·</span>
+              <span>PRODUCTION</span>
+              <span className="text-[#CBD5E1]">·</span>
+              <span>MAINTENANCE</span>
+              <span className="text-[#CBD5E1]">·</span>
+              <span>OPERATIONS</span>
             </div>
-            <p className="text-xs font-mono font-semibold text-[#64748B] pt-4">
-              Engineering Intelligence for Real-World Operations.
+
+            <p className="text-base text-[#475569] font-sans max-w-2xl mx-auto pt-4 leading-relaxed font-normal">
+              Qeltrava combines AI engineering, software engineering, and industrial understanding to build systems that create measurable operational value.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* ─── 03. CORE QELTRAVA OFFERINGS (4 SOLUTION AREAS) (#FFFFFF) ─────────── */}
+      {/* ─── 03. WHAT WE DO (5 EDITORIAL SOLUTION ROWS) (#FFFFFF) ─────────────── */}
       <section className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-16">
           <FadeIn direction="up">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#E2E8F0]">
               <div>
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D47A1]">
-                  CORE SOLUTIONS
+                  WHAT WE DO
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight font-anek mt-2">
-                  Four Primary Areas of Manufacturing AI
+                  Engineering Capabilities for Industrial Systems
                 </h2>
               </div>
               <p className="text-sm text-[#475569] max-w-md font-sans">
-                We build software where software is enough, and apply AI where intelligence creates measurable operational value.
+                We apply software engineering where software is sufficient, and deploy AI where intelligence directly improves decisions.
               </p>
             </div>
           </FadeIn>
 
-          <div className="space-y-12">
-            {coreSolutions.map((sol, idx) => {
-              const Icon = sol.icon;
-              return (
-                <FadeIn key={sol.number} delay={idx * 0.08} direction="up">
-                  <div className="bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#2196F3] p-8 md:p-10 rounded-2xl shadow-xs transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <div className="lg:col-span-5 space-y-4">
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl font-mono font-bold text-[#2196F3]">{sol.number}</span>
-                        <span className="text-xs font-mono font-bold text-[#64748B] uppercase tracking-wider">{sol.idTag}</span>
-                      </div>
-                      <h3 className="text-2xl sm:text-3xl font-bold text-[#0D47A1] font-anek flex items-center gap-3">
-                        <Icon className="w-6 h-6 text-[#2196F3]" />
-                        <span>{sol.title}</span>
-                      </h3>
-                      <p className="text-sm text-[#475569] leading-relaxed font-sans font-medium">
-                        {sol.subtitle}
-                      </p>
-                    </div>
-
-                    <div className="lg:col-span-7 bg-[#F8FAFC] border border-[#E2E8F0] p-6 rounded-xl">
-                      <div className="text-[10px] font-mono font-bold text-[#64748B] uppercase tracking-wider mb-3">
-                        KEY CAPABILITIES & SCOPE
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-sans font-bold text-[#0F172A]">
-                        {sol.items.map((item, itemIdx) => (
-                          <div key={itemIdx} className="flex items-center gap-2 bg-[#FFFFFF] p-3 rounded-lg border border-[#E2E8F0]">
-                            <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                            <span>{item}</span>
+          {/* Editorial Solution Rows */}
+          <div className="space-y-0 divide-y divide-[#E2E8F0]">
+            {editorialSolutions.map((sol, idx) => (
+              <FadeIn key={sol.number} delay={idx * 0.06} direction="up">
+                <div className="py-10 group transition-colors hover:bg-[#F8FAFC]/50 px-2 sm:px-4 rounded-xl">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                    {/* Number & Title */}
+                    <div className="lg:col-span-5 flex items-start gap-4">
+                      <span className="text-3xl font-mono font-bold text-[#2196F3] group-hover:translate-x-1 transition-transform">{sol.number}</span>
+                      <div>
+                        <h3 className="text-2xl font-bold text-[#0F172A] group-hover:text-[#0D47A1] transition-colors font-anek">
+                          {sol.title}
+                        </h3>
+                        <p className="text-sm text-[#475569] mt-2 leading-relaxed font-sans font-normal max-w-md">
+                          {sol.desc}
+                        </p>
+                        {sol.href && (
+                          <div className="mt-4">
+                            <Link
+                              href={sol.href}
+                              className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#0D47A1] hover:text-[#2196F3] hover:underline"
+                            >
+                              <span>{sol.ctaText}</span>
+                            </Link>
                           </div>
-                        ))}
+                        )}
                       </div>
                     </div>
-                  </div>
-                </FadeIn>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
-      {/* ─── 04. HOW AI HELPS MANUFACTURING (#F8FAFC) ─────────────────────────── */}
-      <section className="py-24 bg-[#F8FAFC] border-b border-[#E2E8F0] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
-          <FadeIn direction="up">
-            <div className="max-w-3xl space-y-4">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D47A1]">
-                DOMAIN IMPACT
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight font-anek">
-                Where AI Creates Measurable Value in Manufacturing
-              </h2>
-              <p className="text-base text-[#475569] font-sans">
-                Clear operational workflows designed to eliminate plant friction and improve decision accuracy.
-              </p>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {howAiHelps.map((item, idx) => (
-              <FadeIn key={item.domain} delay={idx * 0.06} direction="up">
-                <div className="bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#2196F3] p-6 rounded-2xl shadow-xs h-full flex flex-col justify-between space-y-4">
-                  <div>
-                    <span className="text-xs font-mono font-bold text-[#2196F3] block mb-1">{item.domain}</span>
-                    <div className="text-[11px] font-mono font-bold text-[#0D47A1] mb-3">{item.verbs}</div>
-                    <p className="text-xs text-[#475569] leading-relaxed font-sans">{item.desc}</p>
-                  </div>
-                  <div className="pt-3 border-t border-[#E2E8F0] text-[9px] font-mono text-[#64748B] uppercase font-bold">
-                    DOMAIN IMPACT 0{idx + 1}
+                    {/* Editorial Tag List */}
+                    <div className="lg:col-span-7 flex flex-wrap gap-2 pt-1">
+                      {sol.tags.map((tag, tagIdx) => (
+                        <span 
+                          key={tagIdx} 
+                          className="px-3 py-1.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-xs font-mono font-medium text-[#0F172A] group-hover:border-[#90CAF9] transition-colors"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </FadeIn>
@@ -346,49 +287,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 05. PRODUCT COMPLIANCE & CERTIFICATION (#F8FAFC) ────────────────── */}
-      <section className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      {/* ─── 04. WHERE AI CREATES VALUE (#F8FAFC) ─────────────────────────────── */}
+      <section className="py-24 bg-[#F8FAFC] border-b border-[#E2E8F0] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
           <FadeIn direction="up">
-            <div className="bg-[#FFFFFF] border border-[#CBD5E1] hover:border-[#2196F3] rounded-2xl p-8 md:p-10 shadow-xs flex flex-col md:flex-row items-center justify-between gap-8 transition-all">
-              <div className="space-y-3 max-w-2xl">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E3F2FD] border border-[#90CAF9] text-[#0D47A1] text-[10px] font-mono font-bold uppercase tracking-wider">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#2196F3]" />
-                  <span>PRODUCT COMPLIANCE & CERTIFICATION</span>
-                </div>
-                <h2 className="text-2xl sm:text-4xl font-bold text-[#0F172A] font-anek">
-                  Make your product certification journey clearer.
-                </h2>
-                <p className="text-sm text-[#475569] font-sans">
-                  From applicable Indian Standards to factory audit readiness. We help manufacturers prepare technical documentation, in-house testing labs, and quality systems for BIS / ISI compliance.
-                </p>
-                <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold text-[#0D47A1] pt-2">
-                  <span className="bg-[#F8FAFC] px-2.5 py-1 rounded border border-[#E2E8F0]">Identify</span>
-                  <span>→</span>
-                  <span className="bg-[#F8FAFC] px-2.5 py-1 rounded border border-[#E2E8F0]">Assess</span>
-                  <span>→</span>
-                  <span className="bg-[#F8FAFC] px-2.5 py-1 rounded border border-[#E2E8F0]">Test</span>
-                  <span>→</span>
-                  <span className="bg-[#F8FAFC] px-2.5 py-1 rounded border border-[#E2E8F0]">Document</span>
-                  <span>→</span>
-                  <span className="bg-[#F8FAFC] px-2.5 py-1 rounded border border-[#E2E8F0]">Prepare</span>
-                  <span>→</span>
-                  <span className="bg-[#E3F2FD] px-2.5 py-1 rounded border border-[#90CAF9]">Support</span>
-                </div>
-              </div>
-
-              <Link
-                href="/services/bis-isi-compliance"
-                className="px-6 py-3.5 rounded-xl bg-[#0D47A1] hover:bg-[#2196F3] text-white font-bold text-sm transition-all shadow-xs whitespace-nowrap flex-shrink-0"
-              >
-                Explore BIS / ISI Compliance →
-              </Link>
+            <div className="max-w-3xl space-y-4">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D47A1]">
+                WHERE AI CREATES VALUE
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight font-anek">
+                Measurable Impact Across Manufacturing Operations
+              </h2>
+              <p className="text-base text-[#475569] font-sans">
+                Clear operational workflows engineered to eliminate friction and elevate decision accuracy.
+              </p>
             </div>
           </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {domainImpact.map((item, idx) => (
+              <FadeIn key={item.domain} delay={idx * 0.06} direction="up">
+                <div className="bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#2196F3] p-6 rounded-2xl shadow-xs h-full flex flex-col justify-between space-y-4 transition-all duration-300">
+                  <div>
+                    <span className="text-xs font-mono font-bold text-[#2196F3] block mb-1">{item.domain}</span>
+                    <div className="text-[11px] font-mono font-bold text-[#0D47A1] mb-3">{item.verbs}</div>
+                    <p className="text-xs text-[#475569] leading-relaxed font-sans">{item.desc}</p>
+                  </div>
+                  <div className="pt-3 border-t border-[#E2E8F0] text-[9px] font-mono text-[#64748B] uppercase font-bold">
+                    DOMAIN 0{idx + 1}
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ─── 06. FLAGSHIP PRODUCT: MODLIQER (#FFFFFF) ─────────────────────────── */}
+      {/* ─── 05. FLAGSHIP PRODUCT: MODLIQER (#FFFFFF) ─────────────────────────── */}
       <section className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
           <FadeIn direction="up">
@@ -449,14 +384,14 @@ export default function HomePage() {
               <div className="text-xs font-mono font-bold text-[#0D47A1] uppercase tracking-wider">
                 PRODUCT CAPABILITIES
               </div>
-              <ul className="space-y-2 text-xs font-sans font-bold text-[#0F172A]">
+              <ul className="space-y-2.5 text-xs font-sans font-bold text-[#0F172A]">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                   <span>No-Code AutoML & Regression Leaderboard</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span>SPC Math Engine (Cp, Cpk, Pp, Ppk, Control Limits)</span>
+                  <span>SPC Math Engine (Cp, Cpk, Control Limits)</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
@@ -464,7 +399,7 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                  <span>Interactive Classroom & Research Learning Mode</span>
+                  <span>Classroom & Research AutoML Learning Mode</span>
                 </li>
               </ul>
             </div>
@@ -472,53 +407,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 06. ENGINEERING & TECHNICAL CREDIBILITY (#F8FAFC) ────────────────── */}
+      {/* ─── 06. SELECTED ENGINEERING WORK (EDITORIAL LIST) (#F8FAFC) ─────────── */}
       <section className="py-24 bg-[#F8FAFC] border-b border-[#E2E8F0] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
-          <FadeIn direction="up">
-            <div className="max-w-3xl space-y-4">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D47A1]">
-                TECHNICAL CREDIBILITY & METHODOLOGY
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight font-anek">
-                Engineering Discipline Behind Our Systems
-              </h2>
-              <p className="text-base text-[#475569] font-sans">
-                Predictable 2-week sprint cadence with clear technical deliverables at every stage.
-              </p>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {workflowStages.map((stage, idx) => (
-              <FadeIn key={stage.number} delay={idx * 0.06} direction="up">
-                <div className="bg-[#FFFFFF] border border-[#E2E8F0] hover:border-[#2196F3] p-6 rounded-2xl shadow-xs transition-all duration-300 h-full flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-mono font-bold text-[#2196F3]">{stage.number}</span>
-                    <h3 className="text-lg font-bold text-[#0D47A1] mt-1 mb-2 font-anek">{stage.name}</h3>
-                    <p className="text-xs text-[#475569] leading-relaxed font-sans">{stage.desc}</p>
-                  </div>
-                  <div className="pt-4 border-t border-[#E2E8F0] mt-4 text-[10px] font-mono text-[#64748B] font-semibold">
-                    STAGE {stage.number} DELIVERABLE
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── 07. VERIFIED CASE STUDIES (#FFFFFF) ────────────────────────────── */}
-      <section className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
           <FadeIn direction="up">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#E2E8F0]">
               <div>
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D47A1]">
-                  VERIFIED INITIATIVES & CASE STUDIES
+                  SELECTED ENGINEERING WORK
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight font-anek mt-2">
-                  Proven Systems & Product Engineering
+                  Verified Engineering Initiatives
                 </h2>
               </div>
               <Link 
@@ -530,21 +429,84 @@ export default function HomePage() {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {caseStudies.map((cs, idx) => (
-              <FadeIn key={cs.name} delay={idx * 0.08} direction="up">
-                <div className="bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#2196F3] p-8 rounded-2xl shadow-xs transition-all duration-300 flex flex-col justify-between space-y-4">
-                  <div>
-                    <span className="text-[10px] font-mono font-bold text-[#2196F3] uppercase tracking-wider block mb-2">{cs.tag}</span>
-                    <h3 className="text-xl font-bold text-[#0D47A1] font-anek mb-2">{cs.name}</h3>
-                    <p className="text-xs text-[#475569] leading-relaxed font-sans">{cs.desc}</p>
-                  </div>
-                  <div className="pt-4 border-t border-[#E2E8F0] flex items-center justify-between text-xs font-mono text-[#0D47A1] font-bold">
-                    <span>VERIFIED IMPLEMENTATION</span>
-                    <ArrowRight className="w-4 h-4 text-[#2196F3]" />
+          {/* Editorial Work List */}
+          <div className="space-y-0 divide-y divide-[#E2E8F0] bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-xs">
+            {selectedWork.map((work, idx) => (
+              <FadeIn key={work.number} delay={idx * 0.06} direction="up">
+                <div className="p-6 md:p-8 group hover:bg-[#E3F2FD]/40 transition-all duration-300">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 group-hover:translate-x-1.5 transition-transform duration-300">
+                    <div className="flex items-start md:items-center gap-6">
+                      <span className="text-2xl font-mono font-bold text-[#2196F3]">{work.number}</span>
+                      <div>
+                        <div className="flex items-center gap-3">
+                          <h3 className="text-xl font-bold text-[#0F172A] group-hover:text-[#0D47A1] font-anek transition-colors">
+                            {work.name}
+                          </h3>
+                          {work.isProduct && (
+                            <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#2196F3] text-white">
+                              PRODUCT
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs font-mono font-semibold text-[#64748B] mt-0.5">
+                          {work.category}
+                        </p>
+                        <p className="text-xs text-[#475569] mt-2 max-w-xl font-sans">
+                          {work.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 self-end md:self-center">
+                      {work.isProduct && work.productLink ? (
+                        <a
+                          href={work.productLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#2196F3] hover:text-[#0D47A1]"
+                        >
+                          <span>modliq-io.vercel.app</span>
+                          <ExternalLink size={14} />
+                        </a>
+                      ) : (
+                        <span className="text-xs font-mono font-bold text-[#0D47A1] group-hover:text-[#2196F3] transition-colors flex items-center gap-1">
+                          <span>View Details</span>
+                          <ArrowRight size={14} />
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 07. HOW WE ENGINEER (METHODOLOGY) (#FFFFFF) ───────────────────────── */}
+      <section className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
+          <FadeIn direction="up">
+            <div className="max-w-3xl space-y-4">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0D47A1]">
+                HOW WE ENGINEER
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight font-anek">
+                Engineering Method & Delivery Cadence
+              </h2>
+              <p className="text-base text-[#475569] font-sans">
+                Structured 6-stage delivery process from initial problem analysis to continuous operational improvement.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 pt-4 border-t border-[#E2E8F0]">
+            {methodology.map((m) => (
+              <div key={m.number} className="space-y-2">
+                <span className="text-xs font-mono font-bold text-[#2196F3] block">{m.number}</span>
+                <h3 className="text-lg font-bold text-[#0F172A] font-anek uppercase tracking-wider">{m.name}</h3>
+                <p className="text-xs text-[#475569] leading-relaxed font-sans">{m.desc}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -563,12 +525,25 @@ export default function HomePage() {
             <p className="text-base sm:text-lg text-[#475569] font-sans max-w-xl mx-auto">
               Talk directly with an AI engineer. No sales pitch — just a practical evaluation of your manufacturing data and operations.
             </p>
-            <div className="pt-4">
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Magnetic strength={6}>
-                <Button href="/book-consultation" variant="primary" className="text-base px-8 py-4 bg-[#2196F3] hover:bg-[#1976D2] text-white shadow-xs font-semibold rounded-xl inline-flex items-center gap-2">
+                <Button 
+                  suppressHydrationWarning
+                  href="/book-consultation" 
+                  variant="primary" 
+                  className="text-base px-8 py-4 bg-[#2196F3] hover:bg-[#1976D2] text-white shadow-xs font-semibold rounded-xl inline-flex items-center gap-2"
+                >
                   <span>Talk to an AI Engineer →</span>
                 </Button>
               </Magnetic>
+              <Button 
+                suppressHydrationWarning
+                href="/case-studies" 
+                variant="outline" 
+                className="text-base px-8 py-4 border-[#CBD5E1] text-[#0D47A1] bg-[#FFFFFF] hover:bg-[#F8FAFC] font-semibold rounded-xl"
+              >
+                <span>Explore Our Work →</span>
+              </Button>
             </div>
           </FadeIn>
         </div>
