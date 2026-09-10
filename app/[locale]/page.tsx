@@ -6,7 +6,6 @@ import { Button } from '@/components/Button';
 import { FadeIn } from '@/components/animations/FadeIn';
 import { Magnetic } from '@/components/motion/Magnetic';
 import { ClientLogos } from '@/components/ClientLogos';
-import { ProductHuntHeroBanner } from '@/components/ui/ProductHuntEmbeds';
 import { ManufacturingAIMap } from '@/components/home/ManufacturingAIMap';
 import { ArrowRight, CheckCircle2, ShieldCheck, ExternalLink } from 'lucide-react';
 
@@ -99,50 +98,43 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#FFFFFF] text-[#0F172A] font-sans selection:bg-[#E3F2FD] selection:text-[#0D47A1]">
       
-      {/* ─── 01. HERO SECTION (#FFFFFF) ────────────────────────────────────────── */}
-      <section className="relative pt-8 pb-16 lg:pt-16 lg:pb-24 overflow-hidden bg-[#FFFFFF] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      {/* ─── 01. HERO SECTION (#FFFFFF) — SINGLE VIEW NON-SCROLLABLE FIT ───────── */}
+      <section className="relative pt-2 pb-6 lg:pt-4 lg:pb-8 overflow-hidden bg-[#FFFFFF] border-b border-[#E2E8F0] min-h-[calc(100vh-80px)] flex items-center">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
             
-            {/* Left Column — 58% Content (7/12 cols) */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
-              {/* Product Hunt Announcement Bar */}
-              <FadeIn delay={0.02} amount={0}>
-                <div className="mb-4 inline-block">
-                  <ProductHuntHeroBanner postSlug="modliqer" />
-                </div>
-              </FadeIn>
-
+            {/* Left Column — 50% Content (6/12 cols) */}
+            <div className="lg:col-span-6 flex flex-col justify-center">
               {/* Eyebrow */}
-              <FadeIn delay={0.06} amount={0}>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E3F2FD] border border-[#90CAF9] text-[#0D47A1] text-xs font-mono font-bold uppercase tracking-widest mb-5 self-start">
+              <FadeIn delay={0.04} amount={0}>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E3F2FD] border border-[#90CAF9] text-[#0D47A1] text-xs font-mono font-bold uppercase tracking-widest mb-4 self-start">
                   <span>AI ENGINEERING · MANUFACTURING</span>
                 </div>
               </FadeIn>
 
               {/* Main Headline */}
-              <FadeIn delay={0.1} amount={0}>
-                <h1 className="text-5xl sm:text-7xl lg:text-[88px] font-bold text-[#0F172A] tracking-tight leading-[1.04] mb-6 font-anek">
+              <FadeIn delay={0.08} amount={0}>
+                <h1 className="text-4xl sm:text-6xl lg:text-[76px] font-bold text-[#0F172A] tracking-tight leading-[1.04] mb-4 font-anek">
                   Engineering <span className="font-serif italic font-normal text-[#2196F3]">AI</span> for Manufacturing.
                 </h1>
               </FadeIn>
 
               {/* Direct Supporting Copy */}
-              <FadeIn delay={0.16} amount={0}>
-                <p className="text-base sm:text-lg text-[#475569] mb-8 leading-relaxed font-normal font-anek max-w-2xl">
+              <FadeIn delay={0.12} amount={0}>
+                <p className="text-base sm:text-lg text-[#475569] mb-6 leading-relaxed font-normal font-anek max-w-2xl">
                   We build intelligent software and AI solutions that help manufacturers improve quality, optimize processes, automate operations, and make better decisions.
                 </p>
               </FadeIn>
 
               {/* Action CTAs */}
-              <FadeIn delay={0.22} amount={0}>
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-5">
+              <FadeIn delay={0.16} amount={0}>
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-4">
                   <Magnetic strength={6}>
                     <Button 
                       suppressHydrationWarning
                       href="/book-consultation" 
                       variant="primary" 
-                      className="w-full sm:w-auto text-base px-7 py-3.5 bg-[#2196F3] hover:bg-[#1976D2] text-white shadow-xs font-semibold rounded-xl"
+                      className="w-full sm:w-auto text-base px-7 py-3 bg-[#2196F3] hover:bg-[#1976D2] text-white shadow-xs font-semibold rounded-xl"
                     >
                       Talk to an AI Engineer →
                     </Button>
@@ -151,13 +143,13 @@ export default function HomePage() {
                     suppressHydrationWarning
                     href="/solutions" 
                     variant="outline" 
-                    className="text-base px-7 py-3.5 border-[#CBD5E1] text-[#0D47A1] hover:bg-[#E3F2FD] font-semibold rounded-xl"
+                    className="text-base px-7 py-3 border-[#CBD5E1] text-[#0D47A1] hover:bg-[#E3F2FD] font-semibold rounded-xl"
                   >
                     Explore Manufacturing Solutions →
                   </Button>
                 </div>
 
-                <div className="flex items-center gap-2 mb-6">
+                <div className="flex items-center gap-2 mb-4">
                   <Link 
                     href="/solutions/ai-readiness" 
                     className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-[#0D47A1] hover:text-[#2196F3] hover:underline transition-all"
@@ -167,7 +159,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Supporting Micro-Positioning Banner */}
-                <div className="pt-4 border-t border-[#E2E8F0] flex items-center gap-3 text-xs font-mono font-semibold text-[#64748B]">
+                <div className="pt-3 border-t border-[#E2E8F0] flex items-center gap-3 text-xs font-mono font-semibold text-[#64748B]">
                   <span className="text-[#0D47A1]">AI-Led</span>
                   <span>·</span>
                   <span className="text-[#0D47A1]">Manufacturing-Focused</span>
@@ -177,9 +169,9 @@ export default function HomePage() {
               </FadeIn>
             </div>
 
-            {/* Right Column — 42% Visual (5/12 cols) — Single Industrial Visual */}
-            <div className="lg:col-span-5 w-full flex justify-center">
-              <FadeIn delay={0.28} amount={0}>
+            {/* Right Column — 50% Visual (6/12 cols) — Large Manufacturing AI Capability Map */}
+            <div className="lg:col-span-6 w-full flex justify-center items-center">
+              <FadeIn delay={0.2} amount={0}>
                 <ManufacturingAIMap />
               </FadeIn>
             </div>
