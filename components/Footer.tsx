@@ -221,6 +221,7 @@ export const Footer = () => {
             ) : (
               <form onSubmit={handleSubscribe} className="flex gap-2 w-full">
                 <input
+                  suppressHydrationWarning
                   type="email"
                   required
                   value={email}
@@ -229,6 +230,7 @@ export const Footer = () => {
                   className="flex-grow px-4 py-2.5 rounded-xl border border-[#CBD5E1] text-xs bg-[#FFFFFF] focus:outline-none focus:ring-2 focus:ring-[#2196F3] text-[#0F172A] placeholder-[#64748B] font-medium"
                 />
                 <button 
+                  suppressHydrationWarning
                   type="submit" 
                   className="bg-[#2196F3] hover:bg-[#1976D2] text-white font-bold text-xs py-2.5 px-6 rounded-xl transition-colors whitespace-nowrap cursor-pointer shadow-xs"
                 >

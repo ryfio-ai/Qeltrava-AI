@@ -30,7 +30,7 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Bu
 
     if (href) {
       return (
-        <Link href={href} className={combinedClassName}>
+        <Link href={href} className={combinedClassName} suppressHydrationWarning>
           {renderChildren()}
         </Link>
       );
@@ -38,6 +38,7 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Bu
 
     return (
       <button
+        suppressHydrationWarning
         className={combinedClassName}
         ref={ref as React.Ref<HTMLButtonElement>}
         {...props}

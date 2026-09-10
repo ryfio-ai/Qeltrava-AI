@@ -366,6 +366,7 @@ export default function BisIsiCompliancePage() {
                   <div>
                     <label className="block text-xs font-mono font-bold text-[#0D47A1] uppercase mb-1">Your Name *</label>
                     <input 
+                      suppressHydrationWarning
                       type="text" 
                       required 
                       value={formData.name} 
@@ -377,6 +378,7 @@ export default function BisIsiCompliancePage() {
                   <div>
                     <label className="block text-xs font-mono font-bold text-[#0D47A1] uppercase mb-1">Work Email *</label>
                     <input 
+                      suppressHydrationWarning
                       type="email" 
                       required 
                       value={formData.email} 
@@ -391,6 +393,7 @@ export default function BisIsiCompliancePage() {
                   <div>
                     <label className="block text-xs font-mono font-bold text-[#0D47A1] uppercase mb-1">Phone / WhatsApp</label>
                     <input 
+                      suppressHydrationWarning
                       type="tel" 
                       value={formData.phone} 
                       onChange={e => setFormData({ ...formData, phone: e.target.value })} 
@@ -401,6 +404,7 @@ export default function BisIsiCompliancePage() {
                   <div>
                     <label className="block text-xs font-mono font-bold text-[#0D47A1] uppercase mb-1">Company / Plant Name</label>
                     <input 
+                      suppressHydrationWarning
                       type="text" 
                       value={formData.company} 
                       onChange={e => setFormData({ ...formData, company: e.target.value })} 
@@ -414,6 +418,7 @@ export default function BisIsiCompliancePage() {
                   <div>
                     <label className="block text-xs font-mono font-bold text-[#0D47A1] uppercase mb-1">Product Name / Category *</label>
                     <input 
+                      suppressHydrationWarning
                       type="text" 
                       required 
                       value={formData.productName} 
@@ -425,6 +430,7 @@ export default function BisIsiCompliancePage() {
                   <div>
                     <label className="block text-xs font-mono font-bold text-[#0D47A1] uppercase mb-1">IS Standard Code (if known)</label>
                     <input 
+                      suppressHydrationWarning
                       type="text" 
                       value={formData.isStandard} 
                       onChange={e => setFormData({ ...formData, isStandard: e.target.value })} 
@@ -437,6 +443,7 @@ export default function BisIsiCompliancePage() {
                 <div>
                   <label className="block text-xs font-mono font-bold text-[#0D47A1] uppercase mb-1">Current Readiness & Notes</label>
                   <textarea 
+                    suppressHydrationWarning
                     rows={3} 
                     value={formData.message} 
                     onChange={e => setFormData({ ...formData, message: e.target.value })} 
@@ -446,6 +453,7 @@ export default function BisIsiCompliancePage() {
                 </div>
 
                 <button 
+                  suppressHydrationWarning
                   type="submit" 
                   disabled={isSubmitting} 
                   className="w-full py-4 rounded-xl bg-[#2196F3] hover:bg-[#1976D2] text-white font-bold text-sm transition-all shadow-xs cursor-pointer"

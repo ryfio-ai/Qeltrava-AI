@@ -357,6 +357,7 @@ export const Header = () => {
                 className="relative py-6"
               >
                 <button
+                  suppressHydrationWarning
                   onClick={(e) => handleNavClick(item.id, e)}
                   className={`text-xs xl:text-sm font-medium transition-colors px-3 py-2 rounded-lg flex items-center gap-1 focus:outline-none hover:bg-[#F8FAFC] whitespace-nowrap ${
                     isMenuOpen || pathname.startsWith(`/${item.id}`)
@@ -378,6 +379,7 @@ export const Header = () => {
           <LocaleSwitcher />
           
           <button 
+            suppressHydrationWarning
             onClick={() => setIsSearchOpen(true)}
             className="p-2 rounded-lg text-[#0F172A] hover:text-[#2196F3] hover:bg-[#F8FAFC] transition-colors focus:outline-none"
             aria-label="Search site (Cmd+K)"
@@ -393,6 +395,7 @@ export const Header = () => {
         {/* Mobile Header Controls */}
         <div className="flex items-center gap-2 lg:hidden">
           <button 
+            suppressHydrationWarning
             onClick={() => setIsSearchOpen(true)}
             className="p-2 text-[#1B2A4A] hover:text-[#2B70AB] transition-colors focus:outline-none"
             aria-label="Search site"
@@ -400,6 +403,7 @@ export const Header = () => {
             <Search size={22} />
           </button>
           <button 
+            suppressHydrationWarning
             className="p-2 text-[#1B2A4A]"
             onClick={() => setIsOpen(!isOpen)}
             aria-expanded={isOpen}
@@ -548,6 +552,7 @@ export const Header = () => {
                 return (
                   <div key={item.id} className="border-b border-slate-100 pb-3">
                     <button
+                      suppressHydrationWarning
                       onClick={() => setExpandedMobileMenu(prev => prev === item.id ? null : item.id)}
                       className="w-full flex items-center justify-between text-lg font-bold text-[#1B2A4A] py-1 text-left focus:outline-none"
                     >

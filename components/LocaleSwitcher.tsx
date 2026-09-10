@@ -21,6 +21,7 @@ export default function LocaleSwitcher() {
     <label className="relative">
       <p className="sr-only">Change language</p>
       <select
+        suppressHydrationWarning
         defaultValue={locale}
         onChange={onSelectChange}
         disabled={isPending}
