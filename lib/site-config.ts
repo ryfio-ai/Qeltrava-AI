@@ -1,12 +1,12 @@
 export const siteConfig = {
   companyName: "Qeltrava AI",
-  legalName: "Qeltrava Technologies Private Limited",
-  tagline: "The AI-Led Software Engineering Company",
-  description: "Qeltrava AI builds intelligent, secure, scalable software systems for organizations that want to automate operations, launch digital products, modernize legacy platforms, and operationalize AI safely.",
+  legalName: "Qeltrava AI",
+  tagline: "Engineering AI for Manufacturing",
+  description: "Qeltrava AI is an AI-led software engineering startup focused on building intelligent systems, manufacturing analytics, and automation software for industrial businesses.",
   baseUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://qeltrava.ai",
   email: "hello@qeltrava.ai",
   phone: "",
-  location: "Global / Remote-first",
+  location: "Coimbatore, Tamil Nadu, India",
   social: {
     linkedin: "https://www.linkedin.com/company/qeltravai/",
     instagram: "https://www.instagram.com/qeltravaai",
@@ -17,3 +17,4 @@ export const siteConfig = {
   defaultCTA: "Book an AI Strategy Call",
   secondaryCTA: "Explore Solutions",
 };
+

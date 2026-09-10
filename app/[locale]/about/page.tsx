@@ -56,28 +56,22 @@ export default function AboutPage() {
           </div>
         </FadeIn>
 
-        {/* Registered & Recognized */}
+        {/* Core Identity & Location */}
         <section className="py-8 border-t border-b border-[var(--color-border-soft)]">
           <FadeIn direction="up">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-[var(--color-primary-dark)] mb-2">Registered & Recognized</h2>
-              <p className="text-sm text-[var(--color-text-main)]">Verified by India's startup ecosystem.</p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              {[
-                "DPIIT Recognised Startup",
-                "Udyam Registered MSME",
-                "StartupTN Recognized",
-                "AWS Activate",
-                "Microsoft for Startups",
-                "NASSCOM Member",
-                "Qeltrava Technologies Private Limited · CIN: XXXXXXXXXXXX"
-              ].map((badge, i) => (
-                <div key={i} className="px-4 py-2 bg-[var(--color-bg-light)] border border-[var(--color-border-soft)] rounded-lg flex items-center justify-center text-center">
-                  <span className="text-sm font-semibold text-[var(--color-primary-dark)]">{badge}</span>
-                  <span className="ml-2 text-[10px] italic text-[var(--color-text-main)] opacity-60">In Progress</span>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-5 bg-[var(--color-bg-light)] border border-[var(--color-border-soft)] rounded-xl">
+                <h3 className="text-sm font-bold text-[var(--color-primary-dark)] mb-1">Primary Location</h3>
+                <p className="text-xs text-[var(--color-text-main)]">Coimbatore, Tamil Nadu, India — an engineering & industrial hub.</p>
+              </div>
+              <div className="p-5 bg-[var(--color-bg-light)] border border-[var(--color-border-soft)] rounded-xl">
+                <h3 className="text-sm font-bold text-[var(--color-primary-dark)] mb-1">Core Focus</h3>
+                <p className="text-xs text-[var(--color-text-main)]">AI Engineering for Manufacturing, Quality Intelligence & Industrial Software.</p>
+              </div>
+              <div className="p-5 bg-[var(--color-bg-light)] border border-[var(--color-border-soft)] rounded-xl">
+                <h3 className="text-sm font-bold text-[var(--color-primary-dark)] mb-1">Founding Institution</h3>
+                <p className="text-xs text-[var(--color-text-main)]">Engineers & alumni from PSG College of Technology, Coimbatore.</p>
+              </div>
             </div>
           </FadeIn>
         </section>

@@ -246,9 +246,9 @@ export const Footer = () => {
       <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] py-6 w-full text-xs text-[#64748B]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <address className="not-italic flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 leading-normal">
-            <span className="font-semibold text-[#0F172A]">© {new Date().getFullYear()} Qeltrava Technologies Private Limited</span>
+            <span className="font-semibold text-[#0F172A]">© {new Date().getFullYear()} Qeltrava AI</span>
             <span className="hidden sm:inline text-[#CBD5E1]">|</span>
-            <span>Coimbatore, Tamil Nadu, India — 641 004</span>
+            <span>Coimbatore, Tamil Nadu, India</span>
           </address>
           
           <div className="flex flex-wrap items-center gap-6">
