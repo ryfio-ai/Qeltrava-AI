@@ -130,6 +130,7 @@ export const Footer = () => {
               <li><Link href="/services/cloud-devops" className="hover:text-[#2196F3] transition-colors">Cloud & DevOps</Link></li>
               <li><Link href="/services/data-analytics" className="hover:text-[#2196F3] transition-colors">Data & Analytics</Link></li>
               <li><Link href="/services/cybersecurity" className="hover:text-[#2196F3] transition-colors">Cybersecurity</Link></li>
+              <li><Link href="/services/bis-isi-compliance" className="hover:text-[#2196F3] transition-colors">BIS / ISI Compliance Support</Link></li>
             </ul>
           </div>
 

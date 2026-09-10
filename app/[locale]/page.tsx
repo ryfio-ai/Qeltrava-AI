@@ -10,7 +10,7 @@ import { ProductHuntHeroBanner } from '@/components/ui/ProductHuntEmbeds';
 import { QeltravaIntelligenceVisual } from '@/components/ui/QeltravaIntelligenceVisual';
 import { QeltravaManufacturingSignal } from '@/components/ui/QeltravaManufacturingSignal';
 import { BuilderToolsSection } from '@/components/builder-tools/BuilderToolsSection';
-import { ArrowRight, Cpu, Zap, Layers, Factory, CheckCircle2, Shield, Activity, Database, Wrench } from 'lucide-react';
+import { ArrowRight, Cpu, Zap, Layers, Factory, CheckCircle2, Shield, ShieldCheck, Activity, Database, Wrench } from 'lucide-react';
 
 export default function HomePage() {
   const coreSolutions = [
@@ -346,7 +346,49 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── 05. FLAGSHIP PRODUCT: MODLIQER (#FFFFFF) ─────────────────────────── */}
+      {/* ─── 05. PRODUCT COMPLIANCE & CERTIFICATION (#F8FAFC) ────────────────── */}
+      <section className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <FadeIn direction="up">
+            <div className="bg-[#FFFFFF] border border-[#CBD5E1] hover:border-[#2196F3] rounded-2xl p-8 md:p-10 shadow-xs flex flex-col md:flex-row items-center justify-between gap-8 transition-all">
+              <div className="space-y-3 max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E3F2FD] border border-[#90CAF9] text-[#0D47A1] text-[10px] font-mono font-bold uppercase tracking-wider">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#2196F3]" />
+                  <span>PRODUCT COMPLIANCE & CERTIFICATION</span>
+                </div>
+                <h2 className="text-2xl sm:text-4xl font-bold text-[#0F172A] font-anek">
+                  Make your product certification journey clearer.
+                </h2>
+                <p className="text-sm text-[#475569] font-sans">
+                  From applicable Indian Standards to factory audit readiness. We help manufacturers prepare technical documentation, in-house testing labs, and quality systems for BIS / ISI compliance.
+                </p>
+                <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold text-[#0D47A1] pt-2">
+                  <span className="bg-[#F8FAFC] px-2.5 py-1 rounded border border-[#E2E8F0]">Identify</span>
+                  <span>→</span>
+                  <span className="bg-[#F8FAFC] px-2.5 py-1 rounded border border-[#E2E8F0]">Assess</span>
+                  <span>→</span>
+                  <span className="bg-[#F8FAFC] px-2.5 py-1 rounded border border-[#E2E8F0]">Test</span>
+                  <span>→</span>
+                  <span className="bg-[#F8FAFC] px-2.5 py-1 rounded border border-[#E2E8F0]">Document</span>
+                  <span>→</span>
+                  <span className="bg-[#F8FAFC] px-2.5 py-1 rounded border border-[#E2E8F0]">Prepare</span>
+                  <span>→</span>
+                  <span className="bg-[#E3F2FD] px-2.5 py-1 rounded border border-[#90CAF9]">Support</span>
+                </div>
+              </div>
+
+              <Link
+                href="/services/bis-isi-compliance"
+                className="px-6 py-3.5 rounded-xl bg-[#0D47A1] hover:bg-[#2196F3] text-white font-bold text-sm transition-all shadow-xs whitespace-nowrap flex-shrink-0"
+              >
+                Explore BIS / ISI Compliance →
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ─── 06. FLAGSHIP PRODUCT: MODLIQER (#FFFFFF) ─────────────────────────── */}
       <section className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 space-y-12">
           <FadeIn direction="up">

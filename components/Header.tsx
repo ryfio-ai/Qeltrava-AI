@@ -178,8 +178,9 @@ export const Header = () => {
           ]
         },
         {
-          title: 'Infrastructure & Data',
+          title: 'Manufacturing & Compliance',
           links: [
+            { label: 'BIS / ISI Compliance Support', href: '/services/bis-isi-compliance', badge: 'New' },
             { label: 'Cloud Architecture & DevOps', href: '/services/cloud-devops' },
             { label: 'Data Platform & Analytics', href: '/services/data-analytics' },
             { label: 'Cybersecurity & Compliance', href: '/services/cybersecurity' }
