@@ -7,7 +7,7 @@ import { FadeIn } from '@/components/animations/FadeIn';
 import { Magnetic } from '@/components/motion/Magnetic';
 import { ClientLogos } from '@/components/ClientLogos';
 import { ProductHuntHeroBanner } from '@/components/ui/ProductHuntEmbeds';
-import { IndustrialHeroVisual } from '@/components/ui/IndustrialHeroVisual';
+import { ManufacturingAIMap } from '@/components/home/ManufacturingAIMap';
 import { ArrowRight, CheckCircle2, ShieldCheck, ExternalLink } from 'lucide-react';
 
 export default function HomePage() {
@@ -180,7 +180,7 @@ export default function HomePage() {
             {/* Right Column — 42% Visual (5/12 cols) — Single Industrial Visual */}
             <div className="lg:col-span-5 w-full flex justify-center">
               <FadeIn delay={0.28} amount={0}>
-                <IndustrialHeroVisual />
+                <ManufacturingAIMap />
               </FadeIn>
             </div>
 
