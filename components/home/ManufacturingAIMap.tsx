@@ -172,10 +172,10 @@ export function ManufacturingAIMap() {
           {/* Clock Dial Hour Ticks (12 Ticks at 30° Increments) */}
           {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((angle, idx) => {
             const rad = (angle * Math.PI) / 180;
-            const x1 = 220 + Math.cos(rad) * 202;
-            const y1 = 220 + Math.sin(rad) * 202;
-            const x2 = 220 + Math.cos(rad) * 212;
-            const y2 = 220 + Math.sin(rad) * 212;
+            const x1 = Number((220 + Math.cos(rad) * 202).toFixed(3));
+            const y1 = Number((220 + Math.sin(rad) * 202).toFixed(3));
+            const x2 = Number((220 + Math.cos(rad) * 212).toFixed(3));
+            const y2 = Number((220 + Math.sin(rad) * 212).toFixed(3));
             return (
               <line
                 key={idx}
@@ -203,8 +203,8 @@ export function ManufacturingAIMap() {
 
         {/* Curved Connection Paths from AI Core (220, 220) directly to Clock Node Centers */}
         {nodes.map((node, idx) => {
-          const targetX = (node.position.x / 100) * 440;
-          const targetY = (node.position.y / 100) * 440;
+          const targetX = Number(((node.position.x / 100) * 440).toFixed(2));
+          const targetY = Number(((node.position.y / 100) * 440).toFixed(2));
           const isActive = idx === activeNodeIndex;
           const pathD = `M 220 220 Q ${node.curveControl.cx} ${node.curveControl.cy} ${targetX} ${targetY}`;
 
