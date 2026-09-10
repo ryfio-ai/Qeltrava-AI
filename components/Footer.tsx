@@ -71,7 +71,7 @@ export const Footer = () => {
             <div>
               <Link href="/" className="flex items-center gap-3 mb-4">
                 <Image 
-                  src="/logo-bg.png" 
+                  src="/logo.png" 
                   alt="Qeltrava AI Logo" 
                   width={36} 
                   height={36} 

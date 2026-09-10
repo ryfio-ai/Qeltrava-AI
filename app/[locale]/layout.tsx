@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.companyName,
     images: [
       {
-        url: "/logo-bg.png",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: siteConfig.companyName,
@@ -73,12 +73,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.companyName} | Custom AI Software Development`,
     description: siteConfig.description,
-    images: ["/logo-bg.png"],
+    images: ["/logo.png"],
   },
   icons: {
-    icon: "/logo-bg.png",
-    shortcut: "/logo-bg.png",
-    apple: "/logo-bg.png",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
   alternates: {
     languages: {

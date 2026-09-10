@@ -331,7 +331,7 @@ export const Header = () => {
         {/* Brand Logo (Left Aligned) */}
         <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0" onClick={closeAllMenus}>
           <Image 
-            src="/logo-bg.png" 
+            src="/logo.png" 
             alt="Qeltrava AI Logo" 
             width={40} 
             height={40} 
