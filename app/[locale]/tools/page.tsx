@@ -1,15 +1,15 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { BuilderToolsSection } from '@/components/builder-tools/BuilderToolsSection';
+import { EngineeringToolsHub } from '@/components/tools/EngineeringToolsHub';
 import { Reveal } from '@/components/motion/Reveal';
 
 export const metadata: Metadata = {
-  title: 'Qeltrava Builder Lab | Free Engineering Intelligence & Product Tools',
-  description: 'Free interactive engineering tools for founders and developers: Idea to Blueprint, AI Readiness Scorecard, MVP Classifier, and Architecture Generator.',
-  keywords: ["AI Builder Tools", "Software Architecture Generator", "MVP Scope Planner", "AI Readiness Assessment", "Engineering Blueprint"],
+  title: 'Engineering Tools Hub | Build, Decide, Ship | Qeltrava AI',
+  description: 'Interactive engineering intelligence tools: Architecture Builder, MVP Scope Planner, Tech Stack Advisor, Cloud Cost Estimator, and GitHub Issue Generator.',
+  keywords: ["Engineering Tools", "Software Architecture Generator", "Tech Stack Advisor", "MVP Scope Planner", "GitHub Issue Generator"],
   openGraph: {
-    title: 'Qeltrava Builder Lab | Free Engineering Intelligence',
-    description: 'Build smarter before you build bigger with interactive AI & software architecture tools.',
+    title: 'Engineering Tools Hub | Qeltrava AI',
+    description: 'Turn ideas into production engineering plans with free interactive tools.',
     type: 'website',
   },
 };
@@ -22,20 +22,20 @@ export default function ToolsPage() {
         <Reveal direction="up">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E3F2FD] border border-[#90CAF9] text-[#0D47A1] text-xs font-mono font-bold uppercase tracking-widest">
-              <span>ENGINEERING INTELLIGENCE FOR BUILDERS</span>
+              <span>ENGINEERING TOOLS HUB</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-[#0D47A1] tracking-tight font-anek">
-              Qeltrava <span className="font-serif italic font-normal text-[#2196F3]">Builder Lab</span>
+              Build → Decide → <span className="font-serif italic font-normal text-[#2196F3]">Ship</span>
             </h1>
             <p className="text-lg text-[#475569] font-sans">
-              Build smarter before you build bigger. Interactive engineering intelligence tools to evaluate AI readiness, plan MVP scope, and generate production architecture briefs.
+              Interactive tools for founders, developers, and engineers to scope MVPs, select technical stacks, design architectures, and generate GitHub issues.
             </p>
           </div>
         </Reveal>
 
-        {/* Builder Tools Hub */}
+        {/* Engineering Tools Hub */}
         <Reveal delay={0.1} direction="up">
-          <BuilderToolsSection />
+          <EngineeringToolsHub />
         </Reveal>
       </div>
     </main>
