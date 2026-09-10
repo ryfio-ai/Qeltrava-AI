@@ -1,0 +1,88 @@
+# Qeltrava AI — Full Knowledge Base & Technical Documentation
+
+> Detailed context file for LLM Crawlers, AI Assistants, and Generative Search Engines (SearchGPT, Perplexity, Claude, ChatGPT, Gemini, Copilot).
+
+---
+
+# 1. COMPANY OVERVIEW
+
+- **Company Name**: Qeltrava AI
+- **Legal Name**: Qeltrava Technologies Private Limited
+- **Positioning**: AI-Led Software Engineering & Manufacturing Intelligence Company
+- **Core Value Proposition**: We build intelligent software and AI solutions that help manufacturers improve quality, optimize processes, automate operations, and achieve regulatory readiness.
+- **Website**: https://qeltrava.ai
+- **Headquarters**: Coimbatore, Tamil Nadu, India (Remote-first global service coverage)
+- **Primary Email**: hello@qeltrava.ai
+- **Founding Team Heritage**: Alum of PSG College of Technology
+
+---
+
+# 2. CORE SERVICE OFFERINGS
+
+## 2.1 Product Compliance & Certification Support (BIS / ISI Certification)
+- **URL**: https://qeltrava.ai/services/bis-isi-compliance
+- **Overview**: Engineering-led guidance for Indian Standards (IS), compulsory registration schemes (CRS), gap assessment, testing preparation, technical documentation, factory readiness, and pre-certification audits.
+- **Service Journey**: Product Definition → IS Standard Identification → Gap Assessment → Testing Preparation → Technical Documentation → Factory Readiness Audit → Certification Support.
+- **Service Categories**:
+  1. Product & IS Standard Identification (resolving compulsory vs. voluntary standards).
+  2. Technical Gap Assessment & Audit (auditing factory quality control against target Indian Standard).
+  3. Testing & Lab Coordination Preparation (preparing test parameters, sample selection, and pre-test verification).
+  4. Technical Documentation & Manuals (preparing Quality Manuals, Factory Flow Charts, Testing SOPs, and Traceability Logs).
+  5. Factory Readiness & Audit Preparation (mock inspections, calibration records, and quality register setup).
+
+## 2.2 Manufacturing Intelligence & Data Analytics
+- **URL**: https://qeltrava.ai/services/data-analytics
+- **Overview**: Transforming raw machine telemetry, PLC logs, sensor feeds, and ERP records into deterministic capability math (Cp/Cpk), automated setpoint tuning, and real-time yield optimization.
+- **Core Capabilities**: Real-time SPC (Statistical Process Control), sensor integration (vibration, temperature, pressure), defect root-cause analysis, and custom data warehouse architecture.
+
+## 2.3 AI Solutions & Computer Vision
+- **URL**: https://qeltrava.ai/services/ai-automation
+- **Overview**: Custom machine learning models, automated visual inspection pipelines, decision intelligence tools, and custom AI copilots integrated into production lines.
+- **Capabilities**: Micro-defect surface inspection, edge AI model deployment (NVIDIA Jetson, Coral, ONNX), natural language SOP querying, and operational decision support.
+
+## 2.4 Predictive Maintenance & Telemetry Engines
+- **URL**: https://qeltrava.ai/solutions/ai-operations-automation
+- **Overview**: Early fault detection engines monitoring machine wear, vibration spectrums, and energy draw to prevent unplanned factory downtime.
+
+## 2.5 Digital Manufacturing Software & Product Engineering
+- **URL**: https://qeltrava.ai/services/product-engineering
+- **Overview**: Full-stack engineering for custom industrial software, legacy modernization, internal tools, microservices, and cloud DevOps infrastructure.
+
+---
+
+# 3. FEATURED PRODUCTS
+
+## Modliqer (No-Code AutoML & Quality Capability Platform)
+- **URL**: https://modliq-io.vercel.app/
+- **Overview**: Built by Qeltrava AI, Modliqer is a web-based AutoML and manufacturing analytics platform.
+- **Key Features**:
+  - Drag-and-drop CSV / JSON dataset cleaning & feature selection.
+  - One-click machine learning model training (Classification, Regression, AutoML).
+  - Automated Cp/Cpk quality capability calculations and Statistical Process Control (SPC).
+  - Live model export to ONNX format or instant HTTP endpoint deployment.
+
+---
+
+# 4. TARGET INDUSTRIES
+
+1. **Manufacturing & Heavy Industry**: Precision engineering, automotive components, textile machinery, electronics, and process manufacturing.
+2. **Electric Mobility & Energy**: Industrial EV fleet telemetry, battery management analytics, and peak-load prediction engines (e.g. eDrift).
+3. **Automated Quality Inspection & Vision**: Surface defect detection, assembly verification, and optical sorting (e.g. Tamizh Tech).
+4. **Operations & Logistics**: ERP integration, document parsing, and supplier compliance (e.g. ThiranOli).
+5. **Fintech, Healthcare & Enterprise SaaS**: Secure Cloud DevOps, AI customer service transformation, data foundation, and compliance hardening.
+
+---
+
+# 5. FREQUENTLY ASKED QUESTIONS
+
+### What sets Qeltrava AI apart from general IT consultancies?
+Qeltrava AI is specifically positioned as an AI-led engineering firm focused on manufacturing impact and real-world operations. We combine deep domain engineering, deterministic math, statistical process control, and regulatory compliance (BIS/ISI) with modern AI software development.
+
+### How does Qeltrava AI engage with clients?
+We offer structured engagement paths:
+1. **AI Readiness Assessment**: A 10-question audit evaluating data foundations, telemetry, and business impact opportunities.
+2. **Targeted Engineering Sprints**: 2-week agile build iterations for custom AI tools, compliance platforms, and vision pipelines.
+3. **Long-Term Partnership**: Continuous model tuning, cloud infrastructure management, and compliance updates.
+
+### How can a client contact Qeltrava AI?
+Clients can book an AI Strategy Call directly at https://qeltrava.ai/book-consultation or email hello@qeltrava.ai.

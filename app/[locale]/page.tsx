@@ -1,5 +1,3 @@
-"use client";
-
 import React from 'react';
 import { Link } from '@/src/routing';
 import { Button } from '@/components/Button';
@@ -7,9 +5,32 @@ import { FadeIn } from '@/components/animations/FadeIn';
 import { Magnetic } from '@/components/motion/Magnetic';
 import { ClientLogos } from '@/components/ClientLogos';
 import { ManufacturingAIMap } from '@/components/home/ManufacturingAIMap';
+import { FaqJsonLd } from '@/components/seo/JsonLd';
 import { ArrowRight, CheckCircle2, ShieldCheck, ExternalLink } from 'lucide-react';
 
 export default function HomePage() {
+  const homeFaqs = [
+    {
+      question: "What is Qeltrava AI?",
+      answer: "Qeltrava AI (Qeltrava Technologies Private Limited) is an AI-led software engineering and manufacturing intelligence company building custom AI solutions, predictive analytics, vision quality systems, and BIS/ISI product compliance support for industrial manufacturers."
+    },
+    {
+      question: "How does Qeltrava AI assist manufacturers with BIS / ISI Certification?",
+      answer: "Qeltrava AI provides dedicated Product Compliance & Certification Support. We help product developers identify applicable Indian Standards (IS), perform technical gap assessments, audit factory quality control against standard requirements, prepare testing documentation, and ensure pre-certification readiness."
+    },
+    {
+      question: "What is Modliqer?",
+      answer: "Modliqer is a no-code AutoML and manufacturing analytics platform built by Qeltrava AI that enables engineers and researchers to clean data, train machine learning models, compute Cp/Cpk quality capability math, and deploy AI endpoints without coding."
+    },
+    {
+      question: "What manufacturing AI solutions does Qeltrava AI engineer?",
+      answer: "Qeltrava AI builds custom solutions across Quality Intelligence (defect detection & Cp/Cpk math), Process Optimization (sensor setpoint tuning), Production Analytics (throughput monitoring), Predictive Maintenance (vibration & wear telemetry), and Intelligent Automation (workflow AI agents)."
+    },
+    {
+      question: "How do I get started with Qeltrava AI?",
+      answer: "You can start by booking an AI strategy consultation at https://qeltrava.ai/book-consultation or taking our 10-question AI Readiness Assessment at https://qeltrava.ai/ai-readiness."
+    }
+  ];
   // 03 WHAT WE DO — 5 Editorial Solution Rows
   const editorialSolutions = [
     {

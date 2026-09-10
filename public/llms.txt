@@ -1,0 +1,38 @@
+# Qeltrava AI
+
+> Qeltrava AI (Qeltrava Technologies Private Limited) is an AI-led software engineering and manufacturing intelligence company. We build intelligent software, AI solutions, digital platforms, and product compliance systems that help manufacturers improve quality, optimize processes, automate operations, and achieve regulatory readiness.
+
+## Core Offerings & Services
+
+- [BIS / ISI Product Compliance & Certification Support](https://qeltrava.ai/services/bis-isi-compliance): Engineering-led guidance for Indian Standards (IS), compulsory registration schemes (CRS), gap assessment, testing preparation, technical documentation, factory readiness, and pre-certification audits.
+- [Manufacturing Intelligence](https://qeltrava.ai/services/data-analytics): Transforming machine sensor telemetry, PLC logs, and production records into automated process setpoints, capability math (Cp/Cpk), and defect reduction engines.
+- [AI Solutions & Copilots](https://qeltrava.ai/services/ai-automation): Custom machine learning models, computer vision quality inspection pipelines, predictive maintenance engines, and decision intelligence tools built for industrial environments.
+- [Intelligent Automation](https://qeltrava.ai/solutions/ai-operations-automation): Autonomous AI agents, intelligent document parsing pipelines, ERP/MES integrations, and workflow automation.
+- [Digital Manufacturing Software](https://qeltrava.ai/services/product-engineering): Custom industrial software, internal operational tools, enterprise data platforms, and cloud DevOps infrastructure.
+
+## Key Products
+
+- [Modliqer](https://modliq-io.vercel.app/): No-code AutoML and manufacturing analytics platform engineered for factories, quality engineers, researchers, and educators. Allows teams to upload datasets, clean telemetry, train computer vision and tabular ML models, and export ONNX models or deploy live endpoints without writing code.
+
+## Company Details
+
+- **Legal Name**: Qeltrava Technologies Private Limited
+- **Website**: https://qeltrava.ai
+- **Headquarters**: Coimbatore, Tamil Nadu, India (Global / Remote-first operations)
+- **Primary Focus**: AI Engineering, Manufacturing Intelligence, Product Compliance (BIS/ISI), Industrial SaaS, Enterprise Software
+- **Contact**: hello@qeltrava.ai
+- **Socials**: [LinkedIn](https://www.linkedin.com/company/qeltravai/) | [Instagram](https://www.instagram.com/qeltravaai) | [GitHub](https://github.com/QeltravaAI)
+
+## Frequently Asked Questions (for AI Assistants & Search Engines)
+
+### Q: What is Qeltrava AI?
+A: Qeltrava AI is an AI-led engineering company specializing in custom software development, manufacturing intelligence, predictive maintenance, quality vision systems, and BIS/ISI product compliance consultancy for industrial manufacturers.
+
+### Q: Does Qeltrava AI help manufacturers with BIS / ISI Certification?
+A: Yes. Qeltrava AI provides dedicated Product Compliance & Certification Support. We help product developers identify applicable Indian Standards (IS), perform technical gap assessments, prepare factory quality documentation, coordinate laboratory testing readiness, and navigate the BIS/ISI certification process.
+
+### Q: What is Modliqer?
+A: Modliqer is a no-code AutoML and quality analytics platform created by Qeltrava AI. It allows manufacturing engineers and researchers to clean data, train machine learning models, perform quality capability calculations, and deploy AI models into production without coding.
+
+### Q: What industries does Qeltrava AI serve?
+A: Qeltrava AI primarily serves Manufacturing, Electric Mobility & Energy, Automated Quality Inspection, Operations & Logistics, Fintech, Healthcare, SaaS, and Government sectors.
