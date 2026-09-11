@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Layers, DollarSign, GitPullRequest, Copy, Check, Sparkles } from 'lucide-react';
+import { Layers, DollarSign, GitPullRequest, Copy, Check, Sparkles, ArrowRight, Info } from 'lucide-react';
 
 export function FounderToolkit() {
   const [activeTab, setActiveTab] = useState<'stack' | 'cost' | 'issues'>('stack');
@@ -64,11 +64,12 @@ export function FounderToolkit() {
   // GitHub Issue Template
   const generatedGitHubIssues = `### Epic: ${featureName}
 **Goal:** ${featureGoal}
+**Architecture Stack:** ${currentStack.frontend} + ${currentStack.backend}
 
 ---
 
 #### User Story 1: Telemetry Data Ingestion API
-- [ ] **Task:** Implement async POST endpoint to receive camera/sensor JSON telemetry.
+- [ ] **Task:** Implement async POST endpoint to receive sensor JSON telemetry.
 - [ ] **Task:** Add Zod/Pydantic schema validation for incoming sensor payload.
 - [ ] **Test:** Unit test endpoint with valid and malformed payloads.
 
@@ -123,87 +124,108 @@ export function FounderToolkit() {
         </button>
       </div>
 
+      {/* Controlled Handoff Context Banner */}
+      <div className="p-3.5 bg-[#E3F2FD] border border-[#90CAF9] rounded-xl text-xs font-mono text-[#0D47A1] flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Info className="w-4 h-4 text-[#2196F3] shrink-0" />
+          <span>Workflow Context: Using your active product scope ({featureName}) across tools.</span>
+        </div>
+      </div>
+
       {/* Tab 1: Tech Stack Advisor */}
       {activeTab === 'stack' && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="p-6 bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl space-y-5">
-            <h3 className="text-lg font-bold text-[#0D47A1] font-anek">Product Specifications</h3>
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="p-6 bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl space-y-5">
+              <h3 className="text-lg font-bold text-[#0D47A1] font-anek">Product Specifications</h3>
 
-            <div className="space-y-4 font-sans text-xs">
+              <div className="space-y-4 font-sans text-xs">
+                <div>
+                  <label className="block font-semibold text-[#334155] mb-1.5">What are you building?</label>
+                  <select
+                    value={productType}
+                    onChange={(e) => setProductType(e.target.value as any)}
+                    className="w-full px-3 py-2 border border-[#CBD5E1] rounded-xl text-xs bg-white font-medium text-[#0F172A]"
+                  >
+                    <option value="manufacturing">Industrial / Manufacturing AI Platform</option>
+                    <option value="saas">B2B SaaS / Web Platform</option>
+                    <option value="ai-tool">AI Agent / LLM Utility</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block font-semibold text-[#334155] mb-1.5">Expected Target Scale</label>
+                  <select
+                    value={userScale}
+                    onChange={(e) => setUserScale(e.target.value as any)}
+                    className="w-full px-3 py-2 border border-[#CBD5E1] rounded-xl text-xs bg-white font-medium text-[#0F172A]"
+                  >
+                    <option value="early">MVP Pilot (&lt; 1,000 active users)</option>
+                    <option value="growth">Growth Stage (1,000 – 25,000 users)</option>
+                    <option value="enterprise">Enterprise (25,000+ users / high availability)</option>
+                  </select>
+                </div>
+
+                <div className="flex items-center gap-2 pt-2">
+                  <input
+                    type="checkbox"
+                    id="requiresAI"
+                    checked={requiresAI}
+                    onChange={(e) => setRequiresAI(e.target.checked)}
+                    className="w-4 h-4 text-[#2196F3] accent-[#2196F3]"
+                  />
+                  <label htmlFor="requiresAI" className="font-semibold text-[#334155] cursor-pointer">
+                    Requires Real-Time AI / Computer Vision Model Execution
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            {/* Recommended Stack Box */}
+            <div className="p-6 bg-[#FFFFFF] border border-[#90CAF9] rounded-2xl space-y-4 flex flex-col justify-between">
               <div>
-                <label className="block font-semibold text-[#334155] mb-1.5">What are you building?</label>
-                <select
-                  value={productType}
-                  onChange={(e) => setProductType(e.target.value as any)}
-                  className="w-full px-3 py-2 border border-[#CBD5E1] rounded-xl text-xs bg-white font-medium text-[#0F172A]"
-                >
-                  <option value="manufacturing">Industrial / Manufacturing AI Platform</option>
-                  <option value="saas">B2B SaaS / Web Platform</option>
-                  <option value="ai-tool">AI Agent / LLM Utility</option>
-                </select>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono font-bold uppercase text-[#0D47A1] flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-[#2196F3]" />
+                    <span>Recommended Architecture Stack</span>
+                  </span>
+                </div>
+
+                <div className="space-y-3 text-xs font-sans">
+                  <div className="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl">
+                    <div className="font-mono text-[10px] text-[#64748B] uppercase">Frontend Layer</div>
+                    <div className="font-bold text-[#0F172A]">{currentStack.frontend}</div>
+                  </div>
+                  <div className="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl">
+                    <div className="font-mono text-[10px] text-[#64748B] uppercase">Backend Microservice</div>
+                    <div className="font-bold text-[#0F172A]">{currentStack.backend}</div>
+                  </div>
+                  <div className="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl">
+                    <div className="font-mono text-[10px] text-[#64748B] uppercase">Database & Storage</div>
+                    <div className="font-bold text-[#0F172A]">{currentStack.database}</div>
+                  </div>
+                  <div className="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl">
+                    <div className="font-mono text-[10px] text-[#64748B] uppercase">AI & Model Layer</div>
+                    <div className="font-bold text-[#0F172A]">{currentStack.aiLayer}</div>
+                  </div>
+                </div>
               </div>
 
-              <div>
-                <label className="block font-semibold text-[#334155] mb-1.5">Expected Target Scale</label>
-                <select
-                  value={userScale}
-                  onChange={(e) => setUserScale(e.target.value as any)}
-                  className="w-full px-3 py-2 border border-[#CBD5E1] rounded-xl text-xs bg-white font-medium text-[#0F172A]"
-                >
-                  <option value="early">MVP Pilot (&lt; 1,000 active users)</option>
-                  <option value="growth">Growth Stage (1,000 – 25,000 users)</option>
-                  <option value="enterprise">Enterprise (25,000+ users / high availability)</option>
-                </select>
-              </div>
-
-              <div className="flex items-center gap-2 pt-2">
-                <input
-                  type="checkbox"
-                  id="requiresAI"
-                  checked={requiresAI}
-                  onChange={(e) => setRequiresAI(e.target.checked)}
-                  className="w-4 h-4 text-[#2196F3] accent-[#2196F3]"
-                />
-                <label htmlFor="requiresAI" className="font-semibold text-[#334155] cursor-pointer">
-                  Requires Real-Time AI / Computer Vision Model Execution
-                </label>
+              <div className="p-3.5 bg-[#E3F2FD] border border-[#90CAF9] rounded-xl text-xs text-[#334155] leading-relaxed">
+                <strong className="text-[#0D47A1]">Architectural Rationale:</strong> {currentStack.rationale}
               </div>
             </div>
           </div>
 
-          {/* Recommended Stack Box */}
-          <div className="p-6 bg-[#FFFFFF] border border-[#90CAF9] rounded-2xl space-y-4 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-mono font-bold uppercase text-[#0D47A1] flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-[#2196F3]" />
-                  <span>Recommended Architecture Stack</span>
-                </span>
-              </div>
-
-              <div className="space-y-3 text-xs font-sans">
-                <div className="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl">
-                  <div className="font-mono text-[10px] text-[#64748B] uppercase">Frontend Layer</div>
-                  <div className="font-bold text-[#0F172A]">{currentStack.frontend}</div>
-                </div>
-                <div className="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl">
-                  <div className="font-mono text-[10px] text-[#64748B] uppercase">Backend Microservice</div>
-                  <div className="font-bold text-[#0F172A]">{currentStack.backend}</div>
-                </div>
-                <div className="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl">
-                  <div className="font-mono text-[10px] text-[#64748B] uppercase">Database & Storage</div>
-                  <div className="font-bold text-[#0F172A]">{currentStack.database}</div>
-                </div>
-                <div className="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl">
-                  <div className="font-mono text-[10px] text-[#64748B] uppercase">AI & Model Layer</div>
-                  <div className="font-bold text-[#0F172A]">{currentStack.aiLayer}</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-3.5 bg-[#E3F2FD] border border-[#90CAF9] rounded-xl text-xs text-[#334155] leading-relaxed">
-              <strong className="text-[#0D47A1]">Architectural Rationale:</strong> {currentStack.rationale}
-            </div>
+          {/* Controlled Workflow Transition Button */}
+          <div className="flex justify-end pt-4">
+            <button
+              onClick={() => setActiveTab('issues')}
+              className="flex items-center gap-2 px-5 py-2.5 bg-[#2196F3] text-white text-xs font-bold font-mono rounded-xl hover:bg-[#1976D2] transition-all cursor-pointer shadow-xs"
+            >
+              <span>Continue to GitHub Issue Exporter</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       )}
@@ -287,7 +309,7 @@ export function FounderToolkit() {
             </div>
 
             <p className="text-[11px] text-[#64748B] italic">
-              * Note: Cost estimates are architectural projections based on standard tier cloud pricing. Actual vendor usage charges may vary.
+              * Note: Infrastructure pricing is an estimate based on tier projections. Validate actual usage charges with cloud vendors.
             </p>
           </div>
         </div>

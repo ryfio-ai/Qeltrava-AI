@@ -8,7 +8,7 @@ import {
   OEEMetrics,
   TelemetrySample,
 } from '@/lib/manufacturing-sim';
-import { Factory, Activity, Download, RefreshCw, AlertCircle, CheckCircle } from 'lucide-react';
+import { Factory, Activity, Download, RefreshCw, CheckCircle, Info, ShieldAlert, AlertTriangle } from 'lucide-react';
 
 export function ManufacturingLab() {
   const [activeTab, setActiveTab] = useState<'oee' | 'simulator' | 'datasets'>('oee');
@@ -27,16 +27,18 @@ export function ManufacturingLab() {
   // Simulator State
   const [machineId, setMachineId] = useState('CNC-LINE-01');
   const [sampleCount, setSampleCount] = useState(15);
+  const [isSeeded, setIsSeeded] = useState(false);
+  const [seedValue, setSeedValue] = useState(12345);
   const [telemetry, setTelemetry] = useState<TelemetrySample[]>(() =>
     generateSyntheticTelemetry('CNC-LINE-01', 15)
   );
 
   const handleGenerateTelemetry = () => {
-    setTelemetry(generateSyntheticTelemetry(machineId, sampleCount));
+    setTelemetry(generateSyntheticTelemetry(machineId, sampleCount, isSeeded ? seedValue : undefined));
   };
 
   const handleDownloadCSV = () => {
-    const csvContent = convertTelemetryToCSV(telemetry);
+    const csvContent = convertTelemetryToCSV(telemetry, isSeeded ? seedValue : undefined);
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -89,6 +91,7 @@ export function ManufacturingLab() {
       {/* Tab 1: OEE Calculator */}
       {activeTab === 'oee' && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Inputs Section */}
           <div className="p-6 bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl space-y-5">
             <h3 className="text-lg font-bold text-[#0D47A1] font-anek">Line Operating Metrics</h3>
             <div className="space-y-4 font-sans text-xs">
@@ -98,7 +101,7 @@ export function ManufacturingLab() {
                 </label>
                 <input
                   type="range"
-                  min={120}
+                  min={0}
                   max={720}
                   step={30}
                   value={oeeInput.plannedProductionMinutes}
@@ -116,7 +119,7 @@ export function ManufacturingLab() {
                 <input
                   type="range"
                   min={0}
-                  max={180}
+                  max={oeeInput.plannedProductionMinutes}
                   step={5}
                   value={oeeInput.downtimeMinutes}
                   onChange={(e) =>
@@ -132,7 +135,7 @@ export function ManufacturingLab() {
                 </label>
                 <input
                   type="range"
-                  min={500}
+                  min={0}
                   max={5000}
                   step={50}
                   value={oeeInput.totalUnitsProduced}
@@ -140,7 +143,6 @@ export function ManufacturingLab() {
                     setOEEInput({
                       ...oeeInput,
                       totalUnitsProduced: Number(e.target.value),
-                      goodUnitsProduced: Math.min(oeeInput.goodUnitsProduced, Number(e.target.value)),
                     })
                   }
                   className="w-full accent-[#2196F3]"
@@ -153,8 +155,8 @@ export function ManufacturingLab() {
                 </label>
                 <input
                   type="range"
-                  min={100}
-                  max={oeeInput.totalUnitsProduced}
+                  min={0}
+                  max={Math.max(oeeInput.totalUnitsProduced, oeeInput.goodUnitsProduced)}
                   step={10}
                   value={oeeInput.goodUnitsProduced}
                   onChange={(e) =>
@@ -166,50 +168,94 @@ export function ManufacturingLab() {
             </div>
           </div>
 
-          {/* Result Card */}
+          {/* Result & ToolShell Layout */}
           <div className="p-6 bg-[#FFFFFF] border border-[#90CAF9] rounded-2xl space-y-6 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#0D47A1]">
-                  Calculated Overall Equipment Effectiveness
+                  Overall Equipment Effectiveness Result
                 </span>
-                <span className="px-3 py-1 rounded-full bg-[#E3F2FD] text-[#0D47A1] text-xs font-bold font-mono">
-                  {oeeResult.statusCategory}
+                <span
+                  className={`px-3 py-1 rounded-full text-xs font-bold font-mono ${
+                    oeeResult.status === 'VALID'
+                      ? 'bg-[#E3F2FD] text-[#0D47A1]'
+                      : oeeResult.status === 'NO_DATA'
+                      ? 'bg-amber-100 text-amber-900'
+                      : 'bg-rose-100 text-rose-900'
+                  }`}
+                >
+                  {oeeResult.status === 'VALID' ? oeeResult.category : oeeResult.status}
                 </span>
               </div>
 
-              <div className="text-5xl font-extrabold text-[#0D47A1] font-anek mb-6">
-                {oeeResult.oee}% <span className="text-sm font-normal text-[#64748B]">OEE</span>
-              </div>
+              {oeeResult.status === 'VALID' ? (
+                <div className="text-5xl font-extrabold text-[#0D47A1] font-anek mb-6">
+                  {oeeResult.oee}% <span className="text-sm font-normal text-[#64748B]">OEE</span>
+                </div>
+              ) : (
+                <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl mb-6 text-xs text-amber-900 flex items-center gap-2">
+                  <AlertTriangle className="w-4 h-4 text-amber-700 shrink-0" />
+                  <span>{oeeResult.statusMessage}</span>
+                </div>
+              )}
 
               {/* 3 Metric Factors */}
               <div className="grid grid-cols-3 gap-3 mb-6">
                 <div className="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-center">
-                  <div className="text-lg font-bold text-[#0D47A1]">{oeeResult.availability}%</div>
+                  <div className="text-lg font-bold text-[#0D47A1]">
+                    {oeeResult.availability !== null ? `${oeeResult.availability}%` : 'N/A'}
+                  </div>
                   <div className="text-[10px] text-[#64748B] font-mono">Availability</div>
                 </div>
                 <div className="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-center">
-                  <div className="text-lg font-bold text-[#0D47A1]">{oeeResult.performance}%</div>
+                  <div className="text-lg font-bold text-[#0D47A1]">
+                    {oeeResult.performance !== null ? `${oeeResult.performance}%` : 'N/A'}
+                  </div>
                   <div className="text-[10px] text-[#64748B] font-mono">Performance</div>
                 </div>
                 <div className="p-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-center">
-                  <div className="text-lg font-bold text-[#0D47A1]">{oeeResult.quality}%</div>
+                  <div className="text-lg font-bold text-[#0D47A1]">
+                    {oeeResult.quality !== null ? `${oeeResult.quality}%` : 'N/A'}
+                  </div>
                   <div className="text-[10px] text-[#64748B] font-mono">Quality</div>
+                </div>
+              </div>
+
+              {/* Formula Transparency Breakdown */}
+              <div className="p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl space-y-2 text-xs font-mono">
+                <div className="text-[10px] font-bold uppercase text-[#0D47A1] flex items-center gap-1">
+                  <Info className="w-3.5 h-3.5 text-[#2196F3]" />
+                  <span>Calculation Steps & Formula Breakdown</span>
+                </div>
+                <div className="text-[11px] text-[#475569] space-y-1">
+                  <div>• {oeeResult.formulaBreakdown.availabilityFormula}</div>
+                  <div>• {oeeResult.formulaBreakdown.performanceFormula}</div>
+                  <div>• {oeeResult.formulaBreakdown.qualityFormula}</div>
+                  <div className="font-bold text-[#0D47A1]">• {oeeResult.formulaBreakdown.oeeFormula}</div>
                 </div>
               </div>
             </div>
 
-            {/* Engineering Decision Box */}
-            <div className="p-4 bg-[#E3F2FD] border border-[#90CAF9] rounded-xl space-y-2">
-              <div className="text-xs font-mono font-bold uppercase text-[#0D47A1] flex items-center gap-1.5">
-                <CheckCircle className="w-3.5 h-3.5 text-[#2196F3]" />
-                <span>Recommended Engineering Actions</span>
+            {/* Engineering Decision Box & Disclaimer */}
+            <div className="space-y-3">
+              <div className="p-4 bg-[#E3F2FD] border border-[#90CAF9] rounded-xl space-y-2">
+                <div className="text-xs font-mono font-bold uppercase text-[#0D47A1] flex items-center gap-1.5">
+                  <CheckCircle className="w-3.5 h-3.5 text-[#2196F3]" />
+                  <span>Engineering Decision Engine</span>
+                </div>
+                <ul className="space-y-1 text-xs text-[#334155]">
+                  {oeeResult.recommendations.map((rec, i) => (
+                    <li key={i}>• {rec}</li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-1 text-xs text-[#334155]">
-                {oeeResult.recommendations.map((rec, i) => (
-                  <li key={i}>• {rec}</li>
-                ))}
-              </ul>
+
+              <div className="text-[11px] text-[#64748B] italic flex items-center gap-1.5">
+                <ShieldAlert className="w-3.5 h-3.5 text-[#94A3B8] shrink-0" />
+                <span>
+                  Engineering Note: Results are preliminary guidance based on inputs provided. Validate assumptions before production implementation.
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -218,8 +264,13 @@ export function ManufacturingLab() {
       {/* Tab 2: Telemetry Simulator */}
       {activeTab === 'simulator' && (
         <div className="space-y-6">
+          <div className="p-4 bg-[#E3F2FD] border border-[#90CAF9] rounded-xl text-xs font-mono text-[#0D47A1] flex items-center gap-2">
+            <Info className="w-4 h-4 text-[#2196F3] shrink-0" />
+            <span>Synthetic Dataset — generated for engineering experimentation. Not real production data.</span>
+          </div>
+
           <div className="p-6 bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-4">
               <div>
                 <label className="block text-xs font-semibold text-[#475569] mb-1">Machine Identifier</label>
                 <input
@@ -240,19 +291,32 @@ export function ManufacturingLab() {
                   className="w-20 px-3 py-1.5 border border-[#CBD5E1] rounded-lg text-xs font-mono"
                 />
               </div>
+
+              <div className="flex items-center gap-2 pt-5">
+                <input
+                  type="checkbox"
+                  id="seededMode"
+                  checked={isSeeded}
+                  onChange={(e) => setIsSeeded(e.target.checked)}
+                  className="accent-[#2196F3]"
+                />
+                <label htmlFor="seededMode" className="text-xs font-mono font-semibold text-[#334155] cursor-pointer">
+                  Seeded Mode (12345)
+                </label>
+              </div>
             </div>
 
             <div className="flex gap-3">
               <button
                 onClick={handleGenerateTelemetry}
-                className="flex items-center gap-2 px-4 py-2 bg-[#E3F2FD] border border-[#90CAF9] text-[#0D47A1] text-xs font-bold rounded-xl hover:bg-[#BBDEFB] transition-all cursor-pointer"
+                className="flex items-center gap-2 px-4 py-2 bg-[#E3F2FD] border border-[#90CAF9] text-[#0D47A1] text-xs font-bold rounded-xl hover:bg-[#BBDEFB] transition-all cursor-pointer font-mono"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
-                <span>Regenerate Telemetry</span>
+                <span>Regenerate Logs</span>
               </button>
               <button
                 onClick={handleDownloadCSV}
-                className="flex items-center gap-2 px-4 py-2 bg-[#2196F3] text-white text-xs font-bold rounded-xl hover:bg-[#1976D2] transition-all cursor-pointer shadow-xs"
+                className="flex items-center gap-2 px-4 py-2 bg-[#2196F3] text-white text-xs font-bold rounded-xl hover:bg-[#1976D2] transition-all cursor-pointer shadow-xs font-mono"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Export Synthetic CSV</span>
@@ -312,13 +376,13 @@ export function ManufacturingLab() {
               title: 'CNC Precision Lathe Vibration & Thermal Telemetry',
               size: '1.2 MB · CSV',
               desc: 'High-frequency 5-axis CNC sensor telemetry containing timestamped bearing vibration and spindle thermal logs for predictive maintenance models.',
-              tags: ['Predictive Maintenance', 'IoT', 'Synthetic'],
+              classification: 'Synthetic Dataset — generated for engineering experimentation.',
             },
             {
               title: 'Stamping Press Surface Defect Visual Callset',
               size: '4.8 MB · CSV + Metadata',
               desc: 'Annotated defect inspection dataset containing scratch, dent, and mis-alignment labels for automated visual quality inspection AI training.',
-              tags: ['Quality Inspection', 'Computer Vision', 'Defects'],
+              classification: 'Synthetic Dataset — generated for engineering experimentation.',
             },
           ].map((ds, i) => (
             <div key={i} className="p-6 bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl flex flex-col justify-between">
@@ -332,7 +396,10 @@ export function ManufacturingLab() {
                   </span>
                 </div>
                 <h4 className="text-base font-bold text-[#0D47A1] mb-2 font-anek">{ds.title}</h4>
-                <p className="text-xs text-[#475569] leading-relaxed mb-4">{ds.desc}</p>
+                <p className="text-xs text-[#475569] leading-relaxed mb-3">{ds.desc}</p>
+                <div className="p-2.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-[10px] font-mono text-[#64748B] mb-4">
+                  ℹ️ {ds.classification}
+                </div>
               </div>
 
               <button

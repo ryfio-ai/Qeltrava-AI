@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Code2, Key, Search, Calculator, Check, Copy } from 'lucide-react';
+import { Code2, Key, Calculator, Check, Copy, ShieldAlert, Info } from 'lucide-react';
 
 export function DeveloperPlayground() {
-  const [toolTab, setToolTab] = useState<'json' | 'jwt' | 'regex' | 'token-calc'>('json');
+  const [toolTab, setToolTab] = useState<'json' | 'jwt' | 'token-calc'>('json');
 
   // JSON Formatter State
   const [jsonInput, setJsonInput] = useState('{"name":"Qeltrava AI","type":"Manufacturing Intelligence","features":["OEE","Defects","Telemetries"]}');
@@ -37,7 +37,7 @@ export function DeveloperPlayground() {
 
   const handleDecodeJwt = () => {
     try {
-      const parts = jwtInput.split('.');
+      const parts = jwtInput.trim().split('.');
       if (parts.length !== 3) {
         setJwtHeader('Invalid JWT format (expected 3 dot-separated parts)');
         setJwtPayload('');
@@ -53,7 +53,6 @@ export function DeveloperPlayground() {
     }
   };
 
-  // Model Pricing calculation (est per 1M tokens)
   const getModelPricing = () => {
     switch (selectedModel) {
       case 'gpt-4o':
@@ -116,6 +115,14 @@ export function DeveloperPlayground() {
         </button>
       </div>
 
+      {/* Security Disclaimer Banner */}
+      <div className="p-3.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-xs font-mono text-[#64748B] flex items-center gap-2">
+        <ShieldAlert className="w-4 h-4 text-[#2196F3] shrink-0" />
+        <span>
+          Client-Side Security Notice: All developer utilities execute 100% locally in your browser. Tokens and payloads are never transmitted to external servers.
+        </span>
+      </div>
+
       {/* Tool 1: JSON Formatter */}
       {toolTab === 'json' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -165,6 +172,11 @@ export function DeveloperPlayground() {
       {/* Tool 2: JWT Decoder */}
       {toolTab === 'jwt' && (
         <div className="space-y-6">
+          <div className="p-3 bg-amber-50 border border-amber-200 text-amber-900 rounded-xl text-xs font-mono flex items-center gap-2">
+            <Info className="w-4 h-4 text-amber-700 shrink-0" />
+            <span>This tool decodes JWT structure locally. It does not verify token authenticity or check signature validity. Never input secret signing keys.</span>
+          </div>
+
           <div>
             <label className="block text-xs font-mono font-bold text-[#0D47A1] uppercase mb-2">Encoded JWT Token</label>
             <input
@@ -245,7 +257,7 @@ export function DeveloperPlayground() {
             </div>
 
             <div className="p-3 bg-[#E3F2FD] border border-[#90CAF9] rounded-xl text-xs text-[#0D47A1] font-mono">
-              💡 Tip: Running on Groq Llama 3 or Gemini 1.5 Pro provides 4x to 8x token cost efficiency for high-volume telemetry logs.
+              💡 Tip: Groq Llama 3 and Gemini 1.5 Pro offer up to 4x cost efficiency for processing machine sensor logs.
             </div>
           </div>
         </div>
